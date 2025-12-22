@@ -1,0 +1,29 @@
+{'class': 'android.view.View', 'resource-id': 'com.google.android.deskclock:id/material_hour_tv', 'content-desc': '11 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.view.View|com.google.android.deskclock:id/material_hour_tv|11 hours'}
+{'class': 'android.view.View', 'resource-id': 'com.google.android.deskclock:id/material_minute_tv', 'content-desc': '0 minutes', 'clickable': True, 'long-clickable': False, 'key': 'android.view.View|com.google.android.deskclock:id/material_minute_tv|0 minutes'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '11 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||11 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '00 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||00 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '10 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||10 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '23 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||23 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '12 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||12 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '13 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||13 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '1 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||1 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '2 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||2 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '9 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||9 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '21 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||21 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '22 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||22 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '14 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||14 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '20 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||20 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '16 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||16 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '15 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||15 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '3 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||3 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '8 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||8 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '7 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||7 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '19 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||19 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '18 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||18 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '6 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||6 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '17 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||17 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '5 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||5 hours'}
+{'class': 'android.widget.TextView', 'resource-id': '', 'content-desc': '4 hours', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.TextView||4 hours'}
+{'class': 'android.widget.Button', 'resource-id': 'com.google.android.deskclock:id/material_timepicker_mode_button', 'content-desc': 'Switch to text input mode for the time input.', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.Button|com.google.android.deskclock:id/material_timepicker_mode_button|Switch to text input mode for the time input.'}
+{'class': 'android.widget.Button', 'resource-id': 'com.google.android.deskclock:id/material_timepicker_cancel_button', 'content-desc': '', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.Button|com.google.android.deskclock:id/material_timepicker_cancel_button|'}
+{'class': 'android.widget.Button', 'resource-id': 'com.google.android.deskclock:id/material_timepicker_ok_button', 'content-desc': '', 'clickable': True, 'long-clickable': False, 'key': 'android.widget.Button|com.google.android.deskclock:id/material_timepicker_ok_button|'}
