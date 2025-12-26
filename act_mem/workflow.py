@@ -24,7 +24,8 @@ class Workflow:
         path (List[str]): Sequence of node IDs representing the transition order.
     """
 
-    def __init__(self, task: str) -> None:
+    def __init__(self, id: str, task: str) -> None:
+        self.id: str = id
         self.task = task
         self.tag: str = ""
         self.path: List[WorkTransition] = []   # sequence of node IDs representing the transition order.
@@ -70,6 +71,7 @@ class WorkGraph:
                 return node
         node_id = str(uuid.uuid4())
         node = WorkNode(id=node_id, elements_info=elements_info)
+        # print(f"Node id {node_id} created, {node.id}")
         self.nodes[node_id] = node
         return node
         

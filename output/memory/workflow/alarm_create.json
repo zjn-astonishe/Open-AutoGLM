@@ -1,19 +1,21 @@
 {
+  "id": "11b341ef-9a70-4fde-8318-6a5cc46d9952",
+  "tag": "\nalarm.create\n",
   "task": "set an alarm at 12:30 pm every Friday and Sunday, disable the vibration",
   "path": [
     {
-      "from_node_id": "0524024c-9298-433b-b890-3750165319ca",
-      "to_node_id": "f76046ae-70dc-49dd-938f-46be0fe08b4e",
+      "from_node_id": "f89d9e3f-9810-4935-a38d-5ba70d03f7e0",
+      "to_node_id": "0f98e875-e026-4f5f-bea8-7dab318f98d9",
       "action": {
         "action_type": "Launch",
-        "description": "Launch the Clock app to add a world clock for New York.",
+        "description": "Launch the Clock app to set a new alarm.",
         "zone_path": null
       },
       "success": true
     },
     {
-      "from_node_id": "f76046ae-70dc-49dd-938f-46be0fe08b4e",
-      "to_node_id": "def5cd0f-93e3-4374-9455-07878eee4138",
+      "from_node_id": "0f98e875-e026-4f5f-bea8-7dab318f98d9",
+      "to_node_id": "596e718e-f1e1-4f84-9a02-d8113723688f",
       "action": {
         "action_type": "Tap",
         "description": "Tap the \"+\" button to add a new alarm.",
@@ -22,28 +24,28 @@
       "success": true
     },
     {
-      "from_node_id": "def5cd0f-93e3-4374-9455-07878eee4138",
-      "to_node_id": "e03a2857-cebe-4aed-b56a-7fbc2e17fb29",
+      "from_node_id": "596e718e-f1e1-4f84-9a02-d8113723688f",
+      "to_node_id": "744c527a-1468-492f-8caf-61ed03373cec",
       "action": {
         "action_type": "Tap",
-        "description": "Tap on the '12' on the clock face to set the hour to 12.",
+        "description": "Tap on the '12' hour option to set the alarm time to 12:00 PM.",
         "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/material_timepicker_view\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/material_clock_face\"]/TextView[@content-desc=\"12 hours\" | @text=\"12\"]"
       },
       "success": true
     },
     {
-      "from_node_id": "e03a2857-cebe-4aed-b56a-7fbc2e17fb29",
-      "to_node_id": "50b8a3dd-44e6-432c-af39-061598796bfb",
+      "from_node_id": "744c527a-1468-492f-8caf-61ed03373cec",
+      "to_node_id": "533a06e6-f2c4-420f-91c2-35acebbf8dbc",
       "action": {
         "action_type": "Tap",
-        "description": "Tap on the \"30\" minute mark to set the alarm time to 12:30 PM.",
+        "description": "Tap on the '30' minute mark to set the alarm time to 12:30 PM.",
         "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/material_timepicker_view\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/material_clock_face\"]/TextView[@content-desc=\"30 minutes\" | @text=\"30\"]"
       },
       "success": true
     },
     {
-      "from_node_id": "50b8a3dd-44e6-432c-af39-061598796bfb",
-      "to_node_id": "0c791a28-ac8e-406a-ae73-668ff127d7d6",
+      "from_node_id": "533a06e6-f2c4-420f-91c2-35acebbf8dbc",
+      "to_node_id": "2ad8839b-253e-4ecd-a42c-4be65b368b81",
       "action": {
         "action_type": "Tap",
         "description": "Tap the \"OK\" button to confirm the time setting of 12:30 PM.",
@@ -52,18 +54,18 @@
       "success": true
     },
     {
-      "from_node_id": "0c791a28-ac8e-406a-ae73-668ff127d7d6",
-      "to_node_id": "c22dddb9-2fe2-4b6c-83f3-a1d39503afe2",
+      "from_node_id": "2ad8839b-253e-4ecd-a42c-4be65b368b81",
+      "to_node_id": "6eaa0f88-43bf-4501-b21b-f07c046cc19c",
       "action": {
         "action_type": "Tap",
-        "description": "Tap on the \"Vibrate\" option to disable vibration for the alarm.",
+        "description": "Tap on the \"Vibrate\" option to disable the vibration for the alarm.",
         "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager_frame\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager\"]/FrameLayout/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/main\"]/RecyclerView[@resource-id=\"com.google.android.deskclock:id/alarm_recycler_view\"]/CardView[@content-desc=\" Alarm\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/alarm_card_layout\"]/CheckBox[@resource-id=\"com.google.android.deskclock:id/vibrate_onoff\" | @text=\"Vibrate\"]"
       },
       "success": true
     },
     {
-      "from_node_id": "c22dddb9-2fe2-4b6c-83f3-a1d39503afe2",
-      "to_node_id": "c22dddb9-2fe2-4b6c-83f3-a1d39503afe2",
+      "from_node_id": "6eaa0f88-43bf-4501-b21b-f07c046cc19c",
+      "to_node_id": "6eaa0f88-43bf-4501-b21b-f07c046cc19c",
       "action": {
         "action_type": "Tap",
         "description": "Tap on the \"F\" button to select Friday for the alarm.",
@@ -72,8 +74,8 @@
       "success": true
     },
     {
-      "from_node_id": "c22dddb9-2fe2-4b6c-83f3-a1d39503afe2",
-      "to_node_id": "c22dddb9-2fe2-4b6c-83f3-a1d39503afe2",
+      "from_node_id": "6eaa0f88-43bf-4501-b21b-f07c046cc19c",
+      "to_node_id": "6eaa0f88-43bf-4501-b21b-f07c046cc19c",
       "action": {
         "action_type": "Tap",
         "description": "Tap on the \"S\" button to select Sunday for the alarm.",

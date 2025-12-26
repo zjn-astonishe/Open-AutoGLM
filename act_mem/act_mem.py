@@ -1,8 +1,9 @@
-from .workflow import WorkGraph, Workflow, WorkTransition
-from .worknode import WorkAction
-from typing import List
-import json
 import os
+import json
+import uuid
+from typing import List
+from .worknode import WorkAction, WorkNode
+from .workflow import WorkGraph, Workflow, WorkTransition
 
 class ActionMemory:
     """
@@ -50,18 +51,17 @@ class ActionMemory:
         return None
     
     def create_workflow(self, task: str) -> Workflow:
-        workflow = self.find_workflow(task)
-        if workflow is None:
-            workflow = Workflow(task=task)
-            self.workflows.append(workflow)
+        id = str(uuid.uuid4())
+        workflow = Workflow(id=id, task=task)
+        self.workflows.append(workflow)
         return workflow
         
-    def find_workflow(self, task: str) -> Workflow:
+    def find_workflow(self, task: str) -> List[Workflow]:
+        workflows = []
         for workflow in self.workflows:
             if task == workflow.task:
-                print(f"Found existing workflow for task: {task}")
-                return workflow
-        return None
+                workflows.append(workflow)
+        return workflows
     
     def print_workgraphs(self) -> None:
         """
@@ -121,7 +121,7 @@ class ActionMemory:
             
             # 保存为单独的文件，文件名包含应用名
             filename = f"{graph.app.replace(' ', '_').replace('/', '_')}_graph.json"
-            filepath = os.path.join(self.memory_dir, filename)
+            filepath = os.path.join(self.memory_dir, "graph", filename)
             
             with open(filepath, 'w', encoding='utf-8') as f:
                 json.dump(graph_data, f, ensure_ascii=False, indent=2)
@@ -131,6 +131,8 @@ class ActionMemory:
         # Save workflows separately by task
         for workflow in self.workflows:
             workflow_data = {
+                "id": workflow.id,
+                "tag": workflow.tag,
                 "task": workflow.task,
                 "path": []
             }
@@ -161,73 +163,95 @@ class ActionMemory:
         """
         Load all work graphs from JSON files in the memory directory.
         """
-        for filename in os.listdir(self.memory_dir):
-            if filename.endswith("_graph.json"):
-                filepath = os.path.join(self.memory_dir, filename)
-                with open(filepath, 'r', encoding='utf-8') as f:
-                    graph_data = json.load(f)
-                    
-                graph = WorkGraph(graph_data["app"])
-                
-                # Process nodes
-                for node_id, node_data in graph_data["nodes"].items():
-                    node = graph.create_node(node_data["elements_info"])
-                    node.id = node_data["id"]
-                    node.tasks = node_data["tasks"]
-                    for action_data in node_data["actions"]:
-                        node.add_action(
-                            action_type=action_data["action_type"],
-                            description=action_data["description"],
-                            zone_path=action_data.get("zone_path")
-                        )
-                
-                # 将加载的graph添加到当前实例的workgraphs列表中
-                self.workgraphs.append(graph)
-
-        # 加载工作流文件
+        
+        # 确保目录存在
+        graph_dir = os.path.join(self.memory_dir, "graph")
         workflow_dir = os.path.join(self.memory_dir, "workflow")
+        
+        # 加载工作图
+        if os.path.exists(graph_dir):
+            for filename in os.listdir(graph_dir):
+                if filename.endswith("_graph.json"):
+                    filepath = os.path.join(graph_dir, filename)
+                    
+                    with open(filepath, 'r', encoding='utf-8') as f:
+                        graph_data = json.load(f)
+                    
+                    # 检查是否已存在同名app的graph，如果存在则跳过加载
+                    existing_graph = self.get_work_graph(graph_data["app"])
+                    if existing_graph:
+                        print(f"Work graph for app '{graph_data['app']}' already exists, skipping load.")
+                        continue
+                    
+                    # 创建新的WorkGraph实例
+                    graph = WorkGraph(app=graph_data["app"])
+                    
+                    # 加载节点
+                    for node_id, node_data in graph_data["nodes"].items():
+                        # 创建WorkNode实例
+                        node = WorkNode(
+                            id=node_data["id"],
+                            elements_info=node_data["elements_info"]
+                        )
+                        
+                        # 设置节点的任务列表
+                        node.tasks = node_data["tasks"] if "tasks" in node_data else []
+                        
+                        # 设置节点的动作列表
+                        if "actions" in node_data:
+                            for action_data in node_data["actions"]:
+                                action = WorkAction(
+                                    action_type=action_data["action_type"],
+                                    description=action_data["description"],
+                                    zone_path=action_data.get("zone_path")  # 使用get方法，如果不存在则为None
+                                )
+                                node.actions.append(action)
+                        
+                        # 将节点添加到图中
+                        graph.nodes[node.id] = node
+                    
+                    # 将图添加到内存中
+                    self.workgraphs.append(graph)
+                    print(f"Loaded work graph for app '{graph_data['app']}' from {filepath}")
+        
+        # 加载工作流
         if os.path.exists(workflow_dir):
             for filename in os.listdir(workflow_dir):
-                filepath = os.path.join(workflow_dir, filename)
-                with open(filepath, 'r', encoding='utf-8') as f:
-                    workflow_data = json.load(f)
+                if filename.endswith(".json"):
+                    filepath = os.path.join(workflow_dir, filename)
                     
-                # 检查是否已存在相同task的workflow
-                existing_workflow = self.find_workflow(workflow_data["task"])
-                if existing_workflow:
-                    # 如果存在，将加载的路径添加到现有workflow中
-                    for transition_data in workflow_data["path"]:
-                        action_data = transition_data["action"]
-                        action = WorkAction(
-                            action_type=action_data["action_type"],
-                            description=action_data["description"],
-                            zone_path=action_data.get("zone_path")
-                        )
-                        
-                        existing_workflow.path.append(WorkTransition(
-                            from_node_id=transition_data["from_node_id"],
-                            to_node_id=transition_data["to_node_id"],
-                            action=action,
-                            success=transition_data.get("success", True)
-                        ))
-                else:
-                    # 如果不存在，创建新的workflow
-                    workflow = Workflow(workflow_data["task"])
+                    with open(filepath, 'r', encoding='utf-8') as f:
+                        workflow_data = json.load(f)
                     
-                    for transition_data in workflow_data["path"]:
-                        action_data = transition_data["action"]
-                        action = WorkAction(
-                            action_type=action_data["action_type"],
-                            description=action_data["description"],
-                            zone_path=action_data.get("zone_path")
-                        )
-                        
-                        workflow.path.append(WorkTransition(
-                            from_node_id=transition_data["from_node_id"],
-                            to_node_id=transition_data["to_node_id"],
-                            action=action,
-                            success=transition_data.get("success", True)
-                        ))
+                    # 创建新的Workflow实例
+                    workflow = Workflow(
+                        id=workflow_data["id"],
+                        task=workflow_data["task"]
+                    )
                     
-                    # 将新创建的workflow添加到当前实例的workflows列表中
+                    # 设置工作流的标签
+                    if "tag" in workflow_data:
+                        workflow.tag = workflow_data["tag"]
+                    
+                    # 加载路径
+                    if "path" in workflow_data:
+                        for transition_data in workflow_data["path"]:
+                            action_data = transition_data["action"]
+                            action = WorkAction(
+                                action_type=action_data["action_type"],
+                                description=action_data["description"],
+                                zone_path=action_data.get("zone_path")  # 使用get方法，如果不存在则为None
+                            )
+                            
+                            transition = WorkTransition(
+                                from_node_id=transition_data["from_node_id"],
+                                to_node_id=transition_data["to_node_id"],
+                                action=action,
+                                success=transition_data.get("success", True)  # 默认为True
+                            )
+                            
+                            workflow.path.append(transition)
+                    
+                    # 将工作流添加到内存中
                     self.workflows.append(workflow)
+                    print(f"Loaded workflow for task '{workflow_data['task']}' from {filepath}")

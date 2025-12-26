@@ -100,9 +100,7 @@ class PhoneAgent:
         self._context = []
         self._step_count = 0
         self.memory.from_json()
-        workflow = self.memory.find_workflow(task)
-        if workflow is None:
-            workflow = self.memory.create_workflow(task)
+        workflow = self.memory.create_workflow(task)
         recorder = WorkflowRecorder(task=task, workflow=workflow)
         
         
@@ -118,11 +116,9 @@ class PhoneAgent:
             result = self._execute_step(task, recorder, is_first=False)
 
             if result.finished:
-                # self.memory.print_work_graphs()
                 self.memory.to_json()
                 return result.message or "Task completed"
         
-        # self.memory.print_work_graphs()
         self.memory.to_json()
 
         return "Max steps reached"
