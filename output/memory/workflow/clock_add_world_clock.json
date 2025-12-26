@@ -1,0 +1,45 @@
+{
+  "task": "add a clock which shows the New York time",
+  "path": [
+    {
+      "from_node_id": "0524024c-9298-433b-b890-3750165319ca",
+      "to_node_id": "755f48c9-aade-4ce6-bafb-121b489cc89b",
+      "action": {
+        "action_type": "Launch",
+        "description": "Launch the Clock app to add a world clock for New York.",
+        "zone_path": null
+      },
+      "success": true
+    },
+    {
+      "from_node_id": "755f48c9-aade-4ce6-bafb-121b489cc89b",
+      "to_node_id": "3ddef440-9f03-47b9-afae-0267b8662a0d",
+      "action": {
+        "action_type": "Tap",
+        "description": "Tap the \"+\" button to add a new city clock.",
+        "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager_frame\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/fab_container\"]/Button[@resource-id=\"com.google.android.deskclock:id/fab\" | @content-desc=\"Add city\"]"
+      },
+      "success": true
+    },
+    {
+      "from_node_id": "3ddef440-9f03-47b9-afae-0267b8662a0d",
+      "to_node_id": "feb6bdc3-8eee-4c61-96f1-958c2e3a7ca4",
+      "action": {
+        "action_type": "Type",
+        "description": "Type \"New York\" into the search bar to find the city.",
+        "zone_path": null
+      },
+      "success": true
+    },
+    {
+      "from_node_id": "feb6bdc3-8eee-4c61-96f1-958c2e3a7ca4",
+      "to_node_id": "755f48c9-aade-4ce6-bafb-121b489cc89b",
+      "action": {
+        "action_type": "Tap",
+        "description": "Tap on \"New York, NY, USA\" to add it as a world clock.",
+        "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_root\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_background\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_content_container\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/main\"]/RecyclerView[@resource-id=\"com.google.android.deskclock:id/search_results_view\"]/LinearLayout"
+      },
+      "success": true
+    }
+  ]
+}

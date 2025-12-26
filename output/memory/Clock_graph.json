@@ -1,8 +1,138 @@
 {
   "app": "Clock",
   "nodes": {
-    "303113e6-942c-4fe3-af2a-10c90e4bb292": {
-      "id": "303113e6-942c-4fe3-af2a-10c90e4bb292",
+    "750e3990-43c1-4d1c-b255-f5912610109b": {
+      "id": "755f48c9-aade-4ce6-bafb-121b489cc89b",
+      "elements_info": [
+        {
+          "content": "android.support.v7.widget.LinearLayoutCompat_105x147__com.google.android.d_More options",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/app_bar_layout\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/toolbar\"]/LinearLayoutCompat/ImageView[@resource-id=\"com.google.android.deskclock:id/overflow_action_button\" | @content-desc=\"More options\"]"
+        },
+        {
+          "content": "com.google.android.d__com.google.android.d_Add city",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager_frame\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/fab_container\"]/Button[@resource-id=\"com.google.android.deskclock:id/fab\" | @content-desc=\"Add city\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Alarm",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_alarm\" | @content-desc=\"Alarm\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Timer",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_timer\" | @content-desc=\"Timer\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Stopwatch",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_stopwatch\" | @content-desc=\"Stopwatch\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Bedtime",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_bedtime\" | @content-desc=\"Bedtime\"]"
+        }
+      ],
+      "tasks": [
+        "add a clock which shows the New York time"
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"+\" button to add a new city clock.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager_frame\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/fab_container\"]/Button[@resource-id=\"com.google.android.deskclock:id/fab\" | @content-desc=\"Add city\"]"
+        },
+        {
+          "action_type": "Finish",
+          "description": "Task completed: A clock showing New York time has been successfully added.",
+          "zone_path": null
+        }
+      ]
+    },
+    "025f01e1-e0bc-4286-bbec-dc8b7f197c57": {
+      "id": "3ddef440-9f03-47b9-afae-0267b8662a0d",
+      "elements_info": [
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Back",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_back\" | @content-desc=\"Back\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Switch input method",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_ime_switcher\" | @content-desc=\"Switch input method\"]"
+        },
+        {
+          "content": "com.google.android.d__Back",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_root\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_background\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_toolbar_container\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/open_search_view_toolbar\"]/ImageButton[@content-desc=\"Back\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_933x126__com.google.android.d_Search for a city",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_root\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_background\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_toolbar_container\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/open_search_view_toolbar\"]/LinearLayout/EditText[@resource-id=\"com.google.android.deskclock:id/open_search_view_edit_text\" | @text=\"Search for a city\"]"
+        }
+      ],
+      "tasks": [
+        "add a clock which shows the New York time"
+      ],
+      "actions": [
+        {
+          "action_type": "Type",
+          "description": "Type \"New York\" into the search bar to find the city.",
+          "zone_path": null
+        }
+      ]
+    },
+    "190bf373-d4ed-446e-a3a7-3f808967322c": {
+      "id": "feb6bdc3-8eee-4c61-96f1-958c2e3a7ca4",
+      "elements_info": [
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Back",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_back\" | @content-desc=\"Back\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Switch input method",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_ime_switcher\" | @content-desc=\"Switch input method\"]"
+        },
+        {
+          "content": "com.google.android.d__Back",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_root\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_background\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_toolbar_container\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/open_search_view_toolbar\"]/ImageButton[@content-desc=\"Back\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_933x126__com.google.android.d_New York",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_root\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_background\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_toolbar_container\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/open_search_view_toolbar\"]/LinearLayout/EditText[@resource-id=\"com.google.android.deskclock:id/open_search_view_edit_text\" | @text=\"New York\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_933x126__com.google.android.d_Clear text",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_root\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_background\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_toolbar_container\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/open_search_view_toolbar\"]/LinearLayout/ImageButton[@resource-id=\"com.google.android.deskclock:id/open_search_view_clear_button\" | @content-desc=\"Clear text\"]"
+        },
+        {
+          "content": "com.google.android.d__android.widget.LinearLayout_1059x147",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_root\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_background\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_content_container\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/main\"]/RecyclerView[@resource-id=\"com.google.android.deskclock:id/search_results_view\"]/LinearLayout"
+        },
+        {
+          "content": "com.google.android.d__android.widget.LinearLayout_1059x147",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_root\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_background\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_content_container\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/main\"]/RecyclerView[@resource-id=\"com.google.android.deskclock:id/search_results_view\"]/LinearLayout"
+        },
+        {
+          "content": "com.google.android.d__android.widget.LinearLayout_1059x147",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_root\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_background\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_content_container\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/main\"]/RecyclerView[@resource-id=\"com.google.android.deskclock:id/search_results_view\"]/LinearLayout"
+        },
+        {
+          "content": "com.google.android.d__android.widget.LinearLayout_1059x147",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_root\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_background\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_content_container\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/main\"]/RecyclerView[@resource-id=\"com.google.android.deskclock:id/search_results_view\"]/LinearLayout"
+        },
+        {
+          "content": "com.google.android.d__android.widget.LinearLayout_1059x147",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_root\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_background\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_content_container\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/main\"]/RecyclerView[@resource-id=\"com.google.android.deskclock:id/search_results_view\"]/LinearLayout"
+        }
+      ],
+      "tasks": [
+        "add a clock which shows the New York time"
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on \"New York, NY, USA\" to add it as a world clock.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_root\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_background\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/open_search_view_content_container\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/main\"]/RecyclerView[@resource-id=\"com.google.android.deskclock:id/search_results_view\"]/LinearLayout"
+        }
+      ]
+    },
+    "f76046ae-70dc-49dd-938f-46be0fe08b4e": {
+      "id": "f76046ae-70dc-49dd-938f-46be0fe08b4e",
       "elements_info": [
         {
           "content": "android.support.v7.widget.LinearLayoutCompat_105x147__com.google.android.d_More options",
@@ -40,12 +170,12 @@
         }
       ]
     },
-    "5e6ae1cb-126e-4b56-8f9e-d5bacd4a979e": {
-      "id": "5e6ae1cb-126e-4b56-8f9e-d5bacd4a979e",
+    "def5cd0f-93e3-4374-9455-07878eee4138": {
+      "id": "def5cd0f-93e3-4374-9455-07878eee4138",
       "elements_info": [
         {
-          "content": "com.google.android.d__com.google.android.d_16_16 hours",
-          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/material_timepicker_view\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/material_clock_display\"]/View[@resource-id=\"com.google.android.deskclock:id/material_hour_tv\" | @content-desc=\"16 hours\" | @text=\"16\"]"
+          "content": "com.google.android.d__com.google.android.d_14_14 hours",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/material_timepicker_view\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/material_clock_display\"]/View[@resource-id=\"com.google.android.deskclock:id/material_hour_tv\" | @content-desc=\"14 hours\" | @text=\"14\"]"
         },
         {
           "content": "com.google.android.d__com.google.android.d_00_0 minutes",
@@ -166,13 +296,13 @@
       "actions": [
         {
           "action_type": "Tap",
-          "description": "Tap on the '12' hour mark to set the alarm time to 12:00 PM.",
+          "description": "Tap on the '12' on the clock face to set the hour to 12.",
           "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/material_timepicker_view\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/material_clock_face\"]/TextView[@content-desc=\"12 hours\" | @text=\"12\"]"
         }
       ]
     },
-    "ac72266e-edf5-45a0-bb3d-1f4cd5ccdfef": {
-      "id": "ac72266e-edf5-45a0-bb3d-1f4cd5ccdfef",
+    "e03a2857-cebe-4aed-b56a-7fbc2e17fb29": {
+      "id": "e03a2857-cebe-4aed-b56a-7fbc2e17fb29",
       "elements_info": [
         {
           "content": "com.google.android.d__com.google.android.d_12_12 hours",
@@ -249,13 +379,13 @@
       "actions": [
         {
           "action_type": "Tap",
-          "description": "Tap on the '30' minute mark to set the alarm time to 12:30 PM.",
+          "description": "Tap on the \"30\" minute mark to set the alarm time to 12:30 PM.",
           "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/material_timepicker_view\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/material_clock_face\"]/TextView[@content-desc=\"30 minutes\" | @text=\"30\"]"
         }
       ]
     },
-    "c94eaf6e-ff3b-4fb3-8aaf-b1923b0d01d2": {
-      "id": "c94eaf6e-ff3b-4fb3-8aaf-b1923b0d01d2",
+    "50b8a3dd-44e6-432c-af39-061598796bfb": {
+      "id": "50b8a3dd-44e6-432c-af39-061598796bfb",
       "elements_info": [
         {
           "content": "com.google.android.d__com.google.android.d_12_12 hours",
@@ -332,13 +462,13 @@
       "actions": [
         {
           "action_type": "Tap",
-          "description": "Tap the \"OK\" button to confirm the alarm time of 12:30 PM.",
+          "description": "Tap the \"OK\" button to confirm the time setting of 12:30 PM.",
           "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/Button[@resource-id=\"com.google.android.deskclock:id/material_timepicker_ok_button\" | @text=\"OK\"]"
         }
       ]
     },
-    "d4075018-1025-4364-847c-c1b67644d024": {
-      "id": "d4075018-1025-4364-847c-c1b67644d024",
+    "0c791a28-ac8e-406a-ae73-668ff127d7d6": {
+      "id": "0c791a28-ac8e-406a-ae73-668ff127d7d6",
       "elements_info": [
         {
           "content": "android.support.v7.widget.LinearLayoutCompat_105x147__com.google.android.d_More options",
@@ -435,13 +565,13 @@
       "actions": [
         {
           "action_type": "Tap",
-          "description": "Tap on the \"F\" (Friday) button to select Friday as a repeat day for the alarm.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager_frame\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager\"]/FrameLayout/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/main\"]/RecyclerView[@resource-id=\"com.google.android.deskclock:id/alarm_recycler_view\"]/CardView[@content-desc=\" Alarm\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/alarm_card_layout\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/repeat_days\"]/CheckBox[@resource-id=\"com.google.android.deskclock:id/day_button_5\" | @content-desc=\"Friday\" | @text=\"F\"]"
+          "description": "Tap on the \"Vibrate\" option to disable vibration for the alarm.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager_frame\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager\"]/FrameLayout/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/main\"]/RecyclerView[@resource-id=\"com.google.android.deskclock:id/alarm_recycler_view\"]/CardView[@content-desc=\" Alarm\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/alarm_card_layout\"]/CheckBox[@resource-id=\"com.google.android.deskclock:id/vibrate_onoff\" | @text=\"Vibrate\"]"
         }
       ]
     },
-    "a0dc0775-7109-41a1-8d6b-b99b66e21e2f": {
-      "id": "a0dc0775-7109-41a1-8d6b-b99b66e21e2f",
+    "c22dddb9-2fe2-4b6c-83f3-a1d39503afe2": {
+      "id": "c22dddb9-2fe2-4b6c-83f3-a1d39503afe2",
       "elements_info": [
         {
           "content": "android.support.v7.widget.LinearLayoutCompat_105x147__com.google.android.d_More options",
@@ -538,21 +668,20 @@
       "actions": [
         {
           "action_type": "Tap",
-          "description": "Tap on the \"S\" (Sunday) button to select Sunday as a repeat day for the alarm.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager_frame\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager\"]/FrameLayout/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/main\"]/RecyclerView[@resource-id=\"com.google.android.deskclock:id/alarm_recycler_view\"]/CardView[@content-desc=\"12:30 Alarm\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/alarm_card_layout\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/repeat_days\"]/CheckBox[@resource-id=\"com.google.android.deskclock:id/day_button_0\" | @content-desc=\"Sunday\" | @text=\"S\"]"
+          "description": "Tap on the \"F\" button to select Friday for the alarm.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager_frame\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager\"]/FrameLayout/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/main\"]/RecyclerView[@resource-id=\"com.google.android.deskclock:id/alarm_recycler_view\"]/CardView[@content-desc=\"12:30 Alarm\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/alarm_card_layout\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/repeat_days\"]/CheckBox[@resource-id=\"com.google.android.deskclock:id/day_button_5\" | @content-desc=\"Friday\" | @text=\"F\"]"
         },
         {
           "action_type": "Tap",
-          "description": "Tap the \"Vibrate\" toggle to disable vibration for the alarm.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager_frame\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager\"]/FrameLayout/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/main\"]/RecyclerView[@resource-id=\"com.google.android.deskclock:id/alarm_recycler_view\"]/CardView[@content-desc=\"12:30 Alarm\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/alarm_card_layout\"]/CheckBox[@resource-id=\"com.google.android.deskclock:id/vibrate_onoff\" | @text=\"Vibrate\"]"
+          "description": "Tap on the \"S\" button to select Sunday for the alarm.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager_frame\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager\"]/FrameLayout/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/main\"]/RecyclerView[@resource-id=\"com.google.android.deskclock:id/alarm_recycler_view\"]/CardView[@content-desc=\"12:30 Alarm\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/alarm_card_layout\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/repeat_days\"]/CheckBox[@resource-id=\"com.google.android.deskclock:id/day_button_0\" | @content-desc=\"Sunday\" | @text=\"S\"]"
         },
         {
-          "action_type": "NoAction",
+          "action_type": "Finish",
           "description": "Task completed: Alarm set for 12:30 PM every Friday and Sunday with vibration disabled.",
           "zone_path": null
         }
       ]
     }
-  },
-  "workflow": []
+  }
 }

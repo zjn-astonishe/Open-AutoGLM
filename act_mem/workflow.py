@@ -26,12 +26,14 @@ class Workflow:
 
     def __init__(self, task: str) -> None:
         self.task = task
+        self.tag: str = ""
         self.path: List[WorkTransition] = []   # sequence of node IDs representing the transition order.
 
     def add_transition(self, from_node_id: str, to_node_id: str, action: WorkAction, success: bool=True):
-        if self.get_start_id == None or from_node_id == self.get_last_id:
+        if self.get_start_id() == None or from_node_id == self.get_last_id():
             self.path.append(WorkTransition(from_node_id=from_node_id, to_node_id=to_node_id, action=action, success=success))
         else:
+            print(f"Transition from {from_node_id} to {to_node_id} does not match this workflow. The workflow start id is {self.get_start_id()}, last id is {self.get_last_id()}")
             raise ValueError("This transition does not match this workflow.")
 
     def get_start_id(self) -> WorkNode:
@@ -40,6 +42,8 @@ class Workflow:
     def get_last_id(self) -> WorkNode:
         return self.path[-1].to_node_id if self.path else None
 
+    def set_tag(self, tag: str) -> None:
+        self.tag = tag
 
 class WorkGraph:
 

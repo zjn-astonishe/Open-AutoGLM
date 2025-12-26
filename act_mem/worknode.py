@@ -24,12 +24,16 @@ class WorkNode:
         self.elements_info: List[Dict[str, str]] = elements_info
         self.tasks: List[str] = []
         self.actions: List[WorkAction] = []
+        self.tag: List[str] = []
         
     def add_task(self, task: str) -> None:
         if task not in self.tasks:
             self.tasks.append(task)
 
     def add_action(self, action_type: str, description: str, zone_path: Optional[str] = None) -> WorkAction:
+        for action in self.actions:
+            if action.zone_path == zone_path:
+                return action
         action = WorkAction(
             action_type=action_type,
             description=description,
@@ -37,6 +41,10 @@ class WorkNode:
         )
         self.actions.append(action)
         return action
+    
+    def add_tag(self, tag: str) -> None:
+        if tag not in self.tag:
+            self.tag.append(tag)
     
     
 

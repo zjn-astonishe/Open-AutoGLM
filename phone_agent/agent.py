@@ -99,6 +99,7 @@ class PhoneAgent:
         """
         self._context = []
         self._step_count = 0
+        self.memory.from_json()
         workflow = self.memory.find_workflow(task)
         if workflow is None:
             workflow = self.memory.create_workflow(task)
@@ -187,7 +188,8 @@ class PhoneAgent:
 
         node = work_graph.create_node(elements)
         node.add_task(user_prompt)
-        recorder.on_new_node(current_node_id=node.id)
+        if not is_first:
+            recorder.on_new_node(current_node_id=node.id)
 
         # Build messages
         if is_first:
@@ -284,9 +286,12 @@ class PhoneAgent:
                 f"{response.thinking} {list(response.action.keys())[0]}"
             )
         )
+
+        if is_first:
+            recorder.set_tag(response.tag)
         
         recorder.on_action_executed(
-            from_node_id=work_graph.get_id_by_node(node),
+            from_node_id=node.id,
             action=node_action,
             success=result.success,
         )

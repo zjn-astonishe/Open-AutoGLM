@@ -48,3 +48,7 @@ class WorkflowRecorder:
         self._pending_from_node_id = None
         self._pending_action = None
         self._pending_success = True
+
+    def set_tag(self, tag: str):
+        if self.workflow.tag == "":
+            self.workflow.tag = tag

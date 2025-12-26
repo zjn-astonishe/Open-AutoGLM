@@ -33,7 +33,8 @@ class ModelResponse:
 
     thinking: str
     action: Dict[str, str]
-    predict: str
+    tag: str
+    # predict: str
     raw_content: str
     # Performance metrics
     time_to_first_token: float | None = None  # Time to first token (seconds)
@@ -168,7 +169,9 @@ class ModelClient:
         
         # Parse thinking and action from response
         # thinking, action = self._parse_response(raw_content)
-        thinking, answer, predict = self._parser_response_with_predict(raw_content)
+        # thinking, answer, predict = self._parser_response_with_predict(raw_content)
+        thinking, answer, tag = self._parser_response_with_tag(raw_content)
+        # print(f"🤖 Tag: {tag}")
         action = self._parse_action(answer)
 
         # Print performance metrics
@@ -193,7 +196,7 @@ class ModelClient:
         return ModelResponse(
             thinking=thinking,
             action=action,
-            predict=predict,
+            tag=tag,
             raw_content=raw_content,
             time_to_first_token=time_to_first_token,
             time_to_thinking_end=time_to_thinking_end,
@@ -271,6 +274,23 @@ class ModelClient:
         # print_with_color(f"🤖 Predict: {predict}", "cyan")
 
         return thinking, answer, predict
+    
+    def _parser_response_with_tag(self, content: str) -> tuple[str, str, str]:
+        """
+        Parse the model response into thinking, action parts and tag.
+
+        Args:
+            content: Raw response content.
+        
+        Returns:
+            Tuple of (thinking, action, tag).
+        """
+
+        thinking = re.findall(r"<observe>(.*?)</observe>", content, re.DOTALL)[0]
+        answer = re.findall(r"<answer>(.*?)</answer>", content, re.DOTALL)[0]
+        tag = re.findall(r"<tag>(.*?)</tag>", content, re.DOTALL)[0]
+
+        return thinking, answer, tag
 
     def _parse_action(self, content: str) -> Dict[str, str]:
         """
