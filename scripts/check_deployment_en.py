@@ -10,8 +10,8 @@ if __name__ == "__main__":
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Usage examples:
-  python scripts/check_deployment_en.py --base-url http://localhost:8000/v1 --apikey your-key --model autoglm-phone-9b
-  python scripts/check_deployment_en.py --base-url http://localhost:8000/v1 --apikey your-key --model autoglm-phone-9b --messages-file custom.json
+  python scripts/check_deployment_en.py --base-url http://localhost:8001/v1 --apikey your-key --model autoglm-phone-9b
+  python scripts/check_deployment_en.py --base-url http://localhost:8001/v1 --apikey your-key --model autoglm-phone-9b --messages-file custom.json
         """,
     )
 
@@ -19,7 +19,7 @@ Usage examples:
         "--base-url",
         type=str,
         required=True,
-        help="Base URL of the API service, e.g.: http://localhost:8000/v1",
+        help="Base URL of the API service, e.g.: http://localhost:8001/v1",
     )
 
     parser.add_argument(

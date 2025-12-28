@@ -14,7 +14,17 @@ requests>=2.31.0
 # transformers>=5.0.0rc0
 
 # Optional: for development
-# pytest>=7.0.0
-# pre-commit>=4.5.0
-# black>=23.0.0
-# mypy>=1.0.0
+pytest>=7.0.0
+pre-commit>=4.5.0
+black>=23.0.0
+mypy>=1.0.0
+setuptools==80.8.0
+colorama
+opencv-python
+pyshine
+sounddevice
+soundfile
+matplotlib
+keras
+uiautomator2
+scikit-learn

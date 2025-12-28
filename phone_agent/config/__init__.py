@@ -4,6 +4,7 @@ from phone_agent.config.apps import APP_PACKAGES
 from phone_agent.config.apps_ios import APP_PACKAGES_IOS
 from phone_agent.config.i18n import get_message, get_messages
 from phone_agent.config.prompts_en import SYSTEM_PROMPT as SYSTEM_PROMPT_EN
+from phone_agent.config.prompts_en import SYSTEM_PROMPT_DIY as SYSTEM_PROMPT_DIY_EN
 from phone_agent.config.prompts_zh import SYSTEM_PROMPT as SYSTEM_PROMPT_ZH
 from phone_agent.config.timing import (
     TIMING_CONFIG,
@@ -27,7 +28,8 @@ def get_system_prompt(lang: str = "cn") -> str:
         System prompt string.
     """
     if lang == "en":
-        return SYSTEM_PROMPT_EN
+        # return SYSTEM_PROMPT_EN
+        return SYSTEM_PROMPT_DIY_EN
     return SYSTEM_PROMPT_ZH
 
 

@@ -45,9 +45,9 @@ class DeviceFactory:
                 raise ValueError(f"Unknown device type: {self.device_type}")
         return self._module
 
-    def get_screenshot(self, device_id: str | None = None, timeout: int = 10):
+    def get_screenshot(self, prefix: str | None = None, save_dir: str | None = None, device_id: str | None = None, timeout: int = 10):
         """Get screenshot from device."""
-        return self.module.get_screenshot(device_id, timeout)
+        return self.module.get_screenshot(prefix, save_dir, device_id, timeout)
 
     def get_current_app(self, device_id: str | None = None) -> str:
         """Get current app name."""

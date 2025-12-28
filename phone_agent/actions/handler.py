@@ -5,7 +5,7 @@ import re
 import subprocess
 import time
 from dataclasses import dataclass
-from typing import Any, Callable
+from typing import Any, Callable, List, Dict
 
 from phone_agent.config.timing import TIMING_CONFIG
 from phone_agent.device_factory import get_device_factory
@@ -58,10 +58,10 @@ class ActionHandler:
         """
         action_type = action.get("_metadata")
 
-        if action_type == "finish":
-            return ActionResult(
-                success=True, should_finish=True, message=action.get("message")
-            )
+        # if action_type == "finish":
+        #     return ActionResult(
+        #         success=True, should_finish=True, message=action.get("message")
+        #     )
 
         if action_type != "do":
             return ActionResult(
@@ -104,6 +104,7 @@ class ActionHandler:
             "Note": self._handle_note,
             "Call_API": self._handle_call_api,
             "Interact": self._handle_interact,
+            "Finish": self._handle_finish,
         }
         return handlers.get(action_name)
 
@@ -111,8 +112,10 @@ class ActionHandler:
         self, element: list[int], screen_width: int, screen_height: int
     ) -> tuple[int, int]:
         """Convert relative coordinates (0-1000) to absolute pixels."""
-        x = int(element[0] / 1000 * screen_width)
-        y = int(element[1] / 1000 * screen_height)
+        # x = int(element[0] / 1000 * screen_width)
+        # y = int(element[1] / 1000 * screen_height)
+        x = int(element[0])
+        y = int(element[1])
         return x, y
 
     def _handle_launch(self, action: dict, width: int, height: int) -> ActionResult:
@@ -134,6 +137,7 @@ class ActionHandler:
             return ActionResult(False, False, "No element coordinates")
 
         x, y = self._convert_relative_to_absolute(element, width, height)
+        print(f"Tap coordinates: ({x}, {y}), element: {element}")
 
         # Check for sensitive operation
         if "message" in action:
@@ -254,6 +258,12 @@ class ActionHandler:
         """Handle interaction request (user choice needed)."""
         # This action signals that user input is needed
         return ActionResult(True, False, message="User interaction required")
+    
+    def _handle_finish(self, action: dict, width: int, height: int) -> ActionResult:
+        """Handle finish action."""
+        return ActionResult(
+            success=True, should_finish=True, message=action.get("message")
+        )
 
     def _send_keyevent(self, keycode: str) -> None:
         """Send a keyevent to the device."""
@@ -329,12 +339,12 @@ class ActionHandler:
         input(f"{message}\nPress Enter after completing manual operation...")
 
 
-def parse_action(response: str) -> dict[str, Any]:
+def parse_action(action_code: str, elements_info: List[Dict[str, str]]) -> tuple[dict[str, Any], str]:
     """
     Parse action from model response.
 
     Args:
-        response: Raw response string from the model.
+        action_code: The raw action string from the model.
 
     Returns:
         Parsed action dictionary.
@@ -342,24 +352,25 @@ def parse_action(response: str) -> dict[str, Any]:
     Raises:
         ValueError: If the response cannot be parsed.
     """
-    print(f"Parsing action: {response}")
+    # print(f"Parsing action: {response}")
     try:
-        response = response.strip()
-        if response.startswith('do(action="Type"') or response.startswith(
+        action_code = action_code.strip()
+        if action_code.startswith('do(action="Type"') or action_code.startswith(
             'do(action="Type_Name"'
         ):
-            text = response.split("text=", 1)[1][1:-2]
+            text = action_code.split("text=", 1)[1][1:-2]
+            print(f"Extracted text for typing: {text}")
             action = {"_metadata": "do", "action": "Type", "text": text}
-            return action
-        elif response.startswith("do"):
+            return action, None
+        elif action_code.startswith("do"):
             # Use AST parsing instead of eval for safety
             try:
                 # Escape special characters (newlines, tabs, etc.) for valid Python syntax
-                response = response.replace('\n', '\\n')
-                response = response.replace('\r', '\\r')
-                response = response.replace('\t', '\\t')
+                action_code = action_code.replace('\n', '\\n')
+                action_code = action_code.replace('\r', '\\r')
+                action_code = action_code.replace('\t', '\\t')
 
-                tree = ast.parse(response, mode="eval")
+                tree = ast.parse(action_code, mode="eval")
                 if not isinstance(tree.body, ast.Call):
                     raise ValueError("Expected a function call")
 
@@ -370,19 +381,34 @@ def parse_action(response: str) -> dict[str, Any]:
                     key = keyword.arg
                     value = ast.literal_eval(keyword.value)
                     action[key] = value
-
-                return action
+                
+                # Convert element ID to actual coordinates if needed
+                if "element" in action and isinstance(action["element"], str):
+                    element_id = action["element"]
+                    # Find the element with matching ID in elements_info
+                    for element in elements_info:
+                        if element["id"] == element_id:
+                            # Calculate center point of bounding box
+                            bbox = element["bbox"]
+                            # print(f"Found element bbox: {bbox} for id: {element_id}")
+                            center_x = (bbox[0][0] + bbox[1][0]) // 2
+                            center_y = (bbox[0][1] + bbox[1][1]) // 2
+                            # Convert to relative coordinates (0-1000 scale)
+                            action["element"] = [center_x, center_y]                    
+                            return action, element["content"]
+                    
+                # print(f"Parsed do action....: {action}")
+                return action, None
             except (SyntaxError, ValueError) as e:
                 raise ValueError(f"Failed to parse do() action: {e}")
 
-        elif response.startswith("finish"):
-            action = {
-                "_metadata": "finish",
-                "message": response.replace("finish(message=", "")[1:-2],
-            }
+        # elif response.startswith("finish"):
+        #     action = {
+        #         "_metadata": "finish",
+        #         "message": response.replace("finish(message=", "")[1:-2],
+        #     }
         else:
-            raise ValueError(f"Failed to parse action: {response}")
-        return action
+            raise ValueError(f"Failed to parse action: {action_code}")
     except Exception as e:
         raise ValueError(f"Failed to parse action: {e}")
 

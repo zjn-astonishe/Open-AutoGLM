@@ -1,28 +1,30 @@
 """Model client for AI inference using OpenAI-compatible API."""
 
+import re
 import json
 import time
 from dataclasses import dataclass, field
-from typing import Any
+from typing import Any, Dict
 
 from openai import OpenAI
 
 from phone_agent.config.i18n import get_message
+from utils.util import print_with_color
 
 
 @dataclass
 class ModelConfig:
     """Configuration for the AI model."""
 
-    base_url: str = "http://localhost:8000/v1"
-    api_key: str = "EMPTY"
-    model_name: str = "autoglm-phone-9b"
+    base_url: str = "http://localhost:8001/v1"
+    api_key: str = "qwerasdfzxcv123"
+    model_name: str = "autoglm-phone-9b-multilingual"
     max_tokens: int = 3000
     temperature: float = 0.0
     top_p: float = 0.85
     frequency_penalty: float = 0.2
     extra_body: dict[str, Any] = field(default_factory=dict)
-    lang: str = "cn"  # Language for UI messages: 'cn' or 'en'
+    lang: str = "en"  # Language for UI messages: 'cn' or 'en'
 
 
 @dataclass
@@ -30,7 +32,9 @@ class ModelResponse:
     """Response from the AI model."""
 
     thinking: str
-    action: str
+    action: Dict[str, str]
+    tag: str
+    # predict: str
     raw_content: str
     # Performance metrics
     time_to_first_token: float | None = None  # Time to first token (seconds)
@@ -81,7 +85,8 @@ class ModelClient:
 
         raw_content = ""
         buffer = ""  # Buffer to hold content that might be part of a marker
-        action_markers = ["finish(message=", "do(action="]
+        # action_markers = ["finish(message=", "do(action="]
+        action_marker = "<answer>"
         in_action_phase = False  # Track if we've entered the action phase
         first_token_received = False
 
@@ -105,20 +110,31 @@ class ModelClient:
 
                 # Check if any marker is fully present in buffer
                 marker_found = False
-                for marker in action_markers:
-                    if marker in buffer:
-                        # Marker found, print everything before it
-                        thinking_part = buffer.split(marker, 1)[0]
-                        print(thinking_part, end="", flush=True)
-                        print()  # Print newline after thinking is complete
-                        in_action_phase = True
-                        marker_found = True
+                # for marker in action_markers:
+                #     if marker in buffer:
+                #         # Marker found, print everything before it
+                #         thinking_part = buffer.split(marker, 1)[0]
+                #         print(thinking_part, end="", flush=True)
+                #         print()  # Print newline after thinking is complete
+                #         in_action_phase = True
+                #         marker_found = True
 
-                        # Record time to thinking end
-                        if time_to_thinking_end is None:
-                            time_to_thinking_end = time.time() - start_time
+                #         # Record time to thinking end
+                #         if time_to_thinking_end is None:
+                #             time_to_thinking_end = time.time() - start_time
 
-                        break
+                #         break
+                if action_marker in buffer:
+                    # Marker found, print everything before it
+                    thinking_part = buffer.split(action_marker, 1)[0]
+                    print(thinking_part, end="", flush=True)
+                    print()  # Print newline after thinking is complete
+                    in_action_phase = True
+                    marker_found = True
+
+                    # Record time to thinking end
+                    if time_to_thinking_end is None:
+                        time_to_thinking_end = time.time() - start_time
 
                 if marker_found:
                     continue  # Continue to collect remaining content
@@ -126,13 +142,20 @@ class ModelClient:
                 # Check if buffer ends with a prefix of any marker
                 # If so, don't print yet (wait for more content)
                 is_potential_marker = False
-                for marker in action_markers:
-                    for i in range(1, len(marker)):
-                        if buffer.endswith(marker[:i]):
+                
+                # for marker in action_markers:
+                #     for i in range(1, len(marker)):
+                #         if buffer.endswith(marker[:i]):
+                #             is_potential_marker = True
+                #             break
+                #     if is_potential_marker:
+                #         break
+
+                if action_marker:
+                    for i in range(1, len(action_marker)):
+                        if buffer.endswith(action_marker[:i]):
                             is_potential_marker = True
                             break
-                    if is_potential_marker:
-                        break
 
                 if not is_potential_marker:
                     # Safe to print the buffer
@@ -142,8 +165,14 @@ class ModelClient:
         # Calculate total time
         total_time = time.time() - start_time
 
+        print(f"🤖 Raw_content: {raw_content}")
+        
         # Parse thinking and action from response
-        thinking, action = self._parse_response(raw_content)
+        # thinking, action = self._parse_response(raw_content)
+        # thinking, answer, predict = self._parser_response_with_predict(raw_content)
+        thinking, answer, tag = self._parser_response_with_tag(raw_content)
+        # print(f"🤖 Tag: {tag}")
+        action = self._parse_action(answer)
 
         # Print performance metrics
         lang = self.config.lang
@@ -167,6 +196,7 @@ class ModelClient:
         return ModelResponse(
             thinking=thinking,
             action=action,
+            tag=tag.strip(),
             raw_content=raw_content,
             time_to_first_token=time_to_first_token,
             time_to_thinking_end=time_to_thinking_end,
@@ -196,13 +226,19 @@ class ModelClient:
             parts = content.split("finish(message=", 1)
             thinking = parts[0].strip()
             action = "finish(message=" + parts[1]
+            # print("+" * 50)
+            # print(f"🤖 Action: {action}\n Thinking: {thinking}")
+            # print("+" * 50)
             return thinking, action
 
         # Rule 2: Check for do(action=
         if "do(action=" in content:
             parts = content.split("do(action=", 1)
             thinking = parts[0].strip()
-            action = "do(action=" + parts[1]
+            # action = "do(action=" + parts[1]
+            # print("+" * 50)
+            # print(f"🤖 Action: {action}\n Thinking: {thinking}")
+            # print("+" * 50)
             return thinking, action
 
         # Rule 3: Fallback to legacy XML tag parsing
@@ -210,11 +246,97 @@ class ModelClient:
             parts = content.split("<answer>", 1)
             thinking = parts[0].replace("<think>", "").replace("</think>", "").strip()
             action = parts[1].replace("</answer>", "").strip()
+            # print("+" * 50)
+            # print(f"🤖 Action: {action}\n Thinking: {thinking}")
+            # print("+" * 50)
             return thinking, action
 
         # Rule 4: No markers found, return content as action
         return "", content
+    
+    def _parser_response_with_predict(self, content: str) -> tuple[str, str, str]:
+        """
+        Parse the model response into thinking, action parts and predict.
 
+        Args:
+            content: Raw response content.
+        
+        Returns:
+            Tuple of (thinking, action, predict).
+        """
+
+        thinking = re.findall(r"<observe>(.*?)</observe>", content, re.DOTALL)[0]
+        answer = re.findall(r"<answer>(.*?)</answer>", content, re.DOTALL)[0]
+        predict = re.findall(r"<predict>(.*?)</predict>", content, re.DOTALL)[0]
+
+        # print_with_color(f"🤖 Thinking: {thinking}", "yellow")
+        # print_with_color(f"🤖 Action: {answer}", "green")
+        # print_with_color(f"🤖 Predict: {predict}", "cyan")
+
+        return thinking, answer, predict
+    
+    def _parser_response_with_tag(self, content: str) -> tuple[str, str, str]:
+        """
+        Parse the model response into thinking, action parts and tag.
+
+        Args:
+            content: Raw response content.
+        
+        Returns:
+            Tuple of (thinking, action, tag).
+        """
+
+        thinking = re.findall(r"<observe>(.*?)</observe>", content, re.DOTALL)[0]
+        answer = re.findall(r"<answer>(.*?)</answer>", content, re.DOTALL)[0]
+        tag = re.findall(r"<tag>(.*?)</tag>", content, re.DOTALL)[0]
+
+        return thinking, answer, tag
+
+    def _parse_action(self, content: str) -> Dict[str, str]:
+        """
+        Parse the model response's answer into action description and action parts.
+
+        Parsing rules:
+        1. If content contains 'finish(message=', everything before is action description,
+           everything from 'finish(message=' onwards is action.
+        2. If rule 1 doesn't apply but content contains 'do(action=',
+           everything before is action description, everything from 'do(action=' onwards is action.
+        3. Otherwise, return empty action description and full content as action.
+
+        Args:
+            content: Raw response content.
+
+        Returns:
+            Dict[str, str] of (action description, action).
+        """
+        action_dict = {}
+
+        # Rule 1: Check for finish(message=
+        if "finish(message=" in content:
+            parts = content.split("finish(message=", 1)
+            action_desc = parts[0].strip()
+            action = "finish(message=" + parts[1]
+            # print("+" * 50)
+            # print(f"🤖 Action: {action}\n Description: {action_desc}")
+            # print("+" * 50)
+            action_dict[action_desc] = action
+            return action_dict
+
+        # Rule 2: Check for do(action=
+        if "do(action=" in content:
+            parts = content.split("do(action=", 1)
+            action_desc = parts[0].strip()
+            action = "do(action=" + parts[1]
+            # print("+" * 50)
+            # print(f"🤖 Action: {action}\n Description: {action_desc}")
+            # print("+" * 50)
+            action_dict[action_desc] = action
+            return action_dict
+
+        # Rule 4: No markers found, return content as action
+        action_desc = ""
+        action_dict[action_desc] = action
+        return action_dict
 
 class MessageBuilder:
     """Helper class for building conversation messages."""

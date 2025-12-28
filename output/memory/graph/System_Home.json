@@ -1,0 +1,80 @@
+{
+  "app": "System Home",
+  "nodes": {
+    "a55794c2-f921-47c8-8b0b-663a271cabc3": {
+      "id": "a55794c2-f921-47c8-8b0b-663a271cabc3",
+      "elements_info": [
+        {
+          "content": "com.google.android.a__com.google.android.a",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]"
+        },
+        {
+          "content": "com.google.android.a__com.google.android.a",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]/ViewGroup/ViewGroup/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_workspace\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/bc_smartspace_view\"]/ViewPager[@resource-id=\"com.google.android.apps.nexuslauncher:id/smartspace_card_pager\"]"
+        },
+        {
+          "content": "com.google.android.a__com.google.android.a_Sun, Dec 28_Sun, Dec 28",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]/ViewGroup/ViewGroup/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_workspace\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/bc_smartspace_view\"]/ViewPager[@resource-id=\"com.google.android.apps.nexuslauncher:id/smartspace_card_pager\"]/ViewGroup/RelativeLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/text_group\"]/TextView[@resource-id=\"com.google.android.apps.nexuslauncher:id/date\" | @content-desc=\"Sun, Dec 28\" | @text=\"Sun, Dec 28\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_966x1528__Gmail_Gmail",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]/ViewGroup/ViewGroup/TextView[@content-desc=\"Gmail\" | @text=\"Gmail\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_966x1528__Photos_Photos",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]/ViewGroup/ViewGroup/TextView[@content-desc=\"Photos\" | @text=\"Photos\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_966x1528__YouTube_YouTube",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]/ViewGroup/ViewGroup/TextView[@content-desc=\"YouTube\" | @text=\"YouTube\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_928x195__Phone_Phone",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/ViewGroup/TextView[@content-desc=\"Phone\" | @text=\"Phone\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_928x195__Messages_Messages",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/ViewGroup/TextView[@content-desc=\"Messages\" | @text=\"Messages\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_928x195__Chrome_Chrome",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/ViewGroup/TextView[@content-desc=\"Chrome\" | @text=\"Chrome\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_928x195__Gmail_Predicted app: Gmail",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/ViewGroup/TextView[@content-desc=\"Predicted app: Gmail\" | @text=\"Gmail\"]"
+        },
+        {
+          "content": "com.google.android.a__com.google.android.a_Search",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_hotseat\" | @content-desc=\"Search\"]"
+        },
+        {
+          "content": "com.google.android.a_Search__com.google.android.a_Google app",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_hotseat\" | @content-desc=\"Search\"]/ImageView[@resource-id=\"com.google.android.apps.nexuslauncher:id/g_icon\" | @content-desc=\"Google app\"]"
+        },
+        {
+          "content": "com.google.android.a__com.google.android.a_Voice search",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_hotseat\" | @content-desc=\"Search\"]/LinearLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/end_part\"]/ImageView[@resource-id=\"com.google.android.apps.nexuslauncher:id/mic_icon\" | @content-desc=\"Voice search\"]"
+        },
+        {
+          "content": "com.google.android.a__com.google.android.a_Google Lens",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_hotseat\" | @content-desc=\"Search\"]/LinearLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/end_part\"]/ImageButton[@resource-id=\"com.google.android.apps.nexuslauncher:id/lens_icon\" | @content-desc=\"Google Lens\"]"
+        }
+      ],
+      "tasks": [
+        "set an alarm at 12:30 pm every Friday and Sunday, disable the vibration",
+        "set an alarm at 15:30 pm every Friday and Sunday, disable the vibration"
+      ],
+      "actions": [
+        {
+          "action_type": "Launch",
+          "description": "Launch the Clock app to set an alarm.",
+          "zone_path": null
+        }
+      ],
+      "tag": [
+        "alarm.create"
+      ]
+    }
+  }
+}

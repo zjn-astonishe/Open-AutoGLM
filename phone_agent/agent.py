@@ -1,5 +1,7 @@
 """Main PhoneAgent class for orchestrating phone automation."""
 
+import os
+import time
 import json
 import traceback
 from dataclasses import dataclass
@@ -12,6 +14,8 @@ from phone_agent.device_factory import get_device_factory
 from phone_agent.model import ModelClient, ModelConfig
 from phone_agent.model.client import MessageBuilder
 
+from act_mem.act_mem import ActionMemory
+from act_mem.workrecorder import WorkflowRecorder
 
 @dataclass
 class AgentConfig:
@@ -22,6 +26,7 @@ class AgentConfig:
     lang: str = "cn"
     system_prompt: str | None = None
     verbose: bool = True
+    memory_dir: str = "./output/memory"
 
     def __post_init__(self):
         if self.system_prompt is None:
@@ -77,6 +82,7 @@ class PhoneAgent:
             confirmation_callback=confirmation_callback,
             takeover_callback=takeover_callback,
         )
+        self.memory = ActionMemory(self.agent_config.memory_dir)
 
         self._context: list[dict[str, Any]] = []
         self._step_count = 0
@@ -93,19 +99,27 @@ class PhoneAgent:
         """
         self._context = []
         self._step_count = 0
-
+        self.memory.from_json()
+        workflow = self.memory.create_workflow(task)
+        recorder = WorkflowRecorder(task=task, workflow=workflow)
+        
+        
         # First step with user prompt
-        result = self._execute_step(task, is_first=True)
+        result = self._execute_step(task, recorder, is_first=True)
+        
 
         if result.finished:
             return result.message or "Task completed"
 
         # Continue until finished or max steps reached
         while self._step_count < self.agent_config.max_steps:
-            result = self._execute_step(is_first=False)
+            result = self._execute_step(task, recorder, is_first=False)
 
             if result.finished:
+                self.memory.to_json()
                 return result.message or "Task completed"
+        
+        self.memory.to_json()
 
         return "Max steps reached"
 
@@ -134,7 +148,7 @@ class PhoneAgent:
         self._step_count = 0
 
     def _execute_step(
-        self, user_prompt: str | None = None, is_first: bool = False
+        self, user_prompt: str, recorder: WorkflowRecorder, is_first: bool = False
     ) -> StepResult:
         """Execute a single step of the agent loop."""
         self._step_count += 1
@@ -143,14 +157,43 @@ class PhoneAgent:
         device_factory = get_device_factory()
         screenshot = device_factory.get_screenshot(self.agent_config.device_id)
         current_app = device_factory.get_current_app(self.agent_config.device_id)
+        
+        work_graph = self.memory.get_work_graph(current_app)
+        if work_graph is None:
+            work_graph = self.memory.add_work_graph(current_app)
+
+        elements_info = []
+        elements = []
+        # for i, (e, crop_b64) in enumerate(zip(screenshot.elements, screenshot.crop_base64_data), 1):
+        for i, e in enumerate(screenshot.elements, 1):
+            
+            common_fields = {
+                "content": e.elem_id,
+            }
+            
+            elements_info.append({
+                "id": f"R{i}",
+                **common_fields,
+                "bbox": e.bbox,
+                "option": e.checked,
+            })
+            elements.append({
+                **common_fields,
+                "path": e.get_xpath()
+            })
+
+        node = work_graph.create_node(elements)
+        node.add_task(user_prompt)
+        if not is_first:
+            recorder.on_new_node(current_node_id=node.id)
 
         # Build messages
         if is_first:
             self._context.append(
                 MessageBuilder.create_system_message(self.agent_config.system_prompt)
             )
-
-            screen_info = MessageBuilder.build_screen_info(current_app)
+            
+            screen_info = MessageBuilder.build_screen_info(current_app, extra_info=elements_info)
             text_content = f"{user_prompt}\n\n{screen_info}"
 
             self._context.append(
@@ -159,7 +202,7 @@ class PhoneAgent:
                 )
             )
         else:
-            screen_info = MessageBuilder.build_screen_info(current_app)
+            screen_info = MessageBuilder.build_screen_info(current_app, extra_info=elements_info)
             text_content = f"** Screen Info **\n\n{screen_info}"
 
             self._context.append(
@@ -174,7 +217,15 @@ class PhoneAgent:
             print("\n" + "=" * 50)
             print(f"💭 {msgs['thinking']}:")
             print("-" * 50)
+            # print(f"+" * 50)
+            # print(f"system_prompt: {self.agent_config.system_prompt}")
+            # print(f"Context: {screen_info}")
+            # print(f"+" * 50)
+            start_time = time.time()
             response = self.model_client.request(self._context)
+            end_time = time.time()
+            node.add_tag(tag=response.tag)
+            print(f"Inference Time taken: {end_time - start_time:.2f} seconds")
         except Exception as e:
             if self.agent_config.verbose:
                 traceback.print_exc()
@@ -187,8 +238,17 @@ class PhoneAgent:
             )
 
         # Parse action from response
+        # print(f"response.action: {list(response.action.values())[0]}, {type(response.action)}")
         try:
-            action = parse_action(response.action)
+            # Extract action string from response.action dict
+            # action_str = list(response.action.values())[0]
+            action, element_content = parse_action(action_code=list(response.action.values())[0], elements_info=elements_info)
+            if element_content is None:
+                node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0])
+            else:
+                for e in elements:
+                    if e["content"] == element_content:            
+                        node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0], zone_path=e["path"])
         except ValueError:
             if self.agent_config.verbose:
                 traceback.print_exc()
@@ -200,6 +260,7 @@ class PhoneAgent:
             print(f"🎯 {msgs['action']}:")
             print(json.dumps(action, ensure_ascii=False, indent=2))
             print("=" * 50 + "\n")
+                
 
         # Remove image from context to save space
         self._context[-1] = MessageBuilder.remove_images_from_message(self._context[-1])
@@ -219,21 +280,33 @@ class PhoneAgent:
         # Add assistant response to context
         self._context.append(
             MessageBuilder.create_assistant_message(
-                f"<think>{response.thinking}</think><answer>{response.action}</answer>"
+                f"{response.thinking} {list(response.action.keys())[0]}"
             )
         )
 
+        if is_first:
+            recorder.set_tag(response.tag)
+        
+        recorder.on_action_executed(
+            from_node_id=node.id,
+            action=node_action,
+            success=result.success,
+        )
+
         # Check if finished
-        finished = action.get("_metadata") == "finish" or result.should_finish
+        finished = action.get("action") == "Finish" or result.should_finish
+        # print(f"Step finished: {finished}")
 
-        if finished and self.agent_config.verbose:
-            msgs = get_messages(self.agent_config.lang)
-            print("\n" + "🎉 " + "=" * 48)
-            print(
-                f"✅ {msgs['task_completed']}: {result.message or action.get('message', msgs['done'])}"
-            )
-            print("=" * 50 + "\n")
-
+        if finished:
+            recorder.flush()
+            if self.agent_config.verbose:
+                msgs = get_messages(self.agent_config.lang)
+                print("\n" + "🎉 " + "=" * 48)
+                print(
+                    f"✅ {msgs['task_completed']}: {result.message or action.get('message', msgs['done'])}"
+                )
+                print("=" * 50 + "\n")
+        
         return StepResult(
             success=result.success,
             finished=finished,

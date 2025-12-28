@@ -6,7 +6,7 @@ Usage:
     python main.py [OPTIONS]
 
 Environment Variables:
-    PHONE_AGENT_BASE_URL: Model API base URL (default: http://localhost:8000/v1)
+    PHONE_AGENT_BASE_URL: Model API base URL (default: http://localhost:8001/v1)
     PHONE_AGENT_MODEL: Model name (default: autoglm-phone-9b)
     PHONE_AGENT_API_KEY: API key for model authentication (default: EMPTY)
     PHONE_AGENT_MAX_STEPS: Maximum steps per task (default: 100)
@@ -15,6 +15,7 @@ Environment Variables:
 
 import argparse
 import os
+import time
 import shutil
 import subprocess
 import sys
@@ -30,6 +31,8 @@ from phone_agent.config.apps_harmonyos import list_supported_apps as list_harmon
 from phone_agent.config.apps_ios import list_supported_apps as list_ios_apps
 from phone_agent.device_factory import DeviceType, get_device_factory, set_device_type
 from phone_agent.model import ModelConfig
+from utils.config import load_config
+from utils.util import print_with_color
 from phone_agent.xctest import XCTestConnection
 from phone_agent.xctest import list_devices as list_ios_devices
 
@@ -362,12 +365,6 @@ Examples:
     # Run with default settings (Android)
     python main.py
 
-    # Specify model endpoint
-    python main.py --base-url http://localhost:8000/v1
-
-    # Use API key for authentication
-    python main.py --apikey sk-xxxxx
-
     # Run with specific device
     python main.py --device-id emulator-5554
 
@@ -399,35 +396,6 @@ Examples:
     # Pair with iOS device
     python main.py --device-type ios --pair
         """,
-    )
-
-    # Model options
-    parser.add_argument(
-        "--base-url",
-        type=str,
-        default=os.getenv("PHONE_AGENT_BASE_URL", "http://localhost:8000/v1"),
-        help="Model API base URL",
-    )
-
-    parser.add_argument(
-        "--model",
-        type=str,
-        default=os.getenv("PHONE_AGENT_MODEL", "autoglm-phone-9b"),
-        help="Model name",
-    )
-
-    parser.add_argument(
-        "--apikey",
-        type=str,
-        default=os.getenv("PHONE_AGENT_API_KEY", "EMPTY"),
-        help="API key for model authentication",
-    )
-
-    parser.add_argument(
-        "--max-steps",
-        type=int,
-        default=int(os.getenv("PHONE_AGENT_MAX_STEPS", "100")),
-        help="Maximum steps per task",
     )
 
     # Device options
@@ -490,21 +458,14 @@ Examples:
     )
 
     # Other options
-    parser.add_argument(
-        "--quiet", "-q", action="store_true", help="Suppress verbose output"
-    )
+    # parser.add_argument(
+    #     "--quiet", "-q", action="store_true", help="Suppress verbose output"
+    # )
 
     parser.add_argument(
         "--list-apps", action="store_true", help="List supported apps and exit"
     )
 
-    parser.add_argument(
-        "--lang",
-        type=str,
-        choices=["cn", "en"],
-        default=os.getenv("PHONE_AGENT_LANG", "cn"),
-        help="Language for system prompt (cn or en, default: cn)",
-    )
 
     parser.add_argument(
         "--device-type",
@@ -611,6 +572,30 @@ def handle_device_commands(args) -> bool:
         if args.device_type == "adb"
         else (DeviceType.HDC if args.device_type == "hdc" else DeviceType.IOS)
     )
+    
+    # Handle --list-apps (no system check needed)
+    if args.list_apps:
+        if device_type == DeviceType.HDC:
+            print("Supported HarmonyOS apps:")
+            apps = list_harmonyos_apps()
+        elif device_type == DeviceType.IOS:
+            print("Supported iOS apps:")
+            print("\nNote: For iOS apps, Bundle IDs are configured in:")
+            print("  phone_agent/config/apps_ios.py")
+            print("\nCurrently configured apps:")
+            apps = list_ios_apps()
+        else:
+            print("Supported Android apps:")
+            apps = list_supported_apps()
+
+        for app in sorted(apps):
+            print(f"  - {app}")
+
+        if device_type == DeviceType.IOS:
+            print(
+                "\nTo add iOS apps, find the Bundle ID and add to APP_PACKAGES_IOS dictionary."
+            )
+        return
 
     # Handle iOS-specific commands
     if device_type == DeviceType.IOS:
@@ -684,6 +669,7 @@ def handle_device_commands(args) -> bool:
 def main():
     """Main entry point."""
     args = parse_args()
+    configs = load_config()
 
     # Set device type globally based on args
     if args.device_type == "adb":
@@ -703,30 +689,6 @@ def main():
 
         set_hdc_verbose(True)
 
-    # Handle --list-apps (no system check needed)
-    if args.list_apps:
-        if device_type == DeviceType.HDC:
-            print("Supported HarmonyOS apps:")
-            apps = list_harmonyos_apps()
-        elif device_type == DeviceType.IOS:
-            print("Supported iOS apps:")
-            print("\nNote: For iOS apps, Bundle IDs are configured in:")
-            print("  phone_agent/config/apps_ios.py")
-            print("\nCurrently configured apps:")
-            apps = list_ios_apps()
-        else:
-            print("Supported Android apps:")
-            apps = list_supported_apps()
-
-        for app in sorted(apps):
-            print(f"  - {app}")
-
-        if device_type == DeviceType.IOS:
-            print(
-                "\nTo add iOS apps, find the Bundle ID and add to APP_PACKAGES_IOS dictionary."
-            )
-        return
-
     # Handle device commands (these may need partial system checks)
     if handle_device_commands(args):
         return
@@ -741,25 +703,42 @@ def main():
         sys.exit(1)
 
     # Check model API connectivity and model availability
-    if not check_model_api(args.base_url, args.model, args.apikey):
+    if configs["MODEL"] == "OpenAI":
+        base_url = configs["OPENAI_API_BASE"]
+        model = configs["OPENAI_API_MODEL"]
+        apikey = configs["OPENAI_API_KEY"]
+    # TODO: Add support for Qwen
+    # elif configs["MODEL"] == "Qwen":
+    #     apikey = configs["DASHSCOPE_API_KEY"]
+    #     model = configs["QWEN_MODEL"]
+    else:
+        print_with_color(f"ERROR: Unsupported model type {configs['MODEL']}!", "red")
+        sys.exit(1)
+    if not check_model_api(base_url, model, apikey):
         sys.exit(1)
 
     # Create configurations and agent based on device type
     model_config = ModelConfig(
-        base_url=args.base_url,
-        model_name=args.model,
-        api_key=args.apikey,
-        lang=args.lang,
+        base_url=base_url,
+        model_name=model,
+        api_key=apikey,
+        lang=configs["LANG"],
     )
+
+    # dir
+    # root_dir = configs["ROOT"]
+    memory_dir = configs["MEMORY_DIR"]
+
 
     if device_type == DeviceType.IOS:
         # Create iOS agent
         agent_config = IOSAgentConfig(
-            max_steps=args.max_steps,
+            max_steps=configs["MAX_ROUNDS"],
             wda_url=args.wda_url,
             device_id=args.device_id,
-            verbose=not args.quiet,
-            lang=args.lang,
+            verbose=not configs["QUIET"],
+            lang=configs["LANG"],
+            memory_dir=memory_dir,
         )
 
         agent = IOSPhoneAgent(
@@ -769,10 +748,11 @@ def main():
     else:
         # Create Android/HarmonyOS agent
         agent_config = AgentConfig(
-            max_steps=args.max_steps,
+            max_steps=configs["MAX_ROUNDS"],
             device_id=args.device_id,
-            verbose=not args.quiet,
-            lang=args.lang,
+            verbose=not configs["QUIET"],
+            lang=configs["LANG"],
+            memory_dir=memory_dir,
         )
 
         agent = PhoneAgent(
@@ -820,7 +800,10 @@ def main():
     # Run with provided task or enter interactive mode
     if args.task:
         print(f"\nTask: {args.task}\n")
+        start_time = time.time()
         result = agent.run(args.task)
+        end_time = time.time()
+        print(f"\nTime taken: {end_time - start_time:.2f} seconds")
         print(f"\nResult: {result}")
     else:
         # Interactive mode
@@ -838,7 +821,10 @@ def main():
                     continue
 
                 print()
+                start_time = time.time()
                 result = agent.run(task)
+                end_time = time.time()
+                print(f"Time taken: {end_time - start_time:.2f} seconds")
                 print(f"\nResult: {result}\n")
                 agent.reset()
 
