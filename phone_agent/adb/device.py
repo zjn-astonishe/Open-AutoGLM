@@ -222,10 +222,16 @@ def launch_app(
     if delay is None:
         delay = TIMING_CONFIG.device.default_launch_delay
 
+    for name, package in APP_PACKAGES.items():
+        if app_name == package:
+            app_name = name
+            break
+
     if app_name not in APP_PACKAGES:
         return False
 
     adb_prefix = _get_adb_prefix(device_id)
+    
     package = APP_PACKAGES[app_name]
 
     subprocess.run(

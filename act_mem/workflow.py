@@ -39,10 +39,10 @@ class Workflow:
             print(f"Transition from {from_node_id} to {to_node_id} does not match this workflow. The workflow start id is {self.get_start_id()}, last id is {self.get_last_id()}")
             raise ValueError("This transition does not match this workflow.")
 
-    def get_start_id(self) -> WorkNode:
+    def get_start_id(self) -> str | None:
         return self.path[0].from_node_id if self.path else None
     
-    def get_last_id(self) -> WorkNode:
+    def get_last_id(self) -> str | None:
         return self.path[-1].to_node_id if self.path else None
 
     def set_tag(self, tag: str) -> None:

@@ -1,7 +1,7 @@
 import os
 import json
 import uuid
-from typing import List
+from typing import List, Dict, Any
 from .worknode import WorkAction, WorkNode
 from .workflow import WorkGraph, Workflow, WorkTransition
 
@@ -94,33 +94,29 @@ class ActionMemory:
         - Work graphs: Merge nodes (update existing nodes by ID, add new nodes)
         - Workflows: Merge paths (append new paths, deduplicate by from/to node IDs)
         """
-        # 确保目录存在
+        self._ensure_directories()
+        self._save_work_graphs()
+        self._save_workflows()
+    
+    def _ensure_directories(self) -> None:
+        """Ensure necessary directories exist."""
         os.makedirs(self.memory_dir, exist_ok=True)
         graph_dir = os.path.join(self.memory_dir, "graph")
         workflow_dir = os.path.join(self.memory_dir, "workflow")
         os.makedirs(graph_dir, exist_ok=True)
         os.makedirs(workflow_dir, exist_ok=True)
+    
+    def _save_work_graphs(self) -> None:
+        """Save work graphs to JSON files."""
+        graph_dir = os.path.join(self.memory_dir, "graph")
         
-        # Save work graphs by app name
         for graph in self.workgraphs:
             graph_data = graph.to_json()
-            
             app_name = graph.app
             filename = f"{app_name.replace(' ', '_').replace('/', '_')}.json"
             filepath = os.path.join(graph_dir, filename)
             
-            existing_data = {"app": app_name, "nodes":{}}
-            if os.path.exists(filepath):
-                try:
-                    with open(filepath, 'r', encoding='utf-8') as f:
-                        existing_data = json.load(f)
-                    if existing_data.get("app") != app_name:
-                        print(f"Warning: Mismatched app in {filepath}, will reset.")
-                        existing_data = {"app": app_name, "nodes":{}}
-                except (json.JSONDecodeError, KeyError):
-                    print(f"Warning: Corrupted file {filepath}, will reset.")
-                    existing_data = {"app": app_name, "nodes":{}}
-
+            existing_data = self._load_existing_graph_data(filepath, app_name)
             merged_nodes = {**existing_data["nodes"], **graph_data["nodes"]}
             merged_graph_data = {
                 "app": app_name,
@@ -131,8 +127,28 @@ class ActionMemory:
                 json.dump(merged_graph_data, f, ensure_ascii=False, indent=2)
                 
             print(f"Saved work graph for app '{graph.app}' to {filepath}")
-
-        # Save workflows separately by task
+    
+    def _load_existing_graph_data(self, filepath: str, app_name: str) -> Dict[str, Any]:
+        """Load existing graph data from file, with error handling."""
+        existing_data = {"app": app_name, "nodes": {}}
+        
+        if os.path.exists(filepath):
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    existing_data = json.load(f)
+                if existing_data.get("app") != app_name:
+                    print(f"Warning: Mismatched app in {filepath}, will reset.")
+                    existing_data = {"app": app_name, "nodes": {}}
+            except (json.JSONDecodeError, KeyError):
+                print(f"Warning: Corrupted file {filepath}, will reset.")
+                existing_data = {"app": app_name, "nodes": {}}
+        
+        return existing_data
+    
+    def _save_workflows(self) -> None:
+        """Save workflows to JSON files."""
+        workflow_dir = os.path.join(self.memory_dir, "workflow")
+        
         for workflow in self.workflows:
             workflow_data = workflow.to_json()
             tag = workflow.tag
@@ -140,26 +156,9 @@ class ActionMemory:
             task_filename = f"{tag.replace('.', '_').strip()}.json"
             task_filepath = os.path.join(workflow_dir, task_filename)
 
-            existing_workflows = []
-
-            if os.path.exists(task_filepath):
-                try:
-                    with open(task_filepath, 'r', encoding='utf-8') as f:
-                        existing_workflows = json.load(f)
-                    if not isinstance(existing_workflows, list):
-                        print(f"Warning: Invalid workflow file format in {task_filepath}, resetting.")
-                        existing_workflows = []
-                except json.JSONDecodeError:
-                    print(f"Warning: Corrupted workflow file {task_filepath}, resetting.")
-                    existing_workflows = []
+            existing_workflows = self._load_existing_workflows(task_filepath)
             
-            workflow_ids = [wf.get("id") for wf in existing_workflows if isinstance(wf, dict) and "id" in wf]
-            if workflow.id in workflow_ids:
-                print(f"Workflow (id: {workflow.id}) already exists in {task_filepath}, skipping.")
-                continue
-            workflow_task = [wf.get("task") for wf in existing_workflows if isinstance(wf, dict) and "task" in wf]
-            if workflow.task in workflow_task:
-                print(f"Workflow (task: {workflow.task}) already exists in {task_filepath}, skipping.")
+            if self._workflow_already_exists(workflow, existing_workflows, task_filepath):
                 continue
 
             existing_workflows.append(workflow_data)
@@ -167,6 +166,37 @@ class ActionMemory:
                 json.dump(existing_workflows, f, ensure_ascii=False, indent=2)
                 
             print(f"Saved workflow for task '{workflow.task}' to {task_filepath}")
+    
+    def _load_existing_workflows(self, filepath: str) -> list:
+        """Load existing workflows from file, with error handling."""
+        existing_workflows = []
+        
+        if os.path.exists(filepath):
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    existing_workflows = json.load(f)
+                if not isinstance(existing_workflows, list):
+                    print(f"Warning: Invalid workflow file format in {filepath}, resetting.")
+                    existing_workflows = []
+            except json.JSONDecodeError:
+                print(f"Warning: Corrupted workflow file {filepath}, resetting.")
+                existing_workflows = []
+        
+        return existing_workflows
+    
+    def _workflow_already_exists(self, workflow: Workflow, existing_workflows: list, filepath: str) -> bool:
+        """Check if workflow already exists in the file."""
+        workflow_ids = [wf.get("id") for wf in existing_workflows if isinstance(wf, dict) and "id" in wf]
+        if workflow.id in workflow_ids:
+            print(f"Workflow (id: {workflow.id}) already exists in {filepath}, skipping.")
+            return True
+        
+        # workflow_tasks = [wf.get("task") for wf in existing_workflows if isinstance(wf, dict) and "task" in wf]
+        # if workflow.task in workflow_tasks:
+        #     print(f"Workflow (task: {workflow.task}) already exists in {filepath}, skipping.")
+        #     return True
+        
+        return False
     
     def from_json(
             self, 
@@ -235,7 +265,14 @@ class ActionMemory:
         if os.path.exists(workflow_dir):
             for filename in os.listdir(workflow_dir):
                 if filename.endswith(".json"):
+                    # 从文件名提取tag
                     filepath = os.path.join(workflow_dir, filename)
+                    tag = os.path.splitext(filename)[0]
+                    tag = tag.replace('_', '.')
+                    
+                    # 如果指定了target_tag且当前tag不匹配，则跳过
+                    if target_tag and tag != target_tag:
+                        continue
                     
                     file_workflows = []
                     try:
@@ -259,32 +296,27 @@ class ActionMemory:
                             print(f"Warning: Invalid workflow data in {filepath} (not a dict), skipping.")
                             continue
 
-                        # 1. 按 target_tag 过滤（匹配才加载）
-                        if target_tag and workflow_data.get("tag") != target_tag:
-                            continue
-
-                        # 2. 检查 ID 是否已存在（避免重复加载）
+                        # 检查 ID 是否已存在（避免重复加载）
                         existing_workflow = next((w for w in self.workflows if w.id == workflow_data.get("id")), None)
                         if existing_workflow:
                             print(f"Workflow with id {workflow_data.get('id')} already exists, skipping load from {filepath}.")
                             continue
 
-                        # 3. 校验必要字段（id/task 不能为空）
+                        # 校验必要字段（id/task 不能为空）
                         if not workflow_data.get("id") or not workflow_data.get("task"):
                             print(f"Warning: Workflow in {filepath} missing id/task, skipping.")
                             continue
 
-                        # 4. 创建 Workflow 实例
+                        # 创建 Workflow 实例
                         workflow = Workflow(
                             id=workflow_data["id"],
                             task=workflow_data["task"]
                         )
 
-                        # 5. 设置标签（可选字段）
-                        if "tag" in workflow_data:
-                            workflow.tag = workflow_data["tag"]
+                        # 设置标签，使用从文件名提取并恢复的tag
+                        workflow.tag = tag
 
-                        # 6. 加载路径（path 字段，可选）
+                        # 加载路径（path 字段，可选）
                         if "path" in workflow_data and isinstance(workflow_data["path"], list):
                             for transition_data in workflow_data["path"]:
                                 # 校验 transition 数据格式
@@ -307,6 +339,6 @@ class ActionMemory:
                                 )
                                 workflow.path.append(transition)
 
-                        # 7. 将合法的 Workflow 添加到内存
+                        # 将合法的 Workflow 添加到内存
                         self.workflows.append(workflow)
                         print(f"Loaded workflow (id: {workflow.id}) for task '{workflow.task}' from {filepath}")

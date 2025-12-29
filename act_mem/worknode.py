@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Any
 
 @dataclass
 class WorkAction:
@@ -46,7 +46,7 @@ class WorkNode:
         if tag not in self.tag:
             self.tag.append(tag)
 
-    def to_json(self) -> Dict[str, str]:
+    def to_json(self) -> Dict[str, Any]:
         return {
             "id": self.id,
             "elements_info": self.elements_info,
@@ -60,6 +60,3 @@ class WorkNode:
             ],
             "tag": self.tag
         }
-    
-    
-

@@ -100,6 +100,7 @@ class PhoneAgent:
         self._context = []
         self._step_count = 0
         self.memory.from_json()
+
         workflow = self.memory.create_workflow(task)
         recorder = WorkflowRecorder(task=task, workflow=workflow)
         
@@ -169,13 +170,13 @@ class PhoneAgent:
             
             common_fields = {
                 "content": e.elem_id,
+                "option": e.checked,
             }
             
             elements_info.append({
                 "id": f"R{i}",
                 **common_fields,
                 "bbox": e.bbox,
-                "option": e.checked,
             })
             elements.append({
                 **common_fields,

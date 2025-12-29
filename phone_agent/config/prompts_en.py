@@ -1,9 +1,62 @@
 """System prompts for the AI agent."""
 
+import os
+import json
 from datetime import datetime
 
 today = datetime.today()
 formatted_date = today.strftime("%Y-%m-%d, %A")
+
+
+def load_skills_from_library() -> str:
+    """从skill库中加载技能信息并生成格式化的技能描述"""
+    skills_text = ""
+    
+    # 获取skill库文件路径
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(os.path.dirname(current_dir))
+    skill_library_path = os.path.join(project_root, "code_generator", "skills", "skill_library.json")
+    
+    if not os.path.exists(skill_library_path):
+        return skills_text
+    
+    try:
+        with open(skill_library_path, 'r', encoding='utf-8') as f:
+            library_data = json.load(f)
+        
+        skills = library_data.get("skills", {})
+        
+        for func_name, skill_info in skills.items():
+            # 构建技能描述
+            description = skill_info.get("description", "")
+            parameters = skill_info.get("parameters", [])
+            workflow_count = skill_info.get("workflow_count", 0)
+            
+            # 格式化参数列表
+            param_list = []
+            for param in parameters:
+                param_name = param.get("name", "")
+                default_value = param.get("default")
+                if default_value is not None:
+                    param_list.append(f"{param_name}={default_value}")
+                else:
+                    param_list.append(param_name)
+            
+            params_str = ", ".join(param_list)
+            
+            # 生成技能条目
+            skill_entry = f"""- **{func_name}**({params_str})
+  Description: {description}
+  Based on {workflow_count} workflows
+  
+"""
+            skills_text += skill_entry
+        
+        return skills_text
+    
+    except Exception as e:
+        print(f"Error loading skills from library: {e}")
+        return skills_text
 
 SYSTEM_PROMPT = (
     "The current date: "
@@ -184,26 +237,100 @@ do(action="Tap", element="R2")
 alarm.create
 </tag>
 
+"""
+
+)
+
+# 动态加载技能库
+skills = load_skills_from_library()
+
+SYSTEM_PROMPT_ROUTER = (
+    "The current date: "
+    + formatted_date
+    + f"""
+# Setup
+You are a professional Android planning agent.
+Your responsibility is to understand the user's intent and decide the best approach to complete the task.
+You must choose between:
+1. Using an existing skill if it matches the user's requirements
+2. Using atomic actions if no suitable skill exists or the task requires custom operations
+
+Your output must be in the output format. If the output does not strictly follow the format, it is invalid.
+
+---
+
+# Inputs You Will Receive
+
+1. **User's task description** - A natural language description of what the user wants to accomplish
+2. **Available skills** - A list of available skills with their descriptions, parameters, and usage scenarios
+
+---
+
+# Available Skills
+
+{skills}
+
+---
+
+# Decision Logic
+
+1. **Analyze the user's task** - Understand what they want to accomplish
+2. **Check skill compatibility** - Does any available skill match the requirements?
+3. **Parameter extraction** - Can you extract all required parameters from the user's request?
+4. **Choose approach**:
+   - If a skill matches and all parameters can be determined → Use the skill
+   - If no skill matches or parameters are unclear → Use atomic actions
+
+---
+
+# Output Format (MUST FOLLOW)
+
+<decision>
+Either "use_skill" or "use_atomic_actions"
+</decision>
+
+<execution>
+If decision is "use_skill":
+skill_name(param1=value1, param2=value2, ...)
+
+If decision is "use_atomic_actions":
+leave this part empty.
+</execution>
+
+---
+
+# Example 1
+
+**User task**: "Set an alarm for 7:30 AM every Monday and Wednesday with vibration off"
+
+**Available skills**: 
+- alarm_create(hour, minute, days, enable_vibration=True): Creates an alarm with specified time, days, and vibration settings
+
+<decision>
+use_skill
+</decision>
+
+<execution>
+alarm_create(hour=7, minute=30, days=['M', 'W'], enable_vibration=False)
+</execution>
+
 ---
 
 # Example 2
 
-<observe>                                                                          
-The alarm has been successfully configured for 12:30 PM on both Sunday and Friday. 
-The vibration option has been disabled as required. All specified conditions for the alarm have been met.                                                             
-</observe>    
+**User task**: "Open the camera app and take a photo"
 
-<answer>
-Task completed: Alarm set for 12:30 PM every Friday and Sunday with vibration disabled.
-do(action="Finish", message="Task completed.")
-</answer>
+**Available skills**: 
+- alarm_create(hour, minute, days, enable_vibration=True): Creates an alarm with specified time, days, and vibration settings
 
-<tag>
-alarm.create
-</tag>
+<decision>
+use_atomic_actions
+</decision>
+
+<execution>
+</execution>
 
 """
-
 )
 
 SYSTEM_PROMPT_DIY_1 = (

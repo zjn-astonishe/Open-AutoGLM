@@ -63,6 +63,8 @@ class ActionHandler:
         #         success=True, should_finish=True, message=action.get("message")
         #     )
 
+        # print(f"Action executing: {action_type}, {action}")
+
         if action_type != "do":
             return ActionResult(
                 success=False,
@@ -71,6 +73,7 @@ class ActionHandler:
             )
 
         action_name = action.get("action")
+        # print(f"Action name: {action_name}")
         handler_method = self._get_handler(action_name)
 
         if handler_method is None:
@@ -137,7 +140,7 @@ class ActionHandler:
             return ActionResult(False, False, "No element coordinates")
 
         x, y = self._convert_relative_to_absolute(element, width, height)
-        print(f"Tap coordinates: ({x}, {y}), element: {element}")
+        # print(f"Tap coordinates: ({x}, {y}), element: {element}")
 
         # Check for sensitive operation
         if "message" in action:
@@ -421,5 +424,6 @@ def do(**kwargs) -> dict[str, Any]:
 
 def finish(**kwargs) -> dict[str, Any]:
     """Helper function for creating 'finish' actions."""
-    kwargs["_metadata"] = "finish"
+    kwargs["_metadata"] = "do"
+    kwargs["action"] = "Finish"
     return kwargs

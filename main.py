@@ -23,7 +23,7 @@ from urllib.parse import urlparse
 
 from openai import OpenAI
 
-from phone_agent import PhoneAgent
+from phone_agent import PhoneAgent, Planner, SkillExecutor
 from phone_agent.agent import AgentConfig
 from phone_agent.agent_ios import IOSAgentConfig, IOSPhoneAgent
 from phone_agent.config.apps import list_supported_apps
@@ -759,6 +759,9 @@ def main():
             model_config=model_config,
             agent_config=agent_config,
         )
+    
+    planner = Planner(model_config=model_config)
+    executor = SkillExecutor(device_id=args.device_id)
 
     # Print header
     print("=" * 50)
@@ -800,6 +803,16 @@ def main():
     # Run with provided task or enter interactive mode
     if args.task:
         print(f"\nTask: {args.task}\n")
+        # start_time = time.time()
+        # plan = planner.plan_task(args.task)
+        # end_time = time.time()
+        # print(f"Planning taken: {end_time - start_time:.2f} seconds")
+        # if plan.decision == "use_skill":
+        #     start_time = time.time()
+        #     actions = planner.execute_skill(plan.skill_name, plan.skill_params)
+        #     executor.run(actions=actions)
+        #     end_time = time.time()
+        #     print(f"Execution taken: {end_time - start_time:.2f} seconds")
         start_time = time.time()
         result = agent.run(args.task)
         end_time = time.time()

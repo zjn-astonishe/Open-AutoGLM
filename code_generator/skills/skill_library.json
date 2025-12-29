@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "created_time": "2025-12-30T11:24:47.049891",
+  "updated_time": "2025-12-30T17:53:18.637787",
+  "skills": {
+    "alarm_create": {
+      "function_name": "alarm_create",
+      "tag": "alarm.create",
+      "description": "Creates an alarm in the Clock app with specified time, days, and vibration settings.\n    \n    This function abstracts multiple alarm creation workflows by allowing users to specify:\n    - The hour and minute for the alarm time\n    - Which days of the week the alarm should repeat on\n    - Whether vibration should be enabled or disabled\n    \n    Args:\n        hour (int): The hour for the alarm (0-23 format)\n        minute (int): The minute for the alarm (0-59)\n        days (list): List of day abbreviations to set the alarm for. \n                    Valid values: 'M' (Monday), 'T' (Tuesday), 'W' (Wednesday), \n                    'Th' (Thursday), 'F' (Friday), 'S' (Saturday), 'Su' (Sunday)\n        vibrate_enabled (bool): Whether vibration should be enabled for the alarm (default True)\n    \n    Returns:\n        list: A list of action dictionaries representing the steps to create the alarm",
+      "parameters": [
+        {
+          "name": "hour",
+          "default": null
+        },
+        {
+          "name": "minute",
+          "default": null
+        },
+        {
+          "name": "days",
+          "default": null
+        },
+        {
+          "name": "vibrate_enabled",
+          "default": "True"
+        }
+      ],
+      "workflow_count": 4,
+      "workflow_tasks": [
+        "set an alarm at 12:30 pm every Friday and Sunday, disable the vibration",
+        "set an alarm at 15:30 pm every Friday and Sunday, disable the vibration",
+        "set an alarm at 09:15 am every Monday, enable the vibration",
+        "set an alarm at 12:30 pm every Friday and Sunday, disable the vibration"
+      ],
+      "created_time": "2025-12-30T17:53:18.637731",
+      "file_path": "alarm_create.py"
+    }
+  }
+}
