@@ -124,6 +124,8 @@ def ui_filter(xml_path: str, min_dist: int = 30) -> List[AndroidElement]:
             ui_path = [make_step(e) for e in path if e.tag == "node"]
             
             checked = "enabled" if elem.attrib.get("checked") == "true" and elem.attrib.get("checkable") == "true" else "disabled"
+            focused = "enabled" if elem.attrib.get("focused") == "true" and elem.attrib.get("focusable") == "true" else "disabled"
+            checked = checked or focused
 
             elem_list.append(AndroidElement(
                 elem_id=elem_id,
@@ -172,7 +174,7 @@ def ui_filter(xml_path: str, min_dist: int = 30) -> List[AndroidElement]:
 
 if __name__ == "__main__":
     # 测试用例
-    xml_file = "tests/screen_ui.xml"
+    xml_file = "tests/test_ui.xml"
     elems = ui_filter(xml_file)
 
     print(f"Found {len(elems)} actionable elements\n")

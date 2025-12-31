@@ -378,7 +378,7 @@ At each step, you will be given:
   do(action="Tap", element="R1")
 
 - Type
-  Enter text into the currently focused input field.
+  Enter text into the currently focused input field. Before Type, you need to Tap on the input field.
   **Example**:
   do(action="Type", text="New York")
 

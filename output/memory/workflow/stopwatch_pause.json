@@ -1,0 +1,29 @@
+[
+  {
+    "id": "3e916944-e846-44de-a328-e73b59a4aafe",
+    "task": "Pause the stopwatch.",
+    "tag": "stopwatch.pause",
+    "path": [
+      {
+        "from_node_id": "d86a8574-cf85-4c89-a420-c1aaf9b33770",
+        "to_node_id": "bd6dcb0a-b9c0-4bb8-9a0e-eb446af7b3da",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the Calendar app to create a new event.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "bd6dcb0a-b9c0-4bb8-9a0e-eb446af7b3da",
+        "to_node_id": "fbf341d4-a7c9-4ea2-ae12-9a8238dcfd55",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the Stopwatch tab in the bottom navigation bar to access the stopwatch functionality.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_stopwatch\" | @content-desc=\"Stopwatch\"]"
+        },
+        "success": true
+      }
+    ]
+  }
+]

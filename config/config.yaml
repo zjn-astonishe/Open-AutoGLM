@@ -29,7 +29,7 @@ ANDROID_XML_DIR: "/sdcard"  # Set the directory on your Android device to store 
 
 # Task configuration
 
-MAX_ROUNDS: 20  # Set the round limit for the agent to complete the task
+MAX_ROUNDS: 50  # Set the round limit for the agent to complete the task
 QUIET: false  # Set this to true to disable the verbose logging during the agent execution
 ROOT: "./"
 MEMORY_DIR: "./output/memory"  # The directory to store the agent's memory files, including work graphs and screenshots

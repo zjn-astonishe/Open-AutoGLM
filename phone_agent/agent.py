@@ -13,6 +13,8 @@ from phone_agent.config import get_messages, get_system_prompt
 from phone_agent.device_factory import get_device_factory
 from phone_agent.model import ModelClient, ModelConfig
 from phone_agent.model.client import MessageBuilder
+from phone_agent.planner import Planner
+from phone_agent.skill_executor import SkillExecutor
 
 from act_mem.act_mem import ActionMemory
 from act_mem.workrecorder import WorkflowRecorder
@@ -84,10 +86,14 @@ class PhoneAgent:
         )
         self.memory = ActionMemory(self.agent_config.memory_dir)
 
+        self.planner = Planner(model_config=model_config)
+        self.skill_executor = SkillExecutor(device_id=self.agent_config.device_id)
+
         self._context: list[dict[str, Any]] = []
         self._step_count = 0
+        self._actions_executed: list[dict[str, Any]] = []
 
-    def run(self, task: str) -> str:
+    def run(self, task: str) -> dict[str, Any]:
         """
         Run the agent to complete a task.
 
@@ -95,11 +101,23 @@ class PhoneAgent:
             task: Natural language description of the task.
 
         Returns:
-            Final message from the agent.
+            Dictionary containing execution results with actions list.
         """
         self._context = []
         self._step_count = 0
-        self.memory.from_json()
+        self._actions_executed = []
+        # self.memory.from_json()
+
+        start_time = time.time()
+        plan = self.planner.plan_task(task)
+        end_time = time.time()
+        print(f"Planning taken: {end_time - start_time:.2f} seconds")
+        if plan.decision == "use_skill":
+            start_time = time.time()
+            actions = self.planner.execute_skill(plan.skill_name, plan.skill_params)
+            self.skill_executor.run(actions=actions)
+            end_time = time.time()
+            print(f"Execution taken: {end_time - start_time:.2f} seconds")
 
         workflow = self.memory.create_workflow(task)
         recorder = WorkflowRecorder(task=task, workflow=workflow)
@@ -107,10 +125,17 @@ class PhoneAgent:
         
         # First step with user prompt
         result = self._execute_step(task, recorder, is_first=True)
+        # time.sleep(1)
         
 
         if result.finished:
-            return result.message or "Task completed"
+            self.memory.to_json()
+            return {
+                'finished': True,
+                'actions': self._actions_executed,
+                'result_message': result.message or "Task completed",
+                'step_count': self._step_count
+            }
 
         # Continue until finished or max steps reached
         while self._step_count < self.agent_config.max_steps:
@@ -118,11 +143,23 @@ class PhoneAgent:
 
             if result.finished:
                 self.memory.to_json()
-                return result.message or "Task completed"
+                return {
+                    'finished': True,
+                    'actions': self._actions_executed,
+                    'result_message': result.message or "Task completed",
+                    'step_count': self._step_count
+                }
+            
+            # time.sleep(1)
         
         self.memory.to_json()
 
-        return "Max steps reached"
+        return {
+            'finished': False,
+            'actions': self._actions_executed,
+            'result_message': "Max steps reached",
+            'step_count': self._step_count
+        }
 
     def step(self, task: str | None = None) -> StepResult:
         """
@@ -147,6 +184,7 @@ class PhoneAgent:
         """Reset the agent state for a new task."""
         self._context = []
         self._step_count = 0
+        self._actions_executed = []
 
     def _execute_step(
         self, user_prompt: str, recorder: WorkflowRecorder, is_first: bool = False
@@ -156,7 +194,7 @@ class PhoneAgent:
 
         # Capture current screen state
         device_factory = get_device_factory()
-        screenshot = device_factory.get_screenshot(self.agent_config.device_id)
+        screenshot = device_factory.get_screenshot(device_id=self.agent_config.device_id)
         current_app = device_factory.get_current_app(self.agent_config.device_id)
         
         work_graph = self.memory.get_work_graph(current_app)
@@ -277,6 +315,9 @@ class PhoneAgent:
             result = self.action_handler.execute(
                 finish(message=str(e)), screenshot.width, screenshot.height
             )
+        
+        # Add executed action to the actions list
+        self._actions_executed.append(action)
 
         # Add assistant response to context
         self._context.append(

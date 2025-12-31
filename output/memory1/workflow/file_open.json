@@ -1,0 +1,356 @@
+[
+  {
+    "id": "f67b0495-eabb-453b-bad2-8b6e5180a38b",
+    "task": "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Then create a drawing using the three colors shown at the top and hit submit. The available colors can be selected with just one Tap.",
+    "tag": "file.open",
+    "path": [
+      {
+        "from_node_id": "82bf726b-722b-4c05-84e1-3b558b46cc5d",
+        "to_node_id": "a8c04de1-8575-42c2-bf49-3f4c9a135f98",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the Files app to access the Downloads folder.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "a8c04de1-8575-42c2-bf49-3f4c9a135f98",
+        "to_node_id": "35161d8c-4316-43aa-b0f8-70ac9542195e",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the \"task.html\" file to open it.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.documentsui:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.documentsui:id/coordinator_layout\"]/DrawerLayout[@resource-id=\"com.google.android.documentsui:id/drawer_layout\"]/ScrollView/FrameLayout/FrameLayout[@resource-id=\"com.google.android.documentsui:id/container_directory\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.documentsui:id/refresh_layout\"]/RecyclerView[@resource-id=\"com.google.android.documentsui:id/dir_list\"]/CardView[@resource-id=\"com.google.android.documentsui:id/item_root\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "35161d8c-4316-43aa-b0f8-70ac9542195e",
+        "to_node_id": "db06e9ef-6203-4786-b93b-6e966e75ede6",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on \"Just once\" to open the file with Chrome.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"android:id/contentPanel\"]/LinearLayout/LinearLayout[@resource-id=\"android:id/button_bar\"]/Button[@resource-id=\"android:id/button_once\" | @text=\"Just once\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "db06e9ef-6203-4786-b93b-6e966e75ede6",
+        "to_node_id": "b39185d6-b960-481f-9d15-229258edba95",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Accept & continue\" button to proceed with Chrome setup.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/RelativeLayout/FrameLayout[@resource-id=\"com.android.chrome:id/fre_bottom_group\"]/Button[@resource-id=\"com.android.chrome:id/terms_accept\" | @text=\"Accept & continue\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "b39185d6-b960-481f-9d15-229258edba95",
+        "to_node_id": "b39185d6-b960-481f-9d15-229258edba95",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap \"No thanks\" to skip turning on sync.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/LinearLayout/LinearLayout[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/negative_button\" | @text=\"No thanks\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "b39185d6-b960-481f-9d15-229258edba95",
+        "to_node_id": "a8c04de1-8575-42c2-bf49-3f4c9a135f98",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap \"No thanks\" to skip turning on sync.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/LinearLayout/LinearLayout[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/negative_button\" | @text=\"No thanks\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "a8c04de1-8575-42c2-bf49-3f4c9a135f98",
+        "to_node_id": "35161d8c-4316-43aa-b0f8-70ac9542195e",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the \"task.html\" file to open it.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.documentsui:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.documentsui:id/coordinator_layout\"]/DrawerLayout[@resource-id=\"com.google.android.documentsui:id/drawer_layout\"]/ScrollView/FrameLayout/FrameLayout[@resource-id=\"com.google.android.documentsui:id/container_directory\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.documentsui:id/refresh_layout\"]/RecyclerView[@resource-id=\"com.google.android.documentsui:id/dir_list\"]/CardView[@resource-id=\"com.google.android.documentsui:id/item_root\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "35161d8c-4316-43aa-b0f8-70ac9542195e",
+        "to_node_id": "cd2816e2-cce3-4812-a574-fbb08e918e0a",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on \"Just once\" to open the file with Chrome.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"android:id/contentPanel\"]/LinearLayout/LinearLayout[@resource-id=\"android:id/button_bar\"]/Button[@resource-id=\"android:id/button_once\" | @text=\"Just once\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "cd2816e2-cce3-4812-a574-fbb08e918e0a",
+        "to_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap \"Keep Google\" to maintain the default search engine and dismiss the dialog.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout/LinearLayout[@resource-id=\"com.android.chrome:id/promo_dialog_layout\"]/ViewGroup[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/button_secondary\" | @text=\"Keep Google\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "to_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the green color square at the top to select it for drawing.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "to_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the green color square at the top to select it for drawing.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "to_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the green color square at the top to select it for drawing.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "to_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the green color square at the top to select it for drawing.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "to_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the green color square at the top to select it for drawing.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "to_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the green color square at the top to select it for drawing.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "to_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the green color square at the top to select it for drawing.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "to_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the green color square at the top to select it for drawing.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "to_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the green color square at the top to select it for drawing.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "to_node_id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the green color square at the top to select it for drawing.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "966cbce5-5377-4a00-bf48-ff2be636543b",
+    "task": "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Black squares represent unreachable walls. Then navigate the X to the bottom-right green cell, by using the direction buttons. ",
+    "tag": "file.open",
+    "path": [
+      {
+        "from_node_id": "82bf726b-722b-4c05-84e1-3b558b46cc5d",
+        "to_node_id": "a8c04de1-8575-42c2-bf49-3f4c9a135f98",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the Files app to access the Downloads folder.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "a8c04de1-8575-42c2-bf49-3f4c9a135f98",
+        "to_node_id": "35161d8c-4316-43aa-b0f8-70ac9542195e",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the \"task.html\" file to open it.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.documentsui:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.documentsui:id/coordinator_layout\"]/DrawerLayout[@resource-id=\"com.google.android.documentsui:id/drawer_layout\"]/ScrollView/FrameLayout/FrameLayout[@resource-id=\"com.google.android.documentsui:id/container_directory\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.documentsui:id/refresh_layout\"]/RecyclerView[@resource-id=\"com.google.android.documentsui:id/dir_list\"]/CardView[@resource-id=\"com.google.android.documentsui:id/item_root\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "35161d8c-4316-43aa-b0f8-70ac9542195e",
+        "to_node_id": "db06e9ef-6203-4786-b93b-6e966e75ede6",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on \"Just once\" to open the file with Chrome.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"android:id/contentPanel\"]/LinearLayout/LinearLayout[@resource-id=\"android:id/button_bar\"]/Button[@resource-id=\"android:id/button_once\" | @text=\"Just once\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "db06e9ef-6203-4786-b93b-6e966e75ede6",
+        "to_node_id": "b39185d6-b960-481f-9d15-229258edba95",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Accept & continue\" button to proceed with Chrome setup.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/RelativeLayout/FrameLayout[@resource-id=\"com.android.chrome:id/fre_bottom_group\"]/Button[@resource-id=\"com.android.chrome:id/terms_accept\" | @text=\"Accept & continue\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "b39185d6-b960-481f-9d15-229258edba95",
+        "to_node_id": "b39185d6-b960-481f-9d15-229258edba95",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap \"No thanks\" to skip turning on sync.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/LinearLayout/LinearLayout[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/negative_button\" | @text=\"No thanks\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "b39185d6-b960-481f-9d15-229258edba95",
+        "to_node_id": "a8c04de1-8575-42c2-bf49-3f4c9a135f98",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap \"No thanks\" to skip turning on sync.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/LinearLayout/LinearLayout[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/negative_button\" | @text=\"No thanks\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "a8c04de1-8575-42c2-bf49-3f4c9a135f98",
+        "to_node_id": "35161d8c-4316-43aa-b0f8-70ac9542195e",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the \"task.html\" file to open it.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.documentsui:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.documentsui:id/coordinator_layout\"]/DrawerLayout[@resource-id=\"com.google.android.documentsui:id/drawer_layout\"]/ScrollView/FrameLayout/FrameLayout[@resource-id=\"com.google.android.documentsui:id/container_directory\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.documentsui:id/refresh_layout\"]/RecyclerView[@resource-id=\"com.google.android.documentsui:id/dir_list\"]/CardView[@resource-id=\"com.google.android.documentsui:id/item_root\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "35161d8c-4316-43aa-b0f8-70ac9542195e",
+        "to_node_id": "cd2816e2-cce3-4812-a574-fbb08e918e0a",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on \"Just once\" to open the file with Chrome.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"android:id/contentPanel\"]/LinearLayout/LinearLayout[@resource-id=\"android:id/button_bar\"]/Button[@resource-id=\"android:id/button_once\" | @text=\"Just once\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "cd2816e2-cce3-4812-a574-fbb08e918e0a",
+        "to_node_id": "eb3fe993-3b6d-40e1-9958-c8ff6c92a422",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"OK\" button to dismiss the search engine prompt.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout/LinearLayout[@resource-id=\"com.android.chrome:id/promo_dialog_layout\"]/ViewGroup[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/button_primary\" | @text=\"OK\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "eb3fe993-3b6d-40e1-9958-c8ff6c92a422",
+        "to_node_id": "c6bc6f21-92cc-483f-9266-c69e85513fd0",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Right\" button to move the \"X\" one step to the right.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Right\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "c6bc6f21-92cc-483f-9266-c69e85513fd0",
+        "to_node_id": "c6bc6f21-92cc-483f-9266-c69e85513fd0",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Right\" button to move the \"X\" one step to the right.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Right\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "c6bc6f21-92cc-483f-9266-c69e85513fd0",
+        "to_node_id": "c6bc6f21-92cc-483f-9266-c69e85513fd0",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Right\" button to move the \"X\" one step to the right.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Right\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "c6bc6f21-92cc-483f-9266-c69e85513fd0",
+        "to_node_id": "c6bc6f21-92cc-483f-9266-c69e85513fd0",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Down\" button to move the \"X\" one step downward.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Down\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "c6bc6f21-92cc-483f-9266-c69e85513fd0",
+        "to_node_id": "c6bc6f21-92cc-483f-9266-c69e85513fd0",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Down\" button to move the \"X\" one step downward.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Down\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "c6bc6f21-92cc-483f-9266-c69e85513fd0",
+        "to_node_id": "85967c63-bc06-4ec4-9064-3dcc08c91b49",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Down\" button to move the \"X\" one step downward.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Down\"]"
+        },
+        "success": true
+      }
+    ]
+  }
+]

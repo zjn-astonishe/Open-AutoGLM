@@ -1,0 +1,482 @@
+{
+  "app": "Chrome",
+  "nodes": {
+    "db06e9ef-6203-4786-b93b-6e966e75ede6": {
+      "id": "db06e9ef-6203-4786-b93b-6e966e75ede6",
+      "elements_info": [
+        {
+          "content": "com.android.chrome:i__androidx.recyclerview.widget.RecyclerView_1080x2209",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_Help make Chrome bet",
+          "option": "enabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/RelativeLayout/ScrollView[@resource-id=\"com.android.chrome:id/scroll_view\"]/LinearLayout[@resource-id=\"com.android.chrome:id/fre_main_layout\"]/LinearLayout[@resource-id=\"com.android.chrome:id/fre_title_and_content\"]/LinearLayout[@resource-id=\"com.android.chrome:id/fre_content_wrapper\"]/CheckBox[@resource-id=\"com.android.chrome:id/send_report_checkbox\" | @text=\"Help make Chrome better by sending usage statistics and crash reports to Google.\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_Accept & continue",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/RelativeLayout/FrameLayout[@resource-id=\"com.android.chrome:id/fre_bottom_group\"]/Button[@resource-id=\"com.android.chrome:id/terms_accept\" | @text=\"Accept & continue\"]"
+        }
+      ],
+      "tasks": [
+        "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Then create a drawing using the three colors shown at the top and hit submit. The available colors can be selected with just one Tap.",
+        "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Black squares represent unreachable walls. Then navigate the X to the bottom-right green cell, by using the direction buttons. "
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Accept & continue\" button to proceed with Chrome setup.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/RelativeLayout/FrameLayout[@resource-id=\"com.android.chrome:id/fre_bottom_group\"]/Button[@resource-id=\"com.android.chrome:id/terms_accept\" | @text=\"Accept & continue\"]"
+        }
+      ],
+      "tag": [
+        "chrome.setup"
+      ]
+    },
+    "b39185d6-b960-481f-9d15-229258edba95": {
+      "id": "b39185d6-b960-481f-9d15-229258edba95",
+      "elements_info": [
+        {
+          "content": "com.android.chrome:i__androidx.recyclerview.widget.RecyclerView_1080x2209",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_No thanks",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/LinearLayout/LinearLayout[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/negative_button\" | @text=\"No thanks\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_Add account",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/LinearLayout/LinearLayout[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/positive_button\" | @text=\"Add account\"]"
+        }
+      ],
+      "tasks": [
+        "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Then create a drawing using the three colors shown at the top and hit submit. The available colors can be selected with just one Tap.",
+        "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Black squares represent unreachable walls. Then navigate the X to the bottom-right green cell, by using the direction buttons. "
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap \"No thanks\" to skip turning on sync.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/LinearLayout/LinearLayout[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/negative_button\" | @text=\"No thanks\"]"
+        }
+      ],
+      "tag": [
+        "chrome.setup"
+      ]
+    },
+    "cd2816e2-cce3-4812-a574-fbb08e918e0a": {
+      "id": "cd2816e2-cce3-4812-a574-fbb08e918e0a",
+      "elements_info": [
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_Keep Google",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout/LinearLayout[@resource-id=\"com.android.chrome:id/promo_dialog_layout\"]/ViewGroup[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/button_secondary\" | @text=\"Keep Google\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_OK",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout/LinearLayout[@resource-id=\"com.android.chrome:id/promo_dialog_layout\"]/ViewGroup[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/button_primary\" | @text=\"OK\"]"
+        }
+      ],
+      "tasks": [
+        "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Then create a drawing using the three colors shown at the top and hit submit. The available colors can be selected with just one Tap.",
+        "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Black squares represent unreachable walls. Then navigate the X to the bottom-right green cell, by using the direction buttons. "
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap \"Keep Google\" to maintain the default search engine and dismiss the dialog.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout/LinearLayout[@resource-id=\"com.android.chrome:id/promo_dialog_layout\"]/ViewGroup[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/button_secondary\" | @text=\"Keep Google\"]"
+        },
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"OK\" button to dismiss the search engine prompt.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout/LinearLayout[@resource-id=\"com.android.chrome:id/promo_dialog_layout\"]/ViewGroup[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/button_primary\" | @text=\"OK\"]"
+        }
+      ],
+      "tag": [
+        "maze.navigate"
+      ]
+    },
+    "a7911a2a-3169-4171-9043-26f1fafbed35": {
+      "id": "a7911a2a-3169-4171-9043-26f1fafbed35",
+      "elements_info": [
+        {
+          "content": "android.widget.FrameLayout_1080x2209__Color Challenge",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]"
+        },
+        {
+          "content": "canvasContainer__canvas",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"canvasContainer\"]/Image[@resource-id=\"canvas\"]"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x84",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x84",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x84",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x84",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x84",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x84",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x84",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x84",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x81",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x81",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x81",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x81",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x81",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x81",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x81",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x81",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x84",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x84",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x84",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x84",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x84",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x84",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x84",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "colorPalette__android.widget.Button_84x84",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        },
+        {
+          "content": "Color Challenge__clearButton_Clear",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/Button[@resource-id=\"clearButton\" | @text=\"Clear\"]"
+        },
+        {
+          "content": "Color Challenge__submitButton_Submit",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/Button[@resource-id=\"submitButton\" | @text=\"Submit\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_Home",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/ImageButton[@resource-id=\"com.android.chrome:id/home_button\" | @content-desc=\"Home\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/FrameLayout[@resource-id=\"com.android.chrome:id/location_bar\"]/LinearLayout[@resource-id=\"com.android.chrome:id/location_bar_status\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_content:__com.androi",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/FrameLayout[@resource-id=\"com.android.chrome:id/location_bar\"]/EditText[@resource-id=\"com.android.chrome:id/url_bar\" | @text=\"content://com.android.providers.downloads.documents/document/raw%3A%2Fstorage%2Femulated%2F0%2FDownload%2Ftask.html\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_Switch or close tabs",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/LinearLayout[@resource-id=\"com.android.chrome:id/toolbar_buttons\"]/ImageButton[@resource-id=\"com.android.chrome:id/tab_switcher_button\" | @content-desc=\"Switch or close tabs\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_More options",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/LinearLayout[@resource-id=\"com.android.chrome:id/toolbar_buttons\"]/FrameLayout[@resource-id=\"com.android.chrome:id/menu_button_wrapper\"]/ImageButton[@resource-id=\"com.android.chrome:id/menu_button\" | @content-desc=\"More options\"]"
+        }
+      ],
+      "tasks": [
+        "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Then create a drawing using the three colors shown at the top and hit submit. The available colors can be selected with just one Tap."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the green color square at the top to select it for drawing.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Color Challenge\"]/View[@resource-id=\"colorPalette\"]/Button"
+        }
+      ],
+      "tag": []
+    },
+    "eb3fe993-3b6d-40e1-9958-c8ff6c92a422": {
+      "id": "eb3fe993-3b6d-40e1-9958-c8ff6c92a422",
+      "elements_info": [
+        {
+          "content": "android.widget.FrameLayout_1080x2209__Maze Puzzle",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]"
+        },
+        {
+          "content": "android.view.View_1065x76__Up",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Up\"]"
+        },
+        {
+          "content": "android.view.View_1065x76__Down",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Down\"]"
+        },
+        {
+          "content": "android.view.View_1065x76__Left",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Left\"]"
+        },
+        {
+          "content": "android.view.View_1065x76__Right",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Right\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_Home",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/ImageButton[@resource-id=\"com.android.chrome:id/home_button\" | @content-desc=\"Home\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/FrameLayout[@resource-id=\"com.android.chrome:id/location_bar\"]/LinearLayout[@resource-id=\"com.android.chrome:id/location_bar_status\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_content:__com.androi",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/FrameLayout[@resource-id=\"com.android.chrome:id/location_bar\"]/EditText[@resource-id=\"com.android.chrome:id/url_bar\" | @text=\"content://com.android.providers.downloads.documents/document/raw%3A%2Fstorage%2Femulated%2F0%2FDownload%2Ftask.html\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_Switch or close tabs",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/LinearLayout[@resource-id=\"com.android.chrome:id/toolbar_buttons\"]/ImageButton[@resource-id=\"com.android.chrome:id/tab_switcher_button\" | @content-desc=\"Switch or close tabs\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_More options",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/LinearLayout[@resource-id=\"com.android.chrome:id/toolbar_buttons\"]/FrameLayout[@resource-id=\"com.android.chrome:id/menu_button_wrapper\"]/ImageButton[@resource-id=\"com.android.chrome:id/menu_button\" | @content-desc=\"More options\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_Settings_Settings",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/bottom_container\"]/RelativeLayout/LinearLayout[@resource-id=\"com.android.chrome:id/snackbar\"]/Button[@resource-id=\"com.android.chrome:id/snackbar_button\" | @content-desc=\"Settings\" | @text=\"Settings\"]"
+        }
+      ],
+      "tasks": [
+        "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Black squares represent unreachable walls. Then navigate the X to the bottom-right green cell, by using the direction buttons. "
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Right\" button to move the \"X\" one step to the right.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Right\"]"
+        }
+      ],
+      "tag": [
+        "maze.navigate"
+      ]
+    },
+    "c6bc6f21-92cc-483f-9266-c69e85513fd0": {
+      "id": "c6bc6f21-92cc-483f-9266-c69e85513fd0",
+      "elements_info": [
+        {
+          "content": "android.widget.FrameLayout_1080x2209__Maze Puzzle",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]"
+        },
+        {
+          "content": "android.view.View_1065x76__Up",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Up\"]"
+        },
+        {
+          "content": "android.view.View_1065x76__Down",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Down\"]"
+        },
+        {
+          "content": "android.view.View_1065x76__Left",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Left\"]"
+        },
+        {
+          "content": "android.view.View_1065x76__Right",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Right\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_Home",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/ImageButton[@resource-id=\"com.android.chrome:id/home_button\" | @content-desc=\"Home\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/FrameLayout[@resource-id=\"com.android.chrome:id/location_bar\"]/LinearLayout[@resource-id=\"com.android.chrome:id/location_bar_status\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_content:__com.androi",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/FrameLayout[@resource-id=\"com.android.chrome:id/location_bar\"]/EditText[@resource-id=\"com.android.chrome:id/url_bar\" | @text=\"content://com.android.providers.downloads.documents/document/raw%3A%2Fstorage%2Femulated%2F0%2FDownload%2Ftask.html\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_Switch or close tabs",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/LinearLayout[@resource-id=\"com.android.chrome:id/toolbar_buttons\"]/ImageButton[@resource-id=\"com.android.chrome:id/tab_switcher_button\" | @content-desc=\"Switch or close tabs\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_More options",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/LinearLayout[@resource-id=\"com.android.chrome:id/toolbar_buttons\"]/FrameLayout[@resource-id=\"com.android.chrome:id/menu_button_wrapper\"]/ImageButton[@resource-id=\"com.android.chrome:id/menu_button\" | @content-desc=\"More options\"]"
+        }
+      ],
+      "tasks": [
+        "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Black squares represent unreachable walls. Then navigate the X to the bottom-right green cell, by using the direction buttons. "
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Right\" button to move the \"X\" one step to the right.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Right\"]"
+        },
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Down\" button to move the \"X\" one step downward.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Down\"]"
+        }
+      ],
+      "tag": [
+        "maze.navigate"
+      ]
+    },
+    "85967c63-bc06-4ec4-9064-3dcc08c91b49": {
+      "id": "85967c63-bc06-4ec4-9064-3dcc08c91b49",
+      "elements_info": [
+        {
+          "content": "android.widget.FrameLayout_1080x2209__Maze Puzzle",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_Home",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/ImageButton[@resource-id=\"com.android.chrome:id/home_button\" | @content-desc=\"Home\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/FrameLayout[@resource-id=\"com.android.chrome:id/location_bar\"]/LinearLayout[@resource-id=\"com.android.chrome:id/location_bar_status\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_content:__com.androi",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/FrameLayout[@resource-id=\"com.android.chrome:id/location_bar\"]/EditText[@resource-id=\"com.android.chrome:id/url_bar\" | @text=\"content://com.android.providers.downloads.documents/document/raw%3A%2Fstorage%2Femulated%2F0%2FDownload%2Ftask.html\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_Switch or close tabs",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/LinearLayout[@resource-id=\"com.android.chrome:id/toolbar_buttons\"]/ImageButton[@resource-id=\"com.android.chrome:id/tab_switcher_button\" | @content-desc=\"Switch or close tabs\"]"
+        },
+        {
+          "content": "com.android.chrome:i__com.android.chrome:i_More options",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/control_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar_container\"]/FrameLayout[@resource-id=\"com.android.chrome:id/toolbar\"]/LinearLayout[@resource-id=\"com.android.chrome:id/toolbar_buttons\"]/FrameLayout[@resource-id=\"com.android.chrome:id/menu_button_wrapper\"]/ImageButton[@resource-id=\"com.android.chrome:id/menu_button\" | @content-desc=\"More options\"]"
+        }
+      ],
+      "tasks": [
+        "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Black squares represent unreachable walls. Then navigate the X to the bottom-right green cell, by using the direction buttons. "
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "The task is complete as the \"X\" has successfully reached the bottom-right green cell.",
+          "zone_path": null
+        }
+      ],
+      "tag": [
+        "maze.navigation"
+      ]
+    }
+  }
+}
