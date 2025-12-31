@@ -1,0 +1,818 @@
+{
+  "app": "GoogleContacts",
+  "nodes": {
+    "f93a6e9d-2b8e-4822-b7f8-c3bbb9530776": {
+      "id": "f93a6e9d-2b8e-4822-b7f8-c3bbb9530776",
+      "elements_info": [
+        {
+          "content": "com.google.android.c__Cancel",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/ImageButton[@content-desc=\"Cancel\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Save",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+        },
+        {
+          "content": "android.support.v7.widget.LinearLayoutCompat_357x147__More options",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/ImageView[@content-desc=\"More options\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]"
+        },
+        {
+          "content": "com.google.android.c_Save to Device__com.google.android.c_Device_Switch to another ac",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/account_header_container\" | @content-desc=\"Save to Device\"]/Button[@resource-id=\"com.google.android.contacts:id/account_chip\" | @content-desc=\"Switch to another account\" | @text=\"Device\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Add contact photo",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/header_container\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_editor\"]/FrameLayout[@resource-id=\"com.google.android.contacts:id/photo_update_clickable\" | @content-desc=\"Add contact photo\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Add picture",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/header_container\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_editor\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_actions_view_group\"]/Button[@resource-id=\"com.google.android.contacts:id/button_change_photo\" | @text=\"Add picture\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__First name",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Last name",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_943x391__com.google.android.c",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/expansion_view_container\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Company",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Company\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Phone",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_449x149__Mobile_Mobile Phone",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/Spinner[@content-desc=\"Mobile Phone\" | @text=\"Mobile\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_137x149__com.google.android.c_Show dropdown menu",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Email",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Email\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_420x149__Home_Home Email",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/Spinner[@content-desc=\"Home Email\" | @text=\"Home\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_137x149__com.google.android.c_Show dropdown menu",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]"
+        }
+      ],
+      "tasks": [
+        "Create a new contact for Willow Mohammed. Their number is +15794964753."
+      ],
+      "actions": [
+        {
+          "action_type": "Type",
+          "description": "Enter \"Willow\" in the First name field.",
+          "zone_path": null
+        },
+        {
+          "action_type": "Tap",
+          "description": "Tap on the \"First name\" field to enter the contact's first name.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+        }
+      ],
+      "tag": []
+    },
+    "f55ee70b-2137-4745-a26c-9f5e5139c209": {
+      "id": "f55ee70b-2137-4745-a26c-9f5e5139c209",
+      "elements_info": [
+        {
+          "content": "com.google.android.c__Cancel",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/ImageButton[@content-desc=\"Cancel\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Save",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+        },
+        {
+          "content": "android.support.v7.widget.LinearLayoutCompat_357x147__More options",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/ImageView[@content-desc=\"More options\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]"
+        },
+        {
+          "content": "com.google.android.c_Save to Device__com.google.android.c_Device_Switch to another ac",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/account_header_container\" | @content-desc=\"Save to Device\"]/Button[@resource-id=\"com.google.android.contacts:id/account_chip\" | @content-desc=\"Switch to another account\" | @text=\"Device\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Add contact photo",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/header_container\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_editor\"]/FrameLayout[@resource-id=\"com.google.android.contacts:id/photo_update_clickable\" | @content-desc=\"Add contact photo\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Add picture",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/header_container\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_editor\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_actions_view_group\"]/Button[@resource-id=\"com.google.android.contacts:id/button_change_photo\" | @text=\"Add picture\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__First name",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_943x391__com.google.android.c",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/expansion_view_container\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Company",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Company\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Phone",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_449x149__Mobile_Mobile Phone",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/Spinner[@content-desc=\"Mobile Phone\" | @text=\"Mobile\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_137x149__com.google.android.c_Show dropdown menu",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Email",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Email\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_420x40__Home_Home Email",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/Spinner[@content-desc=\"Home Email\" | @text=\"Home\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_137x40__com.google.android.c_Show dropdown menu",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Back",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_back\" | @content-desc=\"Back\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Switch input method",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_ime_switcher\" | @content-desc=\"Switch input method\"]"
+        }
+      ],
+      "tasks": [
+        "Create a new contact for Willow Mohammed. Their number is +15794964753."
+      ],
+      "actions": [
+        {
+          "action_type": "Type",
+          "description": "Type \"Willow\" into the First name field.",
+          "zone_path": null
+        }
+      ],
+      "tag": []
+    },
+    "9cc7c208-ef71-4f7c-8a2f-ff782a09fa1e": {
+      "id": "9cc7c208-ef71-4f7c-8a2f-ff782a09fa1e",
+      "elements_info": [
+        {
+          "content": "com.google.android.c__Cancel",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/ImageButton[@content-desc=\"Cancel\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Save",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+        },
+        {
+          "content": "android.support.v7.widget.LinearLayoutCompat_357x147__More options",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/ImageView[@content-desc=\"More options\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]"
+        },
+        {
+          "content": "com.google.android.c_Save to Device__com.google.android.c_Device_Switch to another ac",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/account_header_container\" | @content-desc=\"Save to Device\"]/Button[@resource-id=\"com.google.android.contacts:id/account_chip\" | @content-desc=\"Switch to another account\" | @text=\"Device\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Add contact photo",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/header_container\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_editor\"]/FrameLayout[@resource-id=\"com.google.android.contacts:id/photo_update_clickable\" | @content-desc=\"Add contact photo\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Add picture",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/header_container\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_editor\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_actions_view_group\"]/Button[@resource-id=\"com.google.android.contacts:id/button_change_photo\" | @text=\"Add picture\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Willow",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Willow\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_943x391__com.google.android.c",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/expansion_view_container\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Company",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Company\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Phone",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_449x149__Mobile_Mobile Phone",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/Spinner[@content-desc=\"Mobile Phone\" | @text=\"Mobile\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_137x149__com.google.android.c_Show dropdown menu",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Email",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Email\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_420x40__Home_Home Email",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/Spinner[@content-desc=\"Home Email\" | @text=\"Home\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_137x40__com.google.android.c_Show dropdown menu",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Back",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_back\" | @content-desc=\"Back\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Switch input method",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_ime_switcher\" | @content-desc=\"Switch input method\"]"
+        }
+      ],
+      "tasks": [
+        "Create a new contact for Willow Mohammed. Their number is +15794964753."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the Last name field to enter the contact's last name.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Company\"]"
+        },
+        {
+          "action_type": "Tap",
+          "description": "Tap on the Last name field to enter the contact's last name.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/expansion_view_container\"]"
+        }
+      ],
+      "tag": []
+    },
+    "8c838e82-2765-4a78-ab26-ec91daf74854": {
+      "id": "8c838e82-2765-4a78-ab26-ec91daf74854",
+      "elements_info": [
+        {
+          "content": "com.google.android.c__Cancel",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/ImageButton[@content-desc=\"Cancel\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Save",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+        },
+        {
+          "content": "android.support.v7.widget.LinearLayoutCompat_357x147__More options",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/ImageView[@content-desc=\"More options\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]"
+        },
+        {
+          "content": "com.google.android.c_Save to Device__com.google.android.c_Device_Switch to another ac",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/account_header_container\" | @content-desc=\"Save to Device\"]/Button[@resource-id=\"com.google.android.contacts:id/account_chip\" | @content-desc=\"Switch to another account\" | @text=\"Device\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Add contact photo",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/header_container\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_editor\"]/FrameLayout[@resource-id=\"com.google.android.contacts:id/photo_update_clickable\" | @content-desc=\"Add contact photo\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Add picture",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/header_container\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_editor\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_actions_view_group\"]/Button[@resource-id=\"com.google.android.contacts:id/button_change_photo\" | @text=\"Add picture\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Name prefix",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Name prefix\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Willow",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Willow\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Middle name",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Middle name\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Last name",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Name suffix",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Name suffix\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_943x946__com.google.android.c",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/expansion_view_container\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Company",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Company\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Phone",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        }
+      ],
+      "tasks": [
+        "Create a new contact for Willow Mohammed. Their number is +15794964753."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the Last name field to enter the contact's last name.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+        }
+      ],
+      "tag": []
+    },
+    "4922a194-0842-450a-911c-6e99277d778d": {
+      "id": "4922a194-0842-450a-911c-6e99277d778d",
+      "elements_info": [
+        {
+          "content": "com.google.android.c__Cancel",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/ImageButton[@content-desc=\"Cancel\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Save",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+        },
+        {
+          "content": "android.support.v7.widget.LinearLayoutCompat_357x147__More options",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/ImageView[@content-desc=\"More options\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]"
+        },
+        {
+          "content": "com.google.android.c_Save to Device__com.google.android.c_Device_Switch to another ac",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/account_header_container\" | @content-desc=\"Save to Device\"]/Button[@resource-id=\"com.google.android.contacts:id/account_chip\" | @content-desc=\"Switch to another account\" | @text=\"Device\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Add contact photo",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/header_container\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_editor\"]/FrameLayout[@resource-id=\"com.google.android.contacts:id/photo_update_clickable\" | @content-desc=\"Add contact photo\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Add picture",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/header_container\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_editor\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_actions_view_group\"]/Button[@resource-id=\"com.google.android.contacts:id/button_change_photo\" | @text=\"Add picture\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Name prefix",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Name prefix\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Middle name",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Middle name\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Last name",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Name suffix",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Name suffix\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_943x946__com.google.android.c",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/expansion_view_container\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Company",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Company\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x66__Phone",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Back",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_back\" | @content-desc=\"Back\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Switch input method",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_ime_switcher\" | @content-desc=\"Switch input method\"]"
+        }
+      ],
+      "tasks": [
+        "Create a new contact for Willow Mohammed. Their number is +15794964753."
+      ],
+      "actions": [
+        {
+          "action_type": "Type",
+          "description": "Type \"Mohammed\" into the Last name field.",
+          "zone_path": null
+        }
+      ],
+      "tag": []
+    },
+    "65a106d1-b118-4db0-9068-644adafd7256": {
+      "id": "65a106d1-b118-4db0-9068-644adafd7256",
+      "elements_info": [
+        {
+          "content": "com.google.android.c__Cancel",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/ImageButton[@content-desc=\"Cancel\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Save",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+        },
+        {
+          "content": "android.support.v7.widget.LinearLayoutCompat_357x147__More options",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/ImageView[@content-desc=\"More options\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]"
+        },
+        {
+          "content": "com.google.android.c_Save to Device__com.google.android.c_Device_Switch to another ac",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/account_header_container\" | @content-desc=\"Save to Device\"]/Button[@resource-id=\"com.google.android.contacts:id/account_chip\" | @content-desc=\"Switch to another account\" | @text=\"Device\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Add contact photo",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/header_container\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_editor\"]/FrameLayout[@resource-id=\"com.google.android.contacts:id/photo_update_clickable\" | @content-desc=\"Add contact photo\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Add picture",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/header_container\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_editor\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_actions_view_group\"]/Button[@resource-id=\"com.google.android.contacts:id/button_change_photo\" | @text=\"Add picture\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Name prefix",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Name prefix\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Middle name",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Middle name\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Mohammed",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Mohammed\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Name suffix",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Name suffix\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_943x946__com.google.android.c",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/expansion_view_container\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Company",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Company\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x66__Phone",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Back",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_back\" | @content-desc=\"Back\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Switch input method",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_ime_switcher\" | @content-desc=\"Switch input method\"]"
+        }
+      ],
+      "tasks": [
+        "Create a new contact for Willow Mohammed. Their number is +15794964753."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the Phone field to enter the contact's phone number.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        }
+      ],
+      "tag": []
+    },
+    "3b4a130f-f149-491c-a395-a29ae1d2f8dc": {
+      "id": "3b4a130f-f149-491c-a395-a29ae1d2f8dc",
+      "elements_info": [
+        {
+          "content": "com.google.android.c__Cancel",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/ImageButton[@content-desc=\"Cancel\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Save",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+        },
+        {
+          "content": "android.support.v7.widget.LinearLayoutCompat_357x147__More options",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/ImageView[@content-desc=\"More options\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]"
+        },
+        {
+          "content": "com.google.android.c_Save to Device__com.google.android.c_Device_Switch to another ac",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/account_header_container\" | @content-desc=\"Save to Device\"]/Button[@resource-id=\"com.google.android.contacts:id/account_chip\" | @content-desc=\"Switch to another account\" | @text=\"Device\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Add contact photo",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/header_container\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_editor\"]/FrameLayout[@resource-id=\"com.google.android.contacts:id/photo_update_clickable\" | @content-desc=\"Add contact photo\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Add picture",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/header_container\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_editor\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_actions_view_group\"]/Button[@resource-id=\"com.google.android.contacts:id/button_change_photo\" | @text=\"Add picture\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Name prefix",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Name prefix\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Willow",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Willow\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Middle name",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Middle name\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Mohammed",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Mohammed\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Name suffix",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Name suffix\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_943x946__com.google.android.c",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/expansion_view_container\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Company",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Company\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Phone",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Back",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_back\" | @content-desc=\"Back\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Switch input method",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_ime_switcher\" | @content-desc=\"Switch input method\"]"
+        }
+      ],
+      "tasks": [
+        "Create a new contact for Willow Mohammed. Their number is +15794964753."
+      ],
+      "actions": [
+        {
+          "action_type": "Type",
+          "description": "Enter the phone number +15794964753 in the Phone field.",
+          "zone_path": null
+        }
+      ],
+      "tag": []
+    },
+    "5b8cdde9-2101-45c2-a6e8-2d7fde3f1d7e": {
+      "id": "5b8cdde9-2101-45c2-a6e8-2d7fde3f1d7e",
+      "elements_info": [
+        {
+          "content": "com.google.android.c__Cancel",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/ImageButton[@content-desc=\"Cancel\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Save",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+        },
+        {
+          "content": "android.support.v7.widget.LinearLayoutCompat_357x147__More options",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/ImageView[@content-desc=\"More options\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]"
+        },
+        {
+          "content": "com.google.android.c_Save to Device__com.google.android.c_Device_Switch to another ac",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/account_header_container\" | @content-desc=\"Save to Device\"]/Button[@resource-id=\"com.google.android.contacts:id/account_chip\" | @content-desc=\"Switch to another account\" | @text=\"Device\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Add contact photo",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/header_container\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_editor\"]/FrameLayout[@resource-id=\"com.google.android.contacts:id/photo_update_clickable\" | @content-desc=\"Add contact photo\"]"
+        },
+        {
+          "content": "com.google.android.c__com.google.android.c_Add picture",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/header_container\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_editor\"]/LinearLayoutCompat[@resource-id=\"com.google.android.contacts:id/photo_actions_view_group\"]/Button[@resource-id=\"com.google.android.contacts:id/button_change_photo\" | @text=\"Add picture\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Name prefix",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Name prefix\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Willow",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Willow\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Middle name",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Middle name\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Mohammed",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Mohammed\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Name suffix",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Name suffix\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_943x946__com.google.android.c",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/expansion_view_container\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__Company",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Company\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_796x149__+1 579-496-4753",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"+1 579-496-4753\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_943x164__com.google.android.c_Delete Mobile Phone",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/delete_button_container\" | @content-desc=\"Delete Mobile Phone\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Back",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_back\" | @content-desc=\"Back\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Switch input method",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_ime_switcher\" | @content-desc=\"Switch input method\"]"
+        }
+      ],
+      "tasks": [
+        "Create a new contact for Willow Mohammed. Their number is +15794964753."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the Save button to create the new contact.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+        }
+      ],
+      "tag": []
+    }
+  }
+}

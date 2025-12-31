@@ -42,7 +42,7 @@ class SkillExecutor:
     def _execute_step(self, action_code: Dict[str, Any]) -> StepResult:
         
         device_factory = get_device_factory()
-        screenshot = device_factory.get_screenshot(self.device_id)
+        screenshot = device_factory.get_screenshot(device_id=self.device_id)
         elements_info = []
 
         for e in screenshot.elements:

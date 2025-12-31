@@ -1,0 +1,226 @@
+{
+  "app": "System Home",
+  "nodes": {
+    "5775babc-c71a-4f6f-9589-df94cb8a4146": {
+      "id": "5775babc-c71a-4f6f-9589-df94cb8a4146",
+      "elements_info": [
+        {
+          "content": "com.google.android.a__com.google.android.a",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]"
+        },
+        {
+          "content": "com.google.android.a__com.google.android.a",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]/ViewGroup/ViewGroup/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_workspace\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/bc_smartspace_view\"]/ViewPager[@resource-id=\"com.google.android.apps.nexuslauncher:id/smartspace_card_pager\"]"
+        },
+        {
+          "content": "com.google.android.a__com.google.android.a_Sun, Oct 15_Sun, Oct 15",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]/ViewGroup/ViewGroup/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_workspace\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/bc_smartspace_view\"]/ViewPager[@resource-id=\"com.google.android.apps.nexuslauncher:id/smartspace_card_pager\"]/ViewGroup/RelativeLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/text_group\"]/TextView[@resource-id=\"com.google.android.apps.nexuslauncher:id/date\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_966x1528__Gmail_Gmail",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]/ViewGroup/ViewGroup/TextView[@content-desc=\"Gmail\" | @text=\"Gmail\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_966x1528__Photos_Photos",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]/ViewGroup/ViewGroup/TextView[@content-desc=\"Photos\" | @text=\"Photos\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_966x1528__YouTube_YouTube",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]/ViewGroup/ViewGroup/TextView[@content-desc=\"YouTube\" | @text=\"YouTube\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_928x195__Phone_Phone",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/ViewGroup/TextView[@content-desc=\"Phone\" | @text=\"Phone\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_928x195__Messages_Messages",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/ViewGroup/TextView[@content-desc=\"Messages\" | @text=\"Messages\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_928x195__Chrome_Chrome",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/ViewGroup/TextView[@content-desc=\"Chrome\" | @text=\"Chrome\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_928x195__Gmail_Predicted app: Gmail",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/ViewGroup/TextView[@content-desc=\"Predicted app: Gmail\" | @text=\"Gmail\"]"
+        },
+        {
+          "content": "com.google.android.a__com.google.android.a_Search",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_hotseat\" | @content-desc=\"Search\"]"
+        },
+        {
+          "content": "com.google.android.a_Search__com.google.android.a_Google app",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_hotseat\" | @content-desc=\"Search\"]/ImageView[@resource-id=\"com.google.android.apps.nexuslauncher:id/g_icon\" | @content-desc=\"Google app\"]"
+        },
+        {
+          "content": "com.google.android.a__com.google.android.a_Voice search",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_hotseat\" | @content-desc=\"Search\"]/LinearLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/end_part\"]/ImageView[@resource-id=\"com.google.android.apps.nexuslauncher:id/mic_icon\" | @content-desc=\"Voice search\"]"
+        },
+        {
+          "content": "com.google.android.a__com.google.android.a_Google Lens",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_hotseat\" | @content-desc=\"Search\"]/LinearLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/end_part\"]/ImageButton[@resource-id=\"com.google.android.apps.nexuslauncher:id/lens_icon\" | @content-desc=\"Google Lens\"]"
+        }
+      ],
+      "tasks": [
+        "Create a new contact for Willow Mohammed. Their number is +15794964753.",
+        "Pause the stopwatch."
+      ],
+      "actions": [
+        {
+          "action_type": "Swipe",
+          "description": "Swipe up from the bottom of the screen to open the app drawer and locate the Contacts app.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]"
+        },
+        {
+          "action_type": "Swipe",
+          "description": "Swipe up from the bottom of the screen to open the app drawer and locate the Contacts app.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]/ViewGroup/ViewGroup/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_workspace\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/bc_smartspace_view\"]/ViewPager[@resource-id=\"com.google.android.apps.nexuslauncher:id/smartspace_card_pager\"]"
+        },
+        {
+          "action_type": "Tap",
+          "description": "Tap the Phone app icon to open the dialer and access the contacts section.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/ViewGroup/TextView[@content-desc=\"Phone\" | @text=\"Phone\"]"
+        },
+        {
+          "action_type": "Launch",
+          "description": "Launch the Clock app to access the stopwatch.",
+          "zone_path": null
+        }
+      ],
+      "tag": [
+        "stopwatch.pause"
+      ]
+    },
+    "e7fab2f3-475d-4111-9054-e15cde8107f5": {
+      "id": "e7fab2f3-475d-4111-9054-e15cde8107f5",
+      "elements_info": [
+        {
+          "content": "com.google.android.d__com.google.android.d_Create new contact",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/ViewGroup[@resource-id=\"com.google.android.dialer:id/main_activity_coordinator_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/fragment_container\"]/FrameLayout/ViewGroup[@resource-id=\"com.google.android.dialer:id/empty_list_view\"]/TextView[@resource-id=\"com.google.android.dialer:id/empty_content_view_action\" | @text=\"Create new contact\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_273x273__com.google.android.d_key pad",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/ViewGroup[@resource-id=\"com.google.android.dialer:id/main_activity_coordinator_layout\"]/LinearLayout/ImageButton[@resource-id=\"com.google.android.dialer:id/dialpad_fab\" | @content-desc=\"key pad\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x168__com.google.android.d_Search contacts & pl",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/open_search_bar_fragment_container\"]/ViewGroup/EditText[@resource-id=\"com.google.android.dialer:id/open_search_bar\" | @text=\"Search contacts & places\"]"
+        },
+        {
+          "content": "android.support.v7.widget.LinearLayoutCompat_253x126__com.google.android.d_Start voice search",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/open_search_bar_fragment_container\"]/ViewGroup/EditText[@resource-id=\"com.google.android.dialer:id/open_search_bar\" | @text=\"Search contacts & places\"]/LinearLayoutCompat/Button[@resource-id=\"com.google.android.dialer:id/action_voice\" | @content-desc=\"Start voice search\"]"
+        },
+        {
+          "content": "android.support.v7.widget.LinearLayoutCompat_253x126__More options",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/open_search_bar_fragment_container\"]/ViewGroup/EditText[@resource-id=\"com.google.android.dialer:id/open_search_bar\" | @text=\"Search contacts & places\"]/LinearLayoutCompat/ImageView[@content-desc=\"More options\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Favorites",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/bottom_nav_bar_fragment_container\"]/FrameLayout/FrameLayout[@resource-id=\"com.google.android.dialer:id/navigation_bar_layout\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.dialer:id/tab_speed_dial\" | @content-desc=\"Favorites\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Recents",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/bottom_nav_bar_fragment_container\"]/FrameLayout/FrameLayout[@resource-id=\"com.google.android.dialer:id/navigation_bar_layout\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.dialer:id/tab_call_history\" | @content-desc=\"Recents\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Voicemail",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/bottom_nav_bar_fragment_container\"]/FrameLayout/FrameLayout[@resource-id=\"com.google.android.dialer:id/navigation_bar_layout\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.dialer:id/tab_voicemail\" | @content-desc=\"Voicemail\"]"
+        }
+      ],
+      "tasks": [
+        "Create a new contact for Willow Mohammed. Their number is +15794964753."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the \"Create new contact\" option to begin adding Willow Mohammed's information.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/ViewGroup[@resource-id=\"com.google.android.dialer:id/main_activity_coordinator_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/fragment_container\"]/FrameLayout/ViewGroup[@resource-id=\"com.google.android.dialer:id/empty_list_view\"]/TextView[@resource-id=\"com.google.android.dialer:id/empty_content_view_action\" | @text=\"Create new contact\"]"
+        }
+      ],
+      "tag": []
+    },
+    "af7d7d44-c4f3-44ff-8732-f9f6d4e032ed": {
+      "id": "af7d7d44-c4f3-44ff-8732-f9f6d4e032ed",
+      "elements_info": [
+        {
+          "content": "com.google.android.d__com.google.android.d",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/ViewGroup[@resource-id=\"com.google.android.dialer:id/main_activity_coordinator_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/fragment_container\"]/FrameLayout/RecyclerView[@resource-id=\"com.google.android.dialer:id/recycler_view\"]/LinearLayout[@resource-id=\"com.google.android.dialer:id/click_target\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_1080x147__com.google.android.d",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/ViewGroup[@resource-id=\"com.google.android.dialer:id/main_activity_coordinator_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/fragment_container\"]/FrameLayout/RecyclerView[@resource-id=\"com.google.android.dialer:id/recycler_view\"]/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/click_target\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_273x273__com.google.android.d_key pad",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/ViewGroup[@resource-id=\"com.google.android.dialer:id/main_activity_coordinator_layout\"]/LinearLayout/ImageButton[@resource-id=\"com.google.android.dialer:id/dialpad_fab\" | @content-desc=\"key pad\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x168__com.google.android.d_Search contacts & pl",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/open_search_bar_fragment_container\"]/ViewGroup/EditText[@resource-id=\"com.google.android.dialer:id/open_search_bar\" | @text=\"Search contacts & places\"]"
+        },
+        {
+          "content": "android.support.v7.widget.LinearLayoutCompat_253x126__com.google.android.d_Start voice search",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/open_search_bar_fragment_container\"]/ViewGroup/EditText[@resource-id=\"com.google.android.dialer:id/open_search_bar\" | @text=\"Search contacts & places\"]/LinearLayoutCompat/Button[@resource-id=\"com.google.android.dialer:id/action_voice\" | @content-desc=\"Start voice search\"]"
+        },
+        {
+          "content": "android.support.v7.widget.LinearLayoutCompat_253x126__More options",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/open_search_bar_fragment_container\"]/ViewGroup/EditText[@resource-id=\"com.google.android.dialer:id/open_search_bar\" | @text=\"Search contacts & places\"]/LinearLayoutCompat/ImageView[@content-desc=\"More options\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Favorites",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/bottom_nav_bar_fragment_container\"]/FrameLayout/FrameLayout[@resource-id=\"com.google.android.dialer:id/navigation_bar_layout\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.dialer:id/tab_speed_dial\" | @content-desc=\"Favorites\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Recents",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/bottom_nav_bar_fragment_container\"]/FrameLayout/FrameLayout[@resource-id=\"com.google.android.dialer:id/navigation_bar_layout\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.dialer:id/tab_call_history\" | @content-desc=\"Recents\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Voicemail",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/bottom_nav_bar_fragment_container\"]/FrameLayout/FrameLayout[@resource-id=\"com.google.android.dialer:id/navigation_bar_layout\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.dialer:id/tab_voicemail\" | @content-desc=\"Voicemail\"]"
+        }
+      ],
+      "tasks": [
+        "Create a new contact for Willow Mohammed. Their number is +15794964753."
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "The contact creation task is complete.",
+          "zone_path": null
+        }
+      ],
+      "tag": []
+    }
+  }
+}

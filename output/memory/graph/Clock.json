@@ -1,0 +1,162 @@
+{
+  "app": "Clock",
+  "nodes": {
+    "cadecb56-dc44-4bd3-8324-7c80e4725af8": {
+      "id": "cadecb56-dc44-4bd3-8324-7c80e4725af8",
+      "elements_info": [
+        {
+          "content": "android.support.v7.widget.LinearLayoutCompat_105x147__com.google.android.d_More options",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/app_bar_layout\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/toolbar\"]/LinearLayoutCompat/ImageView[@resource-id=\"com.google.android.deskclock:id/overflow_action_button\" | @content-desc=\"More options\"]"
+        },
+        {
+          "content": "com.google.android.d__com.google.android.d_Add city",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager_frame\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/fab_container\"]/Button[@resource-id=\"com.google.android.deskclock:id/fab\" | @content-desc=\"Add city\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Alarm",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_alarm\" | @content-desc=\"Alarm\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Timer",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_timer\" | @content-desc=\"Timer\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Stopwatch",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_stopwatch\" | @content-desc=\"Stopwatch\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Bedtime",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_bedtime\" | @content-desc=\"Bedtime\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_590x121__android.view.ViewGroup_590x121",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/ViewGroup"
+        }
+      ],
+      "tasks": [
+        "Pause the stopwatch."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the Stopwatch tab in the bottom navigation bar to open the stopwatch.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_stopwatch\" | @content-desc=\"Stopwatch\"]"
+        }
+      ],
+      "tag": []
+    },
+    "c845902d-0c02-4661-babf-a32f0ecd79b7": {
+      "id": "c845902d-0c02-4661-babf-a32f0ecd79b7",
+      "elements_info": [
+        {
+          "content": "android.support.v7.widget.LinearLayoutCompat_105x147__com.google.android.d_More options",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/app_bar_layout\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/toolbar\"]/LinearLayoutCompat/ImageView[@resource-id=\"com.google.android.deskclock:id/overflow_action_button\" | @content-desc=\"More options\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x1831__com.google.android.d",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager_frame\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager\"]/FrameLayout/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/stopwatch_time_wrapper\"]"
+        },
+        {
+          "content": "com.google.android.d__com.google.android.d_Start",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager_frame\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/fab_container\"]/Button[@resource-id=\"com.google.android.deskclock:id/fab\" | @content-desc=\"Start\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Alarm",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_alarm\" | @content-desc=\"Alarm\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Clock",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_clock\" | @content-desc=\"Clock\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Timer",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_timer\" | @content-desc=\"Timer\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Bedtime",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_bedtime\" | @content-desc=\"Bedtime\"]"
+        }
+      ],
+      "tasks": [
+        "Pause the stopwatch."
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "The stopwatch is already stopped; no further action is needed.",
+          "zone_path": null
+        }
+      ],
+      "tag": [
+        "stopwatch.pause"
+      ]
+    },
+    "b04072d6-1e5d-449c-acda-e3bc2022b028": {
+      "id": "b04072d6-1e5d-449c-acda-e3bc2022b028",
+      "elements_info": [
+        {
+          "content": "android.widget.FrameLayout_590x121__android.view.ViewGroup_590x121",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/ViewGroup"
+        },
+        {
+          "content": "android.support.v7.widget.LinearLayoutCompat_105x147__com.google.android.d_More options",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/LinearLayout[@resource-id=\"com.google.android.deskclock:id/app_bar_layout\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/toolbar\"]/LinearLayoutCompat/ImageView[@resource-id=\"com.google.android.deskclock:id/overflow_action_button\" | @content-desc=\"More options\"]"
+        },
+        {
+          "content": "com.google.android.d__com.google.android.d_Add city",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager_frame\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/fab_container\"]/Button[@resource-id=\"com.google.android.deskclock:id/fab\" | @content-desc=\"Add city\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Alarm",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_alarm\" | @content-desc=\"Alarm\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Timer",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_timer\" | @content-desc=\"Timer\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Stopwatch",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_stopwatch\" | @content-desc=\"Stopwatch\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.d_Bedtime",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_bedtime\" | @content-desc=\"Bedtime\"]"
+        }
+      ],
+      "tasks": [
+        "Pause the stopwatch."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Stopwatch\" tab in the bottom navigation bar to open the stopwatch.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_stopwatch\" | @content-desc=\"Stopwatch\"]"
+        }
+      ],
+      "tag": [
+        "stopwatch.pause"
+      ]
+    }
+  }
+}

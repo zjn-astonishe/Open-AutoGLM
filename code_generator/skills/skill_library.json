@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "created_time": "2025-12-30T11:24:47.049891",
-  "updated_time": "2025-12-30T17:53:18.637787",
+  "updated_time": "2025-12-31T17:55:00.464543",
   "skills": {
     "alarm_create": {
       "function_name": "alarm_create",
@@ -34,6 +34,19 @@
       ],
       "created_time": "2025-12-30T17:53:18.637731",
       "file_path": "alarm_create.py"
+    },
+    "stopwatch_pause": {
+      "function_name": "stopwatch_pause",
+      "tag": "stopwatch.pause",
+      "description": "Pauses the stopwatch in the Clock app.\n    \n    This function abstracts multiple stopwatch pause workflows that follow the same pattern:\n    1. Launch the Clock app\n    2. Navigate to the Stopwatch tab\n    3. The actual pause action would typically happen after accessing the stopwatch\n    \n    Note: The workflows provided show the navigation to the stopwatch but don't show the actual pause button interaction.\n    This function handles the common pattern of launching the clock app and navigating to the stopwatch tab.\n    \n    Returns:\n        list: A list of action dictionaries containing the sequence of actions to pause the stopwatch",
+      "parameters": [],
+      "workflow_count": 2,
+      "workflow_tasks": [
+        "Pause the stopwatch.",
+        "Pause the stopwatch."
+      ],
+      "created_time": "2025-12-31T17:55:00.464430",
+      "file_path": "stopwatch_pause.py"
     }
   }
 }

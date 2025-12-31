@@ -156,7 +156,7 @@ class PhoneAgent:
 
         # Capture current screen state
         device_factory = get_device_factory()
-        screenshot = device_factory.get_screenshot(self.agent_config.device_id)
+        screenshot = device_factory.get_screenshot(device_id=self.agent_config.device_id)
         current_app = device_factory.get_current_app(self.agent_config.device_id)
         
         work_graph = self.memory.get_work_graph(current_app)

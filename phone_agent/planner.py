@@ -36,6 +36,7 @@ class Planner:
         Returns:
             PlannerResponse containing the decision and execution plan
         """
+        print(f"SYSTEM_PROMPT_ROUTER:{SYSTEM_PROMPT_ROUTER}")
         # Build messages for the router
         messages = [
             {"role": "system", "content": SYSTEM_PROMPT_ROUTER},

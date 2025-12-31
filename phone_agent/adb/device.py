@@ -20,6 +20,7 @@ def get_current_app(device_id: str | None = None) -> str:
         The app name if recognized, otherwise "System Home".
     """
     adb_prefix = _get_adb_prefix(device_id)
+    # print(f"adb_prefix: {adb_prefix}")
 
     result = subprocess.run(
         adb_prefix + ["shell", "dumpsys", "window"], capture_output=True, text=True, encoding="utf-8"
