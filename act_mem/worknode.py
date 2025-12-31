@@ -7,6 +7,12 @@ class WorkAction:
     action_type: str
     description: str
     zone_path: Optional[str] = None
+    reflection_result: Optional[Dict[str, Any]] = None
+    confidence_score: Optional[float] = None
+    # Additional parameters for specific actions
+    direction: Optional[str] = None  # For swipe actions
+    distance: Optional[int] = None   # For swipe actions
+    text: Optional[str] = None       # For text input actions
 
 
 class WorkNode:
@@ -30,20 +36,35 @@ class WorkNode:
         if task not in self.tasks:
             self.tasks.append(task)
 
-    def add_action(self, action_type: str, description: str, zone_path: Optional[str] = None) -> WorkAction:
+    def add_action(
+            self, 
+            action_type: str, 
+            description: str, 
+            zone_path: Optional[str] = None, 
+            direction: Optional[str] = None,
+            distance: Optional[int] = None, 
+            text: Optional[str] = None,
+            reflection_result: Optional[Dict[str, Any]] = None
+        ) -> WorkAction:
         for action in self.actions:
             if action.zone_path == zone_path:
                 return action
         action = WorkAction(
             action_type=action_type,
             description=description,
-            zone_path=zone_path
+            zone_path=zone_path,
+            reflection_result=reflection_result,
+            confidence_score=reflection_result.get('confidence_score') if reflection_result else None,
+            direction=direction,
+            distance=distance,
+            text=text
         )
         self.actions.append(action)
         return action
     
     def add_tag(self, tag: str) -> None:
         if tag not in self.tag:
+            # print(f"Adding tag {tag} to node {self.id}")
             self.tag.append(tag)
 
     def to_json(self) -> Dict[str, Any]:
@@ -55,7 +76,12 @@ class WorkNode:
                 {
                     "action_type": action.action_type,
                     "description": action.description,
-                    "zone_path": action.zone_path
+                    "zone_path": action.zone_path,
+                    "reflection_result": action.reflection_result,
+                    "confidence_score": action.confidence_score,
+                    "direction": action.direction,
+                    "distance": action.distance,
+                    "text": action.text
                 } for action in self.actions
             ],
             "tag": self.tag

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "22dfdf35-77ee-4bff-9acb-901c4bbf005a",
+    "task": "Open the camera app. Clear any pop-ups that may appear by granting all permissions that are required.",
+    "tag": "camera.launch",
+    "path": [
+      {
+        "from_node_id": "874b83c1-2111-45fa-b4f2-f117aea9c226",
+        "to_node_id": "3e43160a-49ab-4749-beca-87f9d99ff1c0",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the camera app.",
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "3e43160a-49ab-4749-beca-87f9d99ff1c0",
+        "to_node_id": "17c500ea-2e44-4186-b59c-c1590b486695",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"NEXT\" button to proceed.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout/LinearLayout/Button[@resource-id=\"com.android.camera2:id/confirm_button\" | @text=\"NEXT\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "17c500ea-2e44-4186-b59c-c1590b486695",
+        "to_node_id": "0d05169c-3dc7-44ee-a816-c2d2b2e41e19",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"While using the app\" button to grant location permission.",
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_singleton\"]/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_dialog\"]/LinearLayout/Button[@resource-id=\"com.android.permissioncontroller:id/permission_allow_foreground_only_button\" | @text=\"While using the app\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "1ac7589c-bd34-49b0-a51e-5a26f414c046",
+    "task": "Open the camera app. Clear any pop-ups that may appear by granting all permissions that are required.",
+    "tag": "camera.launch",
+    "path": [
+      {
+        "from_node_id": "874b83c1-2111-45fa-b4f2-f117aea9c226",
+        "to_node_id": "0d05169c-3dc7-44ee-a816-c2d2b2e41e19",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the camera app.",
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        "success": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,167 @@
+[
+  {
+    "id": "f67cbede-ccb7-464d-a205-2af9c58787af",
+    "task": "Pause the stopwatch.",
+    "tag": "stopwatch.pause",
+    "path": [
+      {
+        "from_node_id": "5094edfb-b0d3-45ef-9c2f-0250fdf8472d",
+        "to_node_id": "bc2a6877-0ba3-4a9d-bb3b-ebf97aae41fe",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the Clock app to access the stopwatch functionality.",
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "bc2a6877-0ba3-4a9d-bb3b-ebf97aae41fe",
+        "to_node_id": "a577f07b-5b26-43d5-ad3f-f3ccec4ed3e3",
+        "action": {
+          "action_type": "Tap",
+          "description": "Switch to the Stopwatch tab by tapping on it.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_stopwatch\" | @content-desc=\"Stopwatch\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "1c2ea39b-e6b5-493a-81b6-80b56373f17e",
+    "task": "Pause the stopwatch.",
+    "tag": "stopwatch.pause",
+    "path": [
+      {
+        "from_node_id": "b93628ad-94bb-42ed-8424-9c140ca31167",
+        "to_node_id": "03902ca8-3cae-4466-83b0-e8fd7aa86ef3",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the Clock app to access the stopwatch.",
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "03902ca8-3cae-4466-83b0-e8fd7aa86ef3",
+        "to_node_id": "4779d68b-6528-4029-b9e4-d886cc237da1",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the Stopwatch tab in the bottom navigation bar to access the stopwatch functionality.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_stopwatch\" | @content-desc=\"Stopwatch\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "e30e715f-44b2-40f9-871c-220186e770fb",
+    "task": "Pause the stopwatch.",
+    "tag": "stopwatch.pause",
+    "path": [
+      {
+        "from_node_id": "63671db5-0d7c-4329-97b2-5661e0c174fa",
+        "to_node_id": "f91d5d8e-f4b0-41fa-a41f-a9ae1e118059",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the Clock app to access the stopwatch.",
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "f91d5d8e-f4b0-41fa-a41f-a9ae1e118059",
+        "to_node_id": "472a4224-ce04-4043-a129-435797dd3f1a",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the Stopwatch tab in the bottom navigation bar to switch to the stopwatch screen.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_stopwatch\" | @content-desc=\"Stopwatch\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "42032882-b2fd-4bd4-80aa-7ed7e1acffcb",
+    "task": "Pause the stopwatch.",
+    "tag": "stopwatch.pause",
+    "path": [
+      {
+        "from_node_id": "38083971-83b7-486a-9056-1fe2fda72fde",
+        "to_node_id": "75e5cd89-ab84-4c5f-8dba-3445e96bef4f",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the Clock app to access the stopwatch.",
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "75e5cd89-ab84-4c5f-8dba-3445e96bef4f",
+        "to_node_id": "713de107-d2bf-44e4-8e06-0b0c579c4814",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Stopwatch\" tab in the bottom navigation bar to switch to the stopwatch view.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_stopwatch\" | @content-desc=\"Stopwatch\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "87a5dd6c-881d-45ca-9b52-1de798073dc7",
+    "task": "Pause the stopwatch.",
+    "tag": "stopwatch.pause",
+    "path": [
+      {
+        "from_node_id": "13fc7d3e-3d90-4498-8980-c2cedadc7707",
+        "to_node_id": "7d6c97c3-4455-4355-aeb3-872abea87d37",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the Clock app to access the stopwatch.",
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "7d6c97c3-4455-4355-aeb3-872abea87d37",
+        "to_node_id": "a1107137-96e1-42a2-b0bd-56ab7169c690",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Stopwatch\" tab in the bottom navigation bar to switch to the stopwatch view.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/FrameLayout[@resource-id=\"com.google.android.deskclock:id/navigation_bar\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_stopwatch\" | @content-desc=\"Stopwatch\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        "success": true
+      }
+    ]
+  }
+]

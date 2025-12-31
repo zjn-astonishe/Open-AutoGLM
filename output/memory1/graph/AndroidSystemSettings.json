@@ -1,0 +1,279 @@
+{
+  "app": "AndroidSystemSettings",
+  "nodes": {
+    "4a9e1bd7-4b6d-4792-a7da-f19a891f78b8": {
+      "id": "4a9e1bd7-4b6d-4792-a7da-f19a891f78b8",
+      "elements_info": [
+        {
+          "content": "android:id_content__com.android.settings:id_settings_homepage_container_Mobile, Wi‑Fi, hotspot_Profile picture, double tap to open Google Account_com.android.settings:id_app_bar",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\" | @content-desc=\"Profile picture, double tap to open Google Account\" | @text=\"Mobile, Wi‑Fi, hotspot\"]"
+        },
+        {
+          "content": "com.android.settings:id_homepage_app_bar_regular_phone_view__com.android.settings:id_account_avatar_Profile picture, double tap to open Google Account",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_app_bar_regular_phone_view\"]/ImageView[@resource-id=\"com.android.settings:id/account_avatar\" | @content-desc=\"Profile picture, double tap to open Google Account\"]"
+        },
+        {
+          "content": "com.android.settings:id_search_bar__com.android.settings:id_search_action_bar_Search settings_com.android.settings:id_search_action_bar_title",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_app_bar_regular_phone_view\"]/LinearLayout/CardView[@resource-id=\"com.android.settings:id/search_bar\"]/ViewGroup[@resource-id=\"com.android.settings:id/search_action_bar\" | @text=\"Search settings\"]"
+        },
+        {
+          "content": "com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container_Mobile, Wi‑Fi, hotspot_com.android.settings:id_homepage_container",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\" | @text=\"Mobile, Wi‑Fi, hotspot\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Mobile, Wi‑Fi, hotspot_com.android.settings:id_icon_frame",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Mobile, Wi‑Fi, hotspot\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Bluetooth, pairing_com.android.settings:id_icon_frame",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Bluetooth, pairing\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__com.android.settings:id_icon_frame",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Notification history, conversations_com.android.settings:id_icon_frame",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Notification history, conversations\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Battery_com.android.settings:id_icon_frame",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Battery\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__33% used - 5.37 GB free_com.android.settings:id_icon_frame",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"33% used - 5.37 GB free\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Volume, haptics, Do Not Disturb_com.android.settings:id_icon_frame",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Volume, haptics, Do Not Disturb\"]"
+        },
+        {
+          "content": "com.android.settings:id_search_action_bar__android.widget.ImageButton_147x137",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_app_bar_regular_phone_view\"]/LinearLayout/CardView[@resource-id=\"com.android.settings:id/search_bar\"]/ViewGroup[@resource-id=\"com.android.settings:id/search_action_bar\"]/ImageButton"
+        }
+      ],
+      "tasks": [
+        "Turn brightness to the max value."
+      ],
+      "actions": [
+        {
+          "action_type": "Swipe",
+          "description": "Swipe up to scroll down the settings menu and find the Display option.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\" | @text=\"Mobile, Wi‑Fi, hotspot\"]",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Interface element count remained the same; New content appeared: com.android.settings:id_recycler_view__Permissions, account activity, personal data_com.android.settings:id_icon_frame, com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container_Volume, haptics, Do Not Disturb_com.android.settings:id_homepage_container, com.android.settings:id_recycler_view__Screen lock, Find My Device, app security_com.android.settings:id_icon_frame; Content disappeared: com.android.settings:id_homepage_app_bar_regular_phone_view__com.android.settings:id_account_avatar_Profile picture, double tap to open Google Account, com.android.settings:id_recycler_view__Notification history, conversations_com.android.settings:id_icon_frame, com.android.settings:id_recycler_view__Bluetooth, pairing_com.android.settings:id_icon_frame; New active element appeared: 'com.android.settings:id_recycler_view__Permissions, account activity, personal data_com.android.settings:id_icon_frame'; New active element appeared: 'com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container_Volume, haptics, Do Not Disturb_com.android.settings:id_homepage_container'; New active element appeared: 'com.android.settings:id_recycler_view__Screen lock, Find My Device, app security_com.android.settings:id_icon_frame'; New active element appeared: 'com.android.settings:id_recycler_view__Colors, themed icons, app grid_com.android.settings:id_icon_frame'; New active element appeared: 'com.android.settings:id_recycler_view__Dark theme, font size, brightness_com.android.settings:id_icon_frame'; New active element appeared: 'com.android.settings:id_recycler_view__Location_com.android.settings:id_icon_frame'; New active element appeared: 'com.android.settings:id_recycler_view__Display, interaction, audio_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_homepage_app_bar_regular_phone_view__com.android.settings:id_account_avatar_Profile picture, double tap to open Google Account'; Active element disappeared: 'com.android.settings:id_recycler_view__Notification history, conversations_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_recycler_view__Bluetooth, pairing_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_recycler_view__com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container_Mobile, Wi‑Fi, hotspot_com.android.settings:id_homepage_container'; Active element disappeared: 'com.android.settings:id_recycler_view__Mobile, Wi‑Fi, hotspot_com.android.settings:id_icon_frame'; Active element disappeared: 'android:id_content__com.android.settings:id_settings_homepage_container_Mobile, Wi‑Fi, hotspot_Profile picture, double tap to open Google Account_com.android.settings:id_app_bar'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "retry_recommended": false,
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Interface element count remained the same; New content appeared: com.android.settings:id_recycler_view__Permissions, account activity, personal data_com.android.settings:id_icon_frame, com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container_Volume, haptics, Do Not Disturb_com.android.settings:id_homepage_container, com.android.settings:id_recycler_view__Screen lock, Find My Device, app security_com.android.settings:id_icon_frame; Content disappeared: com.android.settings:id_homepage_app_bar_regular_phone_view__com.android.settings:id_account_avatar_Profile picture, double tap to open Google Account, com.android.settings:id_recycler_view__Notification history, conversations_com.android.settings:id_icon_frame, com.android.settings:id_recycler_view__Bluetooth, pairing_com.android.settings:id_icon_frame; New active element appeared: 'com.android.settings:id_recycler_view__Permissions, account activity, personal data_com.android.settings:id_icon_frame'; New active element appeared: 'com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container_Volume, haptics, Do Not Disturb_com.android.settings:id_homepage_container'; New active element appeared: 'com.android.settings:id_recycler_view__Screen lock, Find My Device, app security_com.android.settings:id_icon_frame'; New active element appeared: 'com.android.settings:id_recycler_view__Colors, themed icons, app grid_com.android.settings:id_icon_frame'; New active element appeared: 'com.android.settings:id_recycler_view__Dark theme, font size, brightness_com.android.settings:id_icon_frame'; New active element appeared: 'com.android.settings:id_recycler_view__Location_com.android.settings:id_icon_frame'; New active element appeared: 'com.android.settings:id_recycler_view__Display, interaction, audio_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_homepage_app_bar_regular_phone_view__com.android.settings:id_account_avatar_Profile picture, double tap to open Google Account'; Active element disappeared: 'com.android.settings:id_recycler_view__Notification history, conversations_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_recycler_view__Bluetooth, pairing_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_recycler_view__com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container_Mobile, Wi‑Fi, hotspot_com.android.settings:id_homepage_container'; Active element disappeared: 'com.android.settings:id_recycler_view__Mobile, Wi‑Fi, hotspot_com.android.settings:id_icon_frame'; Active element disappeared: 'android:id_content__com.android.settings:id_settings_homepage_container_Mobile, Wi‑Fi, hotspot_Profile picture, double tap to open Google Account_com.android.settings:id_app_bar'",
+            "used_model_analysis": false,
+            "elements_before": 12,
+            "elements_after": 12
+          },
+          "confidence_score": 0.9
+        }
+      ],
+      "tag": [
+        "brightness.max"
+      ]
+    },
+    "68e248f8-d474-47d3-b35d-6d7a13961c20": {
+      "id": "68e248f8-d474-47d3-b35d-6d7a13961c20",
+      "elements_info": [
+        {
+          "content": "com.android.settings:id_search_bar__com.android.settings:id_search_action_bar_Search settings_com.android.settings:id_search_action_bar_title",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_app_bar_regular_phone_view\"]/LinearLayout/CardView[@resource-id=\"com.android.settings:id/search_bar\"]/ViewGroup[@resource-id=\"com.android.settings:id/search_action_bar\" | @text=\"Search settings\"]"
+        },
+        {
+          "content": "com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container_Volume, haptics, Do Not Disturb_com.android.settings:id_homepage_container",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\" | @text=\"Volume, haptics, Do Not Disturb\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Battery_com.android.settings:id_icon_frame",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Battery\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__33% used - 5.37 GB free_com.android.settings:id_icon_frame",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"33% used - 5.37 GB free\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Volume, haptics, Do Not Disturb_com.android.settings:id_icon_frame",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Volume, haptics, Do Not Disturb\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Dark theme, font size, brightness_com.android.settings:id_icon_frame",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Dark theme, font size, brightness\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Colors, themed icons, app grid_com.android.settings:id_icon_frame",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Colors, themed icons, app grid\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Display, interaction, audio_com.android.settings:id_icon_frame",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Display, interaction, audio\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Screen lock, Find My Device, app security_com.android.settings:id_icon_frame",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Screen lock, Find My Device, app security\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Permissions, account activity, personal data_com.android.settings:id_icon_frame",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Permissions, account activity, personal data\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Location_com.android.settings:id_icon_frame",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Location\"]"
+        },
+        {
+          "content": "com.android.settings:id_search_action_bar__android.widget.ImageButton_147x137",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_app_bar_regular_phone_view\"]/LinearLayout/CardView[@resource-id=\"com.android.settings:id/search_bar\"]/ViewGroup[@resource-id=\"com.android.settings:id/search_action_bar\"]/ImageButton"
+        }
+      ],
+      "tasks": [
+        "Turn brightness to the max value."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the \"Display\" option to access brightness settings.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Dark theme, font size, brightness\"]",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 1 interface elements; New content appeared: com.android.settings:id_recycler_view__Show all notification content_android:id_title, com.android.settings:id_recycler_view__Screen saver_android:id_title, com.android.settings:id_recycler_view__Will never turn on automatically_Dark theme_android:id_title; Content disappeared: com.android.settings:id_recycler_view__Volume, haptics, Do Not Disturb_com.android.settings:id_icon_frame, com.android.settings:id_recycler_view__Permissions, account activity, personal data_com.android.settings:id_icon_frame, com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container_Volume, haptics, Do Not Disturb_com.android.settings:id_homepage_container; New active element appeared: 'com.android.settings:id_recycler_view__Show all notification content_android:id_title'; New active element appeared: 'com.android.settings:id_recycler_view__Screen saver_android:id_title'; New active element appeared: 'com.android.settings:id_recycler_view__Will never turn on automatically_Dark theme_android:id_title'; New active element appeared: 'android:id_list_container__com.android.settings:id_recycler_view_Show all notification content_android:id_title'; New active element appeared: 'android:id_widget_frame__com.android.settings:id_switchWidget_Dark theme'; New active element appeared: 'android:id_content__com.android.settings:id_content_parent_Show all notification content_Display_com.android.settings:id_app_bar'; New active element appeared: 'com.android.settings:id_recycler_view__Display size and text_android:id_title'; New active element appeared: 'com.android.settings:id_recycler_view__Brightness level_android:id_title'; New active element appeared: 'com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x14'; New active element appeared: 'com.android.settings:id_recycler_view__After null of inactivity_android:id_title'; New active element appeared: 'com.android.settings:id_action_bar__Navigate up'; Active element disappeared: 'com.android.settings:id_recycler_view__Volume, haptics, Do Not Disturb_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_recycler_view__Permissions, account activity, personal data_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container_Volume, haptics, Do Not Disturb_com.android.settings:id_homepage_container'; Active element disappeared: 'com.android.settings:id_recycler_view__Screen lock, Find My Device, app security_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_search_bar__com.android.settings:id_search_action_bar_Search settings_com.android.settings:id_search_action_bar_title'; Active element disappeared: 'com.android.settings:id_recycler_view__Colors, themed icons, app grid_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_recycler_view__Dark theme, font size, brightness_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_recycler_view__33% used - 5.37 GB free_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_recycler_view__Location_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_recycler_view__Display, interaction, audio_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_search_action_bar__android.widget.ImageButton_147x137'; Active element disappeared: 'com.android.settings:id_recycler_view__Battery_com.android.settings:id_icon_frame'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "retry_recommended": false,
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 1 interface elements; New content appeared: com.android.settings:id_recycler_view__Show all notification content_android:id_title, com.android.settings:id_recycler_view__Screen saver_android:id_title, com.android.settings:id_recycler_view__Will never turn on automatically_Dark theme_android:id_title; Content disappeared: com.android.settings:id_recycler_view__Volume, haptics, Do Not Disturb_com.android.settings:id_icon_frame, com.android.settings:id_recycler_view__Permissions, account activity, personal data_com.android.settings:id_icon_frame, com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container_Volume, haptics, Do Not Disturb_com.android.settings:id_homepage_container; New active element appeared: 'com.android.settings:id_recycler_view__Show all notification content_android:id_title'; New active element appeared: 'com.android.settings:id_recycler_view__Screen saver_android:id_title'; New active element appeared: 'com.android.settings:id_recycler_view__Will never turn on automatically_Dark theme_android:id_title'; New active element appeared: 'android:id_list_container__com.android.settings:id_recycler_view_Show all notification content_android:id_title'; New active element appeared: 'android:id_widget_frame__com.android.settings:id_switchWidget_Dark theme'; New active element appeared: 'android:id_content__com.android.settings:id_content_parent_Show all notification content_Display_com.android.settings:id_app_bar'; New active element appeared: 'com.android.settings:id_recycler_view__Display size and text_android:id_title'; New active element appeared: 'com.android.settings:id_recycler_view__Brightness level_android:id_title'; New active element appeared: 'com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x14'; New active element appeared: 'com.android.settings:id_recycler_view__After null of inactivity_android:id_title'; New active element appeared: 'com.android.settings:id_action_bar__Navigate up'; Active element disappeared: 'com.android.settings:id_recycler_view__Volume, haptics, Do Not Disturb_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_recycler_view__Permissions, account activity, personal data_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container_Volume, haptics, Do Not Disturb_com.android.settings:id_homepage_container'; Active element disappeared: 'com.android.settings:id_recycler_view__Screen lock, Find My Device, app security_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_search_bar__com.android.settings:id_search_action_bar_Search settings_com.android.settings:id_search_action_bar_title'; Active element disappeared: 'com.android.settings:id_recycler_view__Colors, themed icons, app grid_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_recycler_view__Dark theme, font size, brightness_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_recycler_view__33% used - 5.37 GB free_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_recycler_view__Location_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_recycler_view__Display, interaction, audio_com.android.settings:id_icon_frame'; Active element disappeared: 'com.android.settings:id_search_action_bar__android.widget.ImageButton_147x137'; Active element disappeared: 'com.android.settings:id_recycler_view__Battery_com.android.settings:id_icon_frame'",
+            "used_model_analysis": false,
+            "elements_before": 12,
+            "elements_after": 11
+          },
+          "confidence_score": 0.9
+        }
+      ],
+      "tag": [
+        "brightness.max"
+      ]
+    },
+    "7ba249c9-2d76-4b78-a50c-579d035f18c8": {
+      "id": "7ba249c9-2d76-4b78-a50c-579d035f18c8",
+      "elements_info": [
+        {
+          "content": "android:id_content__com.android.settings:id_content_parent_Show all notification content_Display_com.android.settings:id_app_bar",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/content_parent\" | @content-desc=\"Display\" | @text=\"Show all notification content\"]"
+        },
+        {
+          "content": "com.android.settings:id_action_bar__Navigate up",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/content_parent\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar\"]/FrameLayout[@resource-id=\"com.android.settings:id/collapsing_toolbar\" | @content-desc=\"Display\"]/ViewGroup[@resource-id=\"com.android.settings:id/action_bar\"]/ImageButton[@content-desc=\"Navigate up\"]"
+        },
+        {
+          "content": "android:id_list_container__com.android.settings:id_recycler_view_Show all notification content_android:id_title",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/content_parent\"]/FrameLayout[@resource-id=\"com.android.settings:id/content_frame\"]/LinearLayout/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\" | @text=\"Show all notification content\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Brightness level_android:id_title",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/content_parent\"]/FrameLayout[@resource-id=\"com.android.settings:id/content_frame\"]/LinearLayout/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Brightness level\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Show all notification content_android:id_title",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/content_parent\"]/FrameLayout[@resource-id=\"com.android.settings:id/content_frame\"]/LinearLayout/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Show all notification content\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__After null of inactivity_android:id_title",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/content_parent\"]/FrameLayout[@resource-id=\"com.android.settings:id/content_frame\"]/LinearLayout/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"After null of inactivity\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Will never turn on automatically_Dark theme_android:id_title",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/content_parent\"]/FrameLayout[@resource-id=\"com.android.settings:id/content_frame\"]/LinearLayout/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@content-desc=\"Dark theme\" | @text=\"Will never turn on automatically\"]"
+        },
+        {
+          "content": "android:id_widget_frame__com.android.settings:id_switchWidget_Dark theme",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/content_parent\"]/FrameLayout[@resource-id=\"com.android.settings:id/content_frame\"]/LinearLayout/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout/LinearLayout[@resource-id=\"android:id/widget_frame\"]/Switch[@resource-id=\"com.android.settings:id/switchWidget\" | @content-desc=\"Dark theme\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Screen saver_android:id_title",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/content_parent\"]/FrameLayout[@resource-id=\"com.android.settings:id/content_frame\"]/LinearLayout/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Screen saver\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__Display size and text_android:id_title",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/content_parent\"]/FrameLayout[@resource-id=\"com.android.settings:id/content_frame\"]/LinearLayout/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Display size and text\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x14",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/content_parent\"]/FrameLayout[@resource-id=\"com.android.settings:id/content_frame\"]/LinearLayout/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout"
+        }
+      ],
+      "tasks": [
+        "Turn brightness to the max value."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the \"Brightness level\" option to access the brightness slider.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/content_parent\"]/FrameLayout[@resource-id=\"com.android.settings:id/content_frame\"]/LinearLayout/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Brightness level\"]",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 10 interface elements; New content appeared: com.android.systemui:id_brightness_slider_Display brightness__com.android.systemui:id_slider_0.0; Content disappeared: com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x14, com.android.settings:id_recycler_view__Show all notification content_android:id_title, com.android.settings:id_recycler_view__Screen saver_android:id_title; New active element appeared: 'com.android.systemui:id_brightness_slider_Display brightness__com.android.systemui:id_slider_0.0'; Active element disappeared: 'com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x14'; Active element disappeared: 'com.android.settings:id_recycler_view__Show all notification content_android:id_title'; Active element disappeared: 'com.android.settings:id_recycler_view__Screen saver_android:id_title'; Active element disappeared: 'com.android.settings:id_recycler_view__Will never turn on automatically_Dark theme_android:id_title'; Active element disappeared: 'android:id_list_container__com.android.settings:id_recycler_view_Show all notification content_android:id_title'; Active element disappeared: 'android:id_widget_frame__com.android.settings:id_switchWidget_Dark theme'; Active element disappeared: 'com.android.settings:id_recycler_view__Display size and text_android:id_title'; Active element disappeared: 'com.android.settings:id_recycler_view__Brightness level_android:id_title'; Active element disappeared: 'android:id_content__com.android.settings:id_content_parent_Show all notification content_Display_com.android.settings:id_app_bar'; Active element disappeared: 'com.android.settings:id_recycler_view__After null of inactivity_android:id_title'; Active element disappeared: 'com.android.settings:id_action_bar__Navigate up'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "retry_recommended": false,
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 10 interface elements; New content appeared: com.android.systemui:id_brightness_slider_Display brightness__com.android.systemui:id_slider_0.0; Content disappeared: com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x14, com.android.settings:id_recycler_view__Show all notification content_android:id_title, com.android.settings:id_recycler_view__Screen saver_android:id_title; New active element appeared: 'com.android.systemui:id_brightness_slider_Display brightness__com.android.systemui:id_slider_0.0'; Active element disappeared: 'com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x14'; Active element disappeared: 'com.android.settings:id_recycler_view__Show all notification content_android:id_title'; Active element disappeared: 'com.android.settings:id_recycler_view__Screen saver_android:id_title'; Active element disappeared: 'com.android.settings:id_recycler_view__Will never turn on automatically_Dark theme_android:id_title'; Active element disappeared: 'android:id_list_container__com.android.settings:id_recycler_view_Show all notification content_android:id_title'; Active element disappeared: 'android:id_widget_frame__com.android.settings:id_switchWidget_Dark theme'; Active element disappeared: 'com.android.settings:id_recycler_view__Display size and text_android:id_title'; Active element disappeared: 'com.android.settings:id_recycler_view__Brightness level_android:id_title'; Active element disappeared: 'android:id_content__com.android.settings:id_content_parent_Show all notification content_Display_com.android.settings:id_app_bar'; Active element disappeared: 'com.android.settings:id_recycler_view__After null of inactivity_android:id_title'; Active element disappeared: 'com.android.settings:id_action_bar__Navigate up'",
+            "used_model_analysis": false,
+            "elements_before": 11,
+            "elements_after": 1
+          },
+          "confidence_score": 0.9
+        }
+      ],
+      "tag": [
+        "brightness.max"
+      ]
+    }
+  }
+}

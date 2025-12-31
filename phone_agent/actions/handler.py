@@ -124,6 +124,7 @@ class ActionHandler:
     def _handle_launch(self, action: dict, width: int, height: int) -> ActionResult:
         """Handle app launch action."""
         app_name = action.get("app")
+        # print(f"Launching app: {app_name}")
         if not app_name:
             return ActionResult(False, False, "No app name specified")
 
@@ -179,19 +180,45 @@ class ActionHandler:
 
         return ActionResult(True, False)
 
+    # def _handle_swipe(self, action: dict, width: int, height: int) -> ActionResult:
+    #     """Handle swipe action."""
+    #     start = action.get("start")
+    #     end = action.get("end")
+
+    #     if not start or not end:
+    #         return ActionResult(False, False, "Missing swipe coordinates")
+
+    #     start_x, start_y = self._convert_relative_to_absolute(start, width, height)
+    #     end_x, end_y = self._convert_relative_to_absolute(end, width, height)
+
+    #     device_factory = get_device_factory()
+    #     device_factory.swipe(start_x, start_y, end_x, end_y, device_id=self.device_id)
+    #     return ActionResult(True, False)
+    
     def _handle_swipe(self, action: dict, width: int, height: int) -> ActionResult:
+        dist = action.get("distance", "medium")
+        direction = action.get("direction")
         """Handle swipe action."""
-        start = action.get("start")
-        end = action.get("end")
-
-        if not start or not end:
-            return ActionResult(False, False, "Missing swipe coordinates")
-
-        start_x, start_y = self._convert_relative_to_absolute(start, width, height)
-        end_x, end_y = self._convert_relative_to_absolute(end, width, height)
-
+        unit_dist = int(width / 10)
+        if dist == "long":
+            unit_dist *= 10
+        elif dist == "medium":
+            unit_dist *= 5
+        elif dist == "short":
+            unit_dist *= 2
+        if direction == "up":
+            offset = 0, -2 * unit_dist
+        elif direction == "down":
+            offset = 0, 2 * unit_dist
+        elif direction == "left":
+            offset = -1 * unit_dist, 0
+        elif direction == "right":
+            offset = unit_dist, 0
+        else:
+            return "ERROR"
+        start_x, start_y = action.get("element")
         device_factory = get_device_factory()
-        device_factory.swipe(start_x, start_y, end_x, end_y, device_id=self.device_id)
+        device_factory.swipe(start_x, start_y, start_x+offset[0], start_y+offset[1], device_id=self.device_id)
         return ActionResult(True, False)
 
     def _handle_back(self, action: dict, width: int, height: int) -> ActionResult:

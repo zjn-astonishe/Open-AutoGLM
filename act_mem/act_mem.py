@@ -249,7 +249,9 @@ class ActionMemory:
                                 action = WorkAction(
                                     action_type=action_data["action_type"],
                                     description=action_data["description"],
-                                    zone_path=action_data.get("zone_path")  # 使用get方法，如果不存在则为None
+                                    zone_path=action_data.get("zone_path"),  # 使用get方法，如果不存在则为None
+                                    reflection_result=action_data.get("reflection_result"),
+                                    confidence_score=action_data.get("confidence_score")
                                 )
                                 node.actions.append(action)
                         

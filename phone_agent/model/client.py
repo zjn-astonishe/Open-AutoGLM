@@ -19,7 +19,8 @@ class ModelConfig:
     base_url: str = "http://localhost:8001/v1"
     api_key: str = "qwerasdfzxcv123"
     model_name: str = "autoglm-phone-9b-multilingual"
-    max_tokens: int = 3000
+    max_tokens: int = 3000    # TODO: max_tokens may too long.
+    # max_tokens: int = 1024
     temperature: float = 0.0
     top_p: float = 0.85
     frequency_penalty: float = 0.2
@@ -54,12 +55,13 @@ class ModelClient:
         self.config = config or ModelConfig()
         self.client = OpenAI(base_url=self.config.base_url, api_key=self.config.api_key)
 
-    def request(self, messages: list[dict[str, Any]]) -> ModelResponse:
+    def request(self, messages: list[dict[str, Any]], mode: str = "action") -> ModelResponse:
         """
         Send a request to the model.
 
         Args:
             messages: List of message dictionaries in OpenAI format.
+            mode: Request mode - "action" for normal action execution, "reflect" for reflection analysis.
 
         Returns:
             ModelResponse containing thinking and action.
@@ -110,20 +112,7 @@ class ModelClient:
 
                 # Check if any marker is fully present in buffer
                 marker_found = False
-                # for marker in action_markers:
-                #     if marker in buffer:
-                #         # Marker found, print everything before it
-                #         thinking_part = buffer.split(marker, 1)[0]
-                #         print(thinking_part, end="", flush=True)
-                #         print()  # Print newline after thinking is complete
-                #         in_action_phase = True
-                #         marker_found = True
 
-                #         # Record time to thinking end
-                #         if time_to_thinking_end is None:
-                #             time_to_thinking_end = time.time() - start_time
-
-                #         break
                 if action_marker in buffer:
                     # Marker found, print everything before it
                     thinking_part = buffer.split(action_marker, 1)[0]
@@ -142,14 +131,6 @@ class ModelClient:
                 # Check if buffer ends with a prefix of any marker
                 # If so, don't print yet (wait for more content)
                 is_potential_marker = False
-                
-                # for marker in action_markers:
-                #     for i in range(1, len(marker)):
-                #         if buffer.endswith(marker[:i]):
-                #             is_potential_marker = True
-                #             break
-                #     if is_potential_marker:
-                #         break
 
                 if action_marker:
                     for i in range(1, len(action_marker)):
@@ -165,14 +146,17 @@ class ModelClient:
         # Calculate total time
         total_time = time.time() - start_time
 
-        print(f"🤖 Raw_content: {raw_content}")
+        # print(f"🤖 Raw_content: {raw_content}")
         
-        # Parse thinking and action from response
-        # thinking, action = self._parse_response(raw_content)
-        # thinking, answer, predict = self._parser_response_with_predict(raw_content)
-        thinking, answer, tag = self._parser_response_with_tag(raw_content)
-        # print(f"🤖 Tag: {tag}")
-        action = self._parse_action(answer)
+        # Parse response based on mode
+        if mode == "reflect":
+            thinking, action, tag = self._parse_reflect_response(raw_content)
+        elif mode == "action":
+            # Parse thinking and action from response for normal action mode
+            # thinking, action = self._parse_response(raw_content)
+            # thinking, answer, predict = self._parser_response_with_predict(raw_content)
+            thinking, answer, tag = self._parser_response_with_tag(raw_content)
+            action = self._parse_action(answer)
 
         # Print performance metrics
         lang = self.config.lang
@@ -335,8 +319,62 @@ class ModelClient:
 
         # Rule 4: No markers found, return content as action
         action_desc = ""
-        action_dict[action_desc] = action
+        action_dict[action_desc] = content
         return action_dict
+
+    def _parse_reflect_response(self, content: str) -> tuple[str, Dict[str, str], str]:
+        """
+        Parse the model response for reflection analysis.
+        
+        For reflect mode, we expect a simple text response analyzing the action success.
+        We don't need complex action parsing, just the analysis result.
+
+        Args:
+            content: Raw response content.
+
+        Returns:
+            Tuple of (thinking, action_dict, tag).
+        """
+        # For reflect mode, the entire content is the analysis
+        # We can try to extract structured information if available
+        
+        # Try to extract structured reflection if available
+        success_patterns = [
+            r"success[:\s]*([^.\n]+)",
+            r"successful[:\s]*([^.\n]+)", 
+            r"成功[:\s]*([^.\n]+)",
+        ]
+        
+        confidence_patterns = [
+            r"confidence[:\s]*([0-9.]+)",
+            r"置信度[:\s]*([0-9.]+)",
+        ]
+        
+        # Extract success status
+        success_info = "unknown"
+        for pattern in success_patterns:
+            match = re.search(pattern, content, re.IGNORECASE)
+            if match:
+                success_info = match.group(1).strip()
+                break
+        
+        # Extract confidence if available
+        confidence = "0.5"  # default
+        for pattern in confidence_patterns:
+            match = re.search(pattern, content, re.IGNORECASE)
+            if match:
+                confidence = match.group(1).strip()
+                break
+        
+        # Create action dict for reflect response
+        action_dict = {
+            "reflection_analysis": content.strip(),
+            "success_status": success_info,
+            "confidence": confidence
+        }
+        
+        # For reflect mode, thinking is empty and tag is "reflect"
+        return "", action_dict, "reflect"
 
 class MessageBuilder:
     """Helper class for building conversation messages."""
@@ -390,6 +428,7 @@ class MessageBuilder:
         Returns:
             Message with images removed.
         """
+
         if isinstance(message.get("content"), list):
             message["content"] = [
                 item for item in message["content"] if item.get("type") == "text"

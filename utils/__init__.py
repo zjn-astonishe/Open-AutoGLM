@@ -4,6 +4,7 @@ from utils.ui_xml import get_emulator_ui_xml
 from utils.util import print_with_color
 from utils.config import load_config
 from utils.crop_ui_elements import crop_ui_elements
+from utils.extract_json import extract_json
 
 __all__ = [
     "get_emulator_ui_xml",
@@ -12,4 +13,5 @@ __all__ = [
     "print_with_color",
     "load_config",
     "crop_ui_elements",
+    "extract_json"
 ]

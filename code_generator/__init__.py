@@ -1,4 +1,4 @@
-from code_generator.code_generator import CodeGenerator, extract_element_id
+from .generator import CodeGenerator, extract_element_id
 
 __all__ = [
     "CodeGenerator",

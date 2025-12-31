@@ -40,9 +40,13 @@ if __name__ == "__main__":
         help="包含测试消息的 JSON 文件路径 (默认: scripts/sample_messages.json)",
     )
 
+    # TODO: max_tokens may too long.
     parser.add_argument(
         "--max-tokens", type=int, default=3000, help="最大生成 token 数 (默认: 3000)"
     )
+    # parser.add_argument(
+    #     "--max-tokens", type=int, default=1024, help="最大生成 token 数 (默认: 1024)"
+    # )
 
     parser.add_argument(
         "--temperature", type=float, default=0.0, help="采样温度 (默认: 0.0)"

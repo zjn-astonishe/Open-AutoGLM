@@ -3,15 +3,13 @@ from dataclasses import dataclass
 from .device_factory import get_device_factory
 from typing import List, Dict, Any, Callable
 from .actions.handler import ActionHandler, finish
-from code_generator.code_generator import extract_element_id
-
+from code_generator import extract_element_id
 
 @dataclass
 class StepResult:
     """Result of a single agent step."""
 
     success: bool
-    finished: bool
     message: str | None = None
 
 class SkillExecutor:
@@ -33,16 +31,16 @@ class SkillExecutor:
         
         for action in actions:
             result = self._execute_step(action)
+
+        if result.success:
+            return "Success"
         
-        if result.finished:
-            return result.message or "Task completed"
-        
-        return "Error"
+        return f"Error, {result.message}"
 
     def _execute_step(self, action_code: Dict[str, Any]) -> StepResult:
         
         device_factory = get_device_factory()
-        screenshot = device_factory.get_screenshot(self.device_id)
+        screenshot = device_factory.get_screenshot(device_id=self.device_id)
         elements_info = []
 
         for e in screenshot.elements:
@@ -52,6 +50,7 @@ class SkillExecutor:
             })
 
         action = self._parse_action(action_code, elements_info)
+        print(f"Action: {action}")
 
         try:
             result = self.action_handler.execute(action, screenshot.width, screenshot.height)
@@ -59,13 +58,11 @@ class SkillExecutor:
             result = self.action_handler.execute(
                 finish(message=str(e)), screenshot.width, screenshot.height
             )
-            return StepResult(False, False, str(e))
+            return StepResult(False, str(e))
         
-        finished = action.get("action") == "Finish" or result.should_finish
 
         return StepResult(
             success=result.success,
-            finished=finished,
             message=result.message or action.get("message"),
         )
 

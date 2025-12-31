@@ -1,0 +1,222 @@
+[
+  {
+    "id": "b3e56dea-4b39-4f12-9af1-850dd0931ba7",
+    "task": "Turn bluetooth off.",
+    "tag": "bluetooth.disable",
+    "path": [
+      {
+        "from_node_id": "9c80cb86-9b14-4bab-bf6f-0c69176d8e92",
+        "to_node_id": "711ef70f-423b-424e-ba5b-c21aad68d066",
+        "action": {
+          "action_type": "Swipe",
+          "description": "Swipe down from the top of the screen to open the quick settings panel.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "711ef70f-423b-424e-ba5b-c21aad68d066",
+        "to_node_id": "b9e89742-f6ac-4e25-8b8a-de4b00bd7d33",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the Bluetooth toggle to turn it off.",
+          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Bluetooth.\" | @text=\"On\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "f483c9e5-466d-4e58-9dec-07cadb7fa79a",
+    "task": "Turn bluetooth off.",
+    "tag": "bluetooth.disable",
+    "path": [
+      {
+        "from_node_id": "52699f36-3def-42e1-9eb1-33c12b1bde66",
+        "to_node_id": "3ac14bec-d12c-4a99-9573-afb5338f471e",
+        "action": {
+          "action_type": "Swipe",
+          "description": "Swipe down from the top of the screen to open the quick settings panel.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "3ac14bec-d12c-4a99-9573-afb5338f471e",
+        "to_node_id": "045ff2d0-bd0d-4844-9128-e3aa27b5a3e1",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the Bluetooth toggle to turn it off.",
+          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Bluetooth.\" | @text=\"On\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "3fa0e8a4-41f5-4531-a43b-11852602c0de",
+    "task": "Turn bluetooth off.",
+    "tag": "bluetooth.disable",
+    "path": [
+      {
+        "from_node_id": "e53696d6-6f29-49df-8dee-a477e0139e72",
+        "to_node_id": "6b6b8443-fdf3-4f8b-bf7e-2444eab45ef5",
+        "action": {
+          "action_type": "Swipe",
+          "description": "Swipe down from the top of the screen to open the quick settings panel.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "6b6b8443-fdf3-4f8b-bf7e-2444eab45ef5",
+        "to_node_id": "0a0930df-dab6-424f-8ea7-09e8dc08073b",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the Bluetooth toggle to turn it off.",
+          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Bluetooth.\" | @text=\"On\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "76d5e797-3936-46a7-be87-cb6e30b76765",
+    "task": "Turn bluetooth off.",
+    "tag": "bluetooth.disable",
+    "path": [
+      {
+        "from_node_id": "6d4fc3a5-e211-45de-b500-e43f1f7b8b1f",
+        "to_node_id": "f61d88d5-ea29-41f1-9721-f2035c738cf7",
+        "action": {
+          "action_type": "Swipe",
+          "description": "Swipe down from the top of the screen to open the quick settings panel.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "f61d88d5-ea29-41f1-9721-f2035c738cf7",
+        "to_node_id": "0a69d713-56af-40d3-b5a4-0efbafc66dde",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the Bluetooth toggle to turn it off.",
+          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Bluetooth.\" | @text=\"On\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "2f44724a-b26e-4469-a8d3-be9ead3824b2",
+    "task": "Turn bluetooth off.",
+    "tag": "bluetooth.disable",
+    "path": [
+      {
+        "from_node_id": "ec1e04c1-06ee-4bce-894b-9a776e1321cf",
+        "to_node_id": "e73b1148-7fed-46ab-b5be-0aad543fc1e8",
+        "action": {
+          "action_type": "Swipe",
+          "description": "Swipe down from the top of the screen to open the quick settings panel.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "e73b1148-7fed-46ab-b5be-0aad543fc1e8",
+        "to_node_id": "e1f12fcf-d7e7-41c3-9729-6b1c55613c12",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the Bluetooth toggle to turn it off.",
+          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Bluetooth.\" | @text=\"On\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "ef7967ee-7ac6-45af-9581-3491572bb9d4",
+    "task": "Turn bluetooth off.",
+    "tag": "bluetooth.disable",
+    "path": [
+      {
+        "from_node_id": "2008c244-f189-4b98-bed7-f049e129405b",
+        "to_node_id": "3d68f982-4e47-4b26-86a6-637293b2cf42",
+        "action": {
+          "action_type": "Swipe",
+          "description": "Swipe down from the top of the screen to open the quick settings panel.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "a40d0e6a-dd40-4519-9223-51409776bf46",
+    "task": "Turn bluetooth off.",
+    "tag": "bluetooth.disable",
+    "path": [
+      {
+        "from_node_id": "64fbaa35-c244-4ab6-99e6-98334bbbd728",
+        "to_node_id": "1420d7af-0701-4715-93c0-8dd3511bd066",
+        "action": {
+          "action_type": "Swipe",
+          "description": "Swipe down from the top of the screen to open the quick settings panel.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "3da46081-5b2b-4c7a-bd6d-606152e21f1d",
+    "task": "Turn bluetooth off.",
+    "tag": "bluetooth.disable",
+    "path": [
+      {
+        "from_node_id": "91ae14dc-78ac-4f21-8a25-534373f86583",
+        "to_node_id": "ef0f52aa-2d74-418a-97f0-91ca5e47abdc",
+        "action": {
+          "action_type": "Swipe",
+          "description": "Swipe down from the top of the screen to open the quick settings panel.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "7e2d4ab6-1197-4438-830c-77f8e5ab6a3b",
+    "task": "Turn bluetooth off.",
+    "tag": "bluetooth.disable",
+    "path": [
+      {
+        "from_node_id": "90054f2a-431a-4996-8efc-f86e1564de8b",
+        "to_node_id": "75b4a193-75b9-4264-9574-c26716deaba1",
+        "action": {
+          "action_type": "Swipe",
+          "description": "Swipe down from the top of the screen to open the quick settings panel.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "2932f9e0-076d-4763-83b4-dd0d874105cc",
+    "task": "Turn bluetooth off.",
+    "tag": "bluetooth.disable",
+    "path": [
+      {
+        "from_node_id": "7cf9a1fd-1191-4670-ac0f-28e74a581362",
+        "to_node_id": "141d6148-1d51-4e0d-ae52-5aac32ccc8d7",
+        "action": {
+          "action_type": "Swipe",
+          "description": "Swipe down from the top of the screen to open the quick settings panel.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]"
+        },
+        "success": true
+      }
+    ]
+  }
+]

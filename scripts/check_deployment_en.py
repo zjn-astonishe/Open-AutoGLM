@@ -40,12 +40,20 @@ Usage examples:
         help="Path to JSON file containing test messages (default: scripts/sample_messages_en.json)",
     )
 
+    # TODO: max_tokens may too long.
     parser.add_argument(
         "--max-tokens",
         type=int,
         default=3000,
         help="Maximum generation tokens (default: 3000)",
     )
+    # parser.add_argument(
+    #     "--max-tokens",
+    #     type=int,
+    #     default=1024,
+    #     help="Maximum generation tokens (default: 1024)",
+    # )
+    
 
     parser.add_argument(
         "--temperature",

@@ -63,6 +63,9 @@ class Workflow:
                     "action_type": transition.action.action_type,
                     "description": transition.action.description,
                     "zone_path": transition.action.zone_path,
+                    "direction": transition.action.direction,
+                    "distance": transition.action.distance,
+                    "text": transition.action.text
                 },
                 "success": transition.success
             })

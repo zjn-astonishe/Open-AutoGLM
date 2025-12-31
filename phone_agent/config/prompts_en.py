@@ -149,15 +149,18 @@ Your output must be in the output format. If the output does not strictly follow
 
 At each step, you will be given:
 
-1. A screenshot of the current Android UI
-2. A structured list of interactive UI elements
+1. History of previous thinking and actions.
+2. Reflection of the previous action.
+  - If reflection not prompts "Action '...' was successful", recheck the structured UI element list, confirm whether the target element is valid (e.g. whether it is on the current screen), and re-decide the next action (no repeated action on the same invalid element).
+3. A screenshot of the current Android UI
+4. A structured list of interactive UI elements
   - Each element represents a system-extracted interactive component.
   - Each UI element has the following fields:
     - id: a symbolic reference (string), e.g. "R1", "R2". You MUST reason and act using it ONLY.
     - content: a semantic description of the element (content-desc / role / meaning)
     - option: a value indicating whether the option is enabled or disabled.
     - bbox: [x1, y1, x2, y2], describing the element's screen location
-3. History of previous thinking and actions.
+  - If the target element is not found in the current UI element list → Use Swipe/Back to locate the element (prioritize Swipe for scrollable pages, Back for page return).
 
 ---
 
@@ -175,7 +178,7 @@ At each step, you will be given:
   do(action="Tap", element="R1")
 
 - Type
-  Enter text into the currently focused input field.
+  Enter text into the currently focused input field. Before "Type", you must use "Tap" action first to ensure the element is focused.
   **Example**:
   do(action="Type", text="New York")
 
@@ -225,7 +228,7 @@ A concise functional label describing the high-level operation of the task, and 
 # Example 1
 
 <observe>                                                     
-The task is to set an alarm for 12:30 PM every Friday and Sunday with vibration disabled. Currently, no alarms are set. The next step is to create a new alarm by tapping the "+" button at the bottom center of the screen.
+The task is to set an alarm for HH:MM. Currently, no alarms are set. The next step is to create a new alarm by tapping the "+" button at the bottom center of the screen.
 </observe>
 
 <answer>
@@ -238,8 +241,8 @@ alarm.create
 </tag>
 
 """
-
 )
+
 
 # 动态加载技能库
 skills = load_skills_from_library()
@@ -297,39 +300,6 @@ If decision is "use_atomic_actions":
 leave this part empty.
 </execution>
 
----
-
-# Example 1
-
-**User task**: "Set an alarm for 7:30 AM every Monday and Wednesday with vibration off"
-
-**Available skills**: 
-- alarm_create(hour, minute, days, enable_vibration=True): Creates an alarm with specified time, days, and vibration settings
-
-<decision>
-use_skill
-</decision>
-
-<execution>
-alarm_create(hour=7, minute=30, days=['M', 'W'], enable_vibration=False)
-</execution>
-
----
-
-# Example 2
-
-**User task**: "Open the camera app and take a photo"
-
-**Available skills**: 
-- alarm_create(hour, minute, days, enable_vibration=True): Creates an alarm with specified time, days, and vibration settings
-
-<decision>
-use_atomic_actions
-</decision>
-
-<execution>
-</execution>
-
 """
 )
 
@@ -378,7 +348,7 @@ At each step, you will be given:
   do(action="Tap", element="R1")
 
 - Type
-  Enter text into the currently focused input field.
+  Enter text into the currently focused input field. Before Type, you need to Tap on the input field.
   **Example**:
   do(action="Type", text="New York")
 

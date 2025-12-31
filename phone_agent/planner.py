@@ -36,7 +36,9 @@ class Planner:
         Returns:
             PlannerResponse containing the decision and execution plan
         """
+        # print(f"SYSTEM_PROMPT_ROUTER:{SYSTEM_PROMPT_ROUTER}")
         # Build messages for the router
+        # print(f"SYSTEM_PROMPT_ROUTER:{SYSTEM_PROMPT_ROUTER}")
         messages = [
             {"role": "system", "content": SYSTEM_PROMPT_ROUTER},
             {"role": "user", "content": f"User task: {user_task}"}
@@ -248,21 +250,82 @@ class Planner:
         # Handle lists
         if value_str.startswith('[') and value_str.endswith(']'):
             try:
-                # Simple list parsing for common cases
-                content = value_str[1:-1].strip()
-                if not content:
-                    return []
-                
-                items = []
-                for item in content.split(','):
-                    item = item.strip()
-                    if (item.startswith('"') and item.endswith('"')) or \
-                       (item.startswith("'") and item.endswith("'")):
-                        items.append(item[1:-1])
-                    else:
-                        items.append(item)
-                return items
-            except:
+                # Try to parse as JSON first for complex structures
+                import json
+                return json.loads(value_str)
+            except json.JSONDecodeError:
+                try:
+                    # Fallback to simple list parsing for basic cases
+                    content = value_str[1:-1].strip()
+                    if not content:
+                        return []
+                    
+                    items = []
+                    current_item = ""
+                    bracket_count = 0
+                    brace_count = 0
+                    quote_char = None
+                    
+                    for char in content:
+                        if quote_char:
+                            current_item += char
+                            if char == quote_char and (len(current_item) == 1 or current_item[-2] != '\\'):
+                                quote_char = None
+                        elif char in ['"', "'"]:
+                            quote_char = char
+                            current_item += char
+                        elif char == '{':
+                            brace_count += 1
+                            current_item += char
+                        elif char == '}':
+                            brace_count -= 1
+                            current_item += char
+                        elif char == '[':
+                            bracket_count += 1
+                            current_item += char
+                        elif char == ']':
+                            bracket_count -= 1
+                            current_item += char
+                        elif char == ',' and bracket_count == 0 and brace_count == 0:
+                            if current_item.strip():
+                                # Try to parse each item as JSON first
+                                item = current_item.strip()
+                                try:
+                                    items.append(json.loads(item))
+                                except json.JSONDecodeError:
+                                    # Fallback to string processing
+                                    if (item.startswith('"') and item.endswith('"')) or \
+                                       (item.startswith("'") and item.endswith("'")):
+                                        items.append(item[1:-1])
+                                    else:
+                                        items.append(item)
+                            current_item = ""
+                        else:
+                            current_item += char
+                    
+                    if current_item.strip():
+                        # Try to parse the last item as JSON first
+                        item = current_item.strip()
+                        try:
+                            items.append(json.loads(item))
+                        except json.JSONDecodeError:
+                            # Fallback to string processing
+                            if (item.startswith('"') and item.endswith('"')) or \
+                               (item.startswith("'") and item.endswith("'")):
+                                items.append(item[1:-1])
+                            else:
+                                items.append(item)
+                    
+                    return items
+                except:
+                    return value_str
+        
+        # Handle JSON objects
+        if value_str.startswith('{') and value_str.endswith('}'):
+            try:
+                import json
+                return json.loads(value_str)
+            except json.JSONDecodeError:
                 return value_str
         
         # Handle numbers
@@ -320,4 +383,3 @@ class Planner:
         except Exception as e:
             print(f"Error loading skill library: {e}")
             return {}
-    

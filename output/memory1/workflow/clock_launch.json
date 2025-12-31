@@ -1,0 +1,116 @@
+[
+  {
+    "id": "1ae8e278-533c-42ef-86f1-cb3319f676bb",
+    "task": "Open the clock app. Clear any pop-ups that may appear by granting all permissions that are required.",
+    "tag": "clock.launch",
+    "path": [
+      {
+        "from_node_id": "874b83c1-2111-45fa-b4f2-f117aea9c226",
+        "to_node_id": "1d514235-f212-40fa-80e1-ad6ece87fca5",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the camera app.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "1d514235-f212-40fa-80e1-ad6ece87fca5",
+        "to_node_id": "8203ddf3-2453-4c60-9961-17d6f7b350d7",
+        "action": {
+          "action_type": "Tap",
+          "description": "Dismiss the privacy policy notification by tapping on it.",
+          "zone_path": "/FrameLayout/FrameLayout/ViewGroup[@text=\"You can find the privacy policy here\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "d89e09c6-a5cc-4eb1-8d4a-967f09add589",
+    "task": "Open the clock app. Clear any pop-ups that may appear by granting all permissions that are required.",
+    "tag": "clock.launch",
+    "path": [
+      {
+        "from_node_id": "874b83c1-2111-45fa-b4f2-f117aea9c226",
+        "to_node_id": "30df5e1c-1314-4909-a10a-a1f1204dfc6d",
+        "action": {
+          "action_type": "Swipe",
+          "description": "Swipe up from the bottom of the screen to open the app drawer.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "30df5e1c-1314-4909-a10a-a1f1204dfc6d",
+        "to_node_id": "4e56a0a7-04d8-4ac6-9eb4-02657ff7c8bb",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the Clock app icon to open it.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/RelativeLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/apps_view\"]/RecyclerView[@resource-id=\"com.google.android.apps.nexuslauncher:id/apps_list_view\"]/TextView[@resource-id=\"com.google.android.apps.nexuslauncher:id/icon\" | @content-desc=\"Clock\" | @text=\"Clock\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "4e56a0a7-04d8-4ac6-9eb4-02657ff7c8bb",
+        "to_node_id": "ed13bb77-c792-429f-bbc5-4a67928ddea0",
+        "action": {
+          "action_type": "Tap",
+          "description": "Dismiss the bedtime suggestion pop-up by tapping on it or its close button.",
+          "zone_path": "/FrameLayout/FrameLayout/ViewGroup[@text=\"Set a consistent bedtime for better sleep\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "ed13bb77-c792-429f-bbc5-4a67928ddea0",
+        "to_node_id": "24491466-f0c0-4d7d-b3a2-e0bf8bfcfdeb",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Get started\" button to proceed with the bedtime setup or dismiss the prompt.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager_frame\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager\"]/FrameLayout/FrameLayout/ScrollView[@resource-id=\"com.google.android.deskclock:id/bedtime_onboarding_intro\"]/ViewGroup/Button[@resource-id=\"com.google.android.deskclock:id/bedtime_onboarding_start\" | @text=\"Get started\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "24491466-f0c0-4d7d-b3a2-e0bf8bfcfdeb",
+        "to_node_id": "0d07877a-a12b-4178-88a1-4d67c4b2c70e",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Skip\" button to bypass the wake-up alarm setup.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView/ViewGroup/Button[@resource-id=\"com.google.android.deskclock:id/bedtime_onboarding_skip\" | @text=\"Skip\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "0d07877a-a12b-4178-88a1-4d67c4b2c70e",
+        "to_node_id": "caa74ec2-606a-4557-8a25-34ae8f918548",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Skip\" button to bypass the bedtime setup.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView/ViewGroup/Button[@resource-id=\"com.google.android.deskclock:id/bedtime_onboarding_skip\" | @text=\"Skip\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "caa74ec2-606a-4557-8a25-34ae8f918548",
+        "to_node_id": "d205b278-5d72-49c0-b206-b0e08da7feb4",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"No thanks\" button to dismiss the bedtime activity tracking prompt.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager_frame\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager\"]/FrameLayout/FrameLayout/RecyclerView[@resource-id=\"com.google.android.deskclock:id/card_view\"]/CardView/LinearLayout/FrameLayout[@resource-id=\"com.google.android.deskclock:id/card_content_view\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/consent_layout\"]/TextView[@resource-id=\"com.google.android.deskclock:id/bedtime_consent_button_cancel\" | @text=\"No thanks\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "d205b278-5d72-49c0-b206-b0e08da7feb4",
+        "to_node_id": "a0916755-8aa3-4c1e-ba83-5617d7c27cfa",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"No thanks\" button to dismiss the calendar access prompt.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.deskclock:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup/ViewGroup[@resource-id=\"com.google.android.deskclock:id/content\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager_frame\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/desk_clock_pager\"]/FrameLayout/FrameLayout/RecyclerView[@resource-id=\"com.google.android.deskclock:id/card_view\"]/CardView/LinearLayout/FrameLayout[@resource-id=\"com.google.android.deskclock:id/card_content_view\"]/ViewGroup[@resource-id=\"com.google.android.deskclock:id/consent_layout\"]/TextView[@resource-id=\"com.google.android.deskclock:id/bedtime_consent_button_cancel\" | @text=\"No thanks\"]"
+        },
+        "success": true
+      }
+    ]
+  }
+]

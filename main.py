@@ -23,7 +23,7 @@ from urllib.parse import urlparse
 
 from openai import OpenAI
 
-from phone_agent import PhoneAgent, Planner, SkillExecutor
+from phone_agent import PhoneAgent
 from phone_agent.agent import AgentConfig
 from phone_agent.agent_ios import IOSAgentConfig, IOSPhoneAgent
 from phone_agent.config.apps import list_supported_apps
@@ -31,10 +31,10 @@ from phone_agent.config.apps_harmonyos import list_supported_apps as list_harmon
 from phone_agent.config.apps_ios import list_supported_apps as list_ios_apps
 from phone_agent.device_factory import DeviceType, get_device_factory, set_device_type
 from phone_agent.model import ModelConfig
-from utils.config import load_config
-from utils.util import print_with_color
 from phone_agent.xctest import XCTestConnection
 from phone_agent.xctest import list_devices as list_ios_devices
+from utils.config import load_config
+from utils.util import print_with_color
 
 
 def check_system_requirements(
@@ -466,6 +466,71 @@ Examples:
         "--list-apps", action="store_true", help="List supported apps and exit"
     )
 
+    # Android World testing options
+    parser.add_argument(
+        "--android-world",
+        action="store_true",
+        help="Run Android World benchmark tests"
+    )
+    
+    parser.add_argument(
+        "--aw-task",
+        type=str,
+        help="Run specific Android World task (e.g., ContactsAddContact)"
+    )
+    
+    parser.add_argument(
+        "--aw-family",
+        type=str,
+        default="android_world",
+        help="Android World task family (default: android_world)"
+    )
+    
+    parser.add_argument(
+        "--aw-tasks",
+        type=str,
+        nargs="+",
+        help="List of specific Android World tasks to run"
+    )
+    
+    parser.add_argument(
+        "--aw-combinations",
+        type=int,
+        default=1,
+        help="Number of parameter combinations per task (default: 1)"
+    )
+    
+    parser.add_argument(
+        "--aw-timeout",
+        type=int,
+        default=300,
+        help="Timeout per task in seconds (default: 300)"
+    )
+    
+    parser.add_argument(
+        "--aw-list-tasks",
+        action="store_true",
+        help="List available Android World tasks and exit"
+    )
+
+    # Step recorder options
+    parser.add_argument(
+        "--record",
+        action="store_true",
+        help="Start step recorder to record user demonstrations"
+    )
+    
+    parser.add_argument(
+        "--record-app",
+        type=str,
+        help="App name for step recording (optional, will prompt if not provided)"
+    )
+    
+    parser.add_argument(
+        "--record-demo",
+        type=str,
+        help="Demo name for step recording (optional, will auto-generate if not provided)"
+    )
 
     parser.add_argument(
         "--device-type",
@@ -560,6 +625,56 @@ def handle_ios_device_commands(args) -> bool:
     return False
 
 
+def handle_android_world_commands(args) -> bool:
+    """
+    Handle Android World testing commands.
+    
+    Returns:
+        True if an Android World command was handled (should exit), False otherwise.
+    """
+    # Handle --aw-list-tasks
+    if args.aw_list_tasks:
+        try:
+            from evaluator import AndroidWorldTaskLoader
+            
+            task_loader = AndroidWorldTaskLoader()
+            families = task_loader.get_available_families()
+            
+            print("Available Android World task families:")
+            print("-" * 50)
+            for family in families:
+                print(f"📁 {family}")
+                tasks = task_loader.get_all_task_names(family)
+                print(f"   Tasks: {len(tasks)}")
+                if len(tasks) <= 10:
+                    for task in sorted(tasks):
+                        print(f"   - {task}")
+                else:
+                    for task in sorted(tasks)[:5]:
+                        print(f"   - {task}")
+                    print(f"   ... and {len(tasks) - 5} more")
+                print()
+            
+            print(f"Total families: {len(families)}")
+            total_tasks = sum(len(task_loader.get_all_task_names(f)) for f in families)
+            print(f"Total tasks: {total_tasks}")
+            
+        except ImportError as e:
+            print("❌ Android World integration not available.")
+            print(f"Error: {e}")
+            print("Please ensure android_world is properly installed.")
+        except Exception as e:
+            print(f"❌ Error listing Android World tasks: {e}")
+        
+        return True
+    
+    # Check if any Android World testing is requested
+    if args.android_world or args.aw_task or args.aw_tasks:
+        return False  # Continue to main function for actual testing
+    
+    return False
+
+
 def handle_device_commands(args) -> bool:
     """
     Handle device-related commands.
@@ -595,7 +710,7 @@ def handle_device_commands(args) -> bool:
             print(
                 "\nTo add iOS apps, find the Bundle ID and add to APP_PACKAGES_IOS dictionary."
             )
-        return
+        return True
 
     # Handle iOS-specific commands
     if device_type == DeviceType.IOS:
@@ -689,8 +804,49 @@ def main():
 
         set_hdc_verbose(True)
 
+    # Handle Android World commands first
+    if handle_android_world_commands(args):
+        return
+
     # Handle device commands (these may need partial system checks)
     if handle_device_commands(args):
+        return
+
+    # Handle step recorder
+    if args.record:
+        from learn.step_recorder import run_step_recorder
+        
+        print("🎬 Starting Step Recorder...")
+        print("=" * 50)
+        
+        try:
+            summary = run_step_recorder(
+                app=args.record_app,
+                demo_name=args.record_demo,
+                root_dir="./"
+            )
+            
+            print("\n" + "=" * 50)
+            print("✅ Step Recording Complete!")
+            print("=" * 50)
+            
+            if summary:
+                print(f"📊 Recording Summary:")
+                print(f"   App: {summary.get('app', 'N/A')}")
+                print(f"   Demo: {summary.get('demo_name', 'N/A')}")
+                print(f"   Steps recorded: {summary.get('steps', 0)}")
+                print(f"   Task description: {summary.get('task_desc', 'N/A')}")
+                if 'workflow_id' in summary:
+                    print(f"   Workflow ID: {summary['workflow_id']}")
+                if 'memory_dir' in summary:
+                    print(f"   Memory saved to: {summary['memory_dir']}")
+            
+        except Exception as e:
+            print(f"❌ Error during step recording: {e}")
+            import traceback
+            traceback.print_exc()
+            sys.exit(1)
+            
         return
 
     # Run system requirements check before proceeding
@@ -760,8 +916,7 @@ def main():
             agent_config=agent_config,
         )
     
-    planner = Planner(model_config=model_config)
-    executor = SkillExecutor(device_id=args.device_id)
+    
 
     # Print header
     print("=" * 50)
@@ -800,24 +955,99 @@ def main():
 
     print("=" * 50)
 
+    # Check if Android World testing is requested
+    if args.android_world or args.aw_task or args.aw_tasks:
+        try:
+            from evaluator import AndroidWorldTestRunner
+            
+            print("\n🤖 Starting Android World Testing...")
+            print("=" * 50)
+            
+            # Create test runner with Open-AutoGLM agent
+            test_runner = AndroidWorldTestRunner(
+                agent=agent,
+                timeout_per_task=args.aw_timeout,
+                verbose=not configs["QUIET"]
+            )
+            
+            start_time = time.time()
+            
+            if args.aw_task:
+                # Run single task with multiple combinations if specified
+                if args.aw_combinations > 1:
+                    print(f"Running single task: {args.aw_task} with {args.aw_combinations} combinations")
+                    result = test_runner.run_benchmark_suite(
+                        family=args.aw_family,
+                        task_names=[args.aw_task],
+                        n_combinations=args.aw_combinations,
+                        timeout_per_task=args.aw_timeout
+                    )
+                else:
+                    print(f"Running single task: {args.aw_task}")
+                    result = test_runner.run_single_task(
+                        task_name=args.aw_task,
+                        family=args.aw_family,
+                        timeout=args.aw_timeout
+                    )
+                
+            elif args.aw_tasks:
+                # Run specific task list
+                print(f"Running {len(args.aw_tasks)} tasks: {', '.join(args.aw_tasks)}")
+                result = test_runner.run_task_list(
+                    task_names=args.aw_tasks,
+                    family=args.aw_family,
+                    timeout_per_task=args.aw_timeout
+                )
+                
+            else:
+                # Run full benchmark suite
+                print(f"Running full benchmark suite: {args.aw_family}")
+                result = test_runner.run_benchmark_suite(
+                    family=args.aw_family,
+                    n_combinations=args.aw_combinations
+                )
+            
+            end_time = time.time()
+            
+            print("\n" + "=" * 50)
+            print("🎯 Android World Testing Complete!")
+            print(f"⏱️  Total time: {end_time - start_time:.2f} seconds")
+            print("=" * 50)
+            
+            # Print summary results
+            if result and 'summary' in result:
+                summary = result['summary']
+                print(f"\n📊 Results Summary:")
+                print(f"   Tasks completed: {summary.get('total_tasks', 0)}")
+                print(f"   Tasks successful: {summary.get('successful_tasks', 0)}")
+                print(f"   Success rate: {summary.get('success_rate', 0):.1%}")
+                print(f"   Average time per task: {summary.get('average_time_per_task', 0):.1f}s")
+                
+                if 'output_dir' in result:
+                    print(f"\n📁 Detailed results saved to: {result['output_dir']}")
+            
+        except ImportError as e:
+            print("❌ Android World integration not available.")
+            print(f"Error: {e}")
+            print("Please ensure android_world is properly installed.")
+            sys.exit(1)
+        except Exception as e:
+            print(f"❌ Error running Android World tests: {e}")
+            import traceback
+            traceback.print_exc()
+            sys.exit(1)
+            
+        return
+    
     # Run with provided task or enter interactive mode
     if args.task:
         print(f"\nTask: {args.task}\n")
-        # start_time = time.time()
-        # plan = planner.plan_task(args.task)
-        # end_time = time.time()
-        # print(f"Planning taken: {end_time - start_time:.2f} seconds")
-        # if plan.decision == "use_skill":
-        #     start_time = time.time()
-        #     actions = planner.execute_skill(plan.skill_name, plan.skill_params)
-        #     executor.run(actions=actions)
-        #     end_time = time.time()
-        #     print(f"Execution taken: {end_time - start_time:.2f} seconds")
+        
         start_time = time.time()
         result = agent.run(args.task)
         end_time = time.time()
         print(f"\nTime taken: {end_time - start_time:.2f} seconds")
-        print(f"\nResult: {result}")
+        # print(f"\nResult: {result}")
     else:
         # Interactive mode
         print("\nEntering interactive mode. Type 'quit' to exit.\n")
@@ -838,7 +1068,7 @@ def main():
                 result = agent.run(task)
                 end_time = time.time()
                 print(f"Time taken: {end_time - start_time:.2f} seconds")
-                print(f"\nResult: {result}\n")
+                # print(f"\nResult: {result}\n")
                 agent.reset()
 
             except KeyboardInterrupt:

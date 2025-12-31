@@ -1,0 +1,1062 @@
+[
+  {
+    "id": "93b8048f-2dc9-4111-a5cd-bf0440bdfc97",
+    "task": "Create a new contact for Sophie dos Santos. Their number is +18210700009. (name: Sophie dos Santos, phone: +18210700009)",
+    "tag": "contact.create",
+    "path": [
+      {
+        "from_node_id": "9f0ec2d8-6dba-4923-a467-3b575a6e8ef7",
+        "to_node_id": "15cbb56c-4ea8-4cc9-bb35-e5da2f1c47a4",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the Phone app icon to open it and access the contacts functionality.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/ViewGroup/TextView[@content-desc=\"Phone\" | @text=\"Phone\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "15cbb56c-4ea8-4cc9-bb35-e5da2f1c47a4",
+        "to_node_id": "f84b1070-0335-44b9-8bad-ddc3904d7d96",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Contacts\" tab in the bottom navigation bar to access the contacts list.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/bottom_nav_bar_fragment_container\"]/FrameLayout/FrameLayout[@resource-id=\"com.google.android.dialer:id/navigation_bar_layout\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.dialer:id/tab_contacts\" | @content-desc=\"Contacts\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "f84b1070-0335-44b9-8bad-ddc3904d7d96",
+        "to_node_id": "ec2fcf7a-c226-4ff0-a5ab-b18edceeceef",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Create new contact\" option to start adding a new contact.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/ViewGroup[@resource-id=\"com.google.android.dialer:id/main_activity_coordinator_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/fragment_container\"]/FrameLayout/ViewGroup[@resource-id=\"com.google.android.dialer:id/empty_list_view\"]/TextView[@resource-id=\"com.google.android.dialer:id/empty_content_view_action\" | @text=\"Create new contact\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "ec2fcf7a-c226-4ff0-a5ab-b18edceeceef",
+        "to_node_id": "e62a70ea-7aac-4cd4-91c1-d480ec415a1a",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"First name\" field to begin entering the contact's first name.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "e62a70ea-7aac-4cd4-91c1-d480ec415a1a",
+        "to_node_id": "ea77d488-b79e-4c0c-85b7-0eb9af7a62ab",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Sophie\" into the First name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "ea77d488-b79e-4c0c-85b7-0eb9af7a62ab",
+        "to_node_id": "d6dc021f-985d-44dc-bbf3-08132c680f1a",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Last name\" field to begin entering the last name.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "d6dc021f-985d-44dc-bbf3-08132c680f1a",
+        "to_node_id": "4b8bb0e9-333d-493d-a858-2f5fdf7212aa",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"dos Santos\" into the Last name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "4b8bb0e9-333d-493d-a858-2f5fdf7212aa",
+        "to_node_id": "ebffa870-a9cd-4722-896d-d0c9665a5e20",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Phone\" field to begin entering the phone number.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "ebffa870-a9cd-4722-896d-d0c9665a5e20",
+        "to_node_id": "66773649-bafb-4042-b05c-468c630fc191",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"+18210700009\" into the Phone field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "66773649-bafb-4042-b05c-468c630fc191",
+        "to_node_id": "b03847fd-87a7-4c65-a20b-f60fd8f11a7f",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Save\" button to save the new contact.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "7a599887-87d0-48d9-8a1c-48138faf4bbf",
+    "task": "Open 'Contacts' App. Create a new contact for Camila da Silva. Their number is +10433218196. (name: Camila da Silva, phone: +10433218196)",
+    "tag": "contact.create",
+    "path": [
+      {
+        "from_node_id": "38888920-160f-4e6b-b513-1cf111318f60",
+        "to_node_id": "614f9931-4aa9-4aa1-8cba-ba749a396a4a",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the Contacts app.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "614f9931-4aa9-4aa1-8cba-ba749a396a4a",
+        "to_node_id": "bb3692d5-b8c9-4bd6-9dea-69e697704e12",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Skip\" button to bypass the sign-in prompt.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/Button[@resource-id=\"android:id/button2\" | @text=\"Skip\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "bb3692d5-b8c9-4bd6-9dea-69e697704e12",
+        "to_node_id": "2d87050b-b1bb-4c7d-9d73-045f38017642",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"+\" button to create a new contact.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "2d87050b-b1bb-4c7d-9d73-045f38017642",
+        "to_node_id": "1fb5caa6-6681-4c55-8ac4-55cf3cb5e581",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the \"First name\" field to enter the name \"Camila\".",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "1fb5caa6-6681-4c55-8ac4-55cf3cb5e581",
+        "to_node_id": "7e6f6ca7-87fa-4ccc-8a03-311df98235b8",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Camila\" into the First name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "7e6f6ca7-87fa-4ccc-8a03-311df98235b8",
+        "to_node_id": "dc424ee0-eb6b-4d23-bf27-d7ad3e9c52a6",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the \"Last name\" field to enter \"da Silva\".",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "dc424ee0-eb6b-4d23-bf27-d7ad3e9c52a6",
+        "to_node_id": "057a1073-ef5f-4c92-a2bd-e165b709b9ee",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"da Silva\" into the Last name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "057a1073-ef5f-4c92-a2bd-e165b709b9ee",
+        "to_node_id": "2b4e2e98-497a-445e-9490-138de8eadcd7",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the \"Phone\" field to enter the phone number.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "2b4e2e98-497a-445e-9490-138de8eadcd7",
+        "to_node_id": "2899865e-ce43-4ca6-b215-cefa4d618d04",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"+10433218196\" into the Phone field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "2899865e-ce43-4ca6-b215-cefa4d618d04",
+        "to_node_id": "6cae889c-2881-4ce9-a165-d07329f0f50a",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Save\" button to save the new contact.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "b2e06e70-92cb-4aac-b7b9-ba73d0538576",
+    "task": "Open 'Contacts' App. Create a new contact for Alejandro Ali. Their number is +11338908386. (name: Alejandro Ali, phone: +11338908386)",
+    "tag": "contact.create",
+    "path": [
+      {
+        "from_node_id": "bc3ac410-8302-4f84-94bc-612853725da7",
+        "to_node_id": "de5f70cf-5c30-4ad7-89f5-a80f2006785e",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the Contacts app.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "de5f70cf-5c30-4ad7-89f5-a80f2006785e",
+        "to_node_id": "bb3692d5-b8c9-4bd6-9dea-69e697704e12",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap \"Don't allow\" to dismiss the notification permission request.",
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_singleton\"]/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_dialog\"]/LinearLayout/Button[@resource-id=\"com.android.permissioncontroller:id/permission_deny_button\" | @text=\"Don’t allow\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "bb3692d5-b8c9-4bd6-9dea-69e697704e12",
+        "to_node_id": "2d87050b-b1bb-4c7d-9d73-045f38017642",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"+\" button to create a new contact.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "2d87050b-b1bb-4c7d-9d73-045f38017642",
+        "to_node_id": "1fb5caa6-6681-4c55-8ac4-55cf3cb5e581",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the \"First name\" field to enter the name \"Camila\".",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "1fb5caa6-6681-4c55-8ac4-55cf3cb5e581",
+        "to_node_id": "8a3e8024-b384-48e4-81b7-9d42bfd985b9",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Camila\" into the First name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "8a3e8024-b384-48e4-81b7-9d42bfd985b9",
+        "to_node_id": "3d795dd5-5f8d-4fee-9b61-ab092685388e",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Last name\" field to enter the last name \"Ali\".",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "3d795dd5-5f8d-4fee-9b61-ab092685388e",
+        "to_node_id": "ceae03f5-a150-4c25-ad41-649551fd0688",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Ali\" into the Last name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "ceae03f5-a150-4c25-ad41-649551fd0688",
+        "to_node_id": "eb34bad9-01a0-4aa7-be31-5119817a1032",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Phone\" field to enter the phone number.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "eb34bad9-01a0-4aa7-be31-5119817a1032",
+        "to_node_id": "caac793d-d0e3-4202-bdb8-7b9e45f8b664",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"+11338908386\" into the Phone field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "caac793d-d0e3-4202-bdb8-7b9e45f8b664",
+        "to_node_id": "20fefa3a-5281-46e9-be31-655e3d3b2770",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Save\" button to save the new contact.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "2cd3b211-b8d4-4dca-8ba1-13ab02d7b1c2",
+    "task": "Open 'Contacts' App. Create a new contact for Luka Gonzalez. Their number is +19402654235. (name: Luka Gonzalez, phone: +19402654235)",
+    "tag": "contact.create",
+    "path": [
+      {
+        "from_node_id": "4d3a7197-30e3-4eaa-9e04-a071e858d7e5",
+        "to_node_id": "c955c65a-029e-4205-8d57-e19969d324bc",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the Contacts app.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "c955c65a-029e-4205-8d57-e19969d324bc",
+        "to_node_id": "5945211d-ed6f-4ee5-bed2-29ead7a2a679",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap \"Don't allow\" to dismiss the notification permission dialog.",
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_singleton\"]/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_dialog\"]/LinearLayout/Button[@resource-id=\"com.android.permissioncontroller:id/permission_deny_and_dont_ask_again_button\" | @text=\"Don’t allow\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "5945211d-ed6f-4ee5-bed2-29ead7a2a679",
+        "to_node_id": "2d87050b-b1bb-4c7d-9d73-045f38017642",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"+\" button to create a new contact.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "2d87050b-b1bb-4c7d-9d73-045f38017642",
+        "to_node_id": "1fb5caa6-6681-4c55-8ac4-55cf3cb5e581",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the \"First name\" field to enter the name \"Camila\".",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "1fb5caa6-6681-4c55-8ac4-55cf3cb5e581",
+        "to_node_id": "a18d28bb-b1c3-4e4c-93c7-ab9e0c5ed8eb",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Camila\" into the First name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "a18d28bb-b1c3-4e4c-93c7-ab9e0c5ed8eb",
+        "to_node_id": "99f71581-9f86-404b-bb0f-4cfbf26ba6ea",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Last name\" field to enter the last name \"Gonzalez\".",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "99f71581-9f86-404b-bb0f-4cfbf26ba6ea",
+        "to_node_id": "4537e6af-c597-46c4-afc0-37d84bb04180",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Gonzalez\" into the Last name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "4537e6af-c597-46c4-afc0-37d84bb04180",
+        "to_node_id": "11a7182f-e844-485d-9361-fcb16307d1ba",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Phone\" field to enter the phone number.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "11a7182f-e844-485d-9361-fcb16307d1ba",
+        "to_node_id": "f195d7e9-d50e-442d-82fd-ae82c1b68a11",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"+19402654235\" into the Phone field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "f195d7e9-d50e-442d-82fd-ae82c1b68a11",
+        "to_node_id": "02aa3298-4070-4216-b1b3-a14e272cfad3",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Save\" button to save the new contact.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "913159ac-351c-4102-ad0b-0947807ae5e2",
+    "task": "Open 'Contacts' App. Create a new contact for Aria Chen. Their number is +16155940781. (name: Aria Chen, phone: +16155940781)",
+    "tag": "contact.create",
+    "path": [
+      {
+        "from_node_id": "2b93967e-0acf-4ad5-9034-e8c967206556",
+        "to_node_id": "bb3692d5-b8c9-4bd6-9dea-69e697704e12",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the 'Contacts' app.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "bb3692d5-b8c9-4bd6-9dea-69e697704e12",
+        "to_node_id": "2d87050b-b1bb-4c7d-9d73-045f38017642",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"+\" button to create a new contact.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "2d87050b-b1bb-4c7d-9d73-045f38017642",
+        "to_node_id": "1fb5caa6-6681-4c55-8ac4-55cf3cb5e581",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the \"First name\" field to enter the name \"Camila\".",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "1fb5caa6-6681-4c55-8ac4-55cf3cb5e581",
+        "to_node_id": "f6d1d0b1-1158-4952-a0ec-80a4b982d9dd",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Camila\" into the First name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "f6d1d0b1-1158-4952-a0ec-80a4b982d9dd",
+        "to_node_id": "6203a8d3-686c-4163-9470-64ff60cd2bcd",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the \"Last name\" field to enter the last name.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "6203a8d3-686c-4163-9470-64ff60cd2bcd",
+        "to_node_id": "7d1bdace-898f-4b38-b519-58407537888f",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Chen\" into the last name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "7d1bdace-898f-4b38-b519-58407537888f",
+        "to_node_id": "7275e605-1d4f-4c3f-a2b1-3060f79e2478",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the \"Phone\" field to enter the phone number.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "7275e605-1d4f-4c3f-a2b1-3060f79e2478",
+        "to_node_id": "cf3e237a-5a1c-4bd6-b790-0307adbeca48",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"+16155940781\" into the Phone field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "cf3e237a-5a1c-4bd6-b790-0307adbeca48",
+        "to_node_id": "48ed0309-3bfd-475a-9fd0-4536b78ca966",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Save\" button to save the new contact.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "c647bb95-647f-4c9a-a0fe-a821e15a3d1f",
+    "task": "Open 'Contacts' App. Go to the new contact screen and enter the following details: First Name: Bob, Last Name: Taylor, Phone: 951-635-5281, Phone Label: Home. Do NOT hit save. (phone: 951-635-5281)",
+    "tag": "contact.create",
+    "path": [
+      {
+        "from_node_id": "1cb2fdd5-f8e9-412b-a1f8-b6c7ff94a148",
+        "to_node_id": "74eda4ad-c2c7-49b1-ab08-bc84e0296858",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the Contacts app.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "74eda4ad-c2c7-49b1-ab08-bc84e0296858",
+        "to_node_id": "358f39c0-683d-49cd-9792-0d2e5b5e36a0",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"+\" button to go to the new contact screen.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "358f39c0-683d-49cd-9792-0d2e5b5e36a0",
+        "to_node_id": "9df9b80d-6746-4666-a840-f352a08752c4",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the First name field to enter the name \"Bob\".",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "9df9b80d-6746-4666-a840-f352a08752c4",
+        "to_node_id": "47add411-bb57-4573-b562-81247cfb27d1",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Bob\" into the First name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "47add411-bb57-4573-b562-81247cfb27d1",
+        "to_node_id": "24002910-34d9-4b22-ac0b-627efffe3bec",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the Last name field to enter the name \"Taylor\".",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "24002910-34d9-4b22-ac0b-627efffe3bec",
+        "to_node_id": "e31579ba-5c80-4bdf-a885-f598476b0351",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Taylor\" into the Last name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "e31579ba-5c80-4bdf-a885-f598476b0351",
+        "to_node_id": "0b6acc39-4869-4dd1-bb56-986339d9b7f3",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the Phone field to enter the phone number \"951-635-5281\".",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "0b6acc39-4869-4dd1-bb56-986339d9b7f3",
+        "to_node_id": "908e273c-7ada-42b1-a635-9b486ae5beb7",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"951-635-5281\" into the Phone field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "908e273c-7ada-42b1-a635-9b486ae5beb7",
+        "to_node_id": "62909071-dfa8-436c-bcc6-a37cc640f969",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the dropdown menu next to the \"Label\" field to change the phone label from \"Mobile\" to \"Home\".",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "62909071-dfa8-436c-bcc6-a37cc640f969",
+        "to_node_id": "4760013e-83b0-4137-92b9-aecf51f12927",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the \"Home\" option in the dropdown menu to set the phone label.",
+          "zone_path": "/FrameLayout/FrameLayout/ListView/CheckedTextView[@resource-id=\"android:id/text1\" | @text=\"Home\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "b40e452e-8535-4aa2-81ee-649742eaf002",
+    "task": "Open 'Contacts' App. Go to the new contact screen and enter the following details: First Name: Hannah, Last Name: Lee, Phone: 392-429-7187, Phone Label: Home. Do NOT hit save. (phone: 392-429-7187)",
+    "tag": "contact.create",
+    "path": [
+      {
+        "from_node_id": "9f51edf2-ca5d-403c-a2d8-e1f92f146a85",
+        "to_node_id": "455d8ff8-edd1-4e1b-bfa9-f58706e59c94",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the 'Contacts' app.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "455d8ff8-edd1-4e1b-bfa9-f58706e59c94",
+        "to_node_id": "09e45264-e7d4-47b5-9def-22b7ea60f359",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"+\" button to start creating a new contact.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "09e45264-e7d4-47b5-9def-22b7ea60f359",
+        "to_node_id": "d2b8eaeb-b3bf-4483-8585-2e0ba948af4e",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the First name field to begin entering the name.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "d2b8eaeb-b3bf-4483-8585-2e0ba948af4e",
+        "to_node_id": "8ae39099-3314-4c49-8ce0-e05bf8cde6ac",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Hannah\" into the First name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "8ae39099-3314-4c49-8ce0-e05bf8cde6ac",
+        "to_node_id": "14f45981-18a6-4faf-be35-d57cc184d0be",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the Last name field to begin entering the last name.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "14f45981-18a6-4faf-be35-d57cc184d0be",
+        "to_node_id": "db8df412-0950-47df-a796-7eafb2936e3b",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Lee\" into the Last name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "db8df412-0950-47df-a796-7eafb2936e3b",
+        "to_node_id": "e2812d99-ba9e-4f69-a0b4-eedc9720848d",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the Phone field to begin entering the phone number.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "e2812d99-ba9e-4f69-a0b4-eedc9720848d",
+        "to_node_id": "f75d5a1a-00bd-4cd9-8eb1-3ba25eca0871",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"392-429-7187\" into the Phone field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "f75d5a1a-00bd-4cd9-8eb1-3ba25eca0871",
+        "to_node_id": "c39aa394-6605-419b-bf31-00a6d91a0e1f",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the dropdown menu next to the first phone entry to change the label from \"Mobile\" to \"Home\".",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "c39aa394-6605-419b-bf31-00a6d91a0e1f",
+        "to_node_id": "c1865b1a-da3e-4d2d-b518-3fde908a03bd",
+        "action": {
+          "action_type": "Tap",
+          "description": "Select \"Home\" from the dropdown menu to set the phone label.",
+          "zone_path": "/FrameLayout/FrameLayout/ListView/CheckedTextView[@resource-id=\"android:id/text1\" | @text=\"Home\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "48433738-dcb6-4bbe-a0fe-f041c0d5688e",
+    "task": "Open 'Contacts' App. Go to the new contact screen and enter the following details: First Name: Eva, Last Name: Wilson, Phone: 923-540-9910, Phone Label: Work. Do NOT hit save. (phone: 923-540-9910)",
+    "tag": "contact.create",
+    "path": [
+      {
+        "from_node_id": "0e2ca126-0c27-4074-84a9-04b81c391bce",
+        "to_node_id": "af026c52-0975-496a-a8a3-810b8903115a",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the Contacts app.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "af026c52-0975-496a-a8a3-810b8903115a",
+        "to_node_id": "2b2aa9ab-8340-4175-aa2f-b3d46f705bcf",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"+\" button to go to the new contact screen.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "2b2aa9ab-8340-4175-aa2f-b3d46f705bcf",
+        "to_node_id": "45568a70-d888-431a-9e9a-03d9221c39cf",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the First name field to begin entering the name.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "45568a70-d888-431a-9e9a-03d9221c39cf",
+        "to_node_id": "4d7ea334-c100-4773-968c-24099eed6fed",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Eva\" into the First name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "4d7ea334-c100-4773-968c-24099eed6fed",
+        "to_node_id": "450b7750-99d1-4c8c-b7a8-6b3f850f564c",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the Last name field to enter the last name.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "450b7750-99d1-4c8c-b7a8-6b3f850f564c",
+        "to_node_id": "3890e8e1-d62a-47ee-a08e-36dfe6026493",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Wilson\" into the Last name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "3890e8e1-d62a-47ee-a08e-36dfe6026493",
+        "to_node_id": "f0713cbd-6862-4203-9bd1-828a29b4bb33",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the Phone field to begin entering the phone number.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "f0713cbd-6862-4203-9bd1-828a29b4bb33",
+        "to_node_id": "a771dff1-e4d3-4e22-97a9-fa645f7431c7",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"923-540-9910\" into the Phone field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "a771dff1-e4d3-4e22-97a9-fa645f7431c7",
+        "to_node_id": "9738ad1a-4606-4de0-b456-c0c867f11c07",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the dropdown menu next to the Label field to change the phone label.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "9738ad1a-4606-4de0-b456-c0c867f11c07",
+        "to_node_id": "42d8273b-33dc-4e8b-b47c-68a794adc64b",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the \"Work\" option in the dropdown menu to set the phone label.",
+          "zone_path": "/FrameLayout/FrameLayout/ListView/CheckedTextView[@resource-id=\"android:id/text1\" | @text=\"Work\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "37c86acd-9525-44f7-8bd8-be131687db95",
+    "task": "Open 'Contacts' App. Go to the new contact screen and enter the following details: First Name: Eva, Last Name: Wilson, Phone: 514-199-2604, Phone Label: Work. Do NOT hit save. (phone: 514-199-2604)",
+    "tag": "contact.create",
+    "path": [
+      {
+        "from_node_id": "359f58a0-0fec-45ef-beca-a6ebb4173179",
+        "to_node_id": "2537c366-d71e-4b74-b544-a015093e8d5f",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the Contacts app.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "2537c366-d71e-4b74-b544-a015093e8d5f",
+        "to_node_id": "68dd8517-d4d7-4e0b-96a2-608a683cb8c0",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"+\" button to start creating a new contact.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "68dd8517-d4d7-4e0b-96a2-608a683cb8c0",
+        "to_node_id": "aed0ccd9-d1e9-4b84-987c-7c11f26274cc",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the First Name field to begin entering the first name.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "aed0ccd9-d1e9-4b84-987c-7c11f26274cc",
+        "to_node_id": "1ba9a33d-ffed-4368-9b1c-64ea05730e25",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Eva\" into the First Name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "1ba9a33d-ffed-4368-9b1c-64ea05730e25",
+        "to_node_id": "91de59b1-4c8e-4663-9ba0-93923b008e70",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the Last Name field to begin entering the last name.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "91de59b1-4c8e-4663-9ba0-93923b008e70",
+        "to_node_id": "d9d52d80-2079-4e0f-a133-048b1474fad0",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Wilson\" into the Last Name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "d9d52d80-2079-4e0f-a133-048b1474fad0",
+        "to_node_id": "f8538681-9c19-436c-89aa-2d16bb018c23",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the Phone field to begin entering the phone number.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "f8538681-9c19-436c-89aa-2d16bb018c23",
+        "to_node_id": "d2f55370-755a-4e44-8f5f-eac3e074175f",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"514-199-2604\" into the Phone field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "d2f55370-755a-4e44-8f5f-eac3e074175f",
+        "to_node_id": "c1cc0c70-d740-45ed-b2be-69d56537266e",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the dropdown menu next to the \"Label\" field to change the phone label.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "c1cc0c70-d740-45ed-b2be-69d56537266e",
+        "to_node_id": "d80698e0-3a10-49ae-818e-78e1c6cff6f9",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the \"Work\" option in the dropdown menu to set the phone label.",
+          "zone_path": "/FrameLayout/FrameLayout/ListView/CheckedTextView[@resource-id=\"android:id/text1\" | @text=\"Work\"]"
+        },
+        "success": true
+      }
+    ]
+  },
+  {
+    "id": "113e5e47-ce0e-48d9-9c5c-85bd40476147",
+    "task": "Open 'Contacts' App. Go to the new contact screen and enter the following details: First Name: Alice, Last Name: Johnson, Phone: 254-466-3070, Phone Label: Work. Do NOT hit save. (phone: 254-466-3070)",
+    "tag": "contact.create",
+    "path": [
+      {
+        "from_node_id": "4dbfc438-f402-4e41-a127-4d69f85a7740",
+        "to_node_id": "7a34c10b-2802-47a3-ba3d-36e0ab823adb",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the Contacts app.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "7a34c10b-2802-47a3-ba3d-36e0ab823adb",
+        "to_node_id": "980744af-3d88-4b9a-a607-a9d175caf6ed",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"+\" button to go to the new contact screen.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "980744af-3d88-4b9a-a607-a9d175caf6ed",
+        "to_node_id": "ce66154f-5218-46a0-984d-bdd6a347bc57",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the \"First name\" field to begin entering the first name.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "ce66154f-5218-46a0-984d-bdd6a347bc57",
+        "to_node_id": "2cf54add-551e-4bc0-84d3-19ca942366ad",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Alice\" into the First name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "2cf54add-551e-4bc0-84d3-19ca942366ad",
+        "to_node_id": "906701f2-d2be-4b5d-b128-64d894258767",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the Last name field to begin entering the last name.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "906701f2-d2be-4b5d-b128-64d894258767",
+        "to_node_id": "626c21f1-0096-4126-be75-885a8a650cee",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Johnson\" into the Last name field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "626c21f1-0096-4126-be75-885a8a650cee",
+        "to_node_id": "37861f55-1c5c-425e-b361-eab0b327429d",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the Phone field to begin entering the phone number.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "37861f55-1c5c-425e-b361-eab0b327429d",
+        "to_node_id": "6ff21d63-48a7-4bcc-b162-7fc5618b4437",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"254-466-3070\" into the Phone field.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "6ff21d63-48a7-4bcc-b162-7fc5618b4437",
+        "to_node_id": "fc4cfb41-7ba1-4525-972f-8f0166c71060",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the phone label dropdown to change it from \"Mobile\" to \"Work\".",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "fc4cfb41-7ba1-4525-972f-8f0166c71060",
+        "to_node_id": "5ab64e98-847d-4faa-b51a-1549fba948b4",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on the \"Work\" option in the phone label dropdown menu.",
+          "zone_path": "/FrameLayout/FrameLayout/ListView/CheckedTextView[@resource-id=\"android:id/text1\" | @text=\"Work\"]"
+        },
+        "success": true
+      }
+    ]
+  }
+]

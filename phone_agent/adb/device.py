@@ -20,6 +20,7 @@ def get_current_app(device_id: str | None = None) -> str:
         The app name if recognized, otherwise "System Home".
     """
     adb_prefix = _get_adb_prefix(device_id)
+    # print(f"adb_prefix: {adb_prefix}")
 
     result = subprocess.run(
         adb_prefix + ["shell", "dumpsys", "window"], capture_output=True, text=True, encoding="utf-8"
@@ -117,7 +118,6 @@ def long_press(
     )
     time.sleep(delay)
 
-
 def swipe(
     start_x: int,
     start_y: int,
@@ -147,8 +147,10 @@ def swipe(
     if duration_ms is None:
         # Calculate duration based on distance
         dist_sq = (start_x - end_x) ** 2 + (start_y - end_y) ** 2
-        duration_ms = int(dist_sq / 1000)
-        duration_ms = max(1000, min(duration_ms, 2000))  # Clamp between 1000-2000ms
+        duration_ms = int(dist_sq / 100)
+        duration_ms = max(100, min(duration_ms, 500))  # Clamp between 100-500ms
+    
+    # print(f"swipe: {start_x}, {start_y} -> {end_x}, {end_y}")
 
     subprocess.run(
         adb_prefix
@@ -165,7 +167,6 @@ def swipe(
         capture_output=True,
     )
     time.sleep(delay)
-
 
 def back(device_id: str | None = None, delay: float | None = None) -> None:
     """
@@ -219,6 +220,7 @@ def launch_app(
     Returns:
         True if app was launched, False if app not found.
     """
+    # print(f"launch_app: {app_name}")
     if delay is None:
         delay = TIMING_CONFIG.device.default_launch_delay
 
@@ -233,6 +235,7 @@ def launch_app(
     adb_prefix = _get_adb_prefix(device_id)
     
     package = APP_PACKAGES[app_name]
+    # print(f"package: {package}")
 
     subprocess.run(
         adb_prefix
