@@ -118,7 +118,6 @@ def long_press(
     )
     time.sleep(delay)
 
-
 def swipe(
     start_x: int,
     start_y: int,
@@ -166,7 +165,6 @@ def swipe(
         capture_output=True,
     )
     time.sleep(delay)
-
 
 def back(device_id: str | None = None, delay: float | None = None) -> None:
     """

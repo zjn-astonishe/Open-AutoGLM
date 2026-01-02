@@ -9,7 +9,7 @@ from openai import OpenAI
 from utils.config import load_config
 
 # 设置日志
-logging.basicConfig(level=logging.INFO)
+# logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 class CodeGenerator:

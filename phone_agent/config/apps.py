@@ -123,6 +123,7 @@ APP_PACKAGES: dict[str, str] = {
     "Google Contacts": "com.google.android.contacts",
     "google-contacts": "com.google.android.contacts",
     "google contacts": "com.google.android.contacts",
+    "Contacts": "com.google.android.contacts",
     "GoogleDocs": "com.google.android.apps.docs.editors.docs",
     "Google Docs": "com.google.android.apps.docs.editors.docs",
     "googledocs": "com.google.android.apps.docs.editors.docs",
