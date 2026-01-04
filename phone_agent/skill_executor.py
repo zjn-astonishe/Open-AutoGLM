@@ -3,8 +3,7 @@ from dataclasses import dataclass
 from .device_factory import get_device_factory
 from typing import List, Dict, Any, Callable
 from .actions.handler import ActionHandler, finish
-from code_generator.code_generator import extract_element_id
-
+from code_generator import extract_element_id
 
 @dataclass
 class StepResult:
@@ -33,7 +32,7 @@ class SkillExecutor:
         
         for action in actions:
             result = self._execute_step(action)
-        
+
         if result.finished:
             return result.message or "Task completed"
         
@@ -52,6 +51,7 @@ class SkillExecutor:
             })
 
         action = self._parse_action(action_code, elements_info)
+        print(f"Action: {action}")
 
         try:
             result = self.action_handler.execute(action, screenshot.width, screenshot.height)

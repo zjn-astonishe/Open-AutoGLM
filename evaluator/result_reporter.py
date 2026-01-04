@@ -56,6 +56,9 @@ class AndroidWorldResultReporter:
         # Time analysis
         time_analysis = self._analyze_execution_times(results, total_time)
         
+        # Calculate average time per task
+        average_time_per_task = total_time / total_tasks if total_tasks > 0 else 0.0
+        
         report = {
             'summary': {
                 'total_tasks': total_tasks,
@@ -63,6 +66,7 @@ class AndroidWorldResultReporter:
                 'failed_tasks': failed_tasks,
                 'success_rate': success_rate,
                 'total_time': total_time,
+                'average_time_per_task': average_time_per_task,
                 'timestamp': datetime.now().isoformat()
             },
             'family_breakdown': family_stats,

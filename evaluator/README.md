@@ -1,4 +1,4 @@
-# Android World Integration for Open-AutoGLM
+# Evaluation for Open-AutoGLM
 
 This module provides seamless integration between Open-AutoGLM and Android World benchmark testing framework, allowing you to run standardized Android automation tests while maintaining Open-AutoGLM's native `do()` format.
 

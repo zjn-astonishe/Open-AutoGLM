@@ -1,0 +1,122 @@
+{
+  "summary": {
+    "total_tasks": 1,
+    "successful_tasks": 0,
+    "failed_tasks": 1,
+    "success_rate": 0.0,
+    "total_time": 208.54811310768127,
+    "timestamp": "2026-01-04T10:52:51.403794"
+  },
+  "family_breakdown": {
+    "android_world": {
+      "total": 1,
+      "successful": 0,
+      "failed": 1,
+      "scores": [
+        0.0
+      ],
+      "times": [],
+      "tasks": [
+        "ContactsAddContact"
+      ],
+      "success_rate": 0.0,
+      "average_score": 0.0,
+      "median_score": 0.0,
+      "score_std": 0.0
+    }
+  },
+  "performance_metrics": {
+    "score_stats": {
+      "mean": 0.0,
+      "median": 0.0,
+      "std": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "action_stats": {
+      "mean": 0,
+      "median": 0,
+      "std": 0.0,
+      "min": 0,
+      "max": 0
+    }
+  },
+  "error_analysis": {
+    "total_failures": 1,
+    "failed_tasks": [
+      "ContactsAddContact"
+    ],
+    "error_categories": {
+      "evaluation": {
+        "count": 1,
+        "tasks": [
+          "ContactsAddContact"
+        ],
+        "examples": [
+          "Evaluation failed: ContactsAddContact.initialize_task() must be called before ContactsAddContact.is_successful()."
+        ]
+      }
+    }
+  },
+  "score_distribution": {
+    "total_scores": 1,
+    "distribution": {
+      "0.0-0.2": 1,
+      "0.2-0.4": 0,
+      "0.4-0.6": 0,
+      "0.6-0.8": 0,
+      "0.8-1.0": 0
+    },
+    "perfect_scores": 0,
+    "zero_scores": 1
+  },
+  "time_analysis": {
+    "total_benchmark_time": 208.54811310768127,
+    "total_tasks": 1,
+    "agent_time_stats": {
+      "mean": 114.53646969795227,
+      "median": 114.53646969795227,
+      "min": 114.53646969795227,
+      "max": 114.53646969795227,
+      "total": 114.53646969795227
+    }
+  },
+  "detailed_results": [
+    {
+      "task_name": "ContactsAddContact",
+      "combination_id": 0,
+      "family": "android_world",
+      "task_goal": "Create a new contact for Camila da Silva. Their number is +10433218196. (name: Camila da Silva, phone: +10433218196)",
+      "metadata": {
+        "task_name": "ContactsAddContact",
+        "family": "android_world",
+        "params": {
+          "name": "Camila da Silva",
+          "number": "+10433218196"
+        },
+        "complexity": 1.2,
+        "task_class": "ContactsAddContact",
+        "combination_id": 0,
+        "seed": 42
+      },
+      "agent_result": {
+        "finished": true,
+        "actions": [],
+        "execution_time": 114.53646969795227,
+        "result_message": "Contact Camila da Silva created and saved successfully."
+      },
+      "evaluation": {
+        "task_name": "ContactsAddContact",
+        "success": false,
+        "evaluation_score": 0.0,
+        "error": "Evaluation failed: ContactsAddContact.initialize_task() must be called before ContactsAddContact.is_successful().",
+        "evaluation_details": {},
+        "execution_time": 114.53646969795227,
+        "num_actions": 0,
+        "agent_finished": true
+      },
+      "timestamp": "2026-01-04T10:51:20.423645",
+      "success": false
+    }
+  ]
+}

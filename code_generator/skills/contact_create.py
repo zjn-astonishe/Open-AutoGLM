@@ -1,43 +1,40 @@
-def contact_create(first_name, last_name, phone_number, app_package="com.google.android.contacts"):
+def contact_create(first_name, last_name, phone_number):
     """
-    Creates a new contact in the contacts app with the specified details.
+    Creates a new contact in the Contacts app with the provided details.
     
-    This function abstracts the workflow for creating a new contact by:
-    - Opening the contacts application
-    - Initiating the creation of a new contact
-    - Filling in the contact details (first name, last name, phone number)
-    - Saving the new contact
+    This function abstracts the workflow for creating a new contact by launching
+    the Contacts app, entering the contact details (first name, last name, and phone number),
+    and saving the contact.
     
     Args:
         first_name (str): The first name of the contact to be created
         last_name (str): The last name of the contact to be created
         phone_number (str): The phone number of the contact to be created
-        app_package (str): The package name of the contacts app (default: com.google.android.contacts)
     
     Returns:
         list: A list of action dictionaries representing the steps to create a contact
     """
     actions = []
     
-    # Open the Contacts app
+    # Launch the Contacts app to begin creating a new contact
     actions.append({
-        "action": "Tap",
-        "element": "com.google.android.apps.nexuslauncher:id/icon|Contacts|Contacts"
+        "action": "Launch",
+        "app": "com.google.android.contacts"
     })
     
-    # Tap the "+" button to create a new contact
+    # Tap the "+" button to start creating a new contact
     actions.append({
         "action": "Tap",
         "element": "com.google.android.contacts:id/floating_action_button|Create contact"
     })
     
-    # Tap on the First name field to begin entering the contact's first name
+    # Tap on the "First name" field to begin entering the contact's first name
     actions.append({
         "action": "Tap",
         "element": "com.google.android.contacts:id/editors|First name"
     })
     
-    # Enter the first name in the First name field
+    # Type the provided first name into the First name field
     actions.append({
         "action": "Type",
         "element": "com.google.android.contacts:id/editors|First name",
@@ -50,7 +47,7 @@ def contact_create(first_name, last_name, phone_number, app_package="com.google.
         "element": "com.google.android.contacts:id/editors|Last name"
     })
     
-    # Enter the last name in the Last name field
+    # Type the provided last name into the Last name field
     actions.append({
         "action": "Type",
         "element": "com.google.android.contacts:id/editors|Last name",
@@ -63,7 +60,7 @@ def contact_create(first_name, last_name, phone_number, app_package="com.google.
         "element": "com.google.android.contacts:id/editors|Phone"
     })
     
-    # Enter the phone number in the Phone field
+    # Type the provided phone number into the Phone field
     actions.append({
         "action": "Type",
         "element": "com.google.android.contacts:id/editors|Phone",

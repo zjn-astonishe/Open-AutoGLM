@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "created_time": "2025-12-30T11:24:47.049891",
-  "updated_time": "2026-01-02T17:52:05.763910",
+  "updated_time": "2026-01-04T11:10:10.477650",
   "skills": {
     "alarm_create": {
       "function_name": "alarm_create",
@@ -51,7 +51,7 @@
     "contact_create": {
       "function_name": "contact_create",
       "tag": "contact.create",
-      "description": "Creates a new contact in the contacts app with the specified details.\n    \n    This function abstracts the workflow for creating a new contact by:\n    - Opening the contacts application\n    - Initiating the creation of a new contact\n    - Filling in the contact details (first name, last name, phone number)\n    - Saving the new contact\n    \n    Args:\n        first_name (str): The first name of the contact to be created\n        last_name (str): The last name of the contact to be created\n        phone_number (str): The phone number of the contact to be created\n        app_package (str): The package name of the contacts app (default: com.google.android.contacts)\n    \n    Returns:\n        list: A list of action dictionaries representing the steps to create a contact",
+      "description": "Creates a new contact in the Contacts app with the provided details.\n    \n    This function abstracts the workflow for creating a new contact by launching\n    the Contacts app, entering the contact details (first name, last name, and phone number),\n    and saving the contact.\n    \n    Args:\n        first_name (str): The first name of the contact to be created\n        last_name (str): The last name of the contact to be created\n        phone_number (str): The phone number of the contact to be created\n    \n    Returns:\n        list: A list of action dictionaries representing the steps to create a contact",
       "parameters": [
         {
           "name": "first_name",
@@ -64,17 +64,13 @@
         {
           "name": "phone_number",
           "default": null
-        },
-        {
-          "name": "app_package",
-          "default": "\"com.google.android.contacts\""
         }
       ],
       "workflow_count": 1,
       "workflow_tasks": [
-        "Create a new contact for Nikola Fernandez. Their number is +19319006004. (name: Nikola Fernandez, phone: +19319006004)"
+        "Create a new contact for Camila da Silva. Their number is +10433218196. (name: Camila da Silva, phone: +10433218196)"
       ],
-      "created_time": "2026-01-02T17:52:05.763878",
+      "created_time": "2026-01-04T11:10:10.477617",
       "file_path": "contact_create.py"
     }
   }

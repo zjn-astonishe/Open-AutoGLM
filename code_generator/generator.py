@@ -6,6 +6,9 @@ from typing import Dict, List, Any, Optional
 from datetime import datetime
 import logging
 from openai import OpenAI
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.config import load_config
 
 # 设置日志

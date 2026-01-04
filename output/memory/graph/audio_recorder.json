@@ -1,0 +1,498 @@
+{
+  "app": "audio recorder",
+  "nodes": {
+    "a787e79a-31fd-4964-8384-2a7ce32a6bb6": {
+      "id": "a787e79a-31fd-4964-8384-2a7ce32a6bb6",
+      "elements_info": [
+        {
+          "content": "com.dimowner.audiore__com.dimowner.audiore",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/LinearLayout[@resource-id=\"com.dimowner.audiorecorder:id/toolbar\"]/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_import\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_1080x247__com.dimowner.audiore_Settings",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_settings\" | @content-desc=\"Settings\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_247x247__com.dimowner.audiore_RECORD_Record",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_1080x247__com.dimowner.audiore",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_records_list\"]"
+        }
+      ],
+      "tasks": [
+        "Record an audio clip using Audio Recorder app and save it.",
+        "Record an audio clip and save it with name \"1fy6_memo.m4a\" using Audio Recorder app."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"RECORD\" button to start recording an audio clip.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]"
+        }
+      ],
+      "tag": [
+        "audio.record"
+      ]
+    },
+    "13adf95b-4bce-4197-9489-9a3fdf372fad": {
+      "id": "13adf95b-4bce-4197-9489-9a3fdf372fad",
+      "elements_info": [
+        {
+          "content": "android.widget.FrameLayout_996x380__com.android.systemui",
+          "option": "disabled",
+          "path": "/FrameLayout/View[@resource-id=\"com.android.systemui:id/scrim_behind\"]"
+        },
+        {
+          "content": "com.android.systemui__On_Internet,AndroidWifi",
+          "option": "enabled",
+          "path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Internet,AndroidWifi\" | @text=\"On\"]"
+        },
+        {
+          "content": "com.android.systemui__Off_Bluetooth.",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Bluetooth.\" | @text=\"Off\"]"
+        },
+        {
+          "content": "com.android.systemui__Off_Do Not Disturb.",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Do Not Disturb.\" | @text=\"Off\"]"
+        },
+        {
+          "content": "com.android.systemui__com.android.systemui",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/ScrollView[@resource-id=\"com.android.systemui:id/notification_stack_scroller\"]/FrameLayout[@resource-id=\"com.android.systemui:id/expandableNotificationRow\"]"
+        },
+        {
+          "content": "android:id_status_ba__android:id_alternate",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/ScrollView[@resource-id=\"com.android.systemui:id/notification_stack_scroller\"]/FrameLayout[@resource-id=\"com.android.systemui:id/expandableNotificationRow\"]/FrameLayout[@resource-id=\"com.android.systemui:id/expanded\"]/FrameLayout[@resource-id=\"android:id/status_bar_latest_event_content\"]/FrameLayout[@resource-id=\"android:id/alternate_expand_target\"]"
+        },
+        {
+          "content": "com.dimowner.audiore__com.dimowner.audiore",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/ScrollView[@resource-id=\"com.android.systemui:id/notification_stack_scroller\"]/FrameLayout[@resource-id=\"com.android.systemui:id/expandableNotificationRow\"]/FrameLayout[@resource-id=\"com.android.systemui:id/expanded\"]/FrameLayout[@resource-id=\"android:id/status_bar_latest_event_content\"]/LinearLayout[@resource-id=\"android:id/notification_headerless_view_row\"]/LinearLayout[@resource-id=\"android:id/notification_headerless_view_column\"]/LinearLayout[@resource-id=\"android:id/notification_main_column\"]/LinearLayout[@resource-id=\"com.dimowner.audiorecorder:id/container\"]/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_recording_pause\"]"
+        },
+        {
+          "content": "com.dimowner.audiore__com.dimowner.audiore",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/ScrollView[@resource-id=\"com.android.systemui:id/notification_stack_scroller\"]/FrameLayout[@resource-id=\"com.android.systemui:id/expandableNotificationRow\"]/FrameLayout[@resource-id=\"com.android.systemui:id/expanded\"]/FrameLayout[@resource-id=\"android:id/status_bar_latest_event_content\"]/LinearLayout[@resource-id=\"android:id/notification_headerless_view_row\"]/LinearLayout[@resource-id=\"android:id/notification_headerless_view_column\"]/LinearLayout[@resource-id=\"android:id/notification_main_column\"]/LinearLayout[@resource-id=\"com.dimowner.audiorecorder:id/container\"]/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_recording_stop\"]"
+        },
+        {
+          "content": "android:id_expand_bu__android:id_expand_bu_Expand",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/ScrollView[@resource-id=\"com.android.systemui:id/notification_stack_scroller\"]/FrameLayout[@resource-id=\"com.android.systemui:id/expandableNotificationRow\"]/FrameLayout[@resource-id=\"com.android.systemui:id/expanded\"]/FrameLayout[@resource-id=\"android:id/status_bar_latest_event_content\"]/LinearLayout[@resource-id=\"android:id/notification_headerless_view_row\"]/FrameLayout[@resource-id=\"android:id/expand_button_touch_container\"]/Button[@resource-id=\"android:id/expand_button\" | @content-desc=\"Expand\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_1080x247__com.dimowner.audiore_Settings",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_settings\" | @content-desc=\"Settings\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_247x247__com.dimowner.audiore_STOP_Record",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_1080x247__com.dimowner.audiore",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_records_list\"]"
+        }
+      ],
+      "tasks": [
+        "Record an audio clip using Audio Recorder app and save it."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"STOP\" button to end the recording.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]"
+        }
+      ],
+      "tag": []
+    },
+    "d1a00d27-24f4-46ea-a2b2-ffdb5f4af1fa": {
+      "id": "d1a00d27-24f4-46ea-a2b2-ffdb5f4af1fa",
+      "elements_info": [
+        {
+          "content": "android.widget.FrameLayout_1080x160__com.android.systemui",
+          "option": "disabled",
+          "path": "/FrameLayout/View[@resource-id=\"com.android.systemui:id/scrim_behind\"]"
+        },
+        {
+          "content": "com.android.systemui__On_Internet,AndroidWifi",
+          "option": "enabled",
+          "path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Internet,AndroidWifi\" | @text=\"On\"]"
+        },
+        {
+          "content": "com.android.systemui__Off_Bluetooth.",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Bluetooth.\" | @text=\"Off\"]"
+        },
+        {
+          "content": "com.android.systemui__Off_Do Not Disturb.",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Do Not Disturb.\" | @text=\"Off\"]"
+        },
+        {
+          "content": "com.android.systemui__com.android.systemui",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/ScrollView[@resource-id=\"com.android.systemui:id/notification_stack_scroller\"]/FrameLayout[@resource-id=\"com.android.systemui:id/expandableNotificationRow\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_1080x247__com.dimowner.audiore_Settings",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_settings\" | @content-desc=\"Settings\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_494x247__com.dimowner.audiore_RESUME_Record",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RESUME\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_494x247__com.dimowner.audiore_FINISH_Finish",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_1080x247__com.dimowner.audiore",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_records_list\"]"
+        }
+      ],
+      "tasks": [
+        "Record an audio clip using Audio Recorder app and save it."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"FINISH\" button to save the recorded audio clip.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]"
+        }
+      ],
+      "tag": []
+    },
+    "1359e379-d145-45c0-887e-69b94affe17c": {
+      "id": "1359e379-d145-45c0-887e-69b94affe17c",
+      "elements_info": [
+        {
+          "content": "android.widget.LinearLayout_940x628__com.dimowner.audiore_Record-5",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/EditText[@resource-id=\"com.dimowner.audiorecorder:id/input_name\" | @text=\"Record-5\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_940x628__com.dimowner.audiore_Don't ask again",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/CheckBox[@resource-id=\"com.dimowner.audiorecorder:id/check_box\" | @text=\"Don't ask again\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_546x168__com.dimowner.audiore_Cancel",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_negative_btn\" | @text=\"Cancel\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_546x168__com.dimowner.audiore_Save",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Back",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_back\" | @content-desc=\"Back\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Switch input method",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_ime_switcher\" | @content-desc=\"Switch input method\"]"
+        }
+      ],
+      "tasks": [
+        "Record an audio clip using Audio Recorder app and save it."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Save\" button to save the recorded audio clip.",
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]"
+        }
+      ],
+      "tag": []
+    },
+    "ab1709e6-3b50-411e-aa59-171951579392": {
+      "id": "ab1709e6-3b50-411e-aa59-171951579392",
+      "elements_info": [
+        {
+          "content": "com.dimowner.audiore__com.dimowner.audiore",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/LinearLayout[@resource-id=\"com.dimowner.audiorecorder:id/toolbar\"]/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_import\"]"
+        },
+        {
+          "content": "com.dimowner.audiore__com.dimowner.audiore",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/LinearLayout[@resource-id=\"com.dimowner.audiorecorder:id/toolbar\"]/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_share\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_1080x693__com.dimowner.audiore",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_play\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_1080x355__com.dimowner.audiore_Record-5",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/TextView[@resource-id=\"com.dimowner.audiorecorder:id/txt_name\" | @text=\"Record-5\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_1080x247__com.dimowner.audiore_Settings",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_settings\" | @content-desc=\"Settings\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_247x247__com.dimowner.audiore_RECORD_Record",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_1080x247__com.dimowner.audiore",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_records_list\"]"
+        }
+      ],
+      "tasks": [
+        "Record an audio clip using Audio Recorder app and save it."
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "The audio clip has been recorded and saved successfully.",
+          "zone_path": null
+        }
+      ],
+      "tag": []
+    },
+    "c04c75c4-0fe9-4628-b231-1797be6df9b3": {
+      "id": "c04c75c4-0fe9-4628-b231-1797be6df9b3",
+      "elements_info": [
+        {
+          "content": "android.widget.FrameLayout_1080x247__com.dimowner.audiore_Settings",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_settings\" | @content-desc=\"Settings\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_247x247__com.dimowner.audiore_STOP_Record",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_1080x247__com.dimowner.audiore",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_records_list\"]"
+        }
+      ],
+      "tasks": [
+        "Record an audio clip and save it with name \"1fy6_memo.m4a\" using Audio Recorder app."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the STOP button to end the recording.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]"
+        }
+      ],
+      "tag": [
+        "audio.record"
+      ]
+    },
+    "feae119d-bf90-45c2-b19b-c3825e9cf774": {
+      "id": "feae119d-bf90-45c2-b19b-c3825e9cf774",
+      "elements_info": [
+        {
+          "content": "android.widget.FrameLayout_1080x247__com.dimowner.audiore_Settings",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_settings\" | @content-desc=\"Settings\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_494x247__com.dimowner.audiore_RESUME_Record",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RESUME\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_494x247__com.dimowner.audiore_FINISH_Finish",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_1080x247__com.dimowner.audiore",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_records_list\"]"
+        }
+      ],
+      "tasks": [
+        "Record an audio clip and save it with name \"1fy6_memo.m4a\" using Audio Recorder app."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"FINISH\" button to complete the recording.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]"
+        }
+      ],
+      "tag": [
+        "audio.record.finish"
+      ]
+    },
+    "1898481a-adfa-476d-aa97-be4a83d99878": {
+      "id": "1898481a-adfa-476d-aa97-be4a83d99878",
+      "elements_info": [
+        {
+          "content": "android.widget.LinearLayout_940x628__com.dimowner.audiore_Record-1",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/EditText[@resource-id=\"com.dimowner.audiorecorder:id/input_name\" | @text=\"Record-1\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_940x628__com.dimowner.audiore_Don't ask again",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/CheckBox[@resource-id=\"com.dimowner.audiorecorder:id/check_box\" | @text=\"Don't ask again\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_546x168__com.dimowner.audiore_Cancel",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_negative_btn\" | @text=\"Cancel\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_546x168__com.dimowner.audiore_Save",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Back",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_back\" | @content-desc=\"Back\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Switch input method",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_ime_switcher\" | @content-desc=\"Switch input method\"]"
+        }
+      ],
+      "tasks": [
+        "Record an audio clip and save it with name \"1fy6_memo.m4a\" using Audio Recorder app."
+      ],
+      "actions": [
+        {
+          "action_type": "Type",
+          "description": "Type \"1fy6_memo.m4a\" into the input field to set the desired filename.",
+          "zone_path": null
+        }
+      ],
+      "tag": [
+        "audio.rename"
+      ]
+    },
+    "d5859760-ccb3-4c25-aec3-fe634a1f6c0c": {
+      "id": "d5859760-ccb3-4c25-aec3-fe634a1f6c0c",
+      "elements_info": [
+        {
+          "content": "android.widget.LinearLayout_940x628__com.dimowner.audiore_1fy6_memo.m4a",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/EditText[@resource-id=\"com.dimowner.audiorecorder:id/input_name\" | @text=\"1fy6_memo.m4a\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_940x628__com.dimowner.audiore_Don't ask again",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/CheckBox[@resource-id=\"com.dimowner.audiorecorder:id/check_box\" | @text=\"Don't ask again\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_546x168__com.dimowner.audiore_Cancel",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_negative_btn\" | @text=\"Cancel\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_546x168__com.dimowner.audiore_Save",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Back",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_back\" | @content-desc=\"Back\"]"
+        },
+        {
+          "content": "android.widget.RelativeLayout_183x126__android:id_input_met_Switch input method",
+          "option": "disabled",
+          "path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/input_method_navigation_bar_view\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_inflater\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_horizontal\"]/FrameLayout[@resource-id=\"android:id/input_method_nav_buttons\"]/LinearLayout[@resource-id=\"android:id/input_method_nav_ends_group\"]/RelativeLayout/ImageView[@resource-id=\"android:id/input_method_nav_ime_switcher\" | @content-desc=\"Switch input method\"]"
+        }
+      ],
+      "tasks": [
+        "Record an audio clip and save it with name \"1fy6_memo.m4a\" using Audio Recorder app."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Save\" button to save the audio recording with the specified name.",
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]"
+        }
+      ],
+      "tag": [
+        "audio.save"
+      ]
+    },
+    "e41bbaf4-dd14-4208-af9c-38b3507ec933": {
+      "id": "e41bbaf4-dd14-4208-af9c-38b3507ec933",
+      "elements_info": [
+        {
+          "content": "com.dimowner.audiore__com.dimowner.audiore",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/LinearLayout[@resource-id=\"com.dimowner.audiorecorder:id/toolbar\"]/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_import\"]"
+        },
+        {
+          "content": "com.dimowner.audiore__com.dimowner.audiore",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/LinearLayout[@resource-id=\"com.dimowner.audiorecorder:id/toolbar\"]/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_share\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_1080x693__com.dimowner.audiore",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_play\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_1080x355__com.dimowner.audiore_1fy6_memo.m4a",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/TextView[@resource-id=\"com.dimowner.audiorecorder:id/txt_name\" | @text=\"1fy6_memo.m4a\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_1080x247__com.dimowner.audiore_Settings",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_settings\" | @content-desc=\"Settings\"]"
+        },
+        {
+          "content": "android.widget.LinearLayout_247x247__com.dimowner.audiore_RECORD_Record",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]"
+        },
+        {
+          "content": "android.widget.FrameLayout_1080x247__com.dimowner.audiore",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.dimowner.audiorecorder:id/btn_records_list\"]"
+        }
+      ],
+      "tasks": [
+        "Record an audio clip and save it with name \"1fy6_memo.m4a\" using Audio Recorder app."
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "The task of recording and saving the audio clip with the name \"1fy6_memo.m4a\" has been completed successfully.",
+          "zone_path": null
+        }
+      ],
+      "tag": [
+        "audio.record"
+      ]
+    }
+  }
+}

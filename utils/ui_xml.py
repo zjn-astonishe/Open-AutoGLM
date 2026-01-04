@@ -63,5 +63,5 @@ if __name__ == "__main__":
         print("无法获取 uiautomator2 版本")
     
     # 1. 连接模拟器，获取 XML（设备名默认 emulator-5554，可根据 adb devices 结果修改）
-    xml_path = "tests/emulator_ui.xml"
-    get_emulator_ui_xml(emulator_device="emulator-5554", save_path=xml_path)
+    xml_path = "tests"
+    get_emulator_ui_xml(emulator_device="emulator-5554", save_dir=xml_path, prefix="test")

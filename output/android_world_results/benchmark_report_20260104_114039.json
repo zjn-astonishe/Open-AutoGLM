@@ -1,0 +1,177 @@
+{
+  "summary": {
+    "total_tasks": 2,
+    "successful_tasks": 2,
+    "failed_tasks": 0,
+    "success_rate": 1.0,
+    "total_time": 74.41827297210693,
+    "timestamp": "2026-01-04T11:40:39.119409"
+  },
+  "family_breakdown": {
+    "android_world": {
+      "total": 2,
+      "successful": 2,
+      "failed": 0,
+      "scores": [
+        1.0,
+        1.0
+      ],
+      "times": [
+        38.10281586647034,
+        35.82765030860901
+      ],
+      "tasks": [
+        "ContactsAddContact",
+        "ContactsAddContact"
+      ],
+      "success_rate": 1.0,
+      "average_score": 1.0,
+      "median_score": 1.0,
+      "score_std": 0.0,
+      "average_time": 36.96523308753967,
+      "median_time": 36.96523308753967
+    }
+  },
+  "performance_metrics": {
+    "score_stats": {
+      "mean": 1.0,
+      "median": 1.0,
+      "std": 0.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "time_stats": {
+      "mean": 36.96523308753967,
+      "median": 36.96523308753967,
+      "std": 1.6087849942858194,
+      "min": 35.82765030860901,
+      "max": 38.10281586647034
+    },
+    "action_stats": {
+      "mean": 0,
+      "median": 0.0,
+      "std": 0.0,
+      "min": 0,
+      "max": 0
+    }
+  },
+  "error_analysis": {
+    "total_failures": 0,
+    "failed_tasks": [],
+    "error_categories": {}
+  },
+  "score_distribution": {
+    "total_scores": 2,
+    "distribution": {
+      "0.0-0.2": 0,
+      "0.2-0.4": 0,
+      "0.4-0.6": 0,
+      "0.6-0.8": 0,
+      "0.8-1.0": 2
+    },
+    "perfect_scores": 2,
+    "zero_scores": 0
+  },
+  "time_analysis": {
+    "total_benchmark_time": 74.41827297210693,
+    "total_tasks": 2,
+    "task_time_stats": {
+      "mean": 36.96523308753967,
+      "median": 36.96523308753967,
+      "min": 35.82765030860901,
+      "max": 38.10281586647034,
+      "total": 73.93046617507935
+    },
+    "agent_time_stats": {
+      "mean": 33.923680901527405,
+      "median": 33.923680901527405,
+      "min": 32.78924798965454,
+      "max": 35.05811381340027,
+      "total": 67.84736180305481
+    }
+  },
+  "detailed_results": [
+    {
+      "task_name": "ContactsAddContact",
+      "combination_id": 0,
+      "family": "android_world",
+      "task_goal": "Create a new contact for Camila da Silva. Their number is +10433218196. (name: Camila da Silva, phone: +10433218196)",
+      "metadata": {
+        "task_name": "ContactsAddContact",
+        "family": "android_world",
+        "params": {
+          "name": "Camila da Silva",
+          "number": "+10433218196"
+        },
+        "complexity": 1.2,
+        "task_class": "ContactsAddContact",
+        "combination_id": 0,
+        "seed": 42
+      },
+      "agent_result": {
+        "finished": true,
+        "actions": [],
+        "execution_time": 35.05811381340027,
+        "result_message": "Contact Camila da Silva created successfully."
+      },
+      "evaluation": {
+        "task_name": "ContactsAddContact",
+        "success": true,
+        "evaluation_score": 1.0,
+        "error": null,
+        "evaluation_details": {
+          "final_screen_elements": 0,
+          "task_complexity": 1.2,
+          "task_goal": "Create a new contact for Camila da Silva. Their number is +10433218196."
+        },
+        "execution_time": 35.05811381340027,
+        "num_actions": 0,
+        "agent_finished": true
+      },
+      "total_time": 38.10281586647034,
+      "timestamp": "2026-01-04T11:40:03.069704",
+      "success": true
+    },
+    {
+      "task_name": "ContactsAddContact",
+      "combination_id": 1,
+      "family": "android_world",
+      "task_goal": "Create a new contact for Alejandro Ali. Their number is +11338908386. (name: Alejandro Ali, phone: +11338908386)",
+      "metadata": {
+        "task_name": "ContactsAddContact",
+        "family": "android_world",
+        "params": {
+          "name": "Alejandro Ali",
+          "number": "+11338908386"
+        },
+        "complexity": 1.2,
+        "task_class": "ContactsAddContact",
+        "combination_id": 1,
+        "seed": 42
+      },
+      "agent_result": {
+        "finished": true,
+        "actions": [],
+        "execution_time": 32.78924798965454,
+        "result_message": "Contact Alejandro Ali already exists and is saved."
+      },
+      "evaluation": {
+        "task_name": "ContactsAddContact",
+        "success": true,
+        "evaluation_score": 1.0,
+        "error": null,
+        "evaluation_details": {
+          "final_screen_elements": 0,
+          "task_complexity": 1.2,
+          "task_goal": "Create a new contact for Alejandro Ali. Their number is +11338908386."
+        },
+        "execution_time": 32.78924798965454,
+        "num_actions": 0,
+        "agent_finished": true
+      },
+      "total_time": 35.82765030860901,
+      "timestamp": "2026-01-04T11:40:39.119129",
+      "success": true
+    }
+  ]
+}

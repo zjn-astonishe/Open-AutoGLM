@@ -72,8 +72,10 @@ def save_snapshot(app_name: str, env: env_interface.AndroidEnvInterface):
         "Continuing to save %s snapshot after failing to clear prior snapshot.",
         app_name,
     )
-
-  file_utils.copy_dir(_app_data_path(app_name), snapshot_path, env)
+  try:
+      file_utils.copy_dir(_app_data_path(app_name), snapshot_path, env)
+  except Exception as e:
+      raise RuntimeError(f"Failed to copy data to snapshot path: {e}") from e
 
 
 def restore_snapshot(app_name: str, env: env_interface.AndroidEnvInterface):

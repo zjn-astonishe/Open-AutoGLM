@@ -616,7 +616,7 @@ def handle_android_world_commands(args) -> bool:
     # Handle --aw-list-tasks
     if args.aw_list_tasks:
         try:
-            from android_world_integration import AndroidWorldTaskLoader
+            from evaluator import AndroidWorldTaskLoader
             
             task_loader = AndroidWorldTaskLoader()
             families = task_loader.get_available_families()
@@ -902,7 +902,7 @@ def main():
     # Check if Android World testing is requested
     if args.android_world or args.aw_task or args.aw_tasks:
         try:
-            from android_world_integration import AndroidWorldTestRunner
+            from evaluator import AndroidWorldTestRunner
             
             print("\n🤖 Starting Android World Testing...")
             print("=" * 50)
@@ -917,13 +917,22 @@ def main():
             start_time = time.time()
             
             if args.aw_task:
-                # Run single task
-                print(f"Running single task: {args.aw_task}")
-                result = test_runner.run_single_task(
-                    task_name=args.aw_task,
-                    family=args.aw_family,
-                    timeout=args.aw_timeout
-                )
+                # Run single task with multiple combinations if specified
+                if args.aw_combinations > 1:
+                    print(f"Running single task: {args.aw_task} with {args.aw_combinations} combinations")
+                    result = test_runner.run_benchmark_suite(
+                        family=args.aw_family,
+                        task_names=[args.aw_task],
+                        n_combinations=args.aw_combinations,
+                        timeout_per_task=args.aw_timeout
+                    )
+                else:
+                    print(f"Running single task: {args.aw_task}")
+                    result = test_runner.run_single_task(
+                        task_name=args.aw_task,
+                        family=args.aw_family,
+                        timeout=args.aw_timeout
+                    )
                 
             elif args.aw_tasks:
                 # Run specific task list
@@ -953,10 +962,10 @@ def main():
             if result and 'summary' in result:
                 summary = result['summary']
                 print(f"\n📊 Results Summary:")
-                print(f"   Tasks completed: {summary.get('completed', 0)}")
-                print(f"   Tasks successful: {summary.get('successful', 0)}")
+                print(f"   Tasks completed: {summary.get('total_tasks', 0)}")
+                print(f"   Tasks successful: {summary.get('successful_tasks', 0)}")
                 print(f"   Success rate: {summary.get('success_rate', 0):.1%}")
-                print(f"   Average time per task: {summary.get('avg_time_per_task', 0):.1f}s")
+                print(f"   Average time per task: {summary.get('average_time_per_task', 0):.1f}s")
                 
                 if 'output_dir' in result:
                     print(f"\n📁 Detailed results saved to: {result['output_dir']}")

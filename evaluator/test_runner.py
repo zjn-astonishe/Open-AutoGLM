@@ -311,6 +311,15 @@ class AndroidWorldTestRunner:
                 print(f"\n--- Task {i}/{len(task_suite)}: {task_name} (combination {combination_id}) ---")
                 
                 try:
+                    # Initialize the task in AndroidWorld environment BEFORE agent execution
+                    print("🔧 Initializing AndroidWorld task...")
+                    if self.evaluator.env and task_instance:
+                        try:
+                            task_instance.initialize_task(self.evaluator.env)
+                            print("✅ AndroidWorld task initialized successfully")
+                        except Exception as e:
+                            print(f"⚠️ Warning: Failed to initialize AndroidWorld task: {e}")
+                    
                     # Reset agent
                     self.agent.reset()
                     
@@ -344,6 +353,9 @@ class AndroidWorldTestRunner:
                     # Evaluate
                     evaluation_result = self.evaluator.evaluate_task(task_instance, agent_result, metadata)
                     
+                    # Calculate total time for this task
+                    task_total_time = time.time() - agent_start_time
+                    
                     result = {
                         'task_name': task_name,
                         'combination_id': combination_id,
@@ -352,6 +364,7 @@ class AndroidWorldTestRunner:
                         'metadata': metadata,
                         'agent_result': agent_result,
                         'evaluation': evaluation_result,
+                        'total_time': task_total_time,
                         'timestamp': datetime.now().isoformat(),
                         'success': evaluation_result['success']
                     }

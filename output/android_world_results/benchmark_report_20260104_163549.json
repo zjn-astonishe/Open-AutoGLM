@@ -1,0 +1,26 @@
+{
+  "summary": {
+    "total_tasks": 0,
+    "successful_tasks": 0,
+    "failed_tasks": 0,
+    "success_rate": 0.0,
+    "total_time": 21.031940460205078,
+    "average_time_per_task": 0.0,
+    "timestamp": "2026-01-04T16:35:49.243384"
+  },
+  "family_breakdown": {},
+  "performance_metrics": {},
+  "error_analysis": {
+    "total_failures": 0,
+    "failed_tasks": [],
+    "error_categories": {}
+  },
+  "score_distribution": {
+    "message": "No scores available"
+  },
+  "time_analysis": {
+    "total_benchmark_time": 21.031940460205078,
+    "total_tasks": 0
+  },
+  "detailed_results": []
+}

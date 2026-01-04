@@ -232,6 +232,7 @@ def launch_app(
     adb_prefix = _get_adb_prefix(device_id)
     
     package = APP_PACKAGES[app_name]
+    # print(f"package: {package}")
 
     subprocess.run(
         adb_prefix

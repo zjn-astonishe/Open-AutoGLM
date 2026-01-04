@@ -1,0 +1,198 @@
+{
+  "summary": {
+    "total_tasks": 3,
+    "successful_tasks": 3,
+    "failed_tasks": 0,
+    "success_rate": 1.0,
+    "total_time": 111.61920714378357,
+    "timestamp": "2026-01-04T11:32:14.042458"
+  },
+  "family_breakdown": {
+    "android_world": {
+      "total": 3,
+      "successful": 3,
+      "failed": 0,
+      "scores": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "times": [],
+      "tasks": [
+        "ContactsAddContact",
+        "ContactsAddContact",
+        "ContactsAddContact"
+      ],
+      "success_rate": 1.0,
+      "average_score": 1.0,
+      "median_score": 1.0,
+      "score_std": 0.0
+    }
+  },
+  "performance_metrics": {
+    "score_stats": {
+      "mean": 1.0,
+      "median": 1.0,
+      "std": 0.0,
+      "min": 1.0,
+      "max": 1.0
+    },
+    "action_stats": {
+      "mean": 0,
+      "median": 0,
+      "std": 0.0,
+      "min": 0,
+      "max": 0
+    }
+  },
+  "error_analysis": {
+    "total_failures": 0,
+    "failed_tasks": [],
+    "error_categories": {}
+  },
+  "score_distribution": {
+    "total_scores": 3,
+    "distribution": {
+      "0.0-0.2": 0,
+      "0.2-0.4": 0,
+      "0.4-0.6": 0,
+      "0.6-0.8": 0,
+      "0.8-1.0": 3
+    },
+    "perfect_scores": 3,
+    "zero_scores": 0
+  },
+  "time_analysis": {
+    "total_benchmark_time": 111.61920714378357,
+    "total_tasks": 3,
+    "agent_time_stats": {
+      "mean": 33.74280468622843,
+      "median": 33.684781312942505,
+      "min": 33.62854242324829,
+      "max": 33.91509032249451,
+      "total": 101.2284140586853
+    }
+  },
+  "detailed_results": [
+    {
+      "task_name": "ContactsAddContact",
+      "combination_id": 0,
+      "family": "android_world",
+      "task_goal": "Create a new contact for Camila da Silva. Their number is +10433218196. (name: Camila da Silva, phone: +10433218196)",
+      "metadata": {
+        "task_name": "ContactsAddContact",
+        "family": "android_world",
+        "params": {
+          "name": "Camila da Silva",
+          "number": "+10433218196"
+        },
+        "complexity": 1.2,
+        "task_class": "ContactsAddContact",
+        "combination_id": 0,
+        "seed": 42
+      },
+      "agent_result": {
+        "finished": true,
+        "actions": [],
+        "execution_time": 33.684781312942505,
+        "result_message": "Contact Camila da Silva has been successfully created."
+      },
+      "evaluation": {
+        "task_name": "ContactsAddContact",
+        "success": true,
+        "evaluation_score": 1.0,
+        "error": null,
+        "evaluation_details": {
+          "final_screen_elements": 0,
+          "task_complexity": 1.2,
+          "task_goal": "Create a new contact for Camila da Silva. Their number is +10433218196."
+        },
+        "execution_time": 33.684781312942505,
+        "num_actions": 0,
+        "agent_finished": true
+      },
+      "timestamp": "2026-01-04T11:30:59.385967",
+      "success": true
+    },
+    {
+      "task_name": "ContactsAddContact",
+      "combination_id": 1,
+      "family": "android_world",
+      "task_goal": "Create a new contact for Alejandro Ali. Their number is +11338908386. (name: Alejandro Ali, phone: +11338908386)",
+      "metadata": {
+        "task_name": "ContactsAddContact",
+        "family": "android_world",
+        "params": {
+          "name": "Alejandro Ali",
+          "number": "+11338908386"
+        },
+        "complexity": 1.2,
+        "task_class": "ContactsAddContact",
+        "combination_id": 1,
+        "seed": 42
+      },
+      "agent_result": {
+        "finished": true,
+        "actions": [],
+        "execution_time": 33.62854242324829,
+        "result_message": "Contact Alejandro Ali created successfully."
+      },
+      "evaluation": {
+        "task_name": "ContactsAddContact",
+        "success": true,
+        "evaluation_score": 1.0,
+        "error": null,
+        "evaluation_details": {
+          "final_screen_elements": 0,
+          "task_complexity": 1.2,
+          "task_goal": "Create a new contact for Alejandro Ali. Their number is +11338908386."
+        },
+        "execution_time": 33.62854242324829,
+        "num_actions": 0,
+        "agent_finished": true
+      },
+      "timestamp": "2026-01-04T11:31:36.468394",
+      "success": true
+    },
+    {
+      "task_name": "ContactsAddContact",
+      "combination_id": 2,
+      "family": "android_world",
+      "task_goal": "Create a new contact for Luka Gonzalez. Their number is +19402654235. (name: Luka Gonzalez, phone: +19402654235)",
+      "metadata": {
+        "task_name": "ContactsAddContact",
+        "family": "android_world",
+        "params": {
+          "name": "Luka Gonzalez",
+          "number": "+19402654235"
+        },
+        "complexity": 1.2,
+        "task_class": "ContactsAddContact",
+        "combination_id": 2,
+        "seed": 42
+      },
+      "agent_result": {
+        "finished": true,
+        "actions": [],
+        "execution_time": 33.91509032249451,
+        "result_message": "Contact Luka Gonzalez already exists and is saved."
+      },
+      "evaluation": {
+        "task_name": "ContactsAddContact",
+        "success": true,
+        "evaluation_score": 1.0,
+        "error": null,
+        "evaluation_details": {
+          "final_screen_elements": 0,
+          "task_complexity": 1.2,
+          "task_goal": "Create a new contact for Luka Gonzalez. Their number is +19402654235."
+        },
+        "execution_time": 33.91509032249451,
+        "num_actions": 0,
+        "agent_finished": true
+      },
+      "timestamp": "2026-01-04T11:32:14.042203",
+      "success": true
+    }
+  ]
+}
