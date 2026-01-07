@@ -40,6 +40,25 @@ class AndroidElement:
                 name += "[" + " | ".join(conds) + "]"
             parts.append(name)
         return "/" + "/".join(parts)
+    
+    def get_simple_xpath(self) -> str:
+        """生成简化的XPath字符串，只包含当前元素的关键标识信息"""
+        if not self.ui_path:
+            return "/"
+        
+        # 只取最后一个元素（当前元素）的信息
+        current_step = self.ui_path[-1]
+        name = current_step["class"].split(".")[-1]
+        conds = []
+        
+        for k in ("resource-id", "content-desc", "text"):
+            if k in current_step:
+                conds.append(f'@{k}="{current_step[k]}"')
+        
+        if conds:
+            name += "[" + " | ".join(conds) + "]"
+        
+        return "/" + name
 
 
 def parse_bounds(elem: ET.Element) -> Tuple[Tuple[int, int], Tuple[int, int], Tuple[int, int]]:
@@ -69,7 +88,7 @@ def get_u2_element_id(elem: ET.Element) -> str:
     for k in ("resource-id", "text", "content-desc"):
         v = elem.attrib.get(k)
         if v:
-            parts.append(v.strip()[:20].replace("/", "_"))
+            parts.append(v.strip().replace("/", "_"))
     if not parts:
         (x1, y1), (x2, y2), _ = parse_bounds(elem)
         parts.append(f"{elem.attrib.get('class', 'node')}_{x2-x1}x{y2-y1}")
@@ -142,35 +161,6 @@ def ui_filter(xml_path: str, min_dist: int = 30) -> List[AndroidElement]:
     # compress_all_xpaths(elem_list)
     return elem_list
 
-# TODO: 压缩XPath功能，考虑动态问题，暂时注释掉
-# def compress_all_xpaths(elements: List[AndroidElement]) -> None:
-#     """对所有元素的XPath进行全局最大前缀去重，直接写入compressed_xpath属性"""
-#     all_paths = [e.ui_path for e in elements]
-#     if not all_paths:
-#         return
-
-#     # 找最长公共前缀
-#     prefix_len = len(all_paths[0])
-#     for path in all_paths[1:]:
-#         i = 0
-#         while i < min(prefix_len, len(path)) and all_paths[0][i] == path[i]:
-#             i += 1
-#         prefix_len = i
-
-#     for e in elements:
-#         unique_suffix = e.ui_path[prefix_len:]
-#         parts = []
-#         for step in unique_suffix:
-#             name = step["class"].split(".")[-1]
-#             conds = []
-#             for k in ("resource-id", "content-desc", "text"):
-#                 if k in step:
-#                     conds.append(f'@{k}="{step[k]}"')
-#             if conds:
-#                 name += "[" + " | ".join(conds) + "]"
-#             parts.append(name)
-#         e.compressed_xpath = "/" + "/".join(parts) if parts else "/"
-
 
 if __name__ == "__main__":
     # 测试用例
@@ -180,5 +170,5 @@ if __name__ == "__main__":
     print(f"Found {len(elems)} actionable elements\n")
     for i, e in enumerate(elems, 1):
         print(f"{i:02d}. {e}")
-        print(f"    XPath: {e.get_xpath()}")
+        print(f"    XPath: {e.get_simple_xpath()}")
         # print(f"    Compress_XPath: {e.compressed_xpath}\n")

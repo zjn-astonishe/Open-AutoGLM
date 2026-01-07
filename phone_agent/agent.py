@@ -218,7 +218,7 @@ class PhoneAgent:
             })
             elements.append({
                 **common_fields,
-                "path": e.get_xpath()
+                "path": e.get_simple_xpath()
             })
 
         node = work_graph.create_node(elements)
@@ -366,3 +366,271 @@ class PhoneAgent:
     def step_count(self) -> int:
         """Get the current step count."""
         return self._step_count
+
+    def reflect(self, action: dict[str, Any], before_screenshot: Any = None) -> dict[str, Any]:
+        """
+        Reflect on action execution by comparing before and after interface states.
+        
+        This method evaluates whether an action was successfully executed by analyzing
+        the changes in the interface before and after the action.
+        
+        Args:
+            action: The action that was executed
+            before_screenshot: Screenshot before action execution (optional, will capture if not provided)
+            after_screenshot: Screenshot after action execution (optional, will capture if not provided)
+            
+        Returns:
+            Dictionary containing reflection results with:
+            - action_successful: Boolean indicating if action was successful
+            - interface_changes: Description of observed interface changes
+            - expected_vs_actual: Comparison of expected vs actual results
+            - confidence_score: Confidence level of the evaluation (0-1)
+            - reflection_reasoning: Detailed reasoning for the evaluation
+        """
+        device_factory = get_device_factory()
+        
+        # Capture screenshots if not provided
+        if before_screenshot is None:
+            if self.agent_config.verbose:
+                print("Warning: Preview Screenshot not provided.")
+            
+            return {
+                'action_successful': None,
+                'interface_changes': "Cannot evaluate - missing before screenshot",
+                'expected_vs_actual': "Evaluation requires both before screenshot",
+                'confidence_score': 0.0,
+                'reflection_reasoning': "Insufficient data for reflection analysis"
+            }
+        current_screenshot = device_factory.get_screenshot(device_id=self.agent_config.device_id)
+        
+        # Extract elements info from both screenshots
+        before_elements = []
+        after_elements = []
+        
+        for i, e in enumerate(before_screenshot.elements, 1):
+            before_elements.append({
+                "content": e.elem_id,
+                "option": e.checked,
+                "bbox": e.bbox,
+            })
+            
+        for i, e in enumerate(current_screenshot.elements, 1):
+            after_elements.append({
+                "content": e.elem_id,
+                "option": e.checked,
+                "bbox": e.bbox,
+            })
+        
+        # Build reflection prompt
+        action_type = action.get('action', 'unknown')
+        action_description = action.get('message', 'No description')
+        
+        # First check if there are obvious interface changes
+        interface_changes = self._extract_interface_changes(before_elements, after_elements)
+        has_obvious_changes = self._has_obvious_changes(before_elements, after_elements)
+        
+        # If there are obvious changes, assume action was successful without model analysis
+        if has_obvious_changes:
+            if self.agent_config.verbose:
+                print("\n" + "🤔 " + "=" * 48)
+                print("🔍 REFLECTION ANALYSIS")
+                print("-" * 50)
+                print(f"Action: {action_type}")
+                print(f"Description: {action_description}")
+                print("Obvious interface changes detected - assuming success")
+                print("=" * 50 + "\n")
+            
+            return {
+                'action_successful': True,
+                'interface_changes': interface_changes,
+                'expected_vs_actual': "Obvious interface changes detected, action appears successful",
+                'confidence_score': 0.9,
+                'reflection_reasoning': f"Interface changes detected: {interface_changes}. No model analysis needed.",
+                'action_analyzed': action,
+                'elements_before': len(before_elements),
+                'elements_after': len(after_elements),
+                'used_model_analysis': False
+            }
+        
+        # Only use model analysis when no obvious changes are detected
+        if self.agent_config.verbose:
+            print("\n" + "🤔 " + "=" * 48)
+            print("🔍 REFLECTION ANALYSIS")
+            print("-" * 50)
+            print(f"Action: {action_type}")
+            print(f"Description: {action_description}")
+            print("No obvious changes detected - using model analysis")
+            print("-" * 50)
+        
+        # Create comparison context for the model
+        reflection_prompt = f"""
+Please analyze the effectiveness of the following action execution:
+
+Executed action: {action_type}
+Action description: {action_description}
+
+Please compare the interface changes before and after execution to evaluate if the action was successful.
+
+Elements before execution: {len(before_elements)}
+Elements after execution: {len(after_elements)}
+
+Please analyze from the following aspects:
+1. Whether the interface changed as expected
+2. Whether the action goal was achieved
+3. Whether any errors or abnormal states occurred
+4. Overall execution effectiveness evaluation
+
+Please provide:
+- Whether the action was successful (success/failure/partial success)
+- Observed interface changes
+- Confidence level of evaluation (0-1)
+- Detailed analysis reasoning
+"""
+        
+        # Use model to analyze the interface changes
+        try:
+            reflection_context = [
+                MessageBuilder.create_system_message("You are a professional interface analysis expert, skilled at evaluating action execution effectiveness by comparing before and after interface states."),
+                MessageBuilder.create_user_message(
+                    text=reflection_prompt,
+                    image_base64=[before_screenshot.base64_data, current_screenshot.base64_data]
+                )
+            ]
+            
+            if self.agent_config.verbose:
+                print("\n" + "🤔 " + "=" * 48)
+                print("🔍 REFLECTION ANALYSIS")
+                print("-" * 50)
+                print(f"Analyzing action: {action_type}")
+                print(f"Description: {action_description}")
+                print("-" * 50)
+            
+            start_time = time.time()
+            response = self.model_client.request(reflection_context)
+            end_time = time.time()
+            
+            if self.agent_config.verbose:
+                print(f"Reflection analysis time: {end_time - start_time:.2f} seconds")
+                print(f"Analysis result: {response.thinking}")
+                print("=" * 50 + "\n")
+            
+            # Parse the model response to extract evaluation results
+            analysis_text = response.thinking.lower()
+            
+            # Determine success based on model response
+            if "success" in analysis_text and "failure" not in analysis_text:
+                action_successful = True
+                confidence = 0.8
+            elif "failure" in analysis_text or "failed" in analysis_text:
+                action_successful = False
+                confidence = 0.8
+            elif "partial" in analysis_text:
+                action_successful = None  # Partial success
+                confidence = 0.6
+            else:
+                action_successful = None  # Uncertain
+                confidence = 0.4
+            
+            # Extract interface changes description
+            interface_changes = self._extract_interface_changes(before_elements, after_elements)
+            
+            reflection_result = {
+                'action_successful': action_successful,
+                'interface_changes': interface_changes,
+                'expected_vs_actual': response.thinking,
+                'confidence_score': confidence,
+                'reflection_reasoning': response.thinking,
+                'action_analyzed': action,
+                'elements_before': len(before_elements),
+                'elements_after': len(after_elements)
+            }
+            
+            return reflection_result
+            
+        except Exception as e:
+            if self.agent_config.verbose:
+                print(f"Error during reflection analysis: {e}")
+                traceback.print_exc()
+            
+            return {
+                'action_successful': None,
+                'interface_changes': "Analysis failed due to error",
+                'expected_vs_actual': f"Error occurred: {str(e)}",
+                'confidence_score': 0.0,
+                'reflection_reasoning': f"Reflection analysis failed: {str(e)}",
+                'action_analyzed': action,
+                'elements_before': len(before_elements) if 'before_elements' in locals() else 0,
+                'elements_after': len(after_elements) if 'after_elements' in locals() else 0
+            }
+    
+    def _extract_interface_changes(self, before_elements: list, after_elements: list) -> str:
+        """Extract and describe interface changes between before and after states."""
+        changes = []
+        
+        # Compare element counts
+        if len(after_elements) > len(before_elements):
+            changes.append(f"Added {len(after_elements) - len(before_elements)} interface elements")
+        elif len(after_elements) < len(before_elements):
+            changes.append(f"Removed {len(before_elements) - len(after_elements)} interface elements")
+        else:
+            changes.append("Interface element count remained the same")
+        
+        # Compare element contents (simplified)
+        before_contents = set(elem.get('content', '') for elem in before_elements)
+        after_contents = set(elem.get('content', '') for elem in after_elements)
+        
+        new_contents = after_contents - before_contents
+        removed_contents = before_contents - after_contents
+        
+        if new_contents:
+            changes.append(f"New content appeared: {', '.join(list(new_contents)[:3])}")
+        if removed_contents:
+            changes.append(f"Content disappeared: {', '.join(list(removed_contents)[:3])}")
+        
+        return "; ".join(changes) if changes else "No obvious interface changes detected"
+
+    def _has_obvious_changes(self, before_elements: list, after_elements: list) -> bool:
+        """Check if there are obvious interface changes that indicate successful action execution."""
+        
+        # Significant change in element count
+        element_count_diff = abs(len(after_elements) - len(before_elements))
+        if element_count_diff > 2:  # More than 2 elements added/removed
+            return True
+        
+        # Compare element contents
+        before_contents = set(elem.get('content', '') for elem in before_elements if elem.get('content', '').strip())
+        after_contents = set(elem.get('content', '') for elem in after_elements if elem.get('content', '').strip())
+        
+        new_contents = after_contents - before_contents
+        removed_contents = before_contents - after_contents
+        
+        # Significant content changes
+        if len(new_contents) > 3 or len(removed_contents) > 3:
+            return True
+        
+        # Check for specific indicators of successful actions
+        new_content_text = ' '.join(new_contents).lower()
+        removed_content_text = ' '.join(removed_contents).lower()
+        
+        # Common success indicators
+        success_indicators = [
+            'success', 'complete', 'done', 'sent', 'saved', 'created', 'deleted',
+            'updated', 'confirmed', 'submitted', 'added', 'removed', 'opened',
+            'closed', 'started', 'stopped', 'enabled', 'disabled'
+        ]
+        
+        for indicator in success_indicators:
+            if indicator in new_content_text:
+                return True
+        
+        # Check for navigation changes (new screens, dialogs, etc.)
+        navigation_indicators = [
+            'back', 'next', 'continue', 'cancel', 'ok', 'yes', 'no',
+            'menu', 'settings', 'home', 'profile', 'login', 'logout'
+        ]
+        
+        for indicator in navigation_indicators:
+            if indicator in new_content_text and indicator not in removed_content_text:
+                return True
+        
+        return False

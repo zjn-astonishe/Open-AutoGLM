@@ -44,6 +44,7 @@ class WorkNode:
     
     def add_tag(self, tag: str) -> None:
         if tag not in self.tag:
+            # print(f"Adding tag {tag} to node {self.id}")
             self.tag.append(tag)
 
     def to_json(self) -> Dict[str, Any]:

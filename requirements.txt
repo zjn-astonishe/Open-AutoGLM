@@ -20,7 +20,7 @@ black>=23.0.0
 mypy>=1.0.0
 setuptools==80.8.0
 colorama
-opencv-python
+opencv-python>=4.10.0.84
 pyshine
 sounddevice
 soundfile
@@ -28,3 +28,5 @@ matplotlib
 keras
 uiautomator2
 scikit-learn
+easyocr
+paddleocr>=3.0.0
