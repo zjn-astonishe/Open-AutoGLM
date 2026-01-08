@@ -297,39 +297,6 @@ If decision is "use_atomic_actions":
 leave this part empty.
 </execution>
 
----
-
-# Example 1
-
-**User task**: "Set an alarm for 7:30 AM every Monday and Wednesday with vibration off"
-
-**Available skills**: 
-- alarm_create(hour, minute, days, enable_vibration=True): Creates an alarm with specified time, days, and vibration settings
-
-<decision>
-use_skill
-</decision>
-
-<execution>
-alarm_create(hour=7, minute=30, days=['M', 'W'], enable_vibration=False)
-</execution>
-
----
-
-# Example 2
-
-**User task**: "Open the camera app and take a photo"
-
-**Available skills**: 
-- alarm_create(hour, minute, days, enable_vibration=True): Creates an alarm with specified time, days, and vibration settings
-
-<decision>
-use_atomic_actions
-</decision>
-
-<execution>
-</execution>
-
 """
 )
 

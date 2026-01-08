@@ -18,6 +18,8 @@ from phone_agent.skill_executor import SkillExecutor
 
 from act_mem.act_mem import ActionMemory
 from act_mem.workrecorder import WorkflowRecorder
+from act_mem.worknode import WorkAction
+
 
 @dataclass
 class AgentConfig:
@@ -95,6 +97,10 @@ class PhoneAgent:
         self._step_count = 0
         self._actions_executed: list[dict[str, Any]] = []
         self._last_screenshot = None  # Cache for screenshot reuse
+        
+        # Skill执行状态跟踪
+        self._post_skill_execution = False  # 标记是否刚执行完skill
+        self._executed_skills = []  # 记录已执行的skill列表
 
     def run(self, task: str) -> dict[str, Any]:
         """
@@ -109,22 +115,13 @@ class PhoneAgent:
         self._context = []
         self._step_count = 0
         self._actions_executed = []
-        # self.memory.from_json()
-
-        start_time = time.time()
-        plan = self.planner.plan_task(task)
-        end_time = time.time()
-        print(f"Planning taken: {end_time - start_time:.2f} seconds")
-        if plan.decision == "use_skill":
-            start_time = time.time()
-            actions = self.planner.execute_skill(plan.skill_name, plan.skill_params)
-            self.skill_executor.run(actions=actions)
-            end_time = time.time()
-            print(f"Execution taken: {end_time - start_time:.2f} seconds")
-
         workflow = self.memory.create_workflow(task)
         recorder = WorkflowRecorder(task=task, workflow=workflow)
-        
+        # self.memory.from_json()
+
+        # 初始化skill执行状态跟踪
+        self._post_skill_execution = False
+        self._executed_skills = []
         
         # First step with user prompt
         result = self._execute_step(task, recorder, is_first=True)
@@ -189,6 +186,9 @@ class PhoneAgent:
         self._step_count = 0
         self._actions_executed = []
         self._last_screenshot = None
+        # 重置skill执行状态跟踪
+        self._post_skill_execution = False
+        self._executed_skills = []
 
     def _execute_step(
         self, user_prompt: str, recorder: WorkflowRecorder, is_first: bool = False
@@ -212,6 +212,93 @@ class PhoneAgent:
                 print("📸 Capturing fresh screenshot (no cache available)")
         
         current_app = device_factory.get_current_app(self.agent_config.device_id)
+        
+        if is_first:
+            self._context.append(
+                MessageBuilder.create_system_message(self.agent_config.system_prompt)
+            )
+        # 在每个步骤中进行planning，决定是否使用skill
+        # 避免在skill执行后的验证步骤中重复planning
+        if not self._post_skill_execution:
+            try:
+                start_time = time.time()
+                plan = self.planner.plan_task(user_prompt)
+                end_time = time.time()
+                
+                if self.agent_config.verbose:
+                    print(f"🧠 Planning taken: {end_time - start_time:.2f} seconds")
+                    print(f"📋 Plan decision: {plan.decision}")
+                
+                # 如果决定使用skill且该skill未被执行过
+                if (plan.decision == "use_skill" and 
+                    plan.skill_name not in self._executed_skills):
+                    
+                    if self.agent_config.verbose:
+                        print(f"🔧 Executing skill: {plan.skill_name}")
+                        print(f"📝 Skill params: {plan.skill_params}")
+                    
+                    start_time = time.time()
+                    actions = self.planner.execute_skill(plan.skill_name, plan.skill_params)
+                    skill_res = self.skill_executor.run(actions=actions)
+                    end_time = time.time()
+                    
+                    if self.agent_config.verbose:
+                        print(f"⚡ Skill execution taken: {end_time - start_time:.2f} seconds")
+                        print(f"✅ Skill result: {skill_res}")
+                    
+                    # 记录技能执行到工作流中
+                    from_node_id = f"skill_{plan.skill_name}_{int(start_time)}"
+                    action_description = f"Executed skill '{plan.skill_name}' with params {plan.skill_params}"
+                    action = WorkAction(
+                        action_type="skill_execution", 
+                        description=action_description,
+                        zone_path=None
+                    )
+                    recorder.on_action_executed(
+                        from_node_id, action, 
+                        success=True if skill_res != "Error" else False
+                    )
+                    
+                    # 记录已执行的skill
+                    self._executed_skills.append(plan.skill_name)
+                    
+                    # 设置标志，下一步将是验证步骤
+                    self._post_skill_execution = True
+                    
+                    # 如果skill执行成功，缓存截图并返回成功结果
+                    if skill_res != "Error":
+                        # 缓存skill执行后的截图
+                        try:
+                            self._last_screenshot = device_factory.get_screenshot(device_id=self.agent_config.device_id)
+                            if self.agent_config.verbose:
+                                print("📸 Cached post-skill screenshot for verification")
+                        except Exception as e:
+                            if self.agent_config.verbose:
+                                print(f"Failed to cache post-skill screenshot: {e}")
+                        
+                        return StepResult(
+                            success=True,
+                            finished=False,  # 继续执行以验证结果
+                            action={"action": "SkillExecution", "skill_name": plan.skill_name},
+                            thinking=f"Executed skill {plan.skill_name}",
+                            message=f"Skill {plan.skill_name} executed successfully"
+                        )
+                    else:
+                        if self.agent_config.verbose:
+                            print(f"❌ Skill execution failed, falling back to atomic actions")
+                        # Skill执行失败，重置标志，继续使用原子动作
+                        self._post_skill_execution = False
+                
+            except Exception as e:
+                if self.agent_config.verbose:
+                    print(f"⚠️ Planning failed: {e}")
+                    traceback.print_exc()
+                # Planning失败，继续使用原子动作
+        else:
+            # 这是skill执行后的验证步骤，重置标志
+            self._post_skill_execution = False
+            if self.agent_config.verbose:
+                print("🔍 Post-skill verification step - using model to verify results")
         
         work_graph = self.memory.get_work_graph(current_app)
         if work_graph is None:
@@ -244,10 +331,6 @@ class PhoneAgent:
 
         # Build messages
         if is_first:
-            self._context.append(
-                MessageBuilder.create_system_message(self.agent_config.system_prompt)
-            )
-            
             screen_info = MessageBuilder.build_screen_info(current_app, extra_info=elements_info)
             text_content = f"{user_prompt}\n\n{screen_info}"
 
@@ -279,7 +362,7 @@ class PhoneAgent:
             print("-" * 50)
             # print(f"+" * 50)
             # print(f"system_prompt: {self.agent_config.system_prompt}")
-            # print(f"Context: {screen_info}")
+            # print(f"Context: {self._context}")
             # print(f"+" * 50)
             start_time = time.time()
             response = self.model_client.request(self._context)
@@ -491,9 +574,10 @@ class PhoneAgent:
             })
         
         
-        # First check if there are obvious interface changes
-        interface_changes = self._extract_interface_changes(before_elements, after_elements)
-        has_obvious_changes = self._has_obvious_changes(before_elements, after_elements)
+        # Analyze interface changes once
+        changes_analysis = self._analyze_interface_changes(before_elements, after_elements)
+        interface_changes = changes_analysis['changes_description']
+        has_obvious_changes = changes_analysis['has_obvious_changes']
         
         # If there are obvious changes, assume action was successful without model analysis
         if has_obvious_changes:
@@ -661,36 +745,54 @@ Please provide:
                 'elements_after': len(after_elements) if 'after_elements' in locals() else 0
             }
     
-    def _extract_interface_changes(self, before_elements: list, after_elements: list) -> str:
-        """Extract and describe interface changes between before and after states."""
-        changes = []
+    def _analyze_interface_changes(self, before_elements: list, after_elements: list) -> dict:
+        """Analyze interface changes between before and after states.
         
+        Returns:
+            Dictionary containing:
+            - element_count_diff: Difference in element count
+            - new_contents: Set of new content
+            - removed_contents: Set of removed content  
+            - state_changes: List of state change descriptions
+            - has_obvious_changes: Boolean indicating if changes are obvious
+            - changes_description: String description of changes
+        """
         # Compare element counts
-        if len(after_elements) > len(before_elements):
-            changes.append(f"Added {len(after_elements) - len(before_elements)} interface elements")
-        elif len(after_elements) < len(before_elements):
-            changes.append(f"Removed {len(before_elements) - len(after_elements)} interface elements")
-        else:
-            changes.append("Interface element count remained the same")
+        element_count_diff = len(after_elements) - len(before_elements)
         
         # Compare element contents (simplified)
-        before_contents = set(elem.get('content', '') for elem in before_elements)
-        after_contents = set(elem.get('content', '') for elem in after_elements)
+        before_contents = set(elem.get('content', '') for elem in before_elements if elem.get('content', '').strip())
+        after_contents = set(elem.get('content', '') for elem in after_elements if elem.get('content', '').strip())
         
         new_contents = after_contents - before_contents
         removed_contents = before_contents - after_contents
         
-        if new_contents:
-            changes.append(f"New content appeared: {', '.join(list(new_contents)[:3])}")
-        if removed_contents:
-            changes.append(f"Content disappeared: {', '.join(list(removed_contents)[:3])}")
-        
-        # Compare element states (e.g., checked, selected, enabled)
+        # Compare element states
         state_changes = self._compare_element_states(before_elements, after_elements)
-        if state_changes:
-            changes.extend(state_changes)
         
-        return "; ".join(changes) if changes else "No obvious interface changes detected"
+        # Determine if changes are obvious
+        has_obvious_changes = self._determine_obvious_changes(
+            element_count_diff, new_contents, removed_contents, state_changes
+        )
+        
+        # Build description
+        changes_description = self._build_changes_description(
+            element_count_diff, new_contents, removed_contents, state_changes
+        )
+        
+        return {
+            'element_count_diff': element_count_diff,
+            'new_contents': new_contents,
+            'removed_contents': removed_contents,
+            'state_changes': state_changes,
+            'has_obvious_changes': has_obvious_changes,
+            'changes_description': changes_description
+        }
+
+    def _extract_interface_changes(self, before_elements: list, after_elements: list) -> str:
+        """Extract and describe interface changes between before and after states."""
+        analysis = self._analyze_interface_changes(before_elements, after_elements)
+        return analysis['changes_description']
 
     def _compare_element_states(self, before_elements: list, after_elements: list) -> list:
         """Compare states of elements between before and after states."""
@@ -710,6 +812,7 @@ Please provide:
         
         # Find elements that exist in both lists and compare their states
         common_keys = set(before_dict.keys()) & set(after_dict.keys())
+        # print(f"Common keys: {common_keys}")
         
         for key in common_keys:
             before_elem = before_dict[key]
@@ -719,8 +822,10 @@ Please provide:
             before_option = before_elem.get('option', None)
             after_option = after_elem.get('option', None)
             
+            
             if before_option != after_option:
                 content = before_elem.get('content', 'Unknown element')
+                print(f"Content: {content}, before_option: {before_option}, after_option: {after_option}")
                 if content.strip():  # Only report changes for elements with meaningful content
                     if before_option is None and after_option is not None:
                         changes.append(f"Element '{content}' became active/selected")
@@ -756,18 +861,16 @@ Please provide:
 
     def _has_obvious_changes(self, before_elements: list, after_elements: list) -> bool:
         """Check if there are obvious interface changes that indicate successful action execution."""
+        analysis = self._analyze_interface_changes(before_elements, after_elements)
+        return analysis['has_obvious_changes']
+
+    def _determine_obvious_changes(self, element_count_diff: int, new_contents: set, 
+                                 removed_contents: set, state_changes: list) -> bool:
+        """Determine if interface changes are obvious enough to indicate successful action."""
         
         # Significant change in element count
-        element_count_diff = abs(len(after_elements) - len(before_elements))
-        if element_count_diff > 2:  # More than 2 elements added/removed
+        if abs(element_count_diff) > 2:  # More than 2 elements added/removed
             return True
-        
-        # Compare element contents
-        before_contents = set(elem.get('content', '') for elem in before_elements if elem.get('content', '').strip())
-        after_contents = set(elem.get('content', '') for elem in after_elements if elem.get('content', '').strip())
-        
-        new_contents = after_contents - before_contents
-        removed_contents = before_contents - after_contents
         
         # Significant content changes
         if len(new_contents) > 3 or len(removed_contents) > 3:
@@ -799,11 +902,35 @@ Please provide:
                 return True
         
         # Check for state changes (e.g., toggles, checkboxes, buttons)
-        state_changes = self._compare_element_states(before_elements, after_elements)
         if state_changes:
             return True
         
         return False
+
+    def _build_changes_description(self, element_count_diff: int, new_contents: set, 
+                                 removed_contents: set, state_changes: list) -> str:
+        """Build a description of interface changes."""
+        changes = []
+        
+        # Describe element count changes
+        if element_count_diff > 0:
+            changes.append(f"Added {element_count_diff} interface elements")
+        elif element_count_diff < 0:
+            changes.append(f"Removed {abs(element_count_diff)} interface elements")
+        else:
+            changes.append("Interface element count remained the same")
+        
+        # Describe content changes
+        if new_contents:
+            changes.append(f"New content appeared: {', '.join(list(new_contents)[:3])}")
+        if removed_contents:
+            changes.append(f"Content disappeared: {', '.join(list(removed_contents)[:3])}")
+        
+        # Add state changes
+        if state_changes:
+            changes.extend(state_changes)
+        
+        return "; ".join(changes) if changes else "No obvious interface changes detected"
 
     def _format_reflection_for_context(self, reflection_result: dict) -> str:
         """Format reflection result for inclusion in conversation context."""

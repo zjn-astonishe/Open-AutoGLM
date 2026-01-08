@@ -38,6 +38,7 @@ class Planner:
         """
         # print(f"SYSTEM_PROMPT_ROUTER:{SYSTEM_PROMPT_ROUTER}")
         # Build messages for the router
+        # print(f"SYSTEM_PROMPT_ROUTER:{SYSTEM_PROMPT_ROUTER}")
         messages = [
             {"role": "system", "content": SYSTEM_PROMPT_ROUTER},
             {"role": "user", "content": f"User task: {user_task}"}

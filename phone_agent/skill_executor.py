@@ -10,7 +10,6 @@ class StepResult:
     """Result of a single agent step."""
 
     success: bool
-    finished: bool
     message: str | None = None
 
 class SkillExecutor:
@@ -33,10 +32,10 @@ class SkillExecutor:
         for action in actions:
             result = self._execute_step(action)
 
-        if result.finished:
-            return result.message or "Task completed"
+        if result.success:
+            return "Success"
         
-        return "Error"
+        return f"Error, {result.message}"
 
     def _execute_step(self, action_code: Dict[str, Any]) -> StepResult:
         
@@ -59,13 +58,11 @@ class SkillExecutor:
             result = self.action_handler.execute(
                 finish(message=str(e)), screenshot.width, screenshot.height
             )
-            return StepResult(False, False, str(e))
+            return StepResult(False, str(e))
         
-        finished = action.get("action") == "Finish" or result.should_finish
 
         return StepResult(
             success=result.success,
-            finished=finished,
             message=result.message or action.get("message"),
         )
 
