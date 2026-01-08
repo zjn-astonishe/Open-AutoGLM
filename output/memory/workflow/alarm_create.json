@@ -1,0 +1,29 @@
+[
+  {
+    "id": "6757c5aa-00fc-4e70-85d8-4ef0a96c7d82",
+    "task": "set an alarm at 12:30 pm every Friday and Sunday, disable the vibration",
+    "tag": "alarm.create",
+    "path": [
+      {
+        "from_node_id": "ea620d00-ef91-40e4-a53d-4eea0b896106",
+        "to_node_id": "ab3e4c9b-0505-49d5-890c-75180c664dd0",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Vibrate\" toggle to disable vibration for the alarm.",
+          "zone_path": "/CheckBox[@resource-id=\"com.google.android.deskclock:id/vibrate_onoff\" | @text=\"Vibrate\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "ab3e4c9b-0505-49d5-890c-75180c664dd0",
+        "to_node_id": "ea620d00-ef91-40e4-a53d-4eea0b896106",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the \"Vibrate\" toggle to disable vibration for the alarm.",
+          "zone_path": "/CheckBox[@resource-id=\"com.google.android.deskclock:id/vibrate_onoff\" | @text=\"Vibrate\"]"
+        },
+        "success": true
+      }
+    ]
+  }
+]

@@ -54,12 +54,13 @@ class ModelClient:
         self.config = config or ModelConfig()
         self.client = OpenAI(base_url=self.config.base_url, api_key=self.config.api_key)
 
-    def request(self, messages: list[dict[str, Any]]) -> ModelResponse:
+    def request(self, messages: list[dict[str, Any]], mode: str = "action") -> ModelResponse:
         """
         Send a request to the model.
 
         Args:
             messages: List of message dictionaries in OpenAI format.
+            mode: Request mode - "action" for normal action execution, "reflect" for reflection analysis.
 
         Returns:
             ModelResponse containing thinking and action.
@@ -165,14 +166,18 @@ class ModelClient:
         # Calculate total time
         total_time = time.time() - start_time
 
-        print(f"🤖 Raw_content: {raw_content}")
+        # print(f"🤖 Raw_content: {raw_content}")
         
-        # Parse thinking and action from response
-        # thinking, action = self._parse_response(raw_content)
-        # thinking, answer, predict = self._parser_response_with_predict(raw_content)
-        thinking, answer, tag = self._parser_response_with_tag(raw_content)
-        # print(f"🤖 Tag: {tag}")
-        action = self._parse_action(answer)
+        # Parse response based on mode
+        if mode == "reflect":
+            thinking, action, tag = self._parse_reflect_response(raw_content)
+        else:
+            # Parse thinking and action from response for normal action mode
+            # thinking, action = self._parse_response(raw_content)
+            # thinking, answer, predict = self._parser_response_with_predict(raw_content)
+            thinking, answer, tag = self._parser_response_with_tag(raw_content)
+            # print(f"🤖 Tag: {tag}")
+            action = self._parse_action(answer)
 
         # Print performance metrics
         lang = self.config.lang
@@ -335,8 +340,62 @@ class ModelClient:
 
         # Rule 4: No markers found, return content as action
         action_desc = ""
-        action_dict[action_desc] = action
+        action_dict[action_desc] = content
         return action_dict
+
+    def _parse_reflect_response(self, content: str) -> tuple[str, Dict[str, str], str]:
+        """
+        Parse the model response for reflection analysis.
+        
+        For reflect mode, we expect a simple text response analyzing the action success.
+        We don't need complex action parsing, just the analysis result.
+
+        Args:
+            content: Raw response content.
+
+        Returns:
+            Tuple of (thinking, action_dict, tag).
+        """
+        # For reflect mode, the entire content is the analysis
+        # We can try to extract structured information if available
+        
+        # Try to extract structured reflection if available
+        success_patterns = [
+            r"success[:\s]*([^.\n]+)",
+            r"successful[:\s]*([^.\n]+)", 
+            r"成功[:\s]*([^.\n]+)",
+        ]
+        
+        confidence_patterns = [
+            r"confidence[:\s]*([0-9.]+)",
+            r"置信度[:\s]*([0-9.]+)",
+        ]
+        
+        # Extract success status
+        success_info = "unknown"
+        for pattern in success_patterns:
+            match = re.search(pattern, content, re.IGNORECASE)
+            if match:
+                success_info = match.group(1).strip()
+                break
+        
+        # Extract confidence if available
+        confidence = "0.5"  # default
+        for pattern in confidence_patterns:
+            match = re.search(pattern, content, re.IGNORECASE)
+            if match:
+                confidence = match.group(1).strip()
+                break
+        
+        # Create action dict for reflect response
+        action_dict = {
+            "reflection_analysis": content.strip(),
+            "success_status": success_info,
+            "confidence": confidence
+        }
+        
+        # For reflect mode, thinking is empty and tag is "reflect"
+        return "", action_dict, "reflect"
 
 class MessageBuilder:
     """Helper class for building conversation messages."""

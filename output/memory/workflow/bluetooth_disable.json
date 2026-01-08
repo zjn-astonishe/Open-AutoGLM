@@ -1,0 +1,79 @@
+[
+  {
+    "id": "7cb025f7-47b1-4a84-b3dd-2372dfbf4d89",
+    "task": "Turn bluetooth off.",
+    "tag": "bluetooth.disable",
+    "path": [
+      {
+        "from_node_id": "fd4a8695-f2d2-4ce3-9e7e-19677da76dfa",
+        "to_node_id": "fd4a8695-f2d2-4ce3-9e7e-19677da76dfa",
+        "action": {
+          "action_type": "Swipe",
+          "description": "Swipe down from the top of the screen to open the quick settings panel.",
+          "zone_path": "/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "fd4a8695-f2d2-4ce3-9e7e-19677da76dfa",
+        "to_node_id": "fd4a8695-f2d2-4ce3-9e7e-19677da76dfa",
+        "action": {
+          "action_type": "Swipe",
+          "description": "Swipe down from the top of the screen to open the quick settings panel.",
+          "zone_path": "/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "fd4a8695-f2d2-4ce3-9e7e-19677da76dfa",
+        "to_node_id": "fd4a8695-f2d2-4ce3-9e7e-19677da76dfa",
+        "action": {
+          "action_type": "Swipe",
+          "description": "Swipe down from the top of the screen to open the quick settings panel.",
+          "zone_path": "/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "fd4a8695-f2d2-4ce3-9e7e-19677da76dfa",
+        "to_node_id": "09d69836-f1d5-446f-a11e-9c0d7ef1e853",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the Settings app to access Bluetooth options.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "09d69836-f1d5-446f-a11e-9c0d7ef1e853",
+        "to_node_id": "3e32608b-08dc-4260-b11f-f079cbc5540a",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on \"Connected devices\" to access Bluetooth settings.",
+          "zone_path": "/ViewGroup[@resource-id=\"com.android.settings:id/search_action_bar\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "3e32608b-08dc-4260-b11f-f079cbc5540a",
+        "to_node_id": "3c74b934-1c4d-42fc-b80e-9c1c87891bfa",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Bluetooth\" in the search bar to locate the Bluetooth settings.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "3c74b934-1c4d-42fc-b80e-9c1c87891bfa",
+        "to_node_id": "f2605fd0-1fb7-4043-bd39-b093f751c409",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the Bluetooth toggle switch to turn it off.",
+          "zone_path": "/Switch[@resource-id=\"android:id/switch_widget\"]"
+        },
+        "success": true
+      }
+    ]
+  }
+]

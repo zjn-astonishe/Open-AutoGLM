@@ -29,6 +29,8 @@ class AgentConfig:
     system_prompt: str | None = None
     verbose: bool = True
     memory_dir: str = "./output/memory"
+    enable_reflection: bool = True
+    reflection_on_failure_only: bool = False
 
     def __post_init__(self):
         if self.system_prompt is None:
@@ -92,6 +94,7 @@ class PhoneAgent:
         self._context: list[dict[str, Any]] = []
         self._step_count = 0
         self._actions_executed: list[dict[str, Any]] = []
+        self._last_screenshot = None  # Cache for screenshot reuse
 
     def run(self, task: str) -> dict[str, Any]:
         """
@@ -185,6 +188,7 @@ class PhoneAgent:
         self._context = []
         self._step_count = 0
         self._actions_executed = []
+        self._last_screenshot = None
 
     def _execute_step(
         self, user_prompt: str, recorder: WorkflowRecorder, is_first: bool = False
@@ -192,9 +196,21 @@ class PhoneAgent:
         """Execute a single step of the agent loop."""
         self._step_count += 1
 
-        # Capture current screen state
+        # Optimize screenshot capture - reuse cached screenshot if available
         device_factory = get_device_factory()
-        screenshot = device_factory.get_screenshot(device_id=self.agent_config.device_id)
+        
+        # Use cached screenshot as before_screenshot if available (from previous step)
+        if self._last_screenshot is not None and not is_first:
+            before_screenshot = self._last_screenshot
+            screenshot = before_screenshot  # Current screenshot is the cached one
+            if self.agent_config.verbose:
+                print("📸 Reusing cached screenshot to avoid redundant capture")
+        else:
+            screenshot = device_factory.get_screenshot(device_id=self.agent_config.device_id)
+            before_screenshot = screenshot
+            if self.agent_config.verbose and not is_first:
+                print("📸 Capturing fresh screenshot (no cache available)")
+        
         current_app = device_factory.get_current_app(self.agent_config.device_id)
         
         work_graph = self.memory.get_work_graph(current_app)
@@ -243,6 +259,11 @@ class PhoneAgent:
         else:
             screen_info = MessageBuilder.build_screen_info(current_app, extra_info=elements_info)
             text_content = f"** Screen Info **\n\n{screen_info}"
+            
+            # Include previous reflection context if available
+            previous_reflection = self._get_previous_reflection_context()
+            if previous_reflection:
+                text_content += f"\n\n{previous_reflection}"
 
             self._context.append(
                 MessageBuilder.create_user_message(
@@ -316,14 +337,49 @@ class PhoneAgent:
                 finish(message=str(e)), screenshot.width, screenshot.height
             )
         
+        # Perform reflection analysis after action execution
+        reflection_result = None
+        if (self.agent_config.enable_reflection and 
+            action.get("action") != "Finish" and 
+            not result.should_finish):
+            
+            # Check if we should only reflect on failures
+            should_reflect = True
+            if self.agent_config.reflection_on_failure_only:
+                should_reflect = not result.success
+            
+            if should_reflect:
+                try:
+                    reflection_result = self.reflect(action_type=action["action"], action_description=list(response.action.keys())[0], before_screenshot=before_screenshot)
+                    
+                    # Update node_action with reflection result
+                    if reflection_result and 'node_action' in locals():
+                        node_action.reflection_result = reflection_result
+                        node_action.confidence_score = reflection_result.get('confidence_score')
+                    
+                    # Update result based on reflection if needed
+                    if reflection_result and reflection_result.get('action_successful') is False:
+                        if self.agent_config.verbose:
+                            print(f"⚠️  Reflection indicates action may have failed: {reflection_result.get('reflection_reasoning', 'Unknown reason')}")
+                        # Optionally modify result or add to context for next step
+                        
+                except Exception as e:
+                    if self.agent_config.verbose:
+                        print(f"Reflection analysis failed: {e}")
+        
         # Add executed action to the actions list
         self._actions_executed.append(action)
 
         # Add assistant response to context
+        assistant_message = f"{response.thinking} {list(response.action.keys())[0]}"
+        
+        # Include reflection result in context if available
+        if reflection_result:
+            reflection_summary = self._format_reflection_for_context(reflection_result)
+            assistant_message += f"\n\n{reflection_summary}"
+        
         self._context.append(
-            MessageBuilder.create_assistant_message(
-                f"{response.thinking} {list(response.action.keys())[0]}"
-            )
+            MessageBuilder.create_assistant_message(assistant_message)
         )
 
         if is_first:
@@ -338,6 +394,18 @@ class PhoneAgent:
         # Check if finished
         finished = action.get("action") == "Finish" or result.should_finish
         # print(f"Step finished: {finished}")
+        
+        # Cache the after-action screenshot for next step's before_screenshot
+        # This avoids redundant screenshot capture in consecutive steps
+        if not finished:
+            try:
+                self._last_screenshot = device_factory.get_screenshot(device_id=self.agent_config.device_id)
+                if self.agent_config.verbose:
+                    print("📸 Cached after-action screenshot for next step")
+            except Exception as e:
+                if self.agent_config.verbose:
+                    print(f"Failed to cache screenshot: {e}")
+                self._last_screenshot = None
 
         if finished:
             recorder.flush()
@@ -367,7 +435,7 @@ class PhoneAgent:
         """Get the current step count."""
         return self._step_count
 
-    def reflect(self, action: dict[str, Any], before_screenshot: Any = None) -> dict[str, Any]:
+    def reflect(self, action_type: str, action_description: str, before_screenshot: Any = None) -> dict[str, Any]:
         """
         Reflect on action execution by comparing before and after interface states.
         
@@ -375,7 +443,8 @@ class PhoneAgent:
         the changes in the interface before and after the action.
         
         Args:
-            action: The action that was executed
+            action_type: The action that was executed
+            action_description: Description of the action
             before_screenshot: Screenshot before action execution (optional, will capture if not provided)
             after_screenshot: Screenshot after action execution (optional, will capture if not provided)
             
@@ -421,9 +490,6 @@ class PhoneAgent:
                 "bbox": e.bbox,
             })
         
-        # Build reflection prompt
-        action_type = action.get('action', 'unknown')
-        action_description = action.get('message', 'No description')
         
         # First check if there are obvious interface changes
         interface_changes = self._extract_interface_changes(before_elements, after_elements)
@@ -446,7 +512,7 @@ class PhoneAgent:
                 'expected_vs_actual': "Obvious interface changes detected, action appears successful",
                 'confidence_score': 0.9,
                 'reflection_reasoning': f"Interface changes detected: {interface_changes}. No model analysis needed.",
-                'action_analyzed': action,
+                'action_analyzed': action_description,
                 'elements_before': len(before_elements),
                 'elements_after': len(after_elements),
                 'used_model_analysis': False
@@ -489,11 +555,16 @@ Please provide:
         
         # Use model to analyze the interface changes
         try:
+            # Create reflection context with both before and after screenshots
             reflection_context = [
                 MessageBuilder.create_system_message("You are a professional interface analysis expert, skilled at evaluating action execution effectiveness by comparing before and after interface states."),
                 MessageBuilder.create_user_message(
-                    text=reflection_prompt,
-                    image_base64=[before_screenshot.base64_data, current_screenshot.base64_data]
+                    text=f"{reflection_prompt}\n\nBefore screenshot:",
+                    image_base64=before_screenshot.base64_data
+                ),
+                MessageBuilder.create_user_message(
+                    text="After screenshot:",
+                    image_base64=current_screenshot.base64_data
                 )
             ]
             
@@ -506,7 +577,7 @@ Please provide:
                 print("-" * 50)
             
             start_time = time.time()
-            response = self.model_client.request(reflection_context)
+            response = self.model_client.request(reflection_context, mode="reflect")
             end_time = time.time()
             
             if self.agent_config.verbose:
@@ -514,22 +585,48 @@ Please provide:
                 print(f"Analysis result: {response.thinking}")
                 print("=" * 50 + "\n")
             
-            # Parse the model response to extract evaluation results
-            analysis_text = response.thinking.lower()
+            # Extract information from the structured reflect response
+            reflection_text = ""
+            confidence_score = 0.5
+            success_status = "uncertain"
             
-            # Determine success based on model response
-            if "success" in analysis_text and "failure" not in analysis_text:
+            # Extract information from the structured reflect response
+            if response.action:
+                reflection_text = response.action.get("reflection_analysis", response.raw_content)
+                success_status = response.action.get("success_status", "uncertain")
+                
+                # Parse confidence score
+                confidence_str = response.action.get("confidence", "0.5")
+                try:
+                    confidence_score = float(confidence_str)
+                    confidence_score = max(0.0, min(1.0, confidence_score))  # Clamp to [0, 1]
+                except ValueError:
+                    confidence_score = 0.5
+            else:
+                reflection_text = response.raw_content
+                
+                # Fallback: determine success based on reflection text
+                success_keywords = ['success', 'successful', 'completed', 'achieved', '成功', '完成']
+                failure_keywords = ['fail', 'failed', 'error', 'unsuccessful', '失败', '错误']
+                
+                reflection_lower = reflection_text.lower()
+                is_success = any(keyword in reflection_lower for keyword in success_keywords)
+                is_failure = any(keyword in reflection_lower for keyword in failure_keywords)
+                
+                if is_success and not is_failure:
+                    success_status = "success"
+                elif is_failure and not is_success:
+                    success_status = "failure"
+                else:
+                    success_status = "uncertain"
+            
+            # Convert success_status to boolean
+            if success_status == "success":
                 action_successful = True
-                confidence = 0.8
-            elif "failure" in analysis_text or "failed" in analysis_text:
+            elif success_status == "failure":
                 action_successful = False
-                confidence = 0.8
-            elif "partial" in analysis_text:
-                action_successful = None  # Partial success
-                confidence = 0.6
             else:
                 action_successful = None  # Uncertain
-                confidence = 0.4
             
             # Extract interface changes description
             interface_changes = self._extract_interface_changes(before_elements, after_elements)
@@ -537,12 +634,13 @@ Please provide:
             reflection_result = {
                 'action_successful': action_successful,
                 'interface_changes': interface_changes,
-                'expected_vs_actual': response.thinking,
-                'confidence_score': confidence,
-                'reflection_reasoning': response.thinking,
-                'action_analyzed': action,
+                'expected_vs_actual': reflection_text,
+                'confidence_score': confidence_score,
+                'reflection_reasoning': reflection_text,
+                'action_analyzed': action_description,
                 'elements_before': len(before_elements),
-                'elements_after': len(after_elements)
+                'elements_after': len(after_elements),
+                'used_model_analysis': True
             }
             
             return reflection_result
@@ -558,7 +656,7 @@ Please provide:
                 'expected_vs_actual': f"Error occurred: {str(e)}",
                 'confidence_score': 0.0,
                 'reflection_reasoning': f"Reflection analysis failed: {str(e)}",
-                'action_analyzed': action,
+                'action_analyzed': action_description,
                 'elements_before': len(before_elements) if 'before_elements' in locals() else 0,
                 'elements_after': len(after_elements) if 'after_elements' in locals() else 0
             }
@@ -587,7 +685,74 @@ Please provide:
         if removed_contents:
             changes.append(f"Content disappeared: {', '.join(list(removed_contents)[:3])}")
         
+        # Compare element states (e.g., checked, selected, enabled)
+        state_changes = self._compare_element_states(before_elements, after_elements)
+        if state_changes:
+            changes.extend(state_changes)
+        
         return "; ".join(changes) if changes else "No obvious interface changes detected"
+
+    def _compare_element_states(self, before_elements: list, after_elements: list) -> list:
+        """Compare states of elements between before and after states."""
+        changes = []
+        
+        # Create dictionaries for quick lookup using content and bbox for better matching
+        def create_element_key(elem):
+            content = elem.get('content', '')
+            bbox = elem.get('bbox', [])
+            # Use content and approximate position for matching
+            if bbox and len(bbox) >= 4:
+                return f"{content}_{int(bbox[0]/10)}_{int(bbox[1]/10)}"  # Approximate position
+            return content
+        
+        before_dict = {create_element_key(elem): elem for elem in before_elements}
+        after_dict = {create_element_key(elem): elem for elem in after_elements}
+        
+        # Find elements that exist in both lists and compare their states
+        common_keys = set(before_dict.keys()) & set(after_dict.keys())
+        
+        for key in common_keys:
+            before_elem = before_dict[key]
+            after_elem = after_dict[key]
+            
+            # Compare option state (this is the actual field used in the data structure)
+            before_option = before_elem.get('option', None)
+            after_option = after_elem.get('option', None)
+            
+            if before_option != after_option:
+                content = before_elem.get('content', 'Unknown element')
+                if content.strip():  # Only report changes for elements with meaningful content
+                    if before_option is None and after_option is not None:
+                        changes.append(f"Element '{content}' became active/selected")
+                    elif before_option is not None and after_option is None:
+                        changes.append(f"Element '{content}' became inactive/deselected")
+                    elif before_option != after_option:
+                        status = "activated" if after_option else "deactivated"
+                        changes.append(f"Element '{content}' {status}")
+        
+        # Also check for elements that appeared or disappeared with specific states
+        before_keys = set(before_dict.keys())
+        after_keys = set(after_dict.keys())
+        
+        # New elements with active states
+        new_keys = after_keys - before_keys
+        for key in new_keys:
+            elem = after_dict[key]
+            if elem.get('option') is not None:
+                content = elem.get('content', 'Unknown element')
+                if content.strip():
+                    changes.append(f"New active element appeared: '{content}'")
+        
+        # Disappeared elements that were active
+        removed_keys = before_keys - after_keys
+        for key in removed_keys:
+            elem = before_dict[key]
+            if elem.get('option') is not None:
+                content = elem.get('content', 'Unknown element')
+                if content.strip():
+                    changes.append(f"Active element disappeared: '{content}'")
+        
+        return changes
 
     def _has_obvious_changes(self, before_elements: list, after_elements: list) -> bool:
         """Check if there are obvious interface changes that indicate successful action execution."""
@@ -633,4 +798,65 @@ Please provide:
             if indicator in new_content_text and indicator not in removed_content_text:
                 return True
         
+        # Check for state changes (e.g., toggles, checkboxes, buttons)
+        state_changes = self._compare_element_states(before_elements, after_elements)
+        if state_changes:
+            return True
+        
         return False
+
+    def _format_reflection_for_context(self, reflection_result: dict) -> str:
+        """Format reflection result for inclusion in conversation context."""
+        if not reflection_result:
+            return ""
+        
+        # Extract key information from reflection result
+        success_status = reflection_result.get('action_successful')
+        confidence = reflection_result.get('confidence_score', 0.0)
+        interface_changes = reflection_result.get('interface_changes', '')
+        reasoning = reflection_result.get('reflection_reasoning', '')
+        
+        # Format success status
+        if success_status is True:
+            status_text = "✅ Action appears successful"
+        elif success_status is False:
+            status_text = "❌ Action may have failed"
+        else:
+            status_text = "❓ Action result uncertain"
+        
+        # Create formatted reflection summary
+        reflection_parts = [
+            f"** Reflection Analysis **",
+            f"{status_text} (Confidence: {confidence:.1f})",
+        ]
+        
+        if interface_changes:
+            reflection_parts.append(f"Interface changes: {interface_changes}")
+        
+        # Include reasoning if it's concise enough (limit to avoid context bloat)
+        if reasoning and len(reasoning) < 200:
+            reflection_parts.append(f"Analysis: {reasoning}")
+        elif reasoning:
+            # Truncate long reasoning
+            reflection_parts.append(f"Analysis: {reasoning[:150]}...")
+        
+        return "\n".join(reflection_parts)
+
+    def _get_previous_reflection_context(self) -> str:
+        """Extract previous reflection information from context for current step awareness."""
+        if not self._context:
+            return ""
+        
+        # Look for the most recent assistant message that contains reflection analysis
+        for message in reversed(self._context):
+            if message.get('role') == 'assistant':
+                content = message.get('content', '')
+                if '** Reflection Analysis **' in content:
+                    # Extract just the reflection part
+                    reflection_start = content.find('** Reflection Analysis **')
+                    if reflection_start != -1:
+                        reflection_text = content[reflection_start:]
+                        return f"** Previous Action Reflection **\n{reflection_text}"
+                break
+        
+        return ""

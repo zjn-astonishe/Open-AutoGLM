@@ -1,0 +1,85 @@
+{
+  "app": "AndroidSystemSettings",
+  "nodes": {
+    "09d69836-f1d5-446f-a11e-9c0d7ef1e853": {
+      "id": "09d69836-f1d5-446f-a11e-9c0d7ef1e853",
+      "elements_info": [
+        {
+          "content": "android:id_content__com.android.settings:id_settings_homepage_container",
+          "option": "disabled",
+          "path": "/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]"
+        },
+        {
+          "content": "com.android.settings:id_homepage_app_bar_regular_phone_view__com.android.settings:id_account_avatar_Profile picture, double tap to open Google Account",
+          "option": "disabled",
+          "path": "/ImageView[@resource-id=\"com.android.settings:id/account_avatar\" | @content-desc=\"Profile picture, double tap to open Google Account\"]"
+        },
+        {
+          "content": "com.android.settings:id_search_bar__com.android.settings:id_search_action_bar",
+          "option": "disabled",
+          "path": "/ViewGroup[@resource-id=\"com.android.settings:id/search_action_bar\"]"
+        },
+        {
+          "content": "com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container",
+          "option": "disabled",
+          "path": "/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231",
+          "option": "disabled",
+          "path": "/LinearLayout"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231",
+          "option": "disabled",
+          "path": "/LinearLayout"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231",
+          "option": "disabled",
+          "path": "/LinearLayout"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231",
+          "option": "disabled",
+          "path": "/LinearLayout"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231",
+          "option": "disabled",
+          "path": "/LinearLayout"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x181",
+          "option": "disabled",
+          "path": "/LinearLayout"
+        }
+      ],
+      "tasks": [
+        "Turn bluetooth off."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on \"Connected devices\" to access Bluetooth settings.",
+          "zone_path": "/ViewGroup[@resource-id=\"com.android.settings:id/search_action_bar\"]",
+          "reflection_result": {
+            "action_successful": true,
+            "interface_changes": "Removed 6 interface elements; New content appeared: android.widget.LinearLayout_954x126__com.google.android.settings.intelligence:id_open_search_view_edit_text_Search settings, android.widget.RelativeLayout_183x126__android:id_input_method_nav_back_Back, com.google.android.settings.intelligence:id_open_search_view_toolbar__Back; Content disappeared: com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231, android:id_content__com.android.settings:id_settings_homepage_container, com.android.settings:id_search_bar__com.android.settings:id_search_action_bar; New active element appeared: 'android.widget.LinearLayout_954x126__com.google.android.settings.intelligence:id_open_search_view_edit_text_Search settings'; New active element appeared: 'android.widget.RelativeLayout_183x126__android:id_input_method_nav_back_Back'; New active element appeared: 'com.google.android.settings.intelligence:id_open_search_view_toolbar__Back'; New active element appeared: 'android.widget.RelativeLayout_183x126__android:id_input_method_nav_ime_switcher_Switch input method'; Active element disappeared: 'com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231'; Active element disappeared: 'android:id_content__com.android.settings:id_settings_homepage_container'; Active element disappeared: 'com.android.settings:id_search_bar__com.android.settings:id_search_action_bar'; Active element disappeared: 'com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x181'; Active element disappeared: 'com.android.settings:id_homepage_app_bar_regular_phone_view__com.android.settings:id_account_avatar_Profile picture, double tap to open Google Account'; Active element disappeared: 'com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container'",
+            "expected_vs_actual": "Obvious interface changes detected, action appears successful",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Interface changes detected: Removed 6 interface elements; New content appeared: android.widget.LinearLayout_954x126__com.google.android.settings.intelligence:id_open_search_view_edit_text_Search settings, android.widget.RelativeLayout_183x126__android:id_input_method_nav_back_Back, com.google.android.settings.intelligence:id_open_search_view_toolbar__Back; Content disappeared: com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231, android:id_content__com.android.settings:id_settings_homepage_container, com.android.settings:id_search_bar__com.android.settings:id_search_action_bar; New active element appeared: 'android.widget.LinearLayout_954x126__com.google.android.settings.intelligence:id_open_search_view_edit_text_Search settings'; New active element appeared: 'android.widget.RelativeLayout_183x126__android:id_input_method_nav_back_Back'; New active element appeared: 'com.google.android.settings.intelligence:id_open_search_view_toolbar__Back'; New active element appeared: 'android.widget.RelativeLayout_183x126__android:id_input_method_nav_ime_switcher_Switch input method'; Active element disappeared: 'com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231'; Active element disappeared: 'android:id_content__com.android.settings:id_settings_homepage_container'; Active element disappeared: 'com.android.settings:id_search_bar__com.android.settings:id_search_action_bar'; Active element disappeared: 'com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x181'; Active element disappeared: 'com.android.settings:id_homepage_app_bar_regular_phone_view__com.android.settings:id_account_avatar_Profile picture, double tap to open Google Account'; Active element disappeared: 'com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container'. No model analysis needed.",
+            "action_analyzed": "Tap on \"Connected devices\" to access Bluetooth settings.",
+            "elements_before": 10,
+            "elements_after": 4,
+            "used_model_analysis": false
+          },
+          "confidence_score": 0.9
+        }
+      ],
+      "tag": [
+        "bluetooth.disable"
+      ]
+    }
+  }
+}
