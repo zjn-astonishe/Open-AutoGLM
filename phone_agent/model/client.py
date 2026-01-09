@@ -111,20 +111,7 @@ class ModelClient:
 
                 # Check if any marker is fully present in buffer
                 marker_found = False
-                # for marker in action_markers:
-                #     if marker in buffer:
-                #         # Marker found, print everything before it
-                #         thinking_part = buffer.split(marker, 1)[0]
-                #         print(thinking_part, end="", flush=True)
-                #         print()  # Print newline after thinking is complete
-                #         in_action_phase = True
-                #         marker_found = True
 
-                #         # Record time to thinking end
-                #         if time_to_thinking_end is None:
-                #             time_to_thinking_end = time.time() - start_time
-
-                #         break
                 if action_marker in buffer:
                     # Marker found, print everything before it
                     thinking_part = buffer.split(action_marker, 1)[0]
@@ -143,14 +130,6 @@ class ModelClient:
                 # Check if buffer ends with a prefix of any marker
                 # If so, don't print yet (wait for more content)
                 is_potential_marker = False
-                
-                # for marker in action_markers:
-                #     for i in range(1, len(marker)):
-                #         if buffer.endswith(marker[:i]):
-                #             is_potential_marker = True
-                #             break
-                #     if is_potential_marker:
-                #         break
 
                 if action_marker:
                     for i in range(1, len(action_marker)):
@@ -171,12 +150,11 @@ class ModelClient:
         # Parse response based on mode
         if mode == "reflect":
             thinking, action, tag = self._parse_reflect_response(raw_content)
-        else:
+        elif mode == "action":
             # Parse thinking and action from response for normal action mode
             # thinking, action = self._parse_response(raw_content)
             # thinking, answer, predict = self._parser_response_with_predict(raw_content)
             thinking, answer, tag = self._parser_response_with_tag(raw_content)
-            # print(f"🤖 Tag: {tag}")
             action = self._parse_action(answer)
 
         # Print performance metrics

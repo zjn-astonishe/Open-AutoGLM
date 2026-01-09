@@ -227,7 +227,7 @@ class PhoneAgent:
                 
                 if self.agent_config.verbose:
                     print(f"🧠 Planning taken: {end_time - start_time:.2f} seconds")
-                    print(f"📋 Plan decision: {plan.decision}")
+                    # print(f"📋 Plan decision: {plan.decision}")
                 
                 # 如果决定使用skill且该skill未被执行过
                 if (plan.decision == "use_skill" and 
@@ -245,6 +245,8 @@ class PhoneAgent:
                     if self.agent_config.verbose:
                         print(f"⚡ Skill execution taken: {end_time - start_time:.2f} seconds")
                         print(f"✅ Skill result: {skill_res}")
+                    
+                    recorder.set_tag(plan.skill_name.replace("_", "."))
                     
                     # 记录技能执行到工作流中
                     from_node_id = f"skill_{plan.skill_name}_{int(start_time)}"
@@ -265,23 +267,68 @@ class PhoneAgent:
                     # 设置标志，下一步将是验证步骤
                     self._post_skill_execution = True
                     
-                    # 如果skill执行成功，缓存截图并返回成功结果
+                    # 如果skill执行成功，立即进行验证
                     if skill_res != "Error":
-                        # 缓存skill执行后的截图
+                        # 立即进行reflection验证
+                        if self.agent_config.verbose:
+                            print("🔍 Immediately verifying skill execution results")
+                        
+                        # 获取skill执行后的截图用于验证
                         try:
-                            self._last_screenshot = device_factory.get_screenshot(device_id=self.agent_config.device_id)
-                            if self.agent_config.verbose:
-                                print("📸 Cached post-skill screenshot for verification")
+                            after_skill_screenshot = device_factory.get_screenshot(device_id=self.agent_config.device_id)
                         except Exception as e:
                             if self.agent_config.verbose:
-                                print(f"Failed to cache post-skill screenshot: {e}")
+                                print(f"Failed to capture post-skill screenshot: {e}")
+                            after_skill_screenshot = screenshot
+                        
+                        # 立即进行reflection分析
+                        reflection_result = None
+                        if self.agent_config.enable_reflection:
+                            try:
+                                reflection_result = self.reflect(
+                                    action_type="SkillExecution", 
+                                    action_description=f"Executed skill '{plan.skill_name}' with params {plan.skill_params}", 
+                                    before_screenshot=screenshot,
+                                    is_skill_execution=True  # 标记这是skill执行的reflection
+                                )
+                                
+                                if self.agent_config.verbose:
+                                    if reflection_result and reflection_result.get('action_successful') is False:
+                                        print(f"⚠️  Reflection indicates skill execution may have failed: {reflection_result.get('reflection_reasoning', 'Unknown reason')}")
+                                    elif reflection_result and reflection_result.get('action_successful') is True:
+                                        print(f"✅ Reflection confirms skill execution was successful")
+                                    
+                            except Exception as e:
+                                if self.agent_config.verbose:
+                                    print(f"Skill reflection analysis failed: {e}")
+                        
+                        # 缓存skill执行后的截图用于下一步
+                        self._last_screenshot = after_skill_screenshot
+                        if self.agent_config.verbose:
+                            print("📸 Cached post-skill screenshot for next step")
+                        
+                        # 将reflection结果添加到上下文
+                        if reflection_result:
+                            reflection_summary = self._format_reflection_for_context(reflection_result)
+                            print(f"reflection_summary: {reflection_summary}")
+                            skill_message = f"Skill {plan.skill_name} executed and verified. {reflection_summary}"
+                        else:
+                            skill_message = f"Skill {plan.skill_name} executed successfully"
+                        
+                        # 添加skill执行和验证结果到上下文
+                        self._context.append(
+                            MessageBuilder.create_assistant_message(skill_message)
+                        )
+                        
+                        # 完全跳过后续的验证步骤，直接重置标志
+                        self._post_skill_execution = False
                         
                         return StepResult(
-                            success=True,
-                            finished=False,  # 继续执行以验证结果
+                            success=reflection_result.get('action_successful', True) if reflection_result else True,
+                            finished=False,  # 继续执行后续步骤
                             action={"action": "SkillExecution", "skill_name": plan.skill_name},
-                            thinking=f"Executed skill {plan.skill_name}",
-                            message=f"Skill {plan.skill_name} executed successfully"
+                            thinking=f"Executed and verified skill {plan.skill_name}",
+                            message=skill_message
                         )
                     else:
                         if self.agent_config.verbose:
@@ -294,11 +341,9 @@ class PhoneAgent:
                     print(f"⚠️ Planning failed: {e}")
                     traceback.print_exc()
                 # Planning失败，继续使用原子动作
-        else:
-            # 这是skill执行后的验证步骤，重置标志
-            self._post_skill_execution = False
-            if self.agent_config.verbose:
-                print("🔍 Post-skill verification step - using model to verify results")
+        # 注意：由于skill执行后立即验证并重置了_post_skill_execution标志，
+        # 这个else分支现在应该不会被执行到了
+        # 保留此注释以说明逻辑变更
         
         work_graph = self.memory.get_work_graph(current_app)
         if work_graph is None:
@@ -518,7 +563,7 @@ class PhoneAgent:
         """Get the current step count."""
         return self._step_count
 
-    def reflect(self, action_type: str, action_description: str, before_screenshot: Any = None) -> dict[str, Any]:
+    def reflect(self, action_type: str, action_description: str, before_screenshot: Any = None, is_skill_execution: bool = False) -> dict[str, Any]:
         """
         Reflect on action execution by comparing before and after interface states.
         
@@ -579,11 +624,12 @@ class PhoneAgent:
         interface_changes = changes_analysis['changes_description']
         has_obvious_changes = changes_analysis['has_obvious_changes']
         
-        # If there are obvious changes, assume action was successful without model analysis
-        if has_obvious_changes:
+        # For skill execution, always use model analysis to determine if task is completed
+        # For atomic actions, use the original logic (skip model analysis if obvious changes)
+        if not is_skill_execution and has_obvious_changes:
             if self.agent_config.verbose:
                 print("\n" + "🤔 " + "=" * 48)
-                print("🔍 REFLECTION ANALYSIS")
+                print("🔍 REFLECTION ANALYSIS (ATOMIC ACTION)")
                 print("-" * 50)
                 print(f"Action: {action_type}")
                 print(f"Description: {action_description}")
@@ -602,46 +648,63 @@ class PhoneAgent:
                 'used_model_analysis': False
             }
         
-        # Only use model analysis when no obvious changes are detected
+        # Use model analysis for skill execution (always) or atomic actions (when no obvious changes)
+        analysis_reason = "Skill execution requires detailed task completion analysis" if is_skill_execution else "No obvious changes detected - using model analysis"
         if self.agent_config.verbose:
             print("\n" + "🤔 " + "=" * 48)
-            print("🔍 REFLECTION ANALYSIS")
+            print(f"🔍 REFLECTION ANALYSIS ({'SKILL EXECUTION' if is_skill_execution else 'ATOMIC ACTION'})")
             print("-" * 50)
             print(f"Action: {action_type}")
             print(f"Description: {action_description}")
-            print("No obvious changes detected - using model analysis")
+            print(analysis_reason)
             print("-" * 50)
         
         # Create comparison context for the model
         reflection_prompt = f"""
-Please analyze the effectiveness of the following action execution:
+You are an action execution evaluator for an Android UI agent.
 
-Executed action: {action_type}
-Action description: {action_description}
+Executed action:
+- Type: {action_type}
+- Description: {action_description}
 
-Please compare the interface changes before and after execution to evaluate if the action was successful.
+UI state comparison:
+- Number of elements before execution: {len(before_elements)}
+- Number of elements after execution: {len(after_elements)}
 
-Elements before execution: {len(before_elements)}
-Elements after execution: {len(after_elements)}
+Analyze the action effectiveness by comparing the UI states *before and after execution*.
 
-Please analyze from the following aspects:
-1. Whether the interface changed as expected
-2. Whether the action goal was achieved
-3. Whether any errors or abnormal states occurred
-4. Overall execution effectiveness evaluation
+Please evaluate from the following dimensions:
+1. UI Change Consistency  
+   - Did the interface change in a way that is logically consistent with the executed action?
+   - If the interface did not change, assess whether this is expected or indicates failure.
 
-Please provide:
-- Whether the action was successful (success/failure/partial success)
-- Observed interface changes
-- Confidence level of evaluation (0-1)
-- Detailed analysis reasoning
+2. Goal Achievement  
+   - Was the intended goal of the action achieved based on the observed UI state?
+   - If partially achieved, specify which sub-goals succeeded or failed.
+
+3. Error or Abnormal State Detection  
+   - Did any abnormal UI states occur (e.g., unchanged screen, unexpected popup, repeated screen, navigation failure)?
+
+4. Overall Effectiveness  
+   - Provide an overall judgment of the action’s effectiveness.
+
+Please output the evaluation in the following structured format:
+
+- Execution result: one of [success / partial_success / failure]
+- Reasoning:
+  - Key UI changes observed (or lack thereof)
+  - Evidence supporting the judgment
+- Improvement suggestions (if not fully successful):
+  - What likely went wrong
+  - How the action or strategy could be improved
+- Confidence score: a float value between 0 and 1
 """
         
         # Use model to analyze the interface changes
         try:
             # Create reflection context with both before and after screenshots
             reflection_context = [
-                MessageBuilder.create_system_message("You are a professional interface analysis expert, skilled at evaluating action execution effectiveness by comparing before and after interface states."),
+                MessageBuilder.create_system_message("You are a professional interface analysis expert, skilled at evaluating action execution effectiveness by comparing before and after interface states and screenshots."),
                 MessageBuilder.create_user_message(
                     text=f"{reflection_prompt}\n\nBefore screenshot:",
                     image_base64=before_screenshot.base64_data
@@ -942,6 +1005,9 @@ Please provide:
         confidence = reflection_result.get('confidence_score', 0.0)
         interface_changes = reflection_result.get('interface_changes', '')
         reasoning = reflection_result.get('reflection_reasoning', '')
+        execution_result = reflection_result.get('execution_result', '')
+        improvement_suggestions = reflection_result.get('improvement_suggestions', '')
+        analysis_details = reflection_result.get('analysis_details', '')
         
         # Format success status
         if success_status is True:
@@ -953,19 +1019,29 @@ Please provide:
         
         # Create formatted reflection summary
         reflection_parts = [
-            f"** Reflection Analysis **",
-            f"{status_text} (Confidence: {confidence:.1f})",
+            "** Reflection Analysis **",
+            f"{status_text} (Confidence: {confidence:.2f})",
         ]
         
-        if interface_changes:
-            reflection_parts.append(f"Interface changes: {interface_changes}")
+        # Add execution result if available
+        if execution_result:
+            reflection_parts.append(f"- Execution result: {execution_result}")
         
-        # Include reasoning if it's concise enough (limit to avoid context bloat)
-        if reasoning and len(reasoning) < 200:
-            reflection_parts.append(f"Analysis: {reasoning}")
-        elif reasoning:
-            # Truncate long reasoning
-            reflection_parts.append(f"Analysis: {reasoning[:150]}...")
+        # Add analysis details if available
+        if analysis_details:
+            reflection_parts.append(f"- Details: {analysis_details}")
+        
+        # Include reasoning/analysis if available
+        if reasoning:
+            reflection_parts.append(f"- Reasoning: {reasoning}")
+        
+        # Add improvement suggestions if available
+        if improvement_suggestions:
+            reflection_parts.append(f"- Improvement suggestions: {improvement_suggestions}")
+        
+        # Include interface changes if any
+        if interface_changes:
+            reflection_parts.append(f"- Interface changes: {interface_changes}")
         
         return "\n".join(reflection_parts)
 

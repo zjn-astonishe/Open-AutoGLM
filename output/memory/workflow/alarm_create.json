@@ -1,0 +1,19 @@
+[
+  {
+    "id": "35b2b0f6-93d5-4ae9-abda-312fdc33a2f0",
+    "task": "set an alarm at 12:30 pm every Friday and Sunday, disable the vibration",
+    "tag": "alarm.create",
+    "path": [
+      {
+        "from_node_id": "skill_alarm_create_1767933718",
+        "to_node_id": "cb6dacaa-754f-45da-9831-8b73c77a440d",
+        "action": {
+          "action_type": "skill_execution",
+          "description": "Executed skill 'alarm_create' with params {'hour': 12, 'minute': 30, 'days': ['F', 'Su'], 'vibrate_enabled': False}",
+          "zone_path": null
+        },
+        "success": true
+      }
+    ]
+  }
+]

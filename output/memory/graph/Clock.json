@@ -1,0 +1,135 @@
+{
+  "app": "Clock",
+  "nodes": {
+    "cb6dacaa-754f-45da-9831-8b73c77a440d": {
+      "id": "cb6dacaa-754f-45da-9831-8b73c77a440d",
+      "elements_info": [
+        {
+          "content": "android.support.v7.widget.LinearLayoutCompat_105x147__com.google.android.deskclock:id_overflow_action_button_More options",
+          "option": "disabled",
+          "path": "/ImageView[@resource-id=\"com.google.android.deskclock:id/overflow_action_button\" | @content-desc=\"More options\"]"
+        },
+        {
+          "content": "com.google.android.deskclock:id_alarm_recycler_view__12:30 Alarm",
+          "option": "disabled",
+          "path": "/CardView[@content-desc=\"12:30 Alarm\"]"
+        },
+        {
+          "content": "com.google.android.deskclock:id_alarm_card_layout__com.google.android.deskclock:id_edit_label_Add label_No label specified",
+          "option": "disabled",
+          "path": "/TextView[@resource-id=\"com.google.android.deskclock:id/edit_label\" | @content-desc=\"No label specified\" | @text=\"Add label\"]"
+        },
+        {
+          "content": "com.google.android.deskclock:id_alarm_card_layout__com.google.android.deskclock:id_arrow_Collapse alarm",
+          "option": "disabled",
+          "path": "/ImageButton[@resource-id=\"com.google.android.deskclock:id/arrow\" | @content-desc=\"Collapse alarm\"]"
+        },
+        {
+          "content": "com.google.android.deskclock:id_alarm_card_layout__com.google.android.deskclock:id_digital_clock_12:30_12:30",
+          "option": "disabled",
+          "path": "/TextView[@resource-id=\"com.google.android.deskclock:id/digital_clock\" | @content-desc=\"12:30\" | @text=\"12:30\"]"
+        },
+        {
+          "content": "com.google.android.deskclock:id_alarm_card_layout__com.google.android.deskclock:id_onoff",
+          "option": "enabled",
+          "path": "/Switch[@resource-id=\"com.google.android.deskclock:id/onoff\"]"
+        },
+        {
+          "content": "com.google.android.deskclock:id_repeat_days__com.google.android.deskclock:id_day_button_0_S_Sunday",
+          "option": "enabled",
+          "path": "/CheckBox[@resource-id=\"com.google.android.deskclock:id/day_button_0\" | @content-desc=\"Sunday\" | @text=\"S\"]"
+        },
+        {
+          "content": "com.google.android.deskclock:id_repeat_days__com.google.android.deskclock:id_day_button_1_M_Monday",
+          "option": "disabled",
+          "path": "/CheckBox[@resource-id=\"com.google.android.deskclock:id/day_button_1\" | @content-desc=\"Monday\" | @text=\"M\"]"
+        },
+        {
+          "content": "com.google.android.deskclock:id_repeat_days__com.google.android.deskclock:id_day_button_2_T_Tuesday",
+          "option": "disabled",
+          "path": "/CheckBox[@resource-id=\"com.google.android.deskclock:id/day_button_2\" | @content-desc=\"Tuesday\" | @text=\"T\"]"
+        },
+        {
+          "content": "com.google.android.deskclock:id_repeat_days__com.google.android.deskclock:id_day_button_3_W_Wednesday",
+          "option": "disabled",
+          "path": "/CheckBox[@resource-id=\"com.google.android.deskclock:id/day_button_3\" | @content-desc=\"Wednesday\" | @text=\"W\"]"
+        },
+        {
+          "content": "com.google.android.deskclock:id_repeat_days__com.google.android.deskclock:id_day_button_4_T_Thursday",
+          "option": "disabled",
+          "path": "/CheckBox[@resource-id=\"com.google.android.deskclock:id/day_button_4\" | @content-desc=\"Thursday\" | @text=\"T\"]"
+        },
+        {
+          "content": "com.google.android.deskclock:id_repeat_days__com.google.android.deskclock:id_day_button_5_F_Friday",
+          "option": "enabled",
+          "path": "/CheckBox[@resource-id=\"com.google.android.deskclock:id/day_button_5\" | @content-desc=\"Friday\" | @text=\"F\"]"
+        },
+        {
+          "content": "com.google.android.deskclock:id_repeat_days__com.google.android.deskclock:id_day_button_6_S_Saturday",
+          "option": "disabled",
+          "path": "/CheckBox[@resource-id=\"com.google.android.deskclock:id/day_button_6\" | @content-desc=\"Saturday\" | @text=\"S\"]"
+        },
+        {
+          "content": "com.google.android.deskclock:id_alarm_card_layout__com.google.android.deskclock:id_choose_ringtone_Default (Cesium)_Ringtone Default (Cesium)",
+          "option": "disabled",
+          "path": "/TextView[@resource-id=\"com.google.android.deskclock:id/choose_ringtone\" | @content-desc=\"Ringtone Default (Cesium)\" | @text=\"Default (Cesium)\"]"
+        },
+        {
+          "content": "com.google.android.deskclock:id_alarm_card_layout__com.google.android.deskclock:id_vibrate_onoff_Vibrate",
+          "option": "disabled",
+          "path": "/CheckBox[@resource-id=\"com.google.android.deskclock:id/vibrate_onoff\" | @text=\"Vibrate\"]"
+        },
+        {
+          "content": "com.google.android.deskclock:id_alarm_card_layout__com.google.android.deskclock:id_workflow_label_Google Assistant Routine",
+          "option": "disabled",
+          "path": "/TextView[@resource-id=\"com.google.android.deskclock:id/workflow_label\" | @text=\"Google Assistant Routine\"]"
+        },
+        {
+          "content": "com.google.android.deskclock:id_alarm_card_layout__com.google.android.deskclock:id_delete_Delete",
+          "option": "disabled",
+          "path": "/Button[@resource-id=\"com.google.android.deskclock:id/delete\" | @text=\"Delete\"]"
+        },
+        {
+          "content": "com.google.android.deskclock:id_fab_container__com.google.android.deskclock:id_fab_Add alarm",
+          "option": "disabled",
+          "path": "/Button[@resource-id=\"com.google.android.deskclock:id/fab\" | @content-desc=\"Add alarm\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_clock_Clock",
+          "option": "disabled",
+          "path": "/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_clock\" | @content-desc=\"Clock\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_timer_Timer",
+          "option": "disabled",
+          "path": "/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_timer\" | @content-desc=\"Timer\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_stopwatch_Stopwatch",
+          "option": "disabled",
+          "path": "/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_stopwatch\" | @content-desc=\"Stopwatch\"]"
+        },
+        {
+          "content": "android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_bedtime_Bedtime",
+          "option": "disabled",
+          "path": "/FrameLayout[@resource-id=\"com.google.android.deskclock:id/tab_menu_bedtime\" | @content-desc=\"Bedtime\"]"
+        }
+      ],
+      "tasks": [
+        "set an alarm at 12:30 pm every Friday and Sunday, disable the vibration"
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "Finish the task as the alarm has been correctly configured.",
+          "zone_path": null,
+          "reflection_result": null,
+          "confidence_score": null
+        }
+      ],
+      "tag": [
+        "alarm.create"
+      ]
+    }
+  }
+}
