@@ -20,6 +20,7 @@ from act_mem.act_mem import ActionMemory
 from act_mem.workrecorder import WorkflowRecorder
 from act_mem.worknode import WorkAction
 
+from utils import extract_json
 
 @dataclass
 class AgentConfig:
@@ -217,6 +218,7 @@ class PhoneAgent:
             self._context.append(
                 MessageBuilder.create_system_message(self.agent_config.system_prompt)
             )
+            self._context.append(MessageBuilder.create_user_message(user_prompt))
         # 在每个步骤中进行planning，决定是否使用skill
         # 避免在skill执行后的验证步骤中重复planning
         if not self._post_skill_execution:
@@ -309,13 +311,12 @@ class PhoneAgent:
                         
                         # 将reflection结果添加到上下文
                         if reflection_result:
-                            reflection_summary = self._format_reflection_for_context(reflection_result)
-                            print(f"reflection_summary: {reflection_summary}")
-                            skill_message = f"Skill {plan.skill_name} executed and verified. {reflection_summary}"
+                            skill_message = f"Skill {plan.skill_name} executed and verified. {reflection_result}"
                         else:
                             skill_message = f"Skill {plan.skill_name} executed successfully"
                         
                         # 添加skill执行和验证结果到上下文
+                        print(f"✅ {skill_message}")
                         self._context.append(
                             MessageBuilder.create_assistant_message(skill_message)
                         )
@@ -366,7 +367,7 @@ class PhoneAgent:
             })
             elements.append({
                 **common_fields,
-                "path": e.get_simple_xpath()
+                "path": e.get_xpath()
             })
 
         node = work_graph.create_node(elements)
@@ -377,7 +378,7 @@ class PhoneAgent:
         # Build messages
         if is_first:
             screen_info = MessageBuilder.build_screen_info(current_app, extra_info=elements_info)
-            text_content = f"{user_prompt}\n\n{screen_info}"
+            text_content = f"** Screen Info **\n\n{screen_info}"
 
             self._context.append(
                 MessageBuilder.create_user_message(
@@ -503,8 +504,7 @@ class PhoneAgent:
         
         # Include reflection result in context if available
         if reflection_result:
-            reflection_summary = self._format_reflection_for_context(reflection_result)
-            assistant_message += f"\n\n{reflection_summary}"
+            assistant_message += f"\n\n{reflection_result}"
         
         self._context.append(
             MessageBuilder.create_assistant_message(assistant_message)
@@ -563,251 +563,236 @@ class PhoneAgent:
         """Get the current step count."""
         return self._step_count
 
-    def reflect(self, action_type: str, action_description: str, before_screenshot: Any = None, is_skill_execution: bool = False) -> dict[str, Any]:
+    def reflect(
+        self,
+        action_type: str,
+        action_description: str,
+        before_screenshot: Any = None,
+        is_skill_execution: bool = False
+    ) -> dict[str, Any]:
         """
         Reflect on action execution by comparing before and after interface states.
-        
-        This method evaluates whether an action was successfully executed by analyzing
-        the changes in the interface before and after the action.
-        
-        Args:
-            action_type: The action that was executed
-            action_description: Description of the action
-            before_screenshot: Screenshot before action execution (optional, will capture if not provided)
-            after_screenshot: Screenshot after action execution (optional, will capture if not provided)
-            
+
         Returns:
-            Dictionary containing reflection results with:
-            - action_successful: Boolean indicating if action was successful
-            - interface_changes: Description of observed interface changes
-            - expected_vs_actual: Comparison of expected vs actual results
-            - confidence_score: Confidence level of the evaluation (0-1)
-            - reflection_reasoning: Detailed reasoning for the evaluation
+            {
+                action_successful: True / False / None,
+                execution_result: success / partial_success / failure,
+                interface_changes: str,
+                expected_vs_actual: str,
+                abnormal_states: str,
+                improvement_suggestions: str,
+                retry_recommended: bool,
+                confidence_score: float (0~1),
+                reflection_reasoning: str,
+                used_model_analysis: bool,
+                elements_before: int,
+                elements_after: int
+            }
         """
         device_factory = get_device_factory()
-        
-        # Capture screenshots if not provided
+
+        # ---------- 1. Validate input ----------
         if before_screenshot is None:
             if self.agent_config.verbose:
-                print("Warning: Preview Screenshot not provided.")
-            
+                print("⚠️ Reflect skipped: missing before screenshot")
+
             return {
-                'action_successful': None,
-                'interface_changes': "Cannot evaluate - missing before screenshot",
-                'expected_vs_actual': "Evaluation requires both before screenshot",
-                'confidence_score': 0.0,
-                'reflection_reasoning': "Insufficient data for reflection analysis"
+                "action_successful": None,
+                "execution_result": "failure",
+                "interface_changes": "Missing before screenshot",
+                "expected_vs_actual": "Reflection requires before and after UI states",
+                "abnormal_states": "Insufficient data",
+                "improvement_suggestions": "Capture UI state before executing the action.",
+                "retry_recommended": False,
+                "confidence_score": 0.0,
+                "reflection_reasoning": "Before screenshot not provided",
+                "used_model_analysis": False,
+                "elements_before": 0,
+                "elements_after": 0,
             }
-        current_screenshot = device_factory.get_screenshot(device_id=self.agent_config.device_id)
-        
-        # Extract elements info from both screenshots
-        before_elements = []
-        after_elements = []
-        
-        for i, e in enumerate(before_screenshot.elements, 1):
-            before_elements.append({
+
+        # ---------- 2. Capture after screenshot ----------
+        current_screenshot = device_factory.get_screenshot(
+            device_id=self.agent_config.device_id
+        )
+
+        # ---------- 3. Extract UI elements ----------
+        before_elements = [
+            {
                 "content": e.elem_id,
-                "option": e.checked,
+                "checked": e.checked,
                 "bbox": e.bbox,
-            })
-            
-        for i, e in enumerate(current_screenshot.elements, 1):
-            after_elements.append({
+            }
+            for e in before_screenshot.elements
+        ]
+
+        after_elements = [
+            {
                 "content": e.elem_id,
-                "option": e.checked,
+                "checked": e.checked,
                 "bbox": e.bbox,
-            })
-        
-        
-        # Analyze interface changes once
-        changes_analysis = self._analyze_interface_changes(before_elements, after_elements)
-        interface_changes = changes_analysis['changes_description']
-        has_obvious_changes = changes_analysis['has_obvious_changes']
-        
-        # For skill execution, always use model analysis to determine if task is completed
-        # For atomic actions, use the original logic (skip model analysis if obvious changes)
+            }
+            for e in current_screenshot.elements
+        ]
+
+        # ---------- 4. Fast-path for atomic actions ----------
+        changes_analysis = self._analyze_interface_changes(
+            before_elements, after_elements
+        )
+
+        has_obvious_changes = changes_analysis.get("has_obvious_changes", False)
+        interface_changes = changes_analysis.get("changes_description", "")
+
         if not is_skill_execution and has_obvious_changes:
             if self.agent_config.verbose:
-                print("\n" + "🤔 " + "=" * 48)
-                print("🔍 REFLECTION ANALYSIS (ATOMIC ACTION)")
-                print("-" * 50)
-                print(f"Action: {action_type}")
-                print(f"Description: {action_description}")
-                print("Obvious interface changes detected - assuming success")
-                print("=" * 50 + "\n")
-            
+                print("✅ Obvious UI changes detected — atomic action assumed successful")
+
             return {
-                'action_successful': True,
-                'interface_changes': interface_changes,
-                'expected_vs_actual': "Obvious interface changes detected, action appears successful",
-                'confidence_score': 0.9,
-                'reflection_reasoning': f"Interface changes detected: {interface_changes}. No model analysis needed.",
-                'action_analyzed': action_description,
-                'elements_before': len(before_elements),
-                'elements_after': len(after_elements),
-                'used_model_analysis': False
+                "action_successful": True,
+                "execution_result": "success",
+                "interface_changes": interface_changes,
+                "expected_vs_actual": "UI changed consistently with atomic action",
+                "abnormal_states": "None",
+                "improvement_suggestions": "",
+                "retry_recommended": False,
+                "confidence_score": 0.9,
+                "reflection_reasoning": interface_changes,
+                "used_model_analysis": False,
+                "elements_before": len(before_elements),
+                "elements_after": len(after_elements),
             }
-        
-        # Use model analysis for skill execution (always) or atomic actions (when no obvious changes)
-        analysis_reason = "Skill execution requires detailed task completion analysis" if is_skill_execution else "No obvious changes detected - using model analysis"
-        if self.agent_config.verbose:
-            print("\n" + "🤔 " + "=" * 48)
-            print(f"🔍 REFLECTION ANALYSIS ({'SKILL EXECUTION' if is_skill_execution else 'ATOMIC ACTION'})")
-            print("-" * 50)
-            print(f"Action: {action_type}")
-            print(f"Description: {action_description}")
-            print(analysis_reason)
-            print("-" * 50)
-        
-        # Create comparison context for the model
+
+        # ---------- 5. Build JSON-only reflect prompt ----------
         reflection_prompt = f"""
-You are an action execution evaluator for an Android UI agent.
+    You are an action execution evaluator for an Android UI agent.
 
-Executed action:
-- Type: {action_type}
-- Description: {action_description}
+    Executed action:
+    - Type: {action_type}
+    - Description: {action_description}
 
-UI state comparison:
-- Number of elements before execution: {len(before_elements)}
-- Number of elements after execution: {len(after_elements)}
+    UI state comparison:
+    - Elements before execution: {len(before_elements)}
+    - Elements after execution: {len(after_elements)}
 
-Analyze the action effectiveness by comparing the UI states *before and after execution*.
+    Analyze the action effectiveness by comparing the UI before and after execution.
 
-Please evaluate from the following dimensions:
-1. UI Change Consistency  
-   - Did the interface change in a way that is logically consistent with the executed action?
-   - If the interface did not change, assess whether this is expected or indicates failure.
+    Return your evaluation STRICTLY in the following JSON format.
+    Do NOT include any extra text.
 
-2. Goal Achievement  
-   - Was the intended goal of the action achieved based on the observed UI state?
-   - If partially achieved, specify which sub-goals succeeded or failed.
+    {{
+    "execution_result": "success | partial_success | failure",
+    "ui_changes": "Brief description of observed interface changes or lack thereof",
+    "goal_achievement": "Whether and how the action goal was achieved",
+    "abnormal_states": "Any detected errors, abnormal UI states, or unexpected behaviors",
+    "reasoning": "Clear reasoning supporting the judgment",
+    "improvement_suggestions": "Concrete suggestions to fix, retry, or re-plan if the action was not fully successful",
+    "retry_recommended": true,
+    "confidence": 0.0
+    }}
+    """.strip()
 
-3. Error or Abnormal State Detection  
-   - Did any abnormal UI states occur (e.g., unchanged screen, unexpected popup, repeated screen, navigation failure)?
+        # ---------- 6. Call model ----------
+        reflection_context = [
+            MessageBuilder.create_system_message(
+                "You are a professional Android UI reflection module."
+            ),
+            MessageBuilder.create_user_message(
+                text=f"{reflection_prompt}\n\nBefore screenshot:",
+                image_base64=before_screenshot.base64_data,
+            ),
+            MessageBuilder.create_user_message(
+                text="After screenshot:",
+                image_base64=current_screenshot.base64_data,
+            ),
+        ]
 
-4. Overall Effectiveness  
-   - Provide an overall judgment of the action’s effectiveness.
-
-Please output the evaluation in the following structured format:
-
-- Execution result: one of [success / partial_success / failure]
-- Reasoning:
-  - Key UI changes observed (or lack thereof)
-  - Evidence supporting the judgment
-- Improvement suggestions (if not fully successful):
-  - What likely went wrong
-  - How the action or strategy could be improved
-- Confidence score: a float value between 0 and 1
-"""
-        
-        # Use model to analyze the interface changes
         try:
-            # Create reflection context with both before and after screenshots
-            reflection_context = [
-                MessageBuilder.create_system_message("You are a professional interface analysis expert, skilled at evaluating action execution effectiveness by comparing before and after interface states and screenshots."),
-                MessageBuilder.create_user_message(
-                    text=f"{reflection_prompt}\n\nBefore screenshot:",
-                    image_base64=before_screenshot.base64_data
-                ),
-                MessageBuilder.create_user_message(
-                    text="After screenshot:",
-                    image_base64=current_screenshot.base64_data
-                )
-            ]
-            
-            if self.agent_config.verbose:
-                print("\n" + "🤔 " + "=" * 48)
-                print("🔍 REFLECTION ANALYSIS")
-                print("-" * 50)
-                print(f"Analyzing action: {action_type}")
-                print(f"Description: {action_description}")
-                print("-" * 50)
-            
-            start_time = time.time()
             response = self.model_client.request(reflection_context, mode="reflect")
-            end_time = time.time()
-            
-            if self.agent_config.verbose:
-                print(f"Reflection analysis time: {end_time - start_time:.2f} seconds")
-                print(f"Analysis result: {response.thinking}")
-                print("=" * 50 + "\n")
-            
-            # Extract information from the structured reflect response
-            reflection_text = ""
-            confidence_score = 0.5
-            success_status = "uncertain"
-            
-            # Extract information from the structured reflect response
-            if response.action:
-                reflection_text = response.action.get("reflection_analysis", response.raw_content)
-                success_status = response.action.get("success_status", "uncertain")
-                
-                # Parse confidence score
-                confidence_str = response.action.get("confidence", "0.5")
-                try:
-                    confidence_score = float(confidence_str)
-                    confidence_score = max(0.0, min(1.0, confidence_score))  # Clamp to [0, 1]
-                except ValueError:
-                    confidence_score = 0.5
-            else:
-                reflection_text = response.raw_content
-                
-                # Fallback: determine success based on reflection text
-                success_keywords = ['success', 'successful', 'completed', 'achieved', '成功', '完成']
-                failure_keywords = ['fail', 'failed', 'error', 'unsuccessful', '失败', '错误']
-                
-                reflection_lower = reflection_text.lower()
-                is_success = any(keyword in reflection_lower for keyword in success_keywords)
-                is_failure = any(keyword in reflection_lower for keyword in failure_keywords)
-                
-                if is_success and not is_failure:
-                    success_status = "success"
-                elif is_failure and not is_success:
-                    success_status = "failure"
-                else:
-                    success_status = "uncertain"
-            
-            # Convert success_status to boolean
-            if success_status == "success":
+            raw_output = response.raw_content.strip()
+
+            # ---------- 7. Robust JSON extraction ----------
+            try:
+                reflect_json = extract_json(raw_output)
+            except Exception:
+                if self.agent_config.verbose:
+                    print("❌ Invalid JSON returned by reflect model")
+                    print(raw_output)
+
+                return {
+                    "action_successful": None,
+                    "execution_result": "failure",
+                    "interface_changes": "Invalid reflection output",
+                    "expected_vs_actual": raw_output,
+                    "abnormal_states": "Model output not valid JSON",
+                    "improvement_suggestions": "Retry reflection or enforce stricter output format.",
+                    "retry_recommended": False,
+                    "confidence_score": 0.0,
+                    "reflection_reasoning": "Model failed to follow JSON schema",
+                    "used_model_analysis": True,
+                    "elements_before": len(before_elements),
+                    "elements_after": len(after_elements),
+                }
+
+            # ---------- 8. Normalize result ----------
+            execution_result = reflect_json.get("execution_result", "failure")
+
+            if execution_result == "success":
                 action_successful = True
-            elif success_status == "failure":
+            elif execution_result == "failure":
                 action_successful = False
             else:
-                action_successful = None  # Uncertain
-            
-            # Extract interface changes description
-            interface_changes = self._extract_interface_changes(before_elements, after_elements)
-            
-            reflection_result = {
-                'action_successful': action_successful,
-                'interface_changes': interface_changes,
-                'expected_vs_actual': reflection_text,
-                'confidence_score': confidence_score,
-                'reflection_reasoning': reflection_text,
-                'action_analyzed': action_description,
-                'elements_before': len(before_elements),
-                'elements_after': len(after_elements),
-                'used_model_analysis': True
+                action_successful = None  # partial_success
+
+            # Confidence
+            confidence = reflect_json.get("confidence", 0.5)
+            try:
+                confidence = float(confidence)
+                confidence = max(0.0, min(1.0, confidence))
+            except Exception:
+                confidence = 0.5
+
+            # Retry recommendation
+            retry_recommended = bool(
+                reflect_json.get("retry_recommended", execution_result != "success")
+            )
+
+            return {
+                "action_successful": action_successful,
+                "execution_result": execution_result,
+                "interface_changes": reflect_json.get("ui_changes", ""),
+                "expected_vs_actual": reflect_json.get("goal_achievement", ""),
+                "abnormal_states": reflect_json.get("abnormal_states", ""),
+                "improvement_suggestions": reflect_json.get(
+                    "improvement_suggestions", ""
+                ),
+                "retry_recommended": retry_recommended,
+                "confidence_score": confidence,
+                "reflection_reasoning": reflect_json.get("reasoning", ""),
+                "used_model_analysis": True,
+                "elements_before": len(before_elements),
+                "elements_after": len(after_elements),
             }
-            
-            return reflection_result
-            
+
         except Exception as e:
             if self.agent_config.verbose:
-                print(f"Error during reflection analysis: {e}")
+                print("❌ Exception during reflection:", e)
                 traceback.print_exc()
-            
+
             return {
-                'action_successful': None,
-                'interface_changes': "Analysis failed due to error",
-                'expected_vs_actual': f"Error occurred: {str(e)}",
-                'confidence_score': 0.0,
-                'reflection_reasoning': f"Reflection analysis failed: {str(e)}",
-                'action_analyzed': action_description,
-                'elements_before': len(before_elements) if 'before_elements' in locals() else 0,
-                'elements_after': len(after_elements) if 'after_elements' in locals() else 0
+                "action_successful": None,
+                "execution_result": "failure",
+                "interface_changes": "Reflection crashed",
+                "expected_vs_actual": str(e),
+                "abnormal_states": "Runtime exception",
+                "improvement_suggestions": "Retry action or re-plan from a stable UI state.",
+                "retry_recommended": False,
+                "confidence_score": 0.0,
+                "reflection_reasoning": f"Reflection error: {e}",
+                "used_model_analysis": True,
+                "elements_before": len(before_elements),
+                "elements_after": len(after_elements),
             }
-    
+
     def _analyze_interface_changes(self, before_elements: list, after_elements: list) -> dict:
         """Analyze interface changes between before and after states.
         
@@ -888,7 +873,7 @@ Please output the evaluation in the following structured format:
             
             if before_option != after_option:
                 content = before_elem.get('content', 'Unknown element')
-                print(f"Content: {content}, before_option: {before_option}, after_option: {after_option}")
+                # print(f"Content: {content}, before_option: {before_option}, after_option: {after_option}")
                 if content.strip():  # Only report changes for elements with meaningful content
                     if before_option is None and after_option is not None:
                         changes.append(f"Element '{content}' became active/selected")
@@ -995,55 +980,6 @@ Please output the evaluation in the following structured format:
         
         return "; ".join(changes) if changes else "No obvious interface changes detected"
 
-    def _format_reflection_for_context(self, reflection_result: dict) -> str:
-        """Format reflection result for inclusion in conversation context."""
-        if not reflection_result:
-            return ""
-        
-        # Extract key information from reflection result
-        success_status = reflection_result.get('action_successful')
-        confidence = reflection_result.get('confidence_score', 0.0)
-        interface_changes = reflection_result.get('interface_changes', '')
-        reasoning = reflection_result.get('reflection_reasoning', '')
-        execution_result = reflection_result.get('execution_result', '')
-        improvement_suggestions = reflection_result.get('improvement_suggestions', '')
-        analysis_details = reflection_result.get('analysis_details', '')
-        
-        # Format success status
-        if success_status is True:
-            status_text = "✅ Action appears successful"
-        elif success_status is False:
-            status_text = "❌ Action may have failed"
-        else:
-            status_text = "❓ Action result uncertain"
-        
-        # Create formatted reflection summary
-        reflection_parts = [
-            "** Reflection Analysis **",
-            f"{status_text} (Confidence: {confidence:.2f})",
-        ]
-        
-        # Add execution result if available
-        if execution_result:
-            reflection_parts.append(f"- Execution result: {execution_result}")
-        
-        # Add analysis details if available
-        if analysis_details:
-            reflection_parts.append(f"- Details: {analysis_details}")
-        
-        # Include reasoning/analysis if available
-        if reasoning:
-            reflection_parts.append(f"- Reasoning: {reasoning}")
-        
-        # Add improvement suggestions if available
-        if improvement_suggestions:
-            reflection_parts.append(f"- Improvement suggestions: {improvement_suggestions}")
-        
-        # Include interface changes if any
-        if interface_changes:
-            reflection_parts.append(f"- Interface changes: {interface_changes}")
-        
-        return "\n".join(reflection_parts)
 
     def _get_previous_reflection_context(self) -> str:
         """Extract previous reflection information from context for current step awareness."""

@@ -991,7 +991,7 @@ def main():
         result = agent.run(args.task)
         end_time = time.time()
         print(f"\nTime taken: {end_time - start_time:.2f} seconds")
-        print(f"\nResult: {result}")
+        # print(f"\nResult: {result}")
     else:
         # Interactive mode
         print("\nEntering interactive mode. Type 'quit' to exit.\n")
@@ -1012,7 +1012,7 @@ def main():
                 result = agent.run(task)
                 end_time = time.time()
                 print(f"Time taken: {end_time - start_time:.2f} seconds")
-                print(f"\nResult: {result}\n")
+                # print(f"\nResult: {result}\n")
                 agent.reset()
 
             except KeyboardInterrupt:

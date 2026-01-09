@@ -1,0 +1,171 @@
+{
+  "app": "AndroidSystemSettings",
+  "nodes": {
+    "6f6e9258-1827-4b78-85d5-94afbf168d3d": {
+      "id": "6f6e9258-1827-4b78-85d5-94afbf168d3d",
+      "elements_info": [
+        {
+          "content": "android:id_content__com.android.settings:id_settings_homepage_container",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]"
+        },
+        {
+          "content": "com.android.settings:id_homepage_app_bar_regular_phone_view__com.android.settings:id_account_avatar_Profile picture, double tap to open Google Account",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_app_bar_regular_phone_view\"]/ImageView[@resource-id=\"com.android.settings:id/account_avatar\" | @content-desc=\"Profile picture, double tap to open Google Account\"]"
+        },
+        {
+          "content": "com.android.settings:id_search_bar__com.android.settings:id_search_action_bar",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_app_bar_regular_phone_view\"]/LinearLayout/CardView[@resource-id=\"com.android.settings:id/search_bar\"]/ViewGroup[@resource-id=\"com.android.settings:id/search_action_bar\"]"
+        },
+        {
+          "content": "com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x181",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout"
+        }
+      ],
+      "tasks": [
+        "Turn bluetooth off."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on \"Connected devices\" to access Bluetooth settings.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_app_bar_regular_phone_view\"]/LinearLayout/CardView[@resource-id=\"com.android.settings:id/search_bar\"]/ViewGroup[@resource-id=\"com.android.settings:id/search_action_bar\"]",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 6 interface elements; New content appeared: android.widget.RelativeLayout_183x126__android:id_input_method_nav_ime_switcher_Switch input method, android.widget.RelativeLayout_183x126__android:id_input_method_nav_back_Back, android.widget.LinearLayout_954x126__com.google.android.settings.intelligence:id_open_search_view_edit_text_Search settings; Content disappeared: android:id_content__com.android.settings:id_settings_homepage_container, com.android.settings:id_homepage_app_bar_regular_phone_view__com.android.settings:id_account_avatar_Profile picture, double tap to open Google Account, com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x181",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "retry_recommended": false,
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 6 interface elements; New content appeared: android.widget.RelativeLayout_183x126__android:id_input_method_nav_ime_switcher_Switch input method, android.widget.RelativeLayout_183x126__android:id_input_method_nav_back_Back, android.widget.LinearLayout_954x126__com.google.android.settings.intelligence:id_open_search_view_edit_text_Search settings; Content disappeared: android:id_content__com.android.settings:id_settings_homepage_container, com.android.settings:id_homepage_app_bar_regular_phone_view__com.android.settings:id_account_avatar_Profile picture, double tap to open Google Account, com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x181",
+            "used_model_analysis": false,
+            "elements_before": 10,
+            "elements_after": 4
+          },
+          "confidence_score": 0.9
+        }
+      ],
+      "tag": [
+        "bluetooth.disable"
+      ]
+    },
+    "899d6d22-f2bf-47ab-abf4-7a03c7736959": {
+      "id": "899d6d22-f2bf-47ab-abf4-7a03c7736959",
+      "elements_info": [
+        {
+          "content": "android:id_content__com.android.settings:id_settings_homepage_container",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]"
+        },
+        {
+          "content": "com.android.settings:id_homepage_app_bar_regular_phone_view__com.android.settings:id_account_avatar_Profile picture, double tap to open Google Account",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_app_bar_regular_phone_view\"]/ImageView[@resource-id=\"com.android.settings:id/account_avatar\" | @content-desc=\"Profile picture, double tap to open Google Account\"]"
+        },
+        {
+          "content": "com.android.settings:id_search_bar__com.android.settings:id_search_action_bar",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_app_bar_regular_phone_view\"]/LinearLayout/CardView[@resource-id=\"com.android.settings:id/search_bar\"]/ViewGroup[@resource-id=\"com.android.settings:id/search_action_bar\"]"
+        },
+        {
+          "content": "com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x231",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout"
+        },
+        {
+          "content": "com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x181",
+          "option": "disabled",
+          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout"
+        }
+      ],
+      "tasks": [
+        "Turn bluetooth off."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the \"Connected devices\" option to proceed to Bluetooth settings.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_app_bar_regular_phone_view\"]/LinearLayout/CardView[@resource-id=\"com.android.settings:id/search_bar\"]/ViewGroup[@resource-id=\"com.android.settings:id/search_action_bar\"]",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 2 interface elements; New content appeared: com.google.android.settings.intelligence:id_list_results__com.google.android.settings.intelligence:id_clear_history_layout, android.widget.LinearLayout_1080x214__android:id_switch_widget, com.google.android.settings.intelligence:id_open_search_view_toolbar__Back; Content disappeared: com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x181, com.android.settings:id_homepage_app_bar_regular_phone_view__com.android.settings:id_account_avatar_Profile picture, double tap to open Google Account, com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "retry_recommended": false,
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 2 interface elements; New content appeared: com.google.android.settings.intelligence:id_list_results__com.google.android.settings.intelligence:id_clear_history_layout, android.widget.LinearLayout_1080x214__android:id_switch_widget, com.google.android.settings.intelligence:id_open_search_view_toolbar__Back; Content disappeared: com.android.settings:id_recycler_view__android.widget.LinearLayout_1080x181, com.android.settings:id_homepage_app_bar_regular_phone_view__com.android.settings:id_account_avatar_Profile picture, double tap to open Google Account, com.android.settings:id_settings_homepage_container__com.android.settings:id_main_content_scrollable_container",
+            "used_model_analysis": false,
+            "elements_before": 10,
+            "elements_after": 8
+          },
+          "confidence_score": 0.9
+        }
+      ],
+      "tag": [
+        "bluetooth.disable"
+      ]
+    }
+  }
+}

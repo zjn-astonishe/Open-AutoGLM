@@ -201,9 +201,9 @@ class ActionHandler:
         """Handle swipe action."""
         unit_dist = int(width / 10)
         if dist == "long":
-            unit_dist *= 3
+            unit_dist *= 6
         elif dist == "medium":
-            unit_dist *= 2
+            unit_dist *= 3
         if direction == "up":
             offset = 0, -2 * unit_dist
         elif direction == "down":

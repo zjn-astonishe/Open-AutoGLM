@@ -1,0 +1,49 @@
+[
+  {
+    "id": "363c2149-f098-458a-b49e-0f8b94bba3d9",
+    "task": "Turn bluetooth off.",
+    "tag": "bluetooth.disable",
+    "path": [
+      {
+        "from_node_id": "33ac1ed1-c0cd-4dc6-8e0e-455279185a50",
+        "to_node_id": "6f6e9258-1827-4b78-85d5-94afbf168d3d",
+        "action": {
+          "action_type": "Launch",
+          "description": "Launch the Settings app to access Bluetooth settings.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "6f6e9258-1827-4b78-85d5-94afbf168d3d",
+        "to_node_id": "1a404c1e-f544-49fd-8414-5480ef4b3494",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap on \"Connected devices\" to access Bluetooth settings.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar\"]/LinearLayout[@resource-id=\"com.android.settings:id/app_bar_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_app_bar_regular_phone_view\"]/LinearLayout/CardView[@resource-id=\"com.android.settings:id/search_bar\"]/ViewGroup[@resource-id=\"com.android.settings:id/search_action_bar\"]"
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "1a404c1e-f544-49fd-8414-5480ef4b3494",
+        "to_node_id": "1411df33-2f9b-4680-a761-9102cfad9364",
+        "action": {
+          "action_type": "Type",
+          "description": "Type \"Bluetooth\" in the search bar to find the Bluetooth settings.",
+          "zone_path": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "1411df33-2f9b-4680-a761-9102cfad9364",
+        "to_node_id": "0cb4d67c-b2fa-484e-beb3-e65604f345b6",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the Bluetooth toggle switch to turn it off.",
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.settings.intelligence:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.settings.intelligence:id/main_content\"]/FrameLayout/FrameLayout[@resource-id=\"com.google.android.settings.intelligence:id/open_search_view\"]/FrameLayout[@resource-id=\"com.google.android.settings.intelligence:id/open_search_view_root\"]/LinearLayout[@resource-id=\"com.google.android.settings.intelligence:id/open_search_view_background\"]/FrameLayout[@resource-id=\"com.google.android.settings.intelligence:id/open_search_view_content_container\"]/ScrollView[@resource-id=\"com.google.android.settings.intelligence:id/search_scrollview\"]/LinearLayout[@resource-id=\"com.google.android.settings.intelligence:id/open_search_view_suggestion_container\"]/ScrollView[@resource-id=\"com.google.android.settings.intelligence:id/main_content_scrollable_container\"]/LinearLayout/FrameLayout[@resource-id=\"com.google.android.settings.intelligence:id/layout_results\"]/RecyclerView[@resource-id=\"com.google.android.settings.intelligence:id/list_results\"]/LinearLayout/Switch[@resource-id=\"android:id/switch_widget\"]"
+        },
+        "success": true
+      }
+    ]
+  }
+]

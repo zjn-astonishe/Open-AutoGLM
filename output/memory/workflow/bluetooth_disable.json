@@ -1,0 +1,19 @@
+[
+  {
+    "id": "b6031741-c0cc-47ac-a9b0-e24a3bf8c989",
+    "task": "Turn bluetooth off.",
+    "tag": "bluetooth.disable",
+    "path": [
+      {
+        "from_node_id": "skill_bluetooth_disable_1767943449",
+        "to_node_id": "e592678a-a2a6-4179-a537-25a399a09335",
+        "action": {
+          "action_type": "skill_execution",
+          "description": "Executed skill 'bluetooth_disable' with params {'settings_app_package': 'com.android.settings', 'search_element': 'com.android.settings:id/search_action_bar', 'bluetooth_search_text': 'Bluetooth', 'toggle_element': 'android:id/switch_widget'}",
+          "zone_path": null
+        },
+        "success": true
+      }
+    ]
+  }
+]
