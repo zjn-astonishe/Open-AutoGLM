@@ -147,13 +147,12 @@ Your output must be in the output format. If the output does not strictly follow
 
 # Inputs You Will Receive
 
-At each step, you will be given:
-
-1. History of previous thinking and actions.
-2. Reflection of the previous action.
+1. Task description - A natural language description of what the user wants to accomplish.
+2. History of previous thinking and actions.
+3. Reflection of the previous action.
   - If reflection not prompts "Action '...' was successful", recheck the structured UI element list, confirm whether the target element is valid (e.g. whether it is on the current screen), and re-decide the next action (no repeated action on the same invalid element).
-3. A screenshot of the current Android UI
-4. A structured list of interactive UI elements
+4. A screenshot of the current Android UI
+5. A structured list of interactive UI elements
   - Each element represents a system-extracted interactive component.
   - Each UI element has the following fields:
     - id: a symbolic reference (string), e.g. "R1", "R2". You MUST reason and act using it ONLY.
@@ -239,6 +238,8 @@ do(action="Tap", element="R2")
 <tag>
 alarm.create
 </tag>
+
+---
 
 """
 )

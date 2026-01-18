@@ -10,6 +10,7 @@ from typing import Any, Callable
 from phone_agent.actions import ActionHandler
 from phone_agent.actions.handler import do, finish, parse_action
 from phone_agent.config import get_messages, get_system_prompt
+from phone_agent.context_manager import StructuredContext
 from phone_agent.device_factory import get_device_factory
 from phone_agent.model import ModelClient, ModelConfig
 from phone_agent.model.client import MessageBuilder
@@ -95,7 +96,7 @@ class PhoneAgent:
         self.planner = Planner(model_config=model_config)
         self.skill_executor = SkillExecutor(device_id=self.agent_config.device_id)
 
-        self._context: list[dict[str, Any]] = []
+        self._context = StructuredContext()
         self._step_count = 0
         self._actions_executed: list[dict[str, Any]] = []
         self._last_screenshot = None  # Cache for screenshot reuse
@@ -117,7 +118,9 @@ class PhoneAgent:
         Returns:
             Dictionary containing execution results with actions list.
         """
-        self._context = []
+        self._context.reset()
+        self._context.set_system_prompt(self.agent_config.system_prompt)
+        self._context.set_task(task)
         self._step_count = 0
         self._actions_executed = []
         workflow = self.memory.create_workflow(task)
@@ -178,16 +181,20 @@ class PhoneAgent:
         Returns:
             StepResult with step details.
         """
-        is_first = len(self._context) == 0
+        is_first = self._context.step_count == 0
 
         if is_first and not task:
             raise ValueError("Task is required for the first step")
+            
+        if is_first:
+            self._context.set_system_prompt(self.agent_config.system_prompt)
+            self._context.set_task(task)
 
         return self._execute_step(task, is_first)
 
     def reset(self) -> None:
         """Reset the agent state for a new task."""
-        self._context = []
+        self._context.reset()
         self._step_count = 0
         self._actions_executed = []
         self._last_screenshot = None
@@ -219,10 +226,8 @@ class PhoneAgent:
         current_app = device_factory.get_current_app(self.agent_config.device_id)
         
         if is_first:
-            self._context.append(
-                MessageBuilder.create_system_message(self.agent_config.system_prompt)
-            )
-            self._context.append(MessageBuilder.create_user_message(user_prompt))
+            # System prompt and task are already set in run() method
+            pass
         # 在每个步骤中进行planning，决定是否使用skill
         # 避免在skill执行后的验证步骤中重复planning
         if not self._post_skill_execution:
@@ -330,9 +335,7 @@ class PhoneAgent:
                         
                         # 添加skill执行和验证结果到上下文
                         print(f"✅ {skill_message}")
-                        self._context.append(
-                            MessageBuilder.create_assistant_message(skill_message)
-                        )
+                        self._context.add_history_entry(skill_message)
                         
                         # 完全跳过后续的验证步骤，直接重置标志
                         self._post_skill_execution = False
@@ -388,30 +391,12 @@ class PhoneAgent:
         if not is_first:
             recorder.on_new_node(current_node_id=node.id)
 
-        # Build messages
-        if is_first:
-            screen_info = MessageBuilder.build_screen_info(current_app, extra_info=elements_info)
-            text_content = f"** Screen Info **\n\n{screen_info}"
-
-            self._context.append(
-                MessageBuilder.create_user_message(
-                    text=text_content, image_base64=screenshot.base64_data
-                )
-            )
-        else:
-            screen_info = MessageBuilder.build_screen_info(current_app, extra_info=elements_info)
-            text_content = f"** Screen Info **\n\n{screen_info}"
-            
-            # Include previous reflection context if available
-            previous_reflection = self._get_previous_reflection_context()
-            if previous_reflection:
-                text_content += f"\n\n{previous_reflection}"
-
-            self._context.append(
-                MessageBuilder.create_user_message(
-                    text=text_content, image_base64=screenshot.base64_data
-                )
-            )
+        screen_info_str = MessageBuilder.build_screen_info(current_app, extra_info=elements_info)
+        screen_info = json.loads(screen_info_str)
+        
+        # Add screenshot and screen info to structured context
+        self._context.add_screenshot(screenshot.base64_data)
+        self._context.add_screen_info(screen_info)
 
         # Get model response
         try:
@@ -421,10 +406,10 @@ class PhoneAgent:
             print("-" * 50)
             # print(f"+" * 50)
             # print(f"system_prompt: {self.agent_config.system_prompt}")
-            # print(f"Context: {self._context}")
+            # print(f"📝 Context: {len(self._context.to_messages())} messages")
             # print(f"+" * 50)
             start_time = time.time()
-            response = self.model_client.request(self._context)
+            response = self.model_client.request(self._context.to_messages())
             end_time = time.time()
             node.add_tag(tag=response.tag)
             print(f"Inference Time taken: {end_time - start_time:.2f} seconds")
@@ -484,11 +469,8 @@ class PhoneAgent:
             print("=" * 50 + "\n")
                 
 
-        # Remove image from context to save space
-        # self._context[-1] = MessageBuilder.remove_images_from_message(self._context[-1])
-        self._context.pop()
-        if not is_first:
-            self._context.pop()
+        # Clear current step's screenshot and screen info to save space
+        self._context.clear_current_step()
 
         # Execute action
         try:
@@ -568,11 +550,7 @@ class PhoneAgent:
         self._actions_executed.append(action)
 
         # Add assistant response to context
-        assistant_message = f"{response.thinking} {list(response.action.keys())[0]}"
-
-        self._context.append(
-            MessageBuilder.create_assistant_message(assistant_message)
-        )
+        self._context.add_history_entry(response.thinking, response.action)
         
         # Include simplified reflection result in context if available and meaningful
         if reflection_result:
@@ -611,23 +589,27 @@ class PhoneAgent:
                     reflect_parts.append(f"Suggestion: {suggestions}")
                 
                 if reflect_parts:
-                    reflect_message = "Reflection: " + "; ".join(reflect_parts)
-                    self._context.append(
-                        MessageBuilder.create_assistant_message(reflect_message)
+                    self._context.add_reflection(
+                        action_type=action["action"],
+                        success=action_successful,
+                        confidence=confidence_score,
+                        reasoning=reasoning,
+                        suggestions=suggestions
                     )
                     
                     if self.agent_config.verbose:
+                        reflect_message = "Reflection: " + "; ".join(reflect_parts)
                         print(f"📝 Added simplified reflection to context: {reflect_message}")
             elif self.agent_config.verbose:
-                self._context.append(
-                    MessageBuilder.create_assistant_message(f"Reflection: Action '{list(response.action.keys())[0]}' was successful")
-                )
+                # For successful actions, we can optionally add a simple success reflection
+                # but keep it minimal to avoid context bloat
                 print("✅ Reflection indicates success - not adding to context to keep it clean")
 
-            print(f"📝 Context result: {self._context}")
+            # print(f"📝 Context result: {self._context}")
 
         if self.agent_config.verbose:
-            print(f"Context length: {len(self._context)} messages")
+            # print(f"Context length: {len(self._context.to_messages())} messages")
+            print(f"📚 Context:\n {self._context.to_messages()}\n")
 
         if is_first:
             recorder.set_tag(response.tag)
@@ -675,7 +657,7 @@ class PhoneAgent:
     @property
     def context(self) -> list[dict[str, Any]]:
         """Get the current conversation context."""
-        return self._context.copy()
+        return self._context.to_messages()
 
     @property
     def step_count(self) -> int:
@@ -1081,23 +1063,3 @@ class PhoneAgent:
             changes.extend(state_changes)
         
         return "; ".join(changes) if changes else "No obvious interface changes detected"
-
-
-    def _get_previous_reflection_context(self) -> str:
-        """Extract previous reflection information from context for current step awareness."""
-        if not self._context:
-            return ""
-        
-        # Look for the most recent assistant message that contains reflection analysis
-        for message in reversed(self._context):
-            if message.get('role') == 'assistant':
-                content = message.get('content', '')
-                if '** Reflection Analysis **' in content:
-                    # Extract just the reflection part
-                    reflection_start = content.find('** Reflection Analysis **')
-                    if reflection_start != -1:
-                        reflection_text = content[reflection_start:]
-                        return f"** Previous Action Reflection **\n{reflection_text}"
-                break
-        
-        return ""

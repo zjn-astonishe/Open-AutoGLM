@@ -8,6 +8,7 @@ from typing import Any, Callable
 from phone_agent.actions.handler import do, finish, parse_action
 from phone_agent.actions.handler_ios import IOSActionHandler
 from phone_agent.config import get_messages, get_system_prompt
+from phone_agent.context_manager import StructuredContext
 from phone_agent.model import ModelClient, ModelConfig
 from phone_agent.model.client import MessageBuilder
 from phone_agent.xctest import XCTestConnection, get_current_app, get_screenshot
@@ -96,7 +97,7 @@ class IOSPhoneAgent:
             takeover_callback=takeover_callback,
         )
 
-        self._context: list[dict[str, Any]] = []
+        self._context = StructuredContext()
         self._step_count = 0
 
     def run(self, task: str) -> str:
@@ -109,7 +110,9 @@ class IOSPhoneAgent:
         Returns:
             Final message from the agent.
         """
-        self._context = []
+        self._context.reset()
+        self._context.set_system_prompt(self.agent_config.system_prompt)
+        self._context.set_task(task)
         self._step_count = 0
 
         # First step with user prompt
@@ -139,16 +142,20 @@ class IOSPhoneAgent:
         Returns:
             StepResult with step details.
         """
-        is_first = len(self._context) == 0
+        is_first = self._context.step_count == 0
 
         if is_first and not task:
             raise ValueError("Task is required for the first step")
+            
+        if is_first:
+            self._context.set_system_prompt(self.agent_config.system_prompt)
+            self._context.set_task(task)
 
         return self._execute_step(task, is_first)
 
     def reset(self) -> None:
         """Reset the agent state for a new task."""
-        self._context = []
+        self._context.reset()
         self._step_count = 0
 
     def _execute_step(
@@ -167,33 +174,16 @@ class IOSPhoneAgent:
             wda_url=self.agent_config.wda_url, session_id=self.agent_config.session_id
         )
 
-        # Build messages
-        if is_first:
-            self._context.append(
-                MessageBuilder.create_system_message(self.agent_config.system_prompt)
-            )
-
-            screen_info = MessageBuilder.build_screen_info(current_app)
-            text_content = f"{user_prompt}\n\n{screen_info}"
-
-            self._context.append(
-                MessageBuilder.create_user_message(
-                    text=text_content, image_base64=screenshot.base64_data
-                )
-            )
-        else:
-            screen_info = MessageBuilder.build_screen_info(current_app)
-            text_content = f"** Screen Info **\n\n{screen_info}"
-
-            self._context.append(
-                MessageBuilder.create_user_message(
-                    text=text_content, image_base64=screenshot.base64_data
-                )
-            )
+        # Add screenshot and screen info to structured context
+        self._context.add_screenshot(screenshot.base64_data, screenshot.width, screenshot.height)
+        
+        screen_info_str = MessageBuilder.build_screen_info(current_app)
+        screen_info = json.loads(screen_info_str)
+        self._context.add_screen_info(screen_info)
 
         # Get model response
         try:
-            response = self.model_client.request(self._context)
+            response = self.model_client.request(self._context.to_messages())
         except Exception as e:
             if self.agent_config.verbose:
                 traceback.print_exc()
@@ -225,9 +215,6 @@ class IOSPhoneAgent:
             print(json.dumps(action, ensure_ascii=False, indent=2))
             print("=" * 50 + "\n")
 
-        # Remove image from context to save space
-        self._context[-1] = MessageBuilder.remove_images_from_message(self._context[-1])
-
         # Execute action
         try:
             result = self.action_handler.execute(
@@ -240,11 +227,10 @@ class IOSPhoneAgent:
                 finish(message=str(e)), screenshot.width, screenshot.height
             )
 
-        # Add assistant response to context
-        self._context.append(
-            MessageBuilder.create_assistant_message(
-                f"<think>{response.thinking}</think><answer>{response.action}</answer>"
-            )
+        # Add assistant response to history
+        self._context.add_history_entry(
+            "assistant",
+            f"<think>{response.thinking}</think><answer>{response.action}</answer>"
         )
 
         # Check if finished
@@ -269,7 +255,7 @@ class IOSPhoneAgent:
     @property
     def context(self) -> list[dict[str, Any]]:
         """Get the current conversation context."""
-        return self._context.copy()
+        return self._context.to_messages()
 
     @property
     def step_count(self) -> int:
