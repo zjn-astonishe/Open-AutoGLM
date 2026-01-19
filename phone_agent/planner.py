@@ -1,23 +1,56 @@
-import os
 import re
 import json
-import importlib.util
+from dataclasses import dataclass
 from openai import OpenAI
 from phone_agent.model.client import ModelConfig
 from typing import Dict, Any, List, Optional, Tuple
-from phone_agent.config.prompts_en import SYSTEM_PROMPT_ROUTER
+from phone_agent.config.prompts_en import SYSTEM_PROMPT_PLANNER, SYSTEM_PROMPT_TASK_DECOMPOSITION
+
+
+@dataclass
+class SubTask:
+    """Represents a subtask in a decomposed workflow."""
+    description: str
+    tag: str
+
+
+@dataclass 
+class TaskPlan:
+    """Represents a task decomposition plan."""
+    is_decomposed: bool
+    subtasks: List[SubTask]
+    current_subtask_index: int = 0
+    
+    @property
+    def current_subtask(self) -> Optional[SubTask]:
+        """Get the current subtask being executed."""
+        if 0 <= self.current_subtask_index < len(self.subtasks):
+            return self.subtasks[self.current_subtask_index]
+        return None
+    
+    def advance_subtask(self) -> bool:
+        """Advance to the next subtask. Returns True if there are more subtasks."""
+        self.current_subtask_index += 1
+        return self.current_subtask_index < len(self.subtasks)
+    
+    def is_complete(self) -> bool:
+        """Check if all subtasks are complete."""
+        return self.current_subtask_index >= len(self.subtasks)
 
 
 class PlannerResponse:
     """Response from the planner containing decision and execution plan."""
     
     def __init__(self, decision: str, execution: str = "", skill_name: str = "", 
-                 skill_params: Dict[str, Any] = None, raw_content: str = ""):
+                 skill_params: Dict[str, Any] = None, raw_content: str = "",
+                 task_plan: Optional[TaskPlan] = None, subtask_status: Dict[str, Any] = None):
         self.decision = decision  # "use_skill" or "use_atomic_actions"
         self.execution = execution  # Raw execution string
         self.skill_name = skill_name  # Name of the skill to use
         self.skill_params = skill_params or {}  # Parameters for the skill
         self.raw_content = raw_content  # Raw LLM response
+        self.task_plan = task_plan  # Task decomposition plan
+        self.subtask_status = subtask_status or {}  # Subtask completion status
 
 
 class Planner:
@@ -25,24 +58,57 @@ class Planner:
     def __init__(self, model_config: ModelConfig | None = None):
         self.config = model_config or ModelConfig()
         self.client = OpenAI(base_url=self.config.base_url, api_key=self.config.api_key)
+        self._current_task_plan = None  # Track current task plan
         
-    def plan_task(self, user_task: str) -> PlannerResponse:
+    def plan_with_context(
+        self, 
+        user_task: str,
+        current_subtask: Optional[str] = None,
+        subtask_progress: Optional[str] = None,
+        action_history: List[Dict[str, Any]] = None,
+        reflection_result: Optional[List[Dict[str, Any]]] = None
+    ) -> PlannerResponse:
         """
-        Analyze user task and decide whether to use skills or atomic actions.
+        Analyze user task with full context and decide whether to use skills or atomic actions,
+        while also evaluating subtask completion status.
         
         Args:
             user_task: Natural language description of the user's task
+            current_subtask: Description of current subtask being executed
+            subtask_tag: Functional tag of current subtask
+            subtask_progress: Progress in subtask sequence (e.g., "2/3")
+            action_history: Complete history of actions and their results
+            reflection_result: Reflection analysis of previous action (if failed)
             
         Returns:
-            PlannerResponse containing the decision and execution plan
+            PlannerResponse containing decision, execution plan, and subtask status
         """
-        # print(f"SYSTEM_PROMPT_ROUTER:{SYSTEM_PROMPT_ROUTER}")
-        # Build messages for the router
-        # print(f"SYSTEM_PROMPT_ROUTER:{SYSTEM_PROMPT_ROUTER}")
+        
+        # Build context information
+        context_parts = [f"Overall Task: {user_task}"]
+        
+        if current_subtask:
+            context_parts.append(f"Current Subtask: {current_subtask}")
+        if subtask_progress:
+            context_parts.append(f"Subtask Progress: {subtask_progress}")
+        
+        
+        context_content = "\n".join(context_parts)
+        
+        # Build messages for planning
         messages = [
-            {"role": "system", "content": SYSTEM_PROMPT_ROUTER},
-            {"role": "user", "content": f"User task: {user_task}"}
+            {"role": "system", "content": SYSTEM_PROMPT_PLANNER},
+            {"role": "user", "content": context_content}
         ]
+
+        # Add complete action history
+        if action_history:
+            messages.append(action_history[0])
+        if reflection_result:
+            messages.append(reflection_result[0])
+
+
+        print(f"{messages}")
         
         try:
             # Get response from the model
@@ -63,6 +129,8 @@ class Planner:
             raw_content = ""
         
         # Parse the response
+        print(f"RAW PLANNER RESPONSE:\n{raw_content}\n")
+        subtask_status = self._parse_subtask_status(raw_content)
         decision, execution = self._parse_router_response(raw_content)
         
         # If decision is to use skill, parse the skill call
@@ -77,42 +145,9 @@ class Planner:
             execution=execution,
             skill_name=skill_name,
             skill_params=skill_params,
-            raw_content=raw_content
+            raw_content=raw_content,
+            subtask_status=subtask_status
         )
-    
-    def execute_skill(self, skill_name: str, skill_params: Dict[str, Any]) -> List[Dict[str, Any]]:
-        """
-        Execute a skill with given parameters.
-        
-        Args:
-            skill_name: Name of the skill to execute
-            skill_params: Parameters to pass to the skill
-            
-        Returns:
-            List of action dictionaries from the skill execution
-        """
-        try:
-            # Load the skill module dynamically
-            skill_path = self._get_skill_path(skill_name)
-            if not skill_path or not os.path.exists(skill_path):
-                raise FileNotFoundError(f"Skill file not found: {skill_name}")
-                
-            # Import the skill module
-            spec = importlib.util.spec_from_file_location(skill_name, skill_path)
-            skill_module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(skill_module)
-            
-            # Get the skill function
-            skill_function = getattr(skill_module, skill_name)
-            
-            # Execute the skill with parameters
-            actions = skill_function(**skill_params)
-            
-            return actions
-            
-        except Exception as e:
-            print(f"Error executing skill {skill_name}: {e}")
-            return []
     
     def _parse_router_response(self, content: str) -> Tuple[str, str]:
         """
@@ -340,46 +375,200 @@ class Planner:
         # Return as string if all else fails
         return value_str
     
-    def _get_skill_path(self, skill_name: str) -> Optional[str]:
+    def decompose_task(self, user_task: str) -> TaskPlan:
         """
-        Get the file path for a skill.
+        Decompose a complex task into subtasks with appropriate tags.
         
         Args:
-            skill_name: Name of the skill
+            user_task: Natural language description of the user's task
             
         Returns:
-            Path to the skill file or None if not found
+            TaskPlan containing the decomposition result
         """
-        # Get the project root directory
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        project_root = os.path.dirname(current_dir)
+        # Build messages for the planner
+        messages = [
+            {"role": "system", "content": SYSTEM_PROMPT_TASK_DECOMPOSITION},
+            {"role": "user", "content": f"User task: {user_task}"}
+        ]
         
-        # Construct skill file path
-        skill_path = os.path.join(project_root, "code_generator", "skills", f"{skill_name}.py")
-        
-        return skill_path if os.path.exists(skill_path) else None
-    
-    def get_available_skills(self) -> Dict[str, Any]:
-        """
-        Get information about available skills from the skill library.
-        
-        Returns:
-            Dictionary containing skill information
-        """
         try:
-            # Get skill library path
-            current_dir = os.path.dirname(os.path.abspath(__file__))
-            project_root = os.path.dirname(os.path.dirname(current_dir))
-            skill_library_path = os.path.join(project_root, "code_generator", "skills", "skill_library.json")
+            # Get response from the model
+            response = self.client.chat.completions.create(
+                messages=messages,
+                model=self.config.model_name,
+                max_tokens=self.config.max_tokens,
+                temperature=self.config.temperature,
+                top_p=self.config.top_p,
+                frequency_penalty=self.config.frequency_penalty,
+                extra_body=self.config.extra_body
+            )
             
-            if not os.path.exists(skill_library_path):
-                return {}
-            
-            with open(skill_library_path, 'r', encoding='utf-8') as f:
-                library_data = json.load(f)
-            
-            return library_data.get("skills", {})
+            raw_content = response.choices[0].message.content
             
         except Exception as e:
-            print(f"Error loading skill library: {e}")
+            print(f"Error calling LLM API for task decomposition: {e}")
+            # Fallback to single task
+            return TaskPlan(
+                is_decomposed=False,
+                subtasks=[SubTask(description=user_task, tag="general.task")]
+            )
+        
+        # Parse the decomposition response
+        return self._parse_decomposition_response(raw_content, user_task)
+    
+    def _parse_decomposition_response(self, content: str, original_task: str) -> TaskPlan:
+        """
+        Parse the decomposition response to extract subtasks and tags.
+        
+        Args:
+            content: Raw response content from the model
+            original_task: Original task description for fallback
+            
+        Returns:
+            TaskPlan with parsed subtasks
+        """
+        try:
+            # Extract analysis section
+            analysis_match = re.search(r"<analysis>\s*(.*?)\s*</analysis>", content, re.DOTALL)
+            analysis = analysis_match.group(1).strip() if analysis_match else ""
+            
+            # Extract plan section
+            plan_match = re.search(r"<plan>\s*(.*?)\s*</plan>", content, re.DOTALL)
+            plan_content = plan_match.group(1).strip() if plan_match else ""
+            
+            if not plan_content:
+                # Fallback to single task
+                return TaskPlan(
+                    is_decomposed=False,
+                    subtasks=[SubTask(description=original_task, tag="general.task")]
+                )
+            
+            # Check if decomposition is needed
+            if "no decomposition needed" in plan_content.lower() or "single task:" in plan_content.lower():
+                # Extract single task tag
+                tag_match = re.search(r"tag:\s*([^\n\r]+)", plan_content, re.IGNORECASE)
+                tag = tag_match.group(1).strip() if tag_match else "general.task"
+                
+                return TaskPlan(
+                    is_decomposed=False,
+                    subtasks=[SubTask(description=original_task, tag=tag)]
+                )
+            
+            # Parse decomposed subtasks
+            subtasks = []
+            
+            # Look for subtask patterns like "- Subtask 1: description\n  Tag: tag"
+            subtask_pattern = r"- Subtask \d+:\s*([^\n\r]+)\s*Tag:\s*([^\n\r]+)"
+            matches = re.findall(subtask_pattern, plan_content, re.IGNORECASE)
+            
+            for description, tag in matches:
+                subtasks.append(SubTask(
+                    description=description.strip(),
+                    tag=tag.strip()
+                ))
+            
+            if not subtasks:
+                # Fallback parsing - look for any line with "Tag:" 
+                lines = plan_content.split('\n')
+                current_description = ""
+                
+                for line in lines:
+                    line = line.strip()
+                    if line.startswith('- ') or line.startswith('* '):
+                        current_description = line[2:].strip()
+                    elif line.lower().startswith('tag:') and current_description:
+                        tag = line[4:].strip()
+                        subtasks.append(SubTask(
+                            description=current_description,
+                            tag=tag
+                        ))
+                        current_description = ""
+            
+            if not subtasks:
+                # Final fallback to single task
+                return TaskPlan(
+                    is_decomposed=False,
+                    subtasks=[SubTask(description=original_task, tag="general.task")]
+                )
+            
+            return TaskPlan(
+                is_decomposed=len(subtasks) > 1,
+                subtasks=subtasks
+            )
+            
+        except Exception as e:
+            print(f"Error parsing decomposition response: {e}")
+            # Fallback to single task
+            return TaskPlan(
+                is_decomposed=False,
+                subtasks=[SubTask(description=original_task, tag="general.task")]
+            )
+
+    def _parse_subtask_status(self, content: str) -> Dict[str, Any]:
+        """
+        Parse the subtask status from the planner response.
+        
+        Args:
+            content: Raw response content from the model
+            
+        Returns:
+            Dictionary containing subtask status information
+        """
+        try:
+            # Extract subtask_status section
+            status_match = re.search(r"<subtask_status>\s*(.*?)\s*</subtask_status>", content, re.DOTALL)
+            if not status_match:
+                return {}
+            
+            status_content = status_match.group(1).strip()
+            
+            # Parse individual fields
+            status_dict = {}
+            
+            # Parse Status
+            status_pattern = r"Status:\s*[\"']?([^\"'\n\r]+)[\"']?"
+            status_match = re.search(status_pattern, status_content, re.IGNORECASE)
+            if status_match:
+                status_dict['status'] = status_match.group(1).strip()
+            
+            # Parse Confidence
+            confidence_pattern = r"Confidence:\s*[\"']?([^\"'\n\r]+)[\"']?"
+            confidence_match = re.search(confidence_pattern, status_content, re.IGNORECASE)
+            if confidence_match:
+                status_dict['confidence'] = confidence_match.group(1).strip()
+            
+            # Parse Reasoning
+            reasoning_pattern = r"Reasoning:\s*([^\n\r]+)"
+            reasoning_match = re.search(reasoning_pattern, status_content, re.IGNORECASE)
+            if reasoning_match:
+                status_dict['reasoning'] = reasoning_match.group(1).strip()
+            
+            # Parse Next_Action
+            next_action_pattern = r"Next_Action:\s*[\"']?([^\"'\n\r]+)[\"']?"
+            next_action_match = re.search(next_action_pattern, status_content, re.IGNORECASE)
+            if next_action_match:
+                status_dict['next_action'] = next_action_match.group(1).strip()
+            
+            return status_dict
+            
+        except Exception as e:
+            print(f"Error parsing subtask status: {e}")
             return {}
+    
+    def set_current_task_plan(self, task_plan: TaskPlan) -> None:
+        """
+        Set the current task plan for tracking.
+        
+        Args:
+            task_plan: The task plan to track
+        """
+        self._current_task_plan = task_plan
+    
+    def get_current_task_plan(self) -> Optional[TaskPlan]:
+        """
+        Get the current task plan.
+        
+        Returns:
+            Current task plan or None if not set
+        """
+        return self._current_task_plan

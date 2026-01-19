@@ -105,16 +105,37 @@ class PhoneAgent:
         self._post_skill_execution = False  # 标记是否刚执行完skill
         self._executed_skills = []  # 记录已执行的skill列表
         
+        # 记忆加载缓存
+        self._loaded_tags = set()  # 记录已加载的tag，避免重复加载
+        
+        
         # 错误分析器
         self.error_analyzer = ErrorAnalyzer()
 
-    def run(self, task: str) -> dict[str, Any]:
+    def run(self, task: str, use_decomposition: bool = False) -> dict[str, Any]:
         """
         Run the agent to complete a task.
 
         Args:
             task: Natural language description of the task.
+            use_decomposition: Whether to decompose complex tasks into subtasks.
 
+        Returns:
+            Dictionary containing execution results with actions list.
+        """
+        # Handle task decomposition if requested
+        if use_decomposition:
+            return self._run_with_decomposition(task)
+        else:
+            return self._run_single_task(task)
+
+    def _run_single_task(self, task: str) -> dict[str, Any]:
+        """
+        Run the agent to complete a single task without decomposition.
+        
+        Args:
+            task: Natural language description of the task.
+            
         Returns:
             Dictionary containing execution results with actions list.
         """
@@ -125,7 +146,6 @@ class PhoneAgent:
         self._actions_executed = []
         workflow = self.memory.create_workflow(task)
         recorder = WorkflowRecorder(task=task, workflow=workflow)
-        # self.memory.from_json()
 
         # 初始化skill执行状态跟踪
         self._post_skill_execution = False
@@ -137,6 +157,16 @@ class PhoneAgent:
         
 
         if result.finished:
+            # Save all decomposed workflows to memory
+            all_workflows = recorder.get_all_workflows()
+            if len(all_workflows) > 1:
+                if self.agent_config.verbose:
+                    print(f"💾 Saving {len(all_workflows)} decomposed workflows to memory")
+                self.memory.add_workflows(all_workflows)
+            else:
+                if self.agent_config.verbose:
+                    print(f"💾 Saving single workflow to memory")
+            
             self.memory.to_json()
             return {
                 'finished': True,
@@ -150,6 +180,16 @@ class PhoneAgent:
             result = self._execute_step(task, recorder, is_first=False)
 
             if result.finished:
+                # Save all decomposed workflows to memory
+                all_workflows = recorder.get_all_workflows()
+                if len(all_workflows) > 1:
+                    if self.agent_config.verbose:
+                        print(f"💾 Saving {len(all_workflows)} decomposed workflows to memory")
+                    self.memory.add_workflows(all_workflows)
+                else:
+                    if self.agent_config.verbose:
+                        print(f"💾 Saving single workflow to memory")
+                
                 self.memory.to_json()
                 return {
                     'finished': True,
@@ -160,12 +200,181 @@ class PhoneAgent:
             
             # time.sleep(1)
         
+        # Save all decomposed workflows to memory even if max steps reached
+        all_workflows = recorder.get_all_workflows()
+        if len(all_workflows) > 1:
+            if self.agent_config.verbose:
+                print(f"💾 Saving {len(all_workflows)} decomposed workflows to memory (max steps reached)")
+            self.memory.add_workflows(all_workflows)
+        else:
+            if self.agent_config.verbose:
+                print(f"💾 Saving single workflow to memory (max steps reached)")
+        
         self.memory.to_json()
 
         return {
             'finished': False,
             'actions': self._actions_executed,
             'result_message': "Max steps reached",
+            'step_count': self._step_count
+        }
+
+    def _run_with_decomposition(self, task: str) -> dict[str, Any]:
+        """
+        Run the agent with task decomposition enabled.
+        
+        Args:
+            task: Natural language description of the task.
+            
+        Returns:
+            Dictionary containing execution results with subtask details.
+        """
+        if self.agent_config.verbose:
+            print(f"🚀 Starting task execution with decomposition: {task}")
+        
+        # Decompose the task first
+        decomposition_result = self.decompose_task(task)
+        
+        if not decomposition_result['is_decomposed']:
+            # Task doesn't need decomposition, run as single task
+            if self.agent_config.verbose:
+                print("📝 Task is atomic, executing as single task")
+            return self._run_single_task(task)
+        
+        # Execute each subtask sequentially
+        subtasks = decomposition_result['subtasks']
+        all_actions = []
+        subtask_results = []
+        total_steps = 0
+        
+        if self.agent_config.verbose:
+            print(f"🎯 Executing {len(subtasks)} subtasks sequentially")
+        
+        for i, subtask_info in enumerate(subtasks, 1):
+            subtask_desc = subtask_info['description']
+            subtask_tag = subtask_info['tag']
+            
+            if self.agent_config.verbose:
+                print(f"\n{'='*60}")
+                print(f"🔄 Executing subtask {i}/{len(subtasks)}: {subtask_desc}")
+                print(f"🏷️  Tag: {subtask_tag}")
+                print(f"{'='*60}")
+            
+            # Reset agent state for new subtask but keep overall context
+            self._step_count = 0
+            self._actions_executed = []
+            self._last_screenshot = None
+            self._post_skill_execution = False
+            self._executed_skills = []
+            
+            # Create workflow for this subtask
+            workflow = self.memory.create_workflow(subtask_desc)
+            recorder = WorkflowRecorder(task=subtask_desc, workflow=workflow)
+            recorder.set_tag(subtask_tag)
+            
+            # Set context for subtask
+            self._context.reset()
+            self._context.set_system_prompt(self.agent_config.system_prompt)
+            
+            # Add context about the overall task and current subtask
+            subtask_context = f"Overall task: {task}\n\nCurrent subtask ({i}/{len(subtasks)}): {subtask_desc}"
+            self._context.set_task(subtask_context)
+            
+            # Execute the subtask
+            subtask_result = self._execute_subtask(subtask_desc, recorder)
+            
+            # Record subtask results
+            subtask_results.append({
+                'subtask_index': i,
+                'description': subtask_desc,
+                'tag': subtask_tag,
+                'finished': subtask_result['finished'],
+                'actions': subtask_result['actions'].copy(),
+                'result_message': subtask_result['result_message'],
+                'step_count': subtask_result['step_count']
+            })
+            
+            # Accumulate results
+            all_actions.extend(subtask_result['actions'])
+            total_steps += subtask_result['step_count']
+            
+            # Save subtask workflow
+            all_workflows = recorder.get_all_workflows()
+            if len(all_workflows) > 0:
+                self.memory.add_workflows(all_workflows)
+            
+            if not subtask_result['finished']:
+                if self.agent_config.verbose:
+                    print(f"⚠️  Subtask {i} did not complete successfully")
+                break
+            else:
+                if self.agent_config.verbose:
+                    print(f"✅ Subtask {i} completed successfully")
+        
+        # Save memory
+        self.memory.to_json()
+        
+        # Determine overall completion status
+        completed_subtasks = sum(1 for result in subtask_results if result['finished'])
+        overall_finished = completed_subtasks == len(subtasks)
+        
+        if self.agent_config.verbose:
+            print(f"\n{'='*60}")
+            print(f"🎉 Task decomposition execution completed!")
+            print(f"📊 Completed subtasks: {completed_subtasks}/{len(subtasks)}")
+            print(f"📈 Total steps: {total_steps}")
+            print(f"📋 Total actions: {len(all_actions)}")
+            print(f"{'='*60}\n")
+        
+        return {
+            'finished': overall_finished,
+            'actions': all_actions,
+            'result_message': f"Completed {completed_subtasks}/{len(subtasks)} subtasks",
+            'step_count': total_steps,
+            'decomposition_used': True,
+            'subtask_results': subtask_results,
+            'total_subtasks': len(subtasks),
+            'completed_subtasks': completed_subtasks
+        }
+
+    def _execute_subtask(self, subtask: str, recorder: WorkflowRecorder) -> dict[str, Any]:
+        """
+        Execute a single subtask.
+        
+        Args:
+            subtask: Description of the subtask to execute.
+            recorder: Workflow recorder for this subtask.
+            
+        Returns:
+            Dictionary containing subtask execution results.
+        """
+        # First step with subtask prompt
+        result = self._execute_step(subtask, recorder, is_first=True)
+        
+        if result.finished:
+            return {
+                'finished': True,
+                'actions': self._actions_executed,
+                'result_message': result.message or "Subtask completed",
+                'step_count': self._step_count
+            }
+
+        # Continue until finished or max steps reached
+        while self._step_count < self.agent_config.max_steps:
+            result = self._execute_step(subtask, recorder, is_first=False)
+
+            if result.finished:
+                return {
+                    'finished': True,
+                    'actions': self._actions_executed,
+                    'result_message': result.message or "Subtask completed",
+                    'step_count': self._step_count
+                }
+        
+        return {
+            'finished': False,
+            'actions': self._actions_executed,
+            'result_message': "Subtask max steps reached",
             'step_count': self._step_count
         }
 
@@ -201,6 +410,101 @@ class PhoneAgent:
         # 重置skill执行状态跟踪
         self._post_skill_execution = False
         self._executed_skills = []
+        # 重置记忆加载缓存
+        self._loaded_tags = set()
+
+    def decompose_task(self, task: str) -> dict[str, Any]:
+        """
+        Decompose a complex task into subtasks with appropriate tags.
+        
+        This method analyzes the given task and determines whether it should be
+        broken down into smaller, more manageable subtasks. Each subtask is
+        assigned an appropriate functional tag for better organization and
+        skill matching.
+        
+        Args:
+            task: Natural language description of the task to decompose.
+            
+        Returns:
+            Dictionary containing:
+            - is_decomposed: Boolean indicating if task was decomposed
+            - subtasks: List of subtask dictionaries with 'description' and 'tag'
+            - total_subtasks: Number of subtasks
+            - decomposition_reasoning: Explanation of decomposition decision
+            
+        Example:
+            >>> agent = PhoneAgent()
+            >>> result = agent.decompose_task("Set an alarm for 7 AM and send a message to John")
+            >>> print(result)
+            {
+                'is_decomposed': True,
+                'subtasks': [
+                    {'description': 'Set an alarm for 7 AM', 'tag': 'alarm.create'},
+                    {'description': 'Send a message to John', 'tag': 'message.send'}
+                ],
+                'total_subtasks': 2,
+                'decomposition_reasoning': 'Task involves two distinct operations...'
+            }
+        """
+        if not task or not task.strip():
+            return {
+                'is_decomposed': False,
+                'subtasks': [],
+                'total_subtasks': 0,
+                'decomposition_reasoning': 'Empty or invalid task provided'
+            }
+        
+        try:
+            if self.agent_config.verbose:
+                print(f"🧩 Decomposing task: {task}")
+            
+            # Use the planner to decompose the task
+            task_plan = self.planner.decompose_task(task)
+            
+            # Convert TaskPlan to dictionary format
+            subtasks_list = []
+            for subtask in task_plan.subtasks:
+                subtasks_list.append({
+                    'description': subtask.description,
+                    'tag': subtask.tag
+                })
+            
+            # Generate reasoning based on decomposition result
+            if task_plan.is_decomposed:
+                reasoning = f"Task was decomposed into {len(task_plan.subtasks)} subtasks based on distinct functional operations"
+            else:
+                reasoning = "Task is atomic and does not require decomposition"
+            
+            result = {
+                'is_decomposed': task_plan.is_decomposed,
+                'subtasks': subtasks_list,
+                'total_subtasks': len(task_plan.subtasks),
+                'decomposition_reasoning': reasoning
+            }
+            
+            if self.agent_config.verbose:
+                if task_plan.is_decomposed:
+                    print(f"✅ Task decomposed into {len(task_plan.subtasks)} subtasks:")
+                    for i, subtask in enumerate(task_plan.subtasks, 1):
+                        print(f"  {i}. {subtask.description} (tag: {subtask.tag})")
+                else:
+                    print(f"✅ Task is atomic, no decomposition needed (tag: {task_plan.subtasks[0].tag})")
+            
+            return result
+            
+        except Exception as e:
+            if self.agent_config.verbose:
+                print(f"❌ Task decomposition failed: {e}")
+                import traceback
+                traceback.print_exc()
+            
+            # Fallback to single task
+            return {
+                'is_decomposed': False,
+                'subtasks': [{'description': task, 'tag': 'general.task'}],
+                'total_subtasks': 1,
+                'decomposition_reasoning': f'Decomposition failed due to error: {str(e)}'
+            }
 
     def _execute_step(
         self, user_prompt: str, recorder: WorkflowRecorder, is_first: bool = False
@@ -233,12 +537,51 @@ class PhoneAgent:
         if not self._post_skill_execution:
             try:
                 start_time = time.time()
-                plan = self.planner.plan_task(user_prompt)
+                plan = self.planner.plan_with_context(
+                    user_task=user_prompt,
+                    action_history=self._context.history.to_messages(),
+                    reflection_result=self._context.reflection.to_messages()
+                )
                 end_time = time.time()
                 
                 if self.agent_config.verbose:
                     print(f"🧠 Planning taken: {end_time - start_time:.2f} seconds")
                     # print(f"📋 Plan decision: {plan.decision}")
+                
+                # 根据planning结果加载相关记忆数据
+                if plan.decision == "use_skill" and plan.skill_name:
+                    # 将skill_name转换为tag格式
+                    target_tag = plan.skill_name.replace("_", ".")
+                    
+                    # 检查是否已经加载过这个tag
+                    if target_tag not in self._loaded_tags:
+                        if self.agent_config.verbose:
+                            print(f"🧠 Loading memory for skill: {plan.skill_name} (tag: {target_tag})")
+                        
+                        try:
+                            # 使用双重筛选加载记忆：先tag筛选，再embedding筛选
+                            memory_start_time = time.time()
+                            self.memory.from_json(
+                                task=user_prompt,
+                                target_tag=target_tag,
+                                similarity_threshold=0.7
+                            )
+                            memory_end_time = time.time()
+                            
+                            # 记录已加载的tag
+                            self._loaded_tags.add(target_tag)
+                            
+                            if self.agent_config.verbose:
+                                print(f"🧠 Memory loading taken: {memory_end_time - memory_start_time:.2f} seconds")
+                                print(f"📚 Loaded {len(self.memory.workflows)} workflows, {len(self.memory.workgraphs)} workgraphs")
+                                
+                        except Exception as e:
+                            if self.agent_config.verbose:
+                                print(f"⚠️ Memory loading failed: {e}")
+                            # 继续执行，不因为记忆加载失败而中断
+                    else:
+                        if self.agent_config.verbose:
+                            print(f"🧠 Memory for tag '{target_tag}' already loaded, skipping")
                 
                 # 如果决定使用skill且该skill未被执行过
                 if (plan.decision == "use_skill" and 
@@ -249,8 +592,7 @@ class PhoneAgent:
                         print(f"📝 Skill params: {plan.skill_params}")
                     
                     start_time = time.time()
-                    actions = self.planner.execute_skill(plan.skill_name, plan.skill_params)
-                    skill_res = self.skill_executor.run(actions=actions)
+                    skill_res = self.skill_executor.execute_skill(plan.skill_name, plan.skill_params)
                     end_time = time.time()
                     
                     if self.agent_config.verbose:
@@ -335,7 +677,7 @@ class PhoneAgent:
                         
                         # 添加skill执行和验证结果到上下文
                         print(f"✅ {skill_message}")
-                        self._context.add_history_entry(skill_message)
+                        self._context.add_history_entry(skill_message, tag=plan.skill_name.replace("_", "."))
                         
                         # 完全跳过后续的验证步骤，直接重置标志
                         self._post_skill_execution = False
@@ -358,9 +700,6 @@ class PhoneAgent:
                     print(f"⚠️ Planning failed: {e}")
                     traceback.print_exc()
                 # Planning失败，继续使用原子动作
-        # 注意：由于skill执行后立即验证并重置了_post_skill_execution标志，
-        # 这个else分支现在应该不会被执行到了
-        # 保留此注释以说明逻辑变更
         
         work_graph = self.memory.get_work_graph(current_app)
         if work_graph is None:
@@ -398,6 +737,7 @@ class PhoneAgent:
         self._context.add_screenshot(screenshot.base64_data)
         self._context.add_screen_info(screen_info)
 
+
         # Get model response
         try:
             msgs = get_messages(self.agent_config.lang)
@@ -406,13 +746,13 @@ class PhoneAgent:
             print("-" * 50)
             # print(f"+" * 50)
             # print(f"system_prompt: {self.agent_config.system_prompt}")
-            # print(f"📝 Context: {len(self._context.to_messages())} messages")
+            # print(f"📚 Context:\n {self._context.to_messages()}\n")
             # print(f"+" * 50)
             start_time = time.time()
             response = self.model_client.request(self._context.to_messages())
             end_time = time.time()
-            node.add_tag(tag=response.tag)
             print(f"Inference Time taken: {end_time - start_time:.2f} seconds")
+            
         except Exception as e:
             if self.agent_config.verbose:
                 traceback.print_exc()
@@ -605,14 +945,13 @@ class PhoneAgent:
                 # but keep it minimal to avoid context bloat
                 print("✅ Reflection indicates success - not adding to context to keep it clean")
 
-            # print(f"📝 Context result: {self._context}")
+            # print(f"📚 Context:\n {self._context.to_messages()}\n")
 
         if self.agent_config.verbose:
-            # print(f"Context length: {len(self._context.to_messages())} messages")
-            print(f"📚 Context:\n {self._context.to_messages()}\n")
+            print(f"Context length: {len(self._context.to_messages())} messages")
 
         if is_first:
-            recorder.set_tag(response.tag)
+            recorder.set_tag("general.task")
         
         recorder.on_action_executed(
             from_node_id=node.id,
@@ -622,7 +961,7 @@ class PhoneAgent:
 
         # Check if finished
         finished = action.get("action") == "Finish" or result.should_finish
-        # print(f"Step finished: {finished}")
+        
         
         # Cache the after-action screenshot for next step's before_screenshot
         # This avoids redundant screenshot capture in consecutive steps

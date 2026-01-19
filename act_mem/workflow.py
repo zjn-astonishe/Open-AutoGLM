@@ -1,9 +1,8 @@
-import os
-import json
 import uuid
-from typing import Dict, List, Any
 from dataclasses import dataclass
+from typing import Dict, List, Any
 from .worknode import WorkNode, WorkAction
+from sentence_transformers import SentenceTransformer
 
 @dataclass
 class WorkTransition:
@@ -29,6 +28,7 @@ class Workflow:
     def __init__(self, id: str, task: str) -> None:
         self.id: str = id
         self.task = task
+        self.task_embedding = SentenceTransformer('./model/sentence-transformers/all-MiniLM-L6-v2').encode(task)
         self.tag: str = ""
         self.path: List[WorkTransition] = []   # sequence of node IDs representing the transition order.
 
@@ -51,8 +51,9 @@ class Workflow:
     def to_json(self) -> Dict[str, Any]:
         workflow_data = {
             "id": self.id,
-            "task": self.task,
             "tag": self.tag,
+            "task": self.task,
+            "task_embedding": self.task_embedding.tolist(),
             "path": []
         }
         for transition in self.path:

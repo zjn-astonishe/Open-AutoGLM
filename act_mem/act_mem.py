@@ -1,9 +1,11 @@
 import os
 import json
 import uuid
+import numpy as np
 from typing import List, Dict, Any
 from .worknode import WorkAction, WorkNode
 from .workflow import WorkGraph, Workflow, WorkTransition
+from sentence_transformers import SentenceTransformer
 
 class ActionMemory:
     """
@@ -55,6 +57,12 @@ class ActionMemory:
         workflow = Workflow(id=id, task=task)
         self.workflows.append(workflow)
         return workflow
+    
+    def add_workflows(self, workflows: list) -> None:
+        """Add multiple workflows to memory (for decomposed workflows)."""
+        for workflow in workflows:
+            if workflow not in self.workflows:
+                self.workflows.append(workflow)
         
     def find_workflow(self, task: str) -> List[Workflow]:
         workflows = []
@@ -198,72 +206,62 @@ class ActionMemory:
         
         return False
     
+    def _calculate_cosine_similarity(self, embedding1: np.ndarray, embedding2: np.ndarray) -> float:
+        """
+        Calculate cosine similarity between two embeddings.
+        
+        Args:
+            embedding1 (np.ndarray): First embedding vector
+            embedding2 (np.ndarray): Second embedding vector
+            
+        Returns:
+            float: Cosine similarity score between -1 and 1
+        """
+        try:
+            # 计算余弦相似度
+            similarity = np.dot(embedding1, embedding2) / (
+                np.linalg.norm(embedding1) * np.linalg.norm(embedding2)
+            )
+            return float(similarity)
+        except Exception as e:
+            print(f"Warning: Error calculating cosine similarity: {str(e)}")
+            return 0.0
+    
     def from_json(
             self, 
-            target_tag: str | None = None
+            task: str,
+            target_tag: str | None = None,
+            similarity_threshold: float = 0.7,
+            tag_similarity_threshold: float = 0.8,
         ) -> None:
         """
         Load work graphs and workflows from JSON files, filtered by target apps/tasks.
+        First filters by target_tag, then by task embedding similarity.
+        
+        Args:
+            task (str): The task description to match against
+            target_tag (str | None): Optional tag to filter by first
+            similarity_threshold (float): Minimum cosine similarity threshold for task embedding matching (default: 0.7)
+            tag_similarity_threshold (float): Minimum cosine similarity threshold for tag matching when target_tag is provided (default: 0.8)
         """
+        
+        # 计算输入task的embedding用于相似度比较
+        model = SentenceTransformer('./model/sentence-transformers/all-MiniLM-L6-v2')
+        task_embedding = model.encode(task)
+        
+        # 如果提供了target_tag，也计算其embedding用于tag相似度匹配
+        target_tag_embedding = None
+        if target_tag:
+            target_tag_embedding = model.encode(target_tag)
         
         # 确保目录存在
         graph_dir = os.path.join(self.memory_dir, "graph")
         workflow_dir = os.path.join(self.memory_dir, "workflow")
         
-        # 加载工作图
-        if os.path.exists(graph_dir):
-            for filename in os.listdir(graph_dir):
-                if filename.endswith(".json"):
-                    filepath = os.path.join(graph_dir, filename)
-                    
-                    with open(filepath, 'r', encoding='utf-8') as f:
-                        graph_data = json.load(f)
-                    
-                    # 检查是否已存在同名app的graph，如果存在则跳过加载
-                    existing_graph = self.get_work_graph(graph_data["app"])
-                    if existing_graph:
-                        print(f"Work graph for app '{graph_data['app']}' already exists, skipping load.")
-                        continue
-                    
-                    # 创建新的WorkGraph实例
-                    graph = WorkGraph(app=graph_data["app"])
-                    
-                    # 加载节点
-                    for node_id, node_data in graph_data["nodes"].items():
-
-                        if target_tag and node_data["tag"] != target_tag:  # 检查标签是否匹配
-                            continue
-
-                        # 创建WorkNode实例
-                        node = WorkNode(
-                            id=node_data["id"],
-                            elements_info=node_data["elements_info"]
-                        )
-                        
-                        # 设置节点的任务列表
-                        node.tasks = node_data["tasks"] if "tasks" in node_data else []
-                        
-                        # 设置节点的动作列表
-                        if "actions" in node_data:
-                            for action_data in node_data["actions"]:
-                                action = WorkAction(
-                                    action_type=action_data["action_type"],
-                                    description=action_data["description"],
-                                    zone_path=action_data.get("zone_path"),  # 使用get方法，如果不存在则为None
-                                    reflection_result=action_data.get("reflection_result"),
-                                    confidence_score=action_data.get("confidence_score")
-                                )
-                                node.actions.append(action)
-                        
-                        # 将节点添加到图中
-                        graph.nodes[node.id] = node
-                    
-                    # 将图添加到内存中
-                    if not graph.is_empty():
-                        self.workgraphs.append(graph)
-                        print(f"Loaded work graph for app '{graph_data['app']}' from {filepath}")
+        # 收集需要加载的节点ID
+        required_node_ids = set()
         
-        # 加载工作流
+        # 第一步：加载和筛选工作流
         if os.path.exists(workflow_dir):
             for filename in os.listdir(workflow_dir):
                 if filename.endswith(".json"):
@@ -272,9 +270,32 @@ class ActionMemory:
                     tag = os.path.splitext(filename)[0]
                     tag = tag.replace('_', '.')
                     
-                    # 如果指定了target_tag且当前tag不匹配，则跳过
-                    if target_tag and tag != target_tag:
-                        continue
+                    # 如果指定了target_tag，进行tag匹配（支持精确匹配和语义相似度匹配）
+                    if target_tag:
+                        tag_matches = False
+                        
+                        # 首先尝试精确匹配
+                        if tag == target_tag:
+                            tag_matches = True
+                            print(f"Tag exact match: {tag}")
+                        
+                        # 如果精确匹配失败，尝试语义相似度匹配
+                        elif target_tag_embedding is not None:
+                            try:
+                                tag_embedding = model.encode(tag)
+                                tag_similarity = self._calculate_cosine_similarity(target_tag_embedding, tag_embedding)
+                                
+                                if tag_similarity >= tag_similarity_threshold:
+                                    tag_matches = True
+                                    print(f"Tag semantic match: {tag} (similarity: {tag_similarity:.3f})")
+                                else:
+                                    print(f"Tag similarity too low: {tag} (similarity: {tag_similarity:.3f})")
+                            except Exception as e:
+                                print(f"Warning: Error calculating tag similarity for {tag}: {str(e)}")
+                        
+                        # 如果tag不匹配，跳过此文件
+                        if not tag_matches:
+                            continue
                     
                     file_workflows = []
                     try:
@@ -309,6 +330,25 @@ class ActionMemory:
                             print(f"Warning: Workflow in {filepath} missing id/task, skipping.")
                             continue
 
+                        # 基于task embedding进行相似度筛选
+                        if "task_embedding" in workflow_data:
+                            try:
+                                # 从JSON中加载保存的embedding
+                                saved_embedding = np.array(workflow_data["task_embedding"])
+                                
+                                # 计算余弦相似度
+                                similarity = self._calculate_cosine_similarity(task_embedding, saved_embedding)
+                                
+                                # 如果相似度低于阈值，跳过此workflow
+                                if similarity < similarity_threshold:
+                                    print(f"Workflow task '{workflow_data['task']}' similarity {similarity:.3f} below threshold {similarity_threshold}, skipping.")
+                                    continue
+                                else:
+                                    print(f"Workflow task '{workflow_data['task']}' similarity {similarity:.3f} above threshold, loading.")
+                                    
+                            except Exception as e:
+                                print(f"Warning: Error calculating similarity for workflow in {filepath}: {str(e)}, loading anyway.")
+
                         # 创建 Workflow 实例
                         workflow = Workflow(
                             id=workflow_data["id"],
@@ -317,6 +357,17 @@ class ActionMemory:
 
                         # 设置标签，使用从文件名提取并恢复的tag
                         workflow.tag = tag
+                        
+                        # 如果有保存的embedding，直接使用，否则重新计算
+                        if "task_embedding" in workflow_data:
+                            try:
+                                workflow.task_embedding = np.array(workflow_data["task_embedding"])
+                            except:
+                                # 如果加载失败，重新计算
+                                workflow.task_embedding = model.encode(workflow.task)
+                        else:
+                            # 如果没有保存的embedding，重新计算
+                            workflow.task_embedding = model.encode(workflow.task)
 
                         # 加载路径（path 字段，可选）
                         if "path" in workflow_data and isinstance(workflow_data["path"], list):
@@ -330,7 +381,12 @@ class ActionMemory:
                                 action = WorkAction(
                                     action_type=action_data.get("action_type", ""),
                                     description=action_data.get("description", ""),
-                                    zone_path=action_data.get("zone_path")  # 不存在则为 None
+                                    zone_path=action_data.get("zone_path"),  # 不存在则为 None
+                                    reflection_result=action_data.get("reflection_result"),
+                                    confidence_score=action_data.get("confidence_score"),
+                                    direction=action_data.get("direction"),
+                                    distance=action_data.get("distance"),
+                                    text=action_data.get("text")
                                 )
                                 # 创建 WorkTransition 实例
                                 transition = WorkTransition(
@@ -341,6 +397,100 @@ class ActionMemory:
                                 )
                                 workflow.path.append(transition)
 
+                        # 收集workflow中涉及的节点ID
+                        for transition in workflow.path:
+                            if transition.from_node_id:
+                                required_node_ids.add(transition.from_node_id)
+                            if transition.to_node_id:
+                                required_node_ids.add(transition.to_node_id)
+
                         # 将合法的 Workflow 添加到内存
                         self.workflows.append(workflow)
                         print(f"Loaded workflow (id: {workflow.id}) for task '{workflow.task}' from {filepath}")
+
+        # 第二步：根据workflow中的节点ID加载相关的workgraph节点
+        if required_node_ids and os.path.exists(graph_dir):
+            print(f"Loading nodes for {len(required_node_ids)} required node IDs: {list(required_node_ids)[:5]}{'...' if len(required_node_ids) > 5 else ''}")
+            
+            for filename in os.listdir(graph_dir):
+                if filename.endswith(".json"):
+                    filepath = os.path.join(graph_dir, filename)
+                    
+                    with open(filepath, 'r', encoding='utf-8') as f:
+                        graph_data = json.load(f)
+                    
+                    # 检查是否已存在同名app的graph，如果存在则跳过加载
+                    existing_graph = self.get_work_graph(graph_data["app"])
+                    if existing_graph:
+                        print(f"Work graph for app '{graph_data['app']}' already exists, skipping load.")
+                        continue
+                    
+                    # 创建新的WorkGraph实例
+                    graph = WorkGraph(app=graph_data["app"])
+                    nodes_loaded = 0
+                    
+                    # 只加载required_node_ids中包含的节点
+                    for node_id, node_data in graph_data["nodes"].items():
+                        # 只加载workflow中需要的节点
+                        if node_id not in required_node_ids:
+                            continue
+
+                        # 检查标签是否匹配（如果指定了target_tag）
+                        if target_tag:
+                            node_tag = node_data.get("tag")
+                            node_tag_matches = False
+                            
+                            # 处理节点标签（现在是单个字符串或None）
+                            if node_tag:
+                                # 首先尝试精确匹配
+                                if node_tag == target_tag:
+                                    node_tag_matches = True
+                                # 如果精确匹配失败，尝试语义相似度匹配
+                                elif target_tag_embedding is not None:
+                                    try:
+                                        node_tag_embedding = model.encode(node_tag)
+                                        tag_similarity = self._calculate_cosine_similarity(target_tag_embedding, node_tag_embedding)
+                                        if tag_similarity >= tag_similarity_threshold:
+                                            node_tag_matches = True
+                                    except Exception:
+                                        pass
+                            
+                            # 如果节点tag不匹配，跳过此节点
+                            if not node_tag_matches:
+                                continue
+
+                        # 创建WorkNode实例
+                        node = WorkNode(
+                            id=node_data["id"],
+                            elements_info=node_data["elements_info"]
+                        )
+                        
+                        # 设置节点的任务列表
+                        node.tasks = node_data["tasks"] if "tasks" in node_data else []
+                        
+                        # 设置节点的标签（单个字符串）
+                        node.tag = node_data.get("tag")
+                        
+                        # 设置节点的动作列表
+                        if "actions" in node_data:
+                            for action_data in node_data["actions"]:
+                                action = WorkAction(
+                                    action_type=action_data["action_type"],
+                                    description=action_data["description"],
+                                    zone_path=action_data.get("zone_path"),  # 使用get方法，如果不存在则为None
+                                    reflection_result=action_data.get("reflection_result"),
+                                    confidence_score=action_data.get("confidence_score"),
+                                    direction=action_data.get("direction"),
+                                    distance=action_data.get("distance"),
+                                    text=action_data.get("text")
+                                )
+                                node.actions.append(action)
+                        
+                        # 将节点添加到图中
+                        graph.nodes[node.id] = node
+                        nodes_loaded += 1
+                    
+                    # 将图添加到内存中（只有当加载了节点时）
+                    if not graph.is_empty():
+                        self.workgraphs.append(graph)
+                        print(f"Loaded work graph for app '{graph_data['app']}' with {nodes_loaded} nodes from {filepath}")

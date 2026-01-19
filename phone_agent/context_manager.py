@@ -31,12 +31,22 @@ class TaskDescriptionSection(ContextSection):
     
     task: str
     timestamp: Optional[str] = None
+    current_subtask: Optional[str] = None
+    current_subtask_tag: Optional[str] = None
+    subtask_progress: Optional[str] = None
     
     def to_messages(self) -> List[Dict[str, Any]]:
         content = f"# Task Description\n\n{self.task}"
         if self.timestamp:
             content += f"\n\n**Started at:** {self.timestamp}"
-        content += "\n\n---\n\n"
+        
+        # Add subtask information if available
+        if self.current_subtask:
+            content += f"\n\n## Current Subtask\n\n{self.current_subtask}"
+            if self.current_subtask_tag:
+                content += f" (tag: {self.current_subtask_tag})"
+            if self.subtask_progress:
+                content += f"\n\n**Progress:** {self.subtask_progress}"
         
         return [MessageBuilder.create_user_message(content)]
 
@@ -50,6 +60,7 @@ class HistoryEntry:
     action_description: str
     action_code: str
     success: bool
+    tag: Optional[str] = None  # Add tag to distinguish different functional contexts
     timestamp: Optional[str] = None
 
 
@@ -82,7 +93,6 @@ class HistorySection(ContextSection):
             # history_content += f"- Action: {entry.action_description}\n"
             # history_content += f"- Code: `{entry.action_code}`\n\n"
         
-        history_content += "---\n\n"
         
         return [MessageBuilder.create_assistant_message(history_content)]
 
@@ -133,8 +143,8 @@ class ReflectionSection(ContextSection):
         reflection_content += f"**{status} Step {latest_entry.step}** - {latest_entry.action_type} {confidence}\n"
         reflection_content += f"- Issue: {latest_entry.reasoning}\n"
         if latest_entry.suggestions:
-            reflection_content += f"- Suggestion: {latest_entry.suggestions}\n"
-        reflection_content += "\n---\n\n"
+            reflection_content += f"- Suggestion: {latest_entry.suggestions}"
+        # reflection_content += "\n---\n\n"
         
         return [MessageBuilder.create_assistant_message(reflection_content)]
 
@@ -154,10 +164,10 @@ class ScreenshotSection(ContextSection):
         
         content = "# Current Screen\n\n"
         if self.width and self.height:
-            content += f"**Resolution:** {self.width}x{self.height}\n"
+            content += f"**Resolution:** {self.width}x{self.height}"
         if self.timestamp:
-            content += f"**Captured at:** {self.timestamp}\n"
-        content += "\n---\n\n"
+            content += f"**Captured at:** {self.timestamp}"
+        # content += "\n---\n\n"
         
         return [MessageBuilder.create_user_message(
             text=content,
@@ -170,18 +180,16 @@ class ScreenInfoSection(ContextSection):
     """Screen info section containing structured UI element data."""
     
     current_app: str = ""
-    elements: List[Dict[str, Any]] = field(default_factory=list)
     extra_info: Dict[str, Any] = field(default_factory=dict)
     
     def to_messages(self) -> List[Dict[str, Any]]:
         # Build structured screen info
         screen_info = {
             "current_app": self.current_app,
-            "elements": self.elements,
-            **self.extra_info
+            **self.extra_info 
         }
         
-        content = f"# Screen Info\n\n{json.dumps(screen_info, ensure_ascii=False, indent=2)}\n\n---\n\n"
+        content = f"# Screen Info\n\n{json.dumps(screen_info, ensure_ascii=False, indent=2)}"
         
         return [MessageBuilder.create_user_message(content)]
 
@@ -217,6 +225,17 @@ class StructuredContext:
         """Set the task description."""
         self.task_description.task = task
         self.task_description.timestamp = timestamp
+    
+    def update_subtask_info(
+        self,
+        current_subtask: Optional[str] = None,
+        current_subtask_tag: Optional[str] = None,
+        subtask_progress: Optional[str] = None
+    ) -> None:
+        """Update the current subtask information."""
+        self.task_description.current_subtask = current_subtask
+        self.task_description.current_subtask_tag = current_subtask_tag
+        self.task_description.subtask_progress = subtask_progress
     
     def add_action(
         self,
@@ -277,12 +296,10 @@ class StructuredContext:
     def set_screen_info(
         self,
         current_app: str,
-        elements: List[Dict[str, Any]],
         **extra_info
     ) -> None:
         """Set the screen info."""
         self.screen_info.current_app = current_app
-        self.screen_info.elements = elements
         self.screen_info.extra_info = extra_info
     
     def add_screenshot(self, image_base64: str, width: int = 0, height: int = 0, timestamp: Optional[str] = None) -> None:
@@ -292,12 +309,18 @@ class StructuredContext:
     def add_screen_info(self, screen_info: Dict[str, Any]) -> None:
         """Add screen info to context."""
         current_app = screen_info.get("current_app", "")
-        elements = screen_info.get("elements", [])
-        # Remove known keys and pass the rest as extra_info
-        extra_info = {k: v for k, v in screen_info.items() if k not in ["current_app", "elements"]}
-        self.set_screen_info(current_app, elements, **extra_info)
+        
+        processed_extra_info = {}
+        
+        for k, v in screen_info.items():
+            if k == "extra_info" and isinstance(v, list):
+                processed_extra_info["ui_elements"] = v
+            elif k != "current_app":
+                processed_extra_info[k] = v
+        
+        self.set_screen_info(current_app, **processed_extra_info)
     
-    def add_history_entry(self, content: str, action: Dict[str, Any] | None = None) -> None:
+    def add_history_entry(self, content: str, action: Dict[str, Any] | None = None, tag: Optional[str] = None) -> None:
         """Add a history entry (thinking/response) to context."""
         # Add thinking content as a history entry
         self._step_count += 1
@@ -306,7 +329,8 @@ class StructuredContext:
             thinking=content,
             action_description=list(action.keys())[0],  # Will be filled when action is executed
             action_code=list(action.values())[0],  # Will be filled when action is executed
-            success=True  # Default to True, will be updated based on action result
+            success=True,  # Default to True, will be updated based on action result
+            tag=tag
         )
         self.history.add_entry(entry)
     
@@ -371,6 +395,7 @@ class StructuredContext:
             "current_app": self.screen_info.current_app,
             "element_count": len(self.screen_info.elements)
         }
+    
     
     @property
     def step_count(self) -> int:

@@ -1044,7 +1044,7 @@ def main():
         print(f"\nTask: {args.task}\n")
         
         start_time = time.time()
-        result = agent.run(args.task)
+        result = agent.run(args.task, use_decomposition=True)
         end_time = time.time()
         print(f"\nTime taken: {end_time - start_time:.2f} seconds")
         # print(f"\nResult: {result}")
@@ -1065,7 +1065,7 @@ def main():
 
                 print()
                 start_time = time.time()
-                result = agent.run(task)
+                result = agent.run(task, use_decomposition=True)
                 end_time = time.time()
                 print(f"Time taken: {end_time - start_time:.2f} seconds")
                 # print(f"\nResult: {result}\n")

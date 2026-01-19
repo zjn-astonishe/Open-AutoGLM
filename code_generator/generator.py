@@ -150,12 +150,66 @@ class CodeGenerator:
             logger.error(f"Failed to call LLM API: {e}")
             return ""
     
-    def generate_function_with_llm(self, workflows: List[Dict[str, Any]], tag: str) -> str:
-        """使用LLM基于同一tag下的多个workflows生成抽象功能函数
+    def load_existing_skill_code(self, skill_name: str, skills_dir: str) -> str:
+        """加载已有skill的代码
+        
+        Args:
+            skill_name: skill名称
+            skills_dir: skills目录路径
+            
+        Returns:
+            skill代码内容
+        """
+        skill_file = os.path.join(skills_dir, f"{skill_name}.py")
+        if os.path.exists(skill_file):
+            try:
+                with open(skill_file, 'r', encoding='utf-8') as f:
+                    return f.read()
+            except Exception as e:
+                logger.error(f"Failed to load skill code {skill_file}: {e}")
+        return ""
+    
+    def find_similar_skills(self, tag: str, library_data: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """查找相似的已有skills
+        
+        Args:
+            tag: 当前要生成的skill的tag
+            library_data: skill库数据
+            
+        Returns:
+            相似skill的信息列表
+        """
+        similar_skills = []
+        skills = library_data.get("skills", {})
+        
+        # 提取tag的主要部分用于匹配
+        tag_parts = tag.split('.')
+        main_category = tag_parts[0] if tag_parts else ""
+        
+        for skill_name, skill_info in skills.items():
+            existing_tag = skill_info.get("tag", "")
+            existing_tag_parts = existing_tag.split('.')
+            existing_main_category = existing_tag_parts[0] if existing_tag_parts else ""
+            
+            # 如果是同一主要类别，认为是相似的
+            if main_category and existing_main_category == main_category:
+                similar_skills.append({
+                    "name": skill_name,
+                    "tag": existing_tag,
+                    "description": skill_info.get("description", ""),
+                    "parameters": skill_info.get("parameters", []),
+                    "workflow_tasks": skill_info.get("workflow_tasks", [])
+                })
+        
+        return similar_skills
+
+    def generate_function_with_llm(self, workflows: List[Dict[str, Any]], tag: str, output_path: str = None) -> str:
+        """使用LLM基于同一tag下的多个workflows生成抽象功能函数，会参考已有的skill库
         
         Args:
             workflows: 同一tag下的workflow数据列表
             tag: workflow标签
+            output_path: 输出路径，用于定位skill库
             
         Returns:
             生成的函数代码
@@ -165,6 +219,29 @@ class CodeGenerator:
         
         # 生成函数名
         func_name = tag.replace(".", "_") if tag else "generated_function"
+        
+        # 如果提供了output_path，尝试加载已有的skill库
+        existing_skill = None
+        similar_skills = []
+        if output_path:
+            library_path = os.path.join(output_path, "skill_library.json")
+            library_data = self.load_skill_library(library_path)
+            
+            # 检查是否已经存在相同tag的skill
+            for skill_name, skill_info in library_data.get("skills", {}).items():
+                if skill_info.get("tag") == tag:
+                    existing_skill = {
+                        "name": skill_name,
+                        "info": skill_info,
+                        "code": self.load_existing_skill_code(skill_name, output_path)
+                    }
+                    logger.info(f"Found existing skill for tag '{tag}': {skill_name}")
+                    break
+            
+            # 查找相似的skills
+            similar_skills = self.find_similar_skills(tag, library_data)
+            if similar_skills:
+                logger.info(f"Found {len(similar_skills)} similar skills for reference")
         
         # 构建所有workflows的描述
         workflows_desc = []
@@ -193,32 +270,80 @@ class CodeGenerator:
         
         workflows_text = "\n\n".join(workflows_desc)
         
+        # 构建已有skill的上下文信息
+        existing_context = ""
+        if existing_skill:
+            existing_context = f"""
+EXISTING SKILL FOR SAME TAG:
+The tag '{tag}' already has an existing skill named '{existing_skill['name']}':
+
+Description: {existing_skill['info'].get('description', 'No description')}
+Parameters: {[p['name'] for p in existing_skill['info'].get('parameters', [])]}
+Previous workflow tasks: {existing_skill['info'].get('workflow_tasks', [])}
+
+Existing Code:
+```python
+{existing_skill['code']}
+```
+
+IMPORTANT: Since a skill already exists for this tag, you should:
+1. Analyze if the new workflows require significant changes to the existing skill
+2. If yes, improve and extend the existing skill to handle both old and new scenarios
+3. If no, return the existing skill code with minimal necessary adjustments
+4. Maintain backward compatibility with existing parameters and functionality
+5. Use the same function name: {existing_skill['name']}
+"""
+        
+        similar_context = ""
+        if similar_skills:
+            similar_context = "\nSIMILAR EXISTING SKILLS FOR REFERENCE:\n"
+            for skill in similar_skills[:3]:  # 限制最多3个相似skill
+                similar_context += f"""
+- Skill: {skill['name']} (tag: {skill['tag']})
+  Description: {skill['description'][:100]}...
+  Parameters: {[p['name'] for p in skill['parameters']]}
+  Tasks: {skill['workflow_tasks'][:2]}
+"""
+            similar_context += """
+Please consider these similar skills to maintain consistency in:
+- Naming conventions for functions and parameters
+- Code structure and style
+- Parameter design patterns
+- Documentation format
+"""
+        
         prompt = f"""
-Based on the following multiple mobile app automation workflows with the same tag, generate a complete Python function that abstracts these workflows into a single reusable function.
+Based on the following mobile app automation workflows, generate a Python function that abstracts these workflows.
 
 Tag: {tag}
 Function Name: {func_name}
 
-Multiple Workflows:
+Current Workflows to Handle:
 {workflows_text}
 
+{existing_context}
+
+{similar_context}
+
 Requirements:
-1. Analyze all workflows to identify common patterns and variations
-2. Create a single abstracted function that can handle the different scenarios represented by these workflows
-3. Identify what parameters should be configurable by users to support different use cases
-4. Generate a complete Python function with appropriate parameters that can cover all the workflow variations
-5. The function should return a list of action dictionaries in the format: {{"action": "ActionType", "element": "element_id", ...}}
-6. Include proper docstring with parameter descriptions explaining how the function abstracts multiple workflows
-7. For Launch actions, include "app" field
-8. For Tap/Long Press actions, include "element" field  
-9. For Type actions, include "element" and "text" fields
-10. For Swipe actions, include "element", "direction", and "dist" fields
-11. The "element" field must maintain the exact format extracted from zone_path (resource-id|content-desc|text) to ensure proper matching during execution
-12. Always preserve the original element identifier format without modification to avoid matching failures
-13. Add comments for each action step
-14. Make the function parameters meaningful and user-friendly
-15. Use conditional logic or parameters to handle variations between workflows
-16. Consider making the function flexible enough to handle similar but slightly different workflows
+1. If an existing skill exists for the same tag, improve it to handle new workflows while maintaining backward compatibility
+2. If no existing skill, create a new one following the patterns of similar skills
+3. Analyze all workflows to identify common patterns and variations
+4. Create a function that can handle different scenarios represented by these workflows
+5. Generate appropriate parameters that are configurable by users
+6. The function should return a list of action dictionaries in the format: {{"action": "ActionType", "element": "element_id", ...}}
+7. Include proper docstring with parameter descriptions explaining how the function abstracts multiple workflows
+8. For Launch actions, include "app" field
+9. For Tap/Long Press actions, include "element" field  
+10. For Type actions, include "element" and "text" fields
+11. For Swipe actions, include "element", "direction", and "dist" fields
+12. The "element" field must maintain the exact format extracted from zone_path (resource-id|content-desc|text) to ensure proper matching during execution
+13. Always preserve the original element identifier format without modification to avoid matching failures
+14. Add comments for each action step
+15. Make the function parameters meaningful and user-friendly
+16. Use conditional logic or parameters to handle variations between workflows
+17. Consider making the function flexible enough to handle similar but slightly different workflows
+18. Maintain consistency with existing skills in naming, structure, and documentation style
 
 Generate ONLY the Python function code, no markdown code blocks, no additional explanation.
 Start directly with "def function_name(" and end with "return actions".
@@ -445,11 +570,12 @@ Start directly with "def function_name(" and end with "return actions".
         
         return results
     
-    def generate_all_functions(self, target_tag: str | None = None) -> tuple[Dict[str, str], Dict[str, List[Dict[str, Any]]]]:
+    def generate_all_functions(self, target_tag: str | None = None, output_path: str = None) -> tuple[Dict[str, str], Dict[str, List[Dict[str, Any]]]]:
         """生成所有workflow的函数代码
         
         Args:
             target_tag: 目标tag，如果指定则只处理该tag的workflows
+            output_path: 输出路径，用于定位skill库
             
         Returns:
             (函数名到代码的映射, 按tag分组的workflows)
@@ -487,7 +613,7 @@ Start directly with "def function_name(" and end with "return actions".
             logger.info(f"Processing tag: {tag} with {len(tag_workflows)} workflows")
             
             try:
-                func_code = self.generate_function_with_llm(tag_workflows, tag)
+                func_code = self.generate_function_with_llm(tag_workflows, tag, output_path)
                 if func_code:
                     # 提取函数名
                     func_name_match = re.search(r'def\s+(\w+)\s*\(', func_code)
@@ -535,8 +661,8 @@ Start directly with "def function_name(" and end with "return actions".
             else:
                 logger.info("Starting code generation for all tags...")
             
-            # 生成所有函数
-            functions, workflows_by_tag = self.generate_all_functions(target_tag=target_tag)
+            # 生成所有函数，传递output_path以便参考已有skill库
+            functions, workflows_by_tag = self.generate_all_functions(target_tag=target_tag, output_path=output_path)
             
             if not functions:
                 logger.warning("No functions generated")
