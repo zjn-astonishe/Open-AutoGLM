@@ -10,7 +10,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the Phone app icon to open it and access the contacts functionality.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/ViewGroup/TextView[@content-desc=\"Phone\" | @text=\"Phone\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/ViewGroup/TextView[@content-desc=\"Phone\" | @text=\"Phone\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -20,7 +23,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Contacts\" tab in the bottom navigation bar to access the contacts list.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/bottom_nav_bar_fragment_container\"]/FrameLayout/FrameLayout[@resource-id=\"com.google.android.dialer:id/navigation_bar_layout\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.dialer:id/tab_contacts\" | @content-desc=\"Contacts\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/bottom_nav_bar_fragment_container\"]/FrameLayout/FrameLayout[@resource-id=\"com.google.android.dialer:id/navigation_bar_layout\"]/ViewGroup/FrameLayout[@resource-id=\"com.google.android.dialer:id/tab_contacts\" | @content-desc=\"Contacts\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -30,7 +36,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Create new contact\" option to start adding a new contact.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/ViewGroup[@resource-id=\"com.google.android.dialer:id/main_activity_coordinator_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/fragment_container\"]/FrameLayout/ViewGroup[@resource-id=\"com.google.android.dialer:id/empty_list_view\"]/TextView[@resource-id=\"com.google.android.dialer:id/empty_content_view_action\" | @text=\"Create new contact\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout[@resource-id=\"com.google.android.dialer:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/outer_layout\"]/RelativeLayout[@resource-id=\"com.google.android.dialer:id/root_layout\"]/ViewGroup[@resource-id=\"com.google.android.dialer:id/main_activity_coordinator_layout\"]/FrameLayout[@resource-id=\"com.google.android.dialer:id/fragment_container\"]/FrameLayout/ViewGroup[@resource-id=\"com.google.android.dialer:id/empty_list_view\"]/TextView[@resource-id=\"com.google.android.dialer:id/empty_content_view_action\" | @text=\"Create new contact\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -40,7 +49,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"First name\" field to begin entering the contact's first name.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -50,7 +62,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Sophie\" into the First name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Sophie"
         },
         "success": true
       },
@@ -60,7 +75,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Last name\" field to begin entering the last name.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -70,7 +88,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"dos Santos\" into the Last name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "dos Santos"
         },
         "success": true
       },
@@ -80,7 +101,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Phone\" field to begin entering the phone number.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -90,7 +114,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"+18210700009\" into the Phone field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "+18210700009"
         },
         "success": true
       },
@@ -100,7 +127,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Save\" button to save the new contact.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -117,7 +147,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Contacts app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -127,7 +160,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Skip\" button to bypass the sign-in prompt.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/Button[@resource-id=\"android:id/button2\" | @text=\"Skip\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/Button[@resource-id=\"android:id/button2\" | @text=\"Skip\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -137,7 +173,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"+\" button to create a new contact.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -147,7 +186,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the \"First name\" field to enter the name \"Camila\".",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -157,7 +199,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Camila\" into the First name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Camila"
         },
         "success": true
       },
@@ -167,7 +212,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the \"Last name\" field to enter \"da Silva\".",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -177,7 +225,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"da Silva\" into the Last name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "da Silva"
         },
         "success": true
       },
@@ -187,7 +238,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the \"Phone\" field to enter the phone number.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -197,7 +251,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"+10433218196\" into the Phone field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "+10433218196"
         },
         "success": true
       },
@@ -207,7 +264,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Save\" button to save the new contact.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -224,7 +284,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Contacts app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -234,7 +297,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap \"Don't allow\" to dismiss the notification permission request.",
-          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_singleton\"]/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_dialog\"]/LinearLayout/Button[@resource-id=\"com.android.permissioncontroller:id/permission_deny_button\" | @text=\"Don’t allow\"]"
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_singleton\"]/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_dialog\"]/LinearLayout/Button[@resource-id=\"com.android.permissioncontroller:id/permission_deny_button\" | @text=\"Don’t allow\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -244,7 +310,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"+\" button to create a new contact.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -254,7 +323,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the \"First name\" field to enter the name \"Camila\".",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -264,7 +336,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Camila\" into the First name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Camila"
         },
         "success": true
       },
@@ -274,7 +349,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Last name\" field to enter the last name \"Ali\".",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -284,7 +362,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Ali\" into the Last name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Ali"
         },
         "success": true
       },
@@ -294,7 +375,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Phone\" field to enter the phone number.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -304,7 +388,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"+11338908386\" into the Phone field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "+11338908386"
         },
         "success": true
       },
@@ -314,7 +401,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Save\" button to save the new contact.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -331,7 +421,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Contacts app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -341,7 +434,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap \"Don't allow\" to dismiss the notification permission dialog.",
-          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_singleton\"]/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_dialog\"]/LinearLayout/Button[@resource-id=\"com.android.permissioncontroller:id/permission_deny_and_dont_ask_again_button\" | @text=\"Don’t allow\"]"
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_singleton\"]/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_dialog\"]/LinearLayout/Button[@resource-id=\"com.android.permissioncontroller:id/permission_deny_and_dont_ask_again_button\" | @text=\"Don’t allow\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -351,7 +447,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"+\" button to create a new contact.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -361,7 +460,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the \"First name\" field to enter the name \"Camila\".",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -371,7 +473,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Camila\" into the First name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Camila"
         },
         "success": true
       },
@@ -381,7 +486,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Last name\" field to enter the last name \"Gonzalez\".",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -391,7 +499,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Gonzalez\" into the Last name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Gonzalez"
         },
         "success": true
       },
@@ -401,7 +512,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Phone\" field to enter the phone number.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -411,7 +525,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"+19402654235\" into the Phone field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "+19402654235"
         },
         "success": true
       },
@@ -421,7 +538,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Save\" button to save the new contact.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -438,7 +558,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the 'Contacts' app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -448,7 +571,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"+\" button to create a new contact.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -458,7 +584,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the \"First name\" field to enter the name \"Camila\".",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -468,7 +597,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Camila\" into the First name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Camila"
         },
         "success": true
       },
@@ -478,7 +610,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the \"Last name\" field to enter the last name.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -488,7 +623,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Chen\" into the last name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Chen"
         },
         "success": true
       },
@@ -498,7 +636,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the \"Phone\" field to enter the phone number.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -508,7 +649,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"+16155940781\" into the Phone field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "+16155940781"
         },
         "success": true
       },
@@ -518,7 +662,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Save\" button to save the new contact.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/toolbar\"]/LinearLayoutCompat/LinearLayout[@resource-id=\"com.google.android.contacts:id/menu_save\"]/Button[@resource-id=\"com.google.android.contacts:id/toolbar_button\" | @text=\"Save\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -535,7 +682,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Contacts app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -545,7 +695,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"+\" button to go to the new contact screen.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -555,7 +708,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the First name field to enter the name \"Bob\".",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -565,7 +721,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Bob\" into the First name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Bob"
         },
         "success": true
       },
@@ -575,7 +734,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the Last name field to enter the name \"Taylor\".",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -585,7 +747,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Taylor\" into the Last name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Taylor"
         },
         "success": true
       },
@@ -595,7 +760,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the Phone field to enter the phone number \"951-635-5281\".",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -605,7 +773,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"951-635-5281\" into the Phone field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "951-635-5281"
         },
         "success": true
       },
@@ -615,7 +786,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the dropdown menu next to the \"Label\" field to change the phone label from \"Mobile\" to \"Home\".",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -625,7 +799,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the \"Home\" option in the dropdown menu to set the phone label.",
-          "zone_path": "/FrameLayout/FrameLayout/ListView/CheckedTextView[@resource-id=\"android:id/text1\" | @text=\"Home\"]"
+          "zone_path": "/FrameLayout/FrameLayout/ListView/CheckedTextView[@resource-id=\"android:id/text1\" | @text=\"Home\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -642,7 +819,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the 'Contacts' app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -652,7 +832,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"+\" button to start creating a new contact.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -662,7 +845,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the First name field to begin entering the name.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -672,7 +858,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Hannah\" into the First name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Hannah"
         },
         "success": true
       },
@@ -682,7 +871,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the Last name field to begin entering the last name.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -692,7 +884,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Lee\" into the Last name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Lee"
         },
         "success": true
       },
@@ -702,7 +897,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the Phone field to begin entering the phone number.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -712,7 +910,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"392-429-7187\" into the Phone field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "392-429-7187"
         },
         "success": true
       },
@@ -722,7 +923,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the dropdown menu next to the first phone entry to change the label from \"Mobile\" to \"Home\".",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -732,7 +936,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Select \"Home\" from the dropdown menu to set the phone label.",
-          "zone_path": "/FrameLayout/FrameLayout/ListView/CheckedTextView[@resource-id=\"android:id/text1\" | @text=\"Home\"]"
+          "zone_path": "/FrameLayout/FrameLayout/ListView/CheckedTextView[@resource-id=\"android:id/text1\" | @text=\"Home\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -749,7 +956,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Contacts app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -759,7 +969,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"+\" button to go to the new contact screen.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -769,7 +982,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the First name field to begin entering the name.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -779,7 +995,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Eva\" into the First name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Eva"
         },
         "success": true
       },
@@ -789,7 +1008,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the Last name field to enter the last name.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -799,7 +1021,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Wilson\" into the Last name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Wilson"
         },
         "success": true
       },
@@ -809,7 +1034,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the Phone field to begin entering the phone number.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -819,7 +1047,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"923-540-9910\" into the Phone field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "923-540-9910"
         },
         "success": true
       },
@@ -829,7 +1060,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the dropdown menu next to the Label field to change the phone label.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -839,7 +1073,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the \"Work\" option in the dropdown menu to set the phone label.",
-          "zone_path": "/FrameLayout/FrameLayout/ListView/CheckedTextView[@resource-id=\"android:id/text1\" | @text=\"Work\"]"
+          "zone_path": "/FrameLayout/FrameLayout/ListView/CheckedTextView[@resource-id=\"android:id/text1\" | @text=\"Work\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -856,7 +1093,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Contacts app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -866,7 +1106,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"+\" button to start creating a new contact.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -876,7 +1119,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the First Name field to begin entering the first name.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -886,7 +1132,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Eva\" into the First Name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Eva"
         },
         "success": true
       },
@@ -896,7 +1145,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the Last Name field to begin entering the last name.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -906,7 +1158,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Wilson\" into the Last Name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Wilson"
         },
         "success": true
       },
@@ -916,7 +1171,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the Phone field to begin entering the phone number.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -926,7 +1184,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"514-199-2604\" into the Phone field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "514-199-2604"
         },
         "success": true
       },
@@ -936,7 +1197,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the dropdown menu next to the \"Label\" field to change the phone label.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -946,7 +1210,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the \"Work\" option in the dropdown menu to set the phone label.",
-          "zone_path": "/FrameLayout/FrameLayout/ListView/CheckedTextView[@resource-id=\"android:id/text1\" | @text=\"Work\"]"
+          "zone_path": "/FrameLayout/FrameLayout/ListView/CheckedTextView[@resource-id=\"android:id/text1\" | @text=\"Work\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -963,7 +1230,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Contacts app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -973,7 +1243,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"+\" button to go to the new contact screen.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/DrawerLayout[@resource-id=\"com.google.android.contacts:id/drawer_layout\"]/LinearLayout/LinearLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/ImageButton[@resource-id=\"com.google.android.contacts:id/floating_action_button\" | @content-desc=\"Create contact\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -983,7 +1256,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the \"First name\" field to begin entering the first name.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"First name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -993,7 +1269,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Alice\" into the First name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Alice"
         },
         "success": true
       },
@@ -1003,7 +1282,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the Last name field to begin entering the last name.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Last name\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -1013,7 +1295,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"Johnson\" into the Last name field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "Johnson"
         },
         "success": true
       },
@@ -1023,7 +1308,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the Phone field to begin entering the phone number.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/editors\"]/LinearLayout/FrameLayout/EditText[@text=\"Phone\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -1033,7 +1321,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"254-466-3070\" into the Phone field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "254-466-3070"
         },
         "success": true
       },
@@ -1043,7 +1334,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the phone label dropdown to change it from \"Mobile\" to \"Work\".",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/contact_editor_fragment\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/raw_contacts_editor_view\"]/ScrollView[@resource-id=\"com.google.android.contacts:id/contact_editor_scroller\"]/ViewGroup/LinearLayout[@resource-id=\"com.google.android.contacts:id/editor_fields_container\"]/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_section_views\"]/LinearLayout/LinearLayout[@resource-id=\"com.google.android.contacts:id/kind_editors\"]/LinearLayout/LinearLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout/ImageButton[@resource-id=\"com.google.android.contacts:id/text_input_end_icon\" | @content-desc=\"Show dropdown menu\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -1053,7 +1347,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the \"Work\" option in the phone label dropdown menu.",
-          "zone_path": "/FrameLayout/FrameLayout/ListView/CheckedTextView[@resource-id=\"android:id/text1\" | @text=\"Work\"]"
+          "zone_path": "/FrameLayout/FrameLayout/ListView/CheckedTextView[@resource-id=\"android:id/text1\" | @text=\"Work\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }

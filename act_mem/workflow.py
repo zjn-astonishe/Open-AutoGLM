@@ -1,9 +1,9 @@
-import os
-import json
 import uuid
 from typing import Dict, List, Any
 from dataclasses import dataclass
 from .worknode import WorkNode, WorkAction
+from sentence_transformers import SentenceTransformer
+import numpy as np
 
 @dataclass
 class WorkTransition:
@@ -29,7 +29,10 @@ class Workflow:
     def __init__(self, id: str, task: str) -> None:
         self.id: str = id
         self.task = task
+        model = SentenceTransformer('./model/sentence-transformers/all-MiniLM-L6-v2')
+        self.task_embedding = model.encode(task)
         self.tag: str = ""
+        self.tag_embedding = None  # 初始化为None，而不是空列表
         self.path: List[WorkTransition] = []   # sequence of node IDs representing the transition order.
 
     def add_transition(self, from_node_id: str, to_node_id: str, action: WorkAction, success: bool=True):
@@ -47,12 +50,16 @@ class Workflow:
 
     def set_tag(self, tag: str) -> None:
         self.tag = tag
+        model = SentenceTransformer('./model/sentence-transformers/all-MiniLM-L6-v2')
+        self.tag_embedding = model.encode(tag)
 
     def to_json(self) -> Dict[str, Any]:
         workflow_data = {
             "id": self.id,
-            "task": self.task,
             "tag": self.tag,
+            "tag_embedding": self.tag_embedding.tolist() if self.tag_embedding is not None else [],  # 添加检查
+            "task": self.task,
+            "task_embedding": self.task_embedding.tolist(),
             "path": []
         }
         for transition in self.path:

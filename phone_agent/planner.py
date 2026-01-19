@@ -80,40 +80,6 @@ class Planner:
             raw_content=raw_content
         )
     
-    def execute_skill(self, skill_name: str, skill_params: Dict[str, Any]) -> List[Dict[str, Any]]:
-        """
-        Execute a skill with given parameters.
-        
-        Args:
-            skill_name: Name of the skill to execute
-            skill_params: Parameters to pass to the skill
-            
-        Returns:
-            List of action dictionaries from the skill execution
-        """
-        try:
-            # Load the skill module dynamically
-            skill_path = self._get_skill_path(skill_name)
-            if not skill_path or not os.path.exists(skill_path):
-                raise FileNotFoundError(f"Skill file not found: {skill_name}")
-                
-            # Import the skill module
-            spec = importlib.util.spec_from_file_location(skill_name, skill_path)
-            skill_module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(skill_module)
-            
-            # Get the skill function
-            skill_function = getattr(skill_module, skill_name)
-            
-            # Execute the skill with parameters
-            actions = skill_function(**skill_params)
-            
-            return actions
-            
-        except Exception as e:
-            print(f"Error executing skill {skill_name}: {e}")
-            return []
-    
     def _parse_router_response(self, content: str) -> Tuple[str, str]:
         """
         Parse the router response to extract decision and execution.
@@ -340,46 +306,4 @@ class Planner:
         # Return as string if all else fails
         return value_str
     
-    def _get_skill_path(self, skill_name: str) -> Optional[str]:
-        """
-        Get the file path for a skill.
-        
-        Args:
-            skill_name: Name of the skill
-            
-        Returns:
-            Path to the skill file or None if not found
-        """
-        # Get the project root directory
-        current_dir = os.path.dirname(os.path.abspath(__file__))
-        project_root = os.path.dirname(current_dir)
-        
-        # Construct skill file path
-        skill_path = os.path.join(project_root, "code_generator", "skills", f"{skill_name}.py")
-        
-        return skill_path if os.path.exists(skill_path) else None
     
-    def get_available_skills(self) -> Dict[str, Any]:
-        """
-        Get information about available skills from the skill library.
-        
-        Returns:
-            Dictionary containing skill information
-        """
-        try:
-            # Get skill library path
-            current_dir = os.path.dirname(os.path.abspath(__file__))
-            project_root = os.path.dirname(os.path.dirname(current_dir))
-            skill_library_path = os.path.join(project_root, "code_generator", "skills", "skill_library.json")
-            
-            if not os.path.exists(skill_library_path):
-                return {}
-            
-            with open(skill_library_path, 'r', encoding='utf-8') as f:
-                library_data = json.load(f)
-            
-            return library_data.get("skills", {})
-            
-        except Exception as e:
-            print(f"Error loading skill library: {e}")
-            return {}

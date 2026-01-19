@@ -10,7 +10,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Audio Recorder app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -20,7 +23,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"RECORD\" button to start recording an audio clip.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -30,7 +36,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"STOP\" button to end the recording.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -40,7 +49,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"FINISH\" button to save the recorded audio clip.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -50,7 +62,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Save\" button to save the recorded audio clip.",
-          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]"
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -67,7 +82,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Audio Recorder app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -77,7 +95,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the RECORD button to start recording an audio clip.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -87,7 +108,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the STOP button to end the recording and save the audio clip.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -97,7 +121,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"FINISH\" button to save the recorded audio clip.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -107,7 +134,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Save\" button to save the recorded audio clip.",
-          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]"
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -124,7 +154,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Audio Recorder app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -134,7 +167,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"RECORD\" button to start recording an audio clip.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -144,7 +180,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"STOP\" button to end the recording.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -154,7 +193,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"FINISH\" button to save the recorded audio clip.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -164,7 +206,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Save\" button to save the recorded audio clip.",
-          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]"
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -181,7 +226,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Audio Recorder app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -191,7 +239,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"RECORD\" button to start recording an audio clip.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -201,7 +252,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"STOP\" button to end the recording.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -211,7 +265,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"FINISH\" button to save the recorded audio clip.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -221,7 +278,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Save\" button to save the recorded audio clip.",
-          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]"
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -238,7 +298,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Audio Recorder app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -248,7 +311,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"RECORD\" button to start recording an audio clip.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -258,7 +324,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"STOP\" button to end the recording.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -268,7 +337,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"FINISH\" button to save the recorded audio clip.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -278,7 +350,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Save\" button to save the recorded audio clip.",
-          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]"
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -295,7 +370,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Audio Recorder app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -305,7 +383,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"RECORD\" button to start recording the audio clip.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -315,7 +396,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"STOP\" button to end the recording.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -325,7 +409,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"FINISH\" button to complete the recording.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -335,7 +422,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"2023_09_02_lecture.m4a\" into the input field to set the desired filename.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "2023_09_02_lecture.m4a"
         },
         "success": true
       },
@@ -345,7 +435,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Save\" button to save the audio clip with the specified name.",
-          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]"
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -362,7 +455,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Audio Recorder app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -372,7 +468,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the RECORD button to start recording the audio clip.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -382,7 +481,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the STOP button to end the recording.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -392,7 +494,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"FINISH\" button to complete the recording.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -402,7 +507,10 @@
         "action": {
           "action_type": "Type",
           "description": "Clear the existing text and type \"session_edited.m4a\" in the input field.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "session_edited.m4a"
         },
         "success": true
       },
@@ -412,7 +520,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Save\" button to save the audio file with the specified name.",
-          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]"
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -429,7 +540,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Audio Recorder app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -439,7 +553,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"RECORD\" button to start recording the audio clip.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -449,7 +566,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"STOP\" button to end the recording.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -459,7 +579,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"FINISH\" button to complete the recording.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -469,7 +592,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"narration_edited.m4a\" into the input field to rename the recording.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "narration_edited.m4a"
         },
         "success": true
       },
@@ -479,7 +605,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Save\" button to confirm and save the recording with the new name.",
-          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]"
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -496,7 +625,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Audio Recorder app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -506,7 +638,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the RECORD button to start recording the audio clip.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -516,7 +651,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the STOP button to end the recording.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -526,7 +664,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"FINISH\" button to complete the recording.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -536,7 +677,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"note_2023_06_24.m4a\" into the input field to set the desired filename.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "note_2023_06_24.m4a"
         },
         "success": true
       },
@@ -546,7 +690,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Save\" button to save the recording with the specified filename.",
-          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]"
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -563,7 +710,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Audio Recorder app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -573,7 +723,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the RECORD button to start recording the audio.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"RECORD\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -583,7 +736,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the STOP button to end the recording.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record\" | @content-desc=\"Record\" | @text=\"STOP\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -593,7 +749,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the FINISH button to complete the recording.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout/FrameLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/btn_record_stop\" | @content-desc=\"Finish\" | @text=\"FINISH\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -603,7 +762,10 @@
         "action": {
           "action_type": "Type",
           "description": "Type \"journal_final.m4a\" into the input field to rename the recording.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": "journal_final.m4a"
         },
         "success": true
       },
@@ -613,7 +775,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Save\" button to save the recording with the specified name.",
-          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]"
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/LinearLayout[@resource-id=\"android:id/parentPanel\"]/FrameLayout[@resource-id=\"android:id/customPanel\"]/FrameLayout[@resource-id=\"android:id/custom\"]/LinearLayout/LinearLayout/Button[@resource-id=\"com.dimowner.audiorecorder:id/dialog_positive_btn\" | @text=\"Save\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }

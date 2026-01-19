@@ -10,7 +10,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to open the quick settings panel.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       },
@@ -20,7 +23,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the Bluetooth tile to turn it on.",
-          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Bluetooth.\" | @text=\"Off\"]"
+          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Bluetooth.\" | @text=\"Off\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -37,7 +43,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to open the notification shade and quick settings.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       },
@@ -47,7 +56,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the Bluetooth toggle to turn it on.",
-          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Bluetooth.\" | @text=\"Off\"]"
+          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Bluetooth.\" | @text=\"Off\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -64,7 +76,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to open the quick settings panel.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       },
@@ -74,7 +89,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the Bluetooth tile to turn it on.",
-          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Bluetooth.\" | @text=\"Off\"]"
+          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Bluetooth.\" | @text=\"Off\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -91,7 +109,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to open the notification shade and access quick settings.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       },
@@ -101,7 +122,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the Bluetooth toggle to turn it on.",
-          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Bluetooth.\" | @text=\"Off\"]"
+          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Bluetooth.\" | @text=\"Off\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -118,7 +142,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to open the quick settings panel.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       },
@@ -128,7 +155,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the Bluetooth toggle to turn it on.",
-          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Bluetooth.\" | @text=\"Off\"]"
+          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/header\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_qs_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/qqs_tile_layout\"]/Switch[@content-desc=\"Bluetooth.\" | @text=\"Off\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -145,7 +175,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to open the notification shade and access quick settings.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       }
@@ -162,7 +195,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to open the quick settings panel.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       }
@@ -179,7 +215,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to open the quick settings panel.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       }
@@ -196,7 +235,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to open the notification shade and quick settings panel.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       }
@@ -213,7 +255,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to open the quick settings panel.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       }

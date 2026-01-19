@@ -105,6 +105,10 @@ class PhoneAgent:
         self._post_skill_execution = False  # 标记是否刚执行完skill
         self._executed_skills = []  # 记录已执行的skill列表
         
+        # 记忆加载缓存
+        self._loaded_tags = set()  # 记录已加载的tag，避免重复加载
+        
+        
         # 错误分析器
         self.error_analyzer = ErrorAnalyzer()
 
@@ -125,7 +129,6 @@ class PhoneAgent:
         self._actions_executed = []
         workflow = self.memory.create_workflow(task)
         recorder = WorkflowRecorder(task=task, workflow=workflow)
-        # self.memory.from_json()
 
         # 初始化skill执行状态跟踪
         self._post_skill_execution = False
@@ -201,6 +204,8 @@ class PhoneAgent:
         # 重置skill执行状态跟踪
         self._post_skill_execution = False
         self._executed_skills = []
+        # 重置记忆加载缓存
+        self._loaded_tags = set()
 
     def _execute_step(
         self, user_prompt: str, recorder: WorkflowRecorder, is_first: bool = False
@@ -240,6 +245,41 @@ class PhoneAgent:
                     print(f"🧠 Planning taken: {end_time - start_time:.2f} seconds")
                     # print(f"📋 Plan decision: {plan.decision}")
                 
+                # 根据planning结果加载相关记忆数据
+                if plan.decision == "use_skill" and plan.skill_name:
+                    # 将skill_name转换为tag格式
+                    target_tag = plan.skill_name.replace("_", ".")
+                    
+                    # 检查是否已经加载过这个tag
+                    if target_tag not in self._loaded_tags:
+                        if self.agent_config.verbose:
+                            print(f"🧠 Loading memory for skill: {plan.skill_name} (tag: {target_tag})")
+                        
+                        try:
+                            # 使用双重筛选加载记忆：先tag筛选，再embedding筛选
+                            memory_start_time = time.time()
+                            self.memory.from_json(
+                                task=user_prompt,
+                                target_tag=target_tag,
+                                similarity_threshold=0.7
+                            )
+                            memory_end_time = time.time()
+                            
+                            # 记录已加载的tag
+                            self._loaded_tags.add(target_tag)
+                            
+                            if self.agent_config.verbose:
+                                print(f"🧠 Memory loading taken: {memory_end_time - memory_start_time:.2f} seconds")
+                                print(f"📚 Loaded {len(self.memory.workflows)} workflows, {len(self.memory.workgraphs)} workgraphs")
+                                
+                        except Exception as e:
+                            if self.agent_config.verbose:
+                                print(f"⚠️ Memory loading failed: {e}")
+                            # 继续执行，不因为记忆加载失败而中断
+                    else:
+                        if self.agent_config.verbose:
+                            print(f"🧠 Memory for tag '{target_tag}' already loaded, skipping")
+                
                 # 如果决定使用skill且该skill未被执行过
                 if (plan.decision == "use_skill" and 
                     plan.skill_name not in self._executed_skills):
@@ -249,8 +289,7 @@ class PhoneAgent:
                         print(f"📝 Skill params: {plan.skill_params}")
                     
                     start_time = time.time()
-                    actions = self.planner.execute_skill(plan.skill_name, plan.skill_params)
-                    skill_res = self.skill_executor.run(actions=actions)
+                    skill_res = self.skill_executor.execute_skill(plan.skill_name, plan.skill_params)
                     end_time = time.time()
                     
                     if self.agent_config.verbose:
@@ -335,7 +374,7 @@ class PhoneAgent:
                         
                         # 添加skill执行和验证结果到上下文
                         print(f"✅ {skill_message}")
-                        self._context.add_history_entry(skill_message)
+                        self._context.add_history_entry(skill_message, tag=plan.skill_name.replace("_", "."))
                         
                         # 完全跳过后续的验证步骤，直接重置标志
                         self._post_skill_execution = False
@@ -358,9 +397,6 @@ class PhoneAgent:
                     print(f"⚠️ Planning failed: {e}")
                     traceback.print_exc()
                 # Planning失败，继续使用原子动作
-        # 注意：由于skill执行后立即验证并重置了_post_skill_execution标志，
-        # 这个else分支现在应该不会被执行到了
-        # 保留此注释以说明逻辑变更
         
         work_graph = self.memory.get_work_graph(current_app)
         if work_graph is None:
@@ -398,6 +434,7 @@ class PhoneAgent:
         self._context.add_screenshot(screenshot.base64_data)
         self._context.add_screen_info(screen_info)
 
+
         # Get model response
         try:
             msgs = get_messages(self.agent_config.lang)
@@ -406,13 +443,13 @@ class PhoneAgent:
             print("-" * 50)
             # print(f"+" * 50)
             # print(f"system_prompt: {self.agent_config.system_prompt}")
-            # print(f"📝 Context: {len(self._context.to_messages())} messages")
+            # print(f"📚 Context:\n {self._context.to_messages()}\n")
             # print(f"+" * 50)
             start_time = time.time()
             response = self.model_client.request(self._context.to_messages())
             end_time = time.time()
-            node.add_tag(tag=response.tag)
             print(f"Inference Time taken: {end_time - start_time:.2f} seconds")
+            
         except Exception as e:
             if self.agent_config.verbose:
                 traceback.print_exc()
@@ -426,6 +463,35 @@ class PhoneAgent:
 
         # Parse action from response
         # print(f"response.action: {list(response.action.values())[0]}, {type(response.action)}")
+        if response.tag not in self._loaded_tags:
+            if self.agent_config.verbose:
+                print(f"🧠 Loading memory for tag: {response.tag}")
+            
+            try:
+                # 使用双重筛选加载记忆：先tag筛选，再embedding筛选
+                memory_start_time = time.time()
+                self.memory.from_json(
+                    task=user_prompt,
+                    target_tag=response.tag,
+                    similarity_threshold=0.7
+                )
+                memory_end_time = time.time()
+                
+                # 记录已加载的tag
+                self._loaded_tags.add(response.tag)
+                
+                if self.agent_config.verbose:
+                    print(f"🧠 Memory loading taken: {memory_end_time - memory_start_time:.2f} seconds")
+                    print(f"📚 Loaded {len(self.memory.workflows)} workflows, {len(self.memory.workgraphs)} workgraphs")
+                    
+            except Exception as e:
+                if self.agent_config.verbose:
+                    print(f"⚠️ Memory loading failed: {e}")
+                # 继续执行，不因为记忆加载失败而中断
+        else:
+            if self.agent_config.verbose:
+                print(f"🧠 Memory for tag '{response.tag}' already loaded, skipping")
+            
         try:
             # Extract action string from response.action dict
             # action_str = list(response.action.values())[0]
@@ -550,7 +616,7 @@ class PhoneAgent:
         self._actions_executed.append(action)
 
         # Add assistant response to context
-        self._context.add_history_entry(response.thinking, response.action)
+        self._context.add_history_entry(response.thinking, response.action, response.tag)
         
         # Include simplified reflection result in context if available and meaningful
         if reflection_result:
@@ -605,11 +671,10 @@ class PhoneAgent:
                 # but keep it minimal to avoid context bloat
                 print("✅ Reflection indicates success - not adding to context to keep it clean")
 
-            # print(f"📝 Context result: {self._context}")
+            print(f"📚 Context:\n {self._context.to_messages()}\n")
 
         if self.agent_config.verbose:
-            # print(f"Context length: {len(self._context.to_messages())} messages")
-            print(f"📚 Context:\n {self._context.to_messages()}\n")
+            print(f"Context length: {len(self._context.to_messages())} messages")
 
         if is_first:
             recorder.set_tag(response.tag)
@@ -622,7 +687,7 @@ class PhoneAgent:
 
         # Check if finished
         finished = action.get("action") == "Finish" or result.should_finish
-        # print(f"Step finished: {finished}")
+        
         
         # Cache the after-action screenshot for next step's before_screenshot
         # This avoids redundant screenshot capture in consecutive steps

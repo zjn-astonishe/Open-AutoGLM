@@ -10,7 +10,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the camera app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -20,7 +23,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Skip\" button to bypass the sign-in prompt.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/Button[@resource-id=\"android:id/button2\" | @text=\"Skip\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.contacts:id/root\"]/Button[@resource-id=\"android:id/button2\" | @text=\"Skip\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -30,7 +36,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Dismiss the pop-up message by tapping outside of it or on the close button if available.",
-          "zone_path": "/FrameLayout/FrameLayout/ViewGroup[@resource-id=\"android:id/content\"]/ViewGroup[@content-desc=\"Now you can find Settings and Help & feedback here\nOpen account and settings.\"]"
+          "zone_path": "/FrameLayout/FrameLayout/ViewGroup[@resource-id=\"android:id/content\"]/ViewGroup[@content-desc=\"Now you can find Settings and Help & feedback here\nOpen account and settings.\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -40,7 +49,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the close button (X) at the top-left corner of the menu to dismiss it.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout/FrameLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/og_dialog_view\"]/FrameLayout[@resource-id=\"com.google.android.contacts:id/og_container_header\"]/ImageView[@resource-id=\"com.google.android.contacts:id/og_header_close_button\" | @content-desc=\"Close\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.contacts:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout/FrameLayout/ViewGroup[@resource-id=\"com.google.android.contacts:id/og_dialog_view\"]/FrameLayout[@resource-id=\"com.google.android.contacts:id/og_container_header\"]/ImageView[@resource-id=\"com.google.android.contacts:id/og_header_close_button\" | @content-desc=\"Close\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }

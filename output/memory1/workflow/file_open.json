@@ -10,7 +10,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Files app to access the Downloads folder.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -20,7 +23,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the \"task.html\" file to open it.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.documentsui:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.documentsui:id/coordinator_layout\"]/DrawerLayout[@resource-id=\"com.google.android.documentsui:id/drawer_layout\"]/ScrollView/FrameLayout/FrameLayout[@resource-id=\"com.google.android.documentsui:id/container_directory\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.documentsui:id/refresh_layout\"]/RecyclerView[@resource-id=\"com.google.android.documentsui:id/dir_list\"]/CardView[@resource-id=\"com.google.android.documentsui:id/item_root\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.documentsui:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.documentsui:id/coordinator_layout\"]/DrawerLayout[@resource-id=\"com.google.android.documentsui:id/drawer_layout\"]/ScrollView/FrameLayout/FrameLayout[@resource-id=\"com.google.android.documentsui:id/container_directory\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.documentsui:id/refresh_layout\"]/RecyclerView[@resource-id=\"com.google.android.documentsui:id/dir_list\"]/CardView[@resource-id=\"com.google.android.documentsui:id/item_root\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -30,7 +36,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on \"Just once\" to open the file with Chrome.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"android:id/contentPanel\"]/LinearLayout/LinearLayout[@resource-id=\"android:id/button_bar\"]/Button[@resource-id=\"android:id/button_once\" | @text=\"Just once\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"android:id/contentPanel\"]/LinearLayout/LinearLayout[@resource-id=\"android:id/button_bar\"]/Button[@resource-id=\"android:id/button_once\" | @text=\"Just once\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -40,7 +49,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Accept & continue\" button to proceed with Chrome setup.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/RelativeLayout/FrameLayout[@resource-id=\"com.android.chrome:id/fre_bottom_group\"]/Button[@resource-id=\"com.android.chrome:id/terms_accept\" | @text=\"Accept & continue\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/RelativeLayout/FrameLayout[@resource-id=\"com.android.chrome:id/fre_bottom_group\"]/Button[@resource-id=\"com.android.chrome:id/terms_accept\" | @text=\"Accept & continue\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -50,7 +62,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap \"No thanks\" to skip syncing and continue to the browser.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/LinearLayout/LinearLayout[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/negative_button\" | @text=\"No thanks\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/LinearLayout/LinearLayout[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/negative_button\" | @text=\"No thanks\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -60,7 +75,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap \"No thanks\" to skip syncing and continue to the browser.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/LinearLayout/LinearLayout[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/negative_button\" | @text=\"No thanks\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewPager[@resource-id=\"com.android.chrome:id/fre_pager\"]/RecyclerView/FrameLayout/LinearLayout/LinearLayout[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/negative_button\" | @text=\"No thanks\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -70,7 +88,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the \"task.html\" file to open it.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.documentsui:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.documentsui:id/coordinator_layout\"]/DrawerLayout[@resource-id=\"com.google.android.documentsui:id/drawer_layout\"]/ScrollView/FrameLayout/FrameLayout[@resource-id=\"com.google.android.documentsui:id/container_directory\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.documentsui:id/refresh_layout\"]/RecyclerView[@resource-id=\"com.google.android.documentsui:id/dir_list\"]/CardView[@resource-id=\"com.google.android.documentsui:id/item_root\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout[@resource-id=\"com.google.android.documentsui:id/action_bar_root\"]/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.google.android.documentsui:id/coordinator_layout\"]/DrawerLayout[@resource-id=\"com.google.android.documentsui:id/drawer_layout\"]/ScrollView/FrameLayout/FrameLayout[@resource-id=\"com.google.android.documentsui:id/container_directory\"]/LinearLayout/ViewGroup[@resource-id=\"com.google.android.documentsui:id/refresh_layout\"]/RecyclerView[@resource-id=\"com.google.android.documentsui:id/dir_list\"]/CardView[@resource-id=\"com.google.android.documentsui:id/item_root\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -80,7 +101,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on \"Just once\" to open the file with Chrome.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"android:id/contentPanel\"]/LinearLayout/LinearLayout[@resource-id=\"android:id/button_bar\"]/Button[@resource-id=\"android:id/button_once\" | @text=\"Just once\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"android:id/contentPanel\"]/LinearLayout/LinearLayout[@resource-id=\"android:id/button_bar\"]/Button[@resource-id=\"android:id/button_once\" | @text=\"Just once\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -90,7 +114,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap \"OK\" to accept the search engine change and proceed.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout/LinearLayout[@resource-id=\"com.android.chrome:id/promo_dialog_layout\"]/ViewGroup[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/button_primary\" | @text=\"OK\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout/LinearLayout[@resource-id=\"com.android.chrome:id/promo_dialog_layout\"]/ViewGroup[@resource-id=\"com.android.chrome:id/button_bar\"]/Button[@resource-id=\"com.android.chrome:id/button_primary\" | @text=\"OK\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -100,7 +127,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Right\" button to move the \"X\" one step to the right.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Right\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Right\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -110,7 +140,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Right\" button to move the \"X\" one step further to the right.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Right\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Right\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -120,7 +153,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Down\" button to move the \"X\" one step downward.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Down\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Down\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -130,7 +166,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Right\" button to move the \"X\" one step further to the right.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Right\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Right\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -140,7 +179,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Down\" button to move the \"X\" one step downward.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Down\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Down\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -150,7 +192,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"Down\" button to move the \"X\" one step downward.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Down\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ViewGroup[@resource-id=\"com.android.chrome:id/coordinator\"]/FrameLayout[@resource-id=\"com.android.chrome:id/compositor_view_holder\"]/FrameLayout/WebView[@text=\"Maze Puzzle\"]/View/Button[@text=\"Down\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }

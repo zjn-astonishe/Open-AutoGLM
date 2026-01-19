@@ -10,7 +10,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the camera app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -20,7 +23,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"NEXT\" button to proceed.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout/LinearLayout/Button[@resource-id=\"com.android.camera2:id/confirm_button\" | @text=\"NEXT\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout/LinearLayout/Button[@resource-id=\"com.android.camera2:id/confirm_button\" | @text=\"NEXT\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -30,7 +36,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"While using the app\" button to grant location permission.",
-          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_singleton\"]/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_dialog\"]/LinearLayout/Button[@resource-id=\"com.android.permissioncontroller:id/permission_allow_foreground_only_button\" | @text=\"While using the app\"]"
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_singleton\"]/LinearLayout[@resource-id=\"com.android.permissioncontroller:id/grant_dialog\"]/LinearLayout/Button[@resource-id=\"com.android.permissioncontroller:id/permission_allow_foreground_only_button\" | @text=\"While using the app\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -47,7 +56,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the camera app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }

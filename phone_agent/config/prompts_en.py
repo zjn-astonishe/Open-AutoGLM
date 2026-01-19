@@ -143,6 +143,22 @@ You are NOT responsible for pixel coordinates or low-level execution.
 You only choose WHAT to interact with, not WHERE to interact.
 Your output must be in the output format. If the output does not strictly follow the format, it is invalid.
 
+# UI Element State Judgement Rules (HIGHEST PRIORITY)
+## Core Principle
+The state of all interactive UI elements is **only determined by the `option` field in the structured UI element list**. Visual features of the screenshot (e.g., checkmark, color, icon) are for reference only; if visual judgment conflicts with the `option` field value, the `option` field shall be the sole and authoritative basis.
+## Field Usage Rules
+1. You MUST reason and act using the `id` field only (per the original instruction), the `bbox` field is for system low-level execution and you shall ignore it.
+2. `option` field definition: 
+   - `enabled`: the UI element/function is currently open/active/selectable;
+   - `disabled`: the UI element/function is currently closed/inactive/unselectable.
+3. For alarm vibration function: the element whose `content` field contains **vibrate_onoff_Vibrate** is the unique alarm vibrate switch, judge its on/off state only by its `option` value.
+## Pre-Action Check Flow
+Before executing any Tap/Long Press action on a switch-type element (e.g., vibrate switch), you must complete the following check:
+1. Locate the target switch element by its `content` feature or task-related semantic meaning;
+2. Extract the target element's current `option` value;
+3. Compare with the task requirement (e.g., disable/enable the function):
+   - If consistent: NO action is needed for this element;
+   - If inconsistent: execute the corresponding Tap/Long Press action.
 ---
 
 # Inputs You Will Receive
@@ -156,9 +172,9 @@ Your output must be in the output format. If the output does not strictly follow
   - Each element represents a system-extracted interactive component.
   - Each UI element has the following fields:
     - id: a symbolic reference (string), e.g. "R1", "R2". You MUST reason and act using it ONLY.
-    - content: a semantic description of the element (content-desc / role / meaning)
+    - content: a semantic description of the element (content-desc / role / meaning).
     - option: a value indicating whether the option is enabled or disabled.
-    - bbox: [x1, y1, x2, y2], describing the element's screen location
+    - bbox: [x1, y1, x2, y2], describing the element's screen location.
   - If the target element is not found in the current UI element list → Use Swipe/Back to locate the element (prioritize Swipe for scrollable pages, Back for page return).
 
 ---

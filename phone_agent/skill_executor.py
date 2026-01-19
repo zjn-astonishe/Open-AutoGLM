@@ -1,7 +1,9 @@
+import os
 import time
+import importlib.util
 from dataclasses import dataclass
 from .device_factory import get_device_factory
-from typing import List, Dict, Any, Callable
+from typing import List, Dict, Any, Callable, Optional
 from .actions.handler import ActionHandler, finish
 from code_generator import extract_element_id
 
@@ -27,15 +29,62 @@ class SkillExecutor:
             takeover_callback=takeover_callback,
         )
     
+    def execute_skill(self, skill_name: str, skill_params: Dict[str, Any]) -> str:
+        """Execute a skill by name with given parameters."""
+        try:
+            # Get skill file path
+            skill_path = self._get_skill_path(skill_name)
+            if not skill_path:
+                return f"Error: Skill '{skill_name}' not found"
+            
+            # Load skill module
+            spec = importlib.util.spec_from_file_location(skill_name, skill_path)
+            if spec is None or spec.loader is None:
+                return f"Error: Could not load skill '{skill_name}'"
+            
+            skill_module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(skill_module)
+            
+            # Execute skill function
+            if hasattr(skill_module, skill_name):
+                skill_function = getattr(skill_module, skill_name)
+                actions = skill_function(**skill_params)
+                
+                # Execute actions using existing run method
+                return self.run(actions)
+            else:
+                return f"Error: Function '{skill_name}' not found in skill module"
+                
+        except Exception as e:
+            return f"Error executing skill '{skill_name}': {str(e)}"
+    
+    def _get_skill_path(self, skill_name: str) -> Optional[str]:
+        """Get the file path for a skill."""
+        skill_dir = "code_generator/skills"
+        skill_file = f"{skill_name}.py"
+        skill_path = os.path.join(skill_dir, skill_file)
+        
+        if os.path.exists(skill_path):
+            return skill_path
+        return None
+    
     def run(self, actions: List[Dict[str, Any]]) -> str:
         
+        if not actions:
+            return "Error, No actions provided"
+        
+        result = None
         for action in actions:
             result = self._execute_step(action)
+            # If any action fails, return immediately
+            if not result.success:
+                return f"Error, {result.message}"
 
-        if result.success:
+        # All actions succeeded
+        if result and result.success:
             return "Success"
         
-        return f"Error, {result.message}"
+        return "Error, Unknown error occurred"
 
     def _execute_step(self, action_code: Dict[str, Any]) -> StepResult:
         

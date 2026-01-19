@@ -66,7 +66,7 @@ class WorkflowRecorder:
             tag: The tag to set for the workflow
         """
         if self.workflow.tag == "":
-            self.workflow.tag = tag
+            self.workflow.set_tag(tag)
     
     def _clear_pending_transition(self) -> None:
         """Clear any pending transition data."""

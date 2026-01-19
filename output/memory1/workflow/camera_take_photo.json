@@ -10,7 +10,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Camera app to take a photo.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -20,7 +23,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the shutter button to take a photo.",
-          "zone_path": "/FrameLayout/ViewGroup[@resource-id=\"android:id/decor_content_parent\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.android.camera2:id/activity_root_view\"]/FrameLayout[@resource-id=\"com.android.camera2:id/camera_app_root\"]/FrameLayout[@resource-id=\"com.android.camera2:id/sticky_bottom_capture_layout\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottom_bar\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottombar_capture\"]/ImageView[@resource-id=\"com.android.camera2:id/shutter_button\" | @content-desc=\"Shutter\"]"
+          "zone_path": "/FrameLayout/ViewGroup[@resource-id=\"android:id/decor_content_parent\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.android.camera2:id/activity_root_view\"]/FrameLayout[@resource-id=\"com.android.camera2:id/camera_app_root\"]/FrameLayout[@resource-id=\"com.android.camera2:id/sticky_bottom_capture_layout\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottom_bar\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottombar_capture\"]/ImageView[@resource-id=\"com.android.camera2:id/shutter_button\" | @content-desc=\"Shutter\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -37,7 +43,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Camera app to take a photo.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -47,7 +56,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the shutter button to take a photo.",
-          "zone_path": "/FrameLayout/ViewGroup[@resource-id=\"android:id/decor_content_parent\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.android.camera2:id/activity_root_view\"]/FrameLayout[@resource-id=\"com.android.camera2:id/camera_app_root\"]/FrameLayout[@resource-id=\"com.android.camera2:id/sticky_bottom_capture_layout\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottom_bar\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottombar_capture\"]/ImageView[@resource-id=\"com.android.camera2:id/shutter_button\" | @content-desc=\"Shutter\"]"
+          "zone_path": "/FrameLayout/ViewGroup[@resource-id=\"android:id/decor_content_parent\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.android.camera2:id/activity_root_view\"]/FrameLayout[@resource-id=\"com.android.camera2:id/camera_app_root\"]/FrameLayout[@resource-id=\"com.android.camera2:id/sticky_bottom_capture_layout\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottom_bar\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottombar_capture\"]/ImageView[@resource-id=\"com.android.camera2:id/shutter_button\" | @content-desc=\"Shutter\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -64,7 +76,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Camera app to take a photo.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -74,7 +89,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the shutter button to take a photo.",
-          "zone_path": "/FrameLayout/ViewGroup[@resource-id=\"android:id/decor_content_parent\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.android.camera2:id/activity_root_view\"]/FrameLayout[@resource-id=\"com.android.camera2:id/camera_app_root\"]/FrameLayout[@resource-id=\"com.android.camera2:id/sticky_bottom_capture_layout\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottom_bar\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottombar_capture\"]/ImageView[@resource-id=\"com.android.camera2:id/shutter_button\" | @content-desc=\"Shutter\"]"
+          "zone_path": "/FrameLayout/ViewGroup[@resource-id=\"android:id/decor_content_parent\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.android.camera2:id/activity_root_view\"]/FrameLayout[@resource-id=\"com.android.camera2:id/camera_app_root\"]/FrameLayout[@resource-id=\"com.android.camera2:id/sticky_bottom_capture_layout\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottom_bar\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottombar_capture\"]/ImageView[@resource-id=\"com.android.camera2:id/shutter_button\" | @content-desc=\"Shutter\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -91,7 +109,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Camera app to take a photo.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -101,7 +122,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the shutter button to take a photo.",
-          "zone_path": "/FrameLayout/ViewGroup[@resource-id=\"android:id/decor_content_parent\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.android.camera2:id/activity_root_view\"]/FrameLayout[@resource-id=\"com.android.camera2:id/camera_app_root\"]/FrameLayout[@resource-id=\"com.android.camera2:id/sticky_bottom_capture_layout\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottom_bar\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottombar_capture\"]/ImageView[@resource-id=\"com.android.camera2:id/shutter_button\" | @content-desc=\"Shutter\"]"
+          "zone_path": "/FrameLayout/ViewGroup[@resource-id=\"android:id/decor_content_parent\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.android.camera2:id/activity_root_view\"]/FrameLayout[@resource-id=\"com.android.camera2:id/camera_app_root\"]/FrameLayout[@resource-id=\"com.android.camera2:id/sticky_bottom_capture_layout\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottom_bar\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottombar_capture\"]/ImageView[@resource-id=\"com.android.camera2:id/shutter_button\" | @content-desc=\"Shutter\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }
@@ -118,7 +142,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Camera app.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -128,7 +155,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap the shutter button to take a photo.",
-          "zone_path": "/FrameLayout/ViewGroup[@resource-id=\"android:id/decor_content_parent\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.android.camera2:id/activity_root_view\"]/FrameLayout[@resource-id=\"com.android.camera2:id/camera_app_root\"]/FrameLayout[@resource-id=\"com.android.camera2:id/sticky_bottom_capture_layout\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottom_bar\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottombar_capture\"]/ImageView[@resource-id=\"com.android.camera2:id/shutter_button\" | @content-desc=\"Shutter\"]"
+          "zone_path": "/FrameLayout/ViewGroup[@resource-id=\"android:id/decor_content_parent\"]/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.android.camera2:id/activity_root_view\"]/FrameLayout[@resource-id=\"com.android.camera2:id/camera_app_root\"]/FrameLayout[@resource-id=\"com.android.camera2:id/sticky_bottom_capture_layout\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottom_bar\"]/FrameLayout[@resource-id=\"com.android.camera2:id/bottombar_capture\"]/ImageView[@resource-id=\"com.android.camera2:id/shutter_button\" | @content-desc=\"Shutter\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       }

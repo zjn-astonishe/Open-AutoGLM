@@ -10,7 +10,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to open the quick settings panel.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       },
@@ -20,7 +23,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to reveal the brightness slider.",
-          "zone_path": "/FrameLayout/View[@resource-id=\"com.android.systemui:id/scrim_behind\"]"
+          "zone_path": "/FrameLayout/View[@resource-id=\"com.android.systemui:id/scrim_behind\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       },
@@ -30,7 +36,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Drag the brightness slider to the far right to set it to maximum brightness.",
-          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/ScrollView[@resource-id=\"com.android.systemui:id/expanded_qs_scroll_view\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_settings_panel\"]/FrameLayout[@resource-id=\"com.android.systemui:id/brightness_slider\" | @content-desc=\"Display brightness\"]/SeekBar[@resource-id=\"com.android.systemui:id/slider\" | @text=\"0.0\"]"
+          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/ScrollView[@resource-id=\"com.android.systemui:id/expanded_qs_scroll_view\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_settings_panel\"]/FrameLayout[@resource-id=\"com.android.systemui:id/brightness_slider\" | @content-desc=\"Display brightness\"]/SeekBar[@resource-id=\"com.android.systemui:id/slider\" | @text=\"0.0\"]",
+          "direction": "right",
+          "distance": "long",
+          "text": null
         },
         "success": true
       }
@@ -47,7 +56,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to open the quick settings panel.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       },
@@ -57,7 +69,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to reveal the brightness slider.",
-          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/ScrollView[@resource-id=\"com.android.systemui:id/expanded_qs_scroll_view\"]"
+          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/ScrollView[@resource-id=\"com.android.systemui:id/expanded_qs_scroll_view\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       },
@@ -67,7 +82,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Drag the brightness slider handle to the far right to set the brightness to its maximum value.",
-          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/ScrollView[@resource-id=\"com.android.systemui:id/expanded_qs_scroll_view\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_settings_panel\"]/FrameLayout[@resource-id=\"com.android.systemui:id/brightness_slider\" | @content-desc=\"Display brightness\"]/SeekBar[@resource-id=\"com.android.systemui:id/slider\" | @text=\"0.0\"]"
+          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/ScrollView[@resource-id=\"com.android.systemui:id/expanded_qs_scroll_view\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_settings_panel\"]/FrameLayout[@resource-id=\"com.android.systemui:id/brightness_slider\" | @content-desc=\"Display brightness\"]/SeekBar[@resource-id=\"com.android.systemui:id/slider\" | @text=\"0.0\"]",
+          "direction": "right",
+          "distance": "long",
+          "text": null
         },
         "success": true
       }
@@ -84,7 +102,10 @@
         "action": {
           "action_type": "Launch",
           "description": "Launch the Settings app to access brightness controls.",
-          "zone_path": null
+          "zone_path": null,
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -94,7 +115,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe up to scroll down the settings menu and find the Display option.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\" | @text=\"Mobile, Wi‑Fi, hotspot\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\" | @text=\"Mobile, Wi‑Fi, hotspot\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       },
@@ -104,7 +128,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the \"Display\" option to access brightness settings.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Dark theme, font size, brightness\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/settings_homepage_container\"]/ScrollView[@resource-id=\"com.android.settings:id/main_content_scrollable_container\"]/LinearLayout[@resource-id=\"com.android.settings:id/homepage_container\"]/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Dark theme, font size, brightness\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -114,7 +141,10 @@
         "action": {
           "action_type": "Tap",
           "description": "Tap on the \"Brightness level\" option to access the brightness slider.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/content_parent\"]/FrameLayout[@resource-id=\"com.android.settings:id/content_frame\"]/LinearLayout/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Brightness level\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/ScrollView[@resource-id=\"com.android.settings:id/content_parent\"]/FrameLayout[@resource-id=\"com.android.settings:id/content_frame\"]/LinearLayout/FrameLayout[@resource-id=\"com.android.settings:id/main_content\"]/LinearLayout[@resource-id=\"com.android.settings:id/container_material\"]/FrameLayout[@resource-id=\"android:id/list_container\"]/RecyclerView[@resource-id=\"com.android.settings:id/recycler_view\"]/LinearLayout[@text=\"Brightness level\"]",
+          "direction": null,
+          "distance": null,
+          "text": null
         },
         "success": true
       },
@@ -124,7 +154,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Drag the brightness slider to the far right to set the brightness to the maximum value.",
-          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.android.systemui:id/brightness_mirror_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/brightness_slider\" | @content-desc=\"Display brightness\"]/SeekBar[@resource-id=\"com.android.systemui:id/slider\" | @text=\"0.0\"]"
+          "zone_path": "/FrameLayout/FrameLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.android.systemui:id/brightness_mirror_container\"]/FrameLayout[@resource-id=\"com.android.systemui:id/brightness_slider\" | @content-desc=\"Display brightness\"]/SeekBar[@resource-id=\"com.android.systemui:id/slider\" | @text=\"0.0\"]",
+          "direction": "right",
+          "distance": "long",
+          "text": null
         },
         "success": true
       }
@@ -141,7 +174,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to open the quick settings panel.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       },
@@ -151,7 +187,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to reveal the brightness slider.",
-          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/ScrollView[@resource-id=\"com.android.systemui:id/expanded_qs_scroll_view\"]"
+          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/ScrollView[@resource-id=\"com.android.systemui:id/expanded_qs_scroll_view\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       },
@@ -161,7 +200,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Drag the brightness slider to the far right to set the brightness to the maximum value.",
-          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/ScrollView[@resource-id=\"com.android.systemui:id/expanded_qs_scroll_view\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_settings_panel\"]/FrameLayout[@resource-id=\"com.android.systemui:id/brightness_slider\" | @content-desc=\"Display brightness\"]/SeekBar[@resource-id=\"com.android.systemui:id/slider\" | @text=\"0.0\"]"
+          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/ScrollView[@resource-id=\"com.android.systemui:id/expanded_qs_scroll_view\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_settings_panel\"]/FrameLayout[@resource-id=\"com.android.systemui:id/brightness_slider\" | @content-desc=\"Display brightness\"]/SeekBar[@resource-id=\"com.android.systemui:id/slider\" | @text=\"0.0\"]",
+          "direction": "right",
+          "distance": "long",
+          "text": null
         },
         "success": true
       }
@@ -178,7 +220,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to open the quick settings panel.",
-          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+          "zone_path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       },
@@ -188,7 +233,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Swipe down from the top of the screen to reveal the brightness slider.",
-          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/ScrollView[@resource-id=\"com.android.systemui:id/expanded_qs_scroll_view\"]"
+          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/ScrollView[@resource-id=\"com.android.systemui:id/expanded_qs_scroll_view\"]",
+          "direction": "down",
+          "distance": "short",
+          "text": null
         },
         "success": true
       },
@@ -198,7 +246,10 @@
         "action": {
           "action_type": "Swipe",
           "description": "Drag the brightness slider all the way to the right to set it to maximum.",
-          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/ScrollView[@resource-id=\"com.android.systemui:id/expanded_qs_scroll_view\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_settings_panel\"]/FrameLayout[@resource-id=\"com.android.systemui:id/brightness_slider\" | @content-desc=\"Display brightness\"]/SeekBar[@resource-id=\"com.android.systemui:id/slider\" | @text=\"0.0\"]"
+          "zone_path": "/FrameLayout/FrameLayout[@resource-id=\"com.android.systemui:id/notification_panel\"]/ViewGroup[@resource-id=\"com.android.systemui:id/notification_container_parent\"]/FrameLayout[@resource-id=\"com.android.systemui:id/qs_frame\"]/FrameLayout[@resource-id=\"com.android.systemui:id/quick_settings_container\"]/ScrollView[@resource-id=\"com.android.systemui:id/expanded_qs_scroll_view\"]/LinearLayout[@resource-id=\"com.android.systemui:id/quick_settings_panel\"]/FrameLayout[@resource-id=\"com.android.systemui:id/brightness_slider\" | @content-desc=\"Display brightness\"]/SeekBar[@resource-id=\"com.android.systemui:id/slider\" | @text=\"0.0\"]",
+          "direction": "right",
+          "distance": "long",
+          "text": null
         },
         "success": true
       }
