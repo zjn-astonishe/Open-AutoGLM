@@ -88,7 +88,7 @@ class AndroidWorldControllerTest(absltest.TestCase):
 
     self.mock_a11y_wrapper.assert_called_with(
         mock_env,
-        install_a11y_forwarding=True,
+        install_a11y_forwarding=False,
         start_a11y_service=True,
         enable_a11y_tree_info=True,
         latest_a11y_info_only=True,

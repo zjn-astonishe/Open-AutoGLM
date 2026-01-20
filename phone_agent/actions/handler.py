@@ -159,8 +159,14 @@ class ActionHandler:
     def _handle_type(self, action: dict, width: int, height: int) -> ActionResult:
         """Handle text input action."""
         text = action.get("text", "")
+        element = action.get("element")
+        if not element:
+            return ActionResult(False, False, "No element coordinates")
+
+        x, y = self._convert_relative_to_absolute(element, width, height)
 
         device_factory = get_device_factory()
+        device_factory.tap(x, y, self.device_id)
 
         # Switch to ADB keyboard
         original_ime = device_factory.detect_and_set_adb_keyboard(self.device_id)
@@ -385,14 +391,15 @@ def parse_action(action_code: str, elements_info: List[Dict[str, str]]) -> tuple
     # print(f"Parsing action: {response}")
     try:
         action_code = action_code.strip()
-        if action_code.startswith('do(action="Type"') or action_code.startswith(
-            'do(action="Type_Name"'
-        ):
-            text = action_code.split("text=", 1)[1][1:-2]
-            print(f"Extracted text for typing: {text}")
-            action = {"_metadata": "do", "action": "Type", "text": text}
-            return action, None
-        elif action_code.startswith("do"):
+        # if action_code.startswith('do(action="Type"') or action_code.startswith(
+        #     'do(action="Type_Name"'
+        # ):
+        #     text = action_code.split("text=", 1)[1][1:-2]
+        #     print(f"Extracted text for typing: {text}")
+        #     action = {"_metadata": "do", "action": "Type", "text": text}
+        #     return action, None
+        # elif action_code.startswith("do"):
+        if action_code.startswith("do"):
             # Use AST parsing instead of eval for safety
             try:
                 # Escape special characters (newlines, tabs, etc.) for valid Python syntax
@@ -426,6 +433,8 @@ def parse_action(action_code: str, elements_info: List[Dict[str, str]]) -> tuple
                             # Convert to relative coordinates (0-1000 scale)
                             action["element"] = [center_x, center_y]                    
                             return action, element["content"]
+                    
+                    return action, None
                     
                 # print(f"Parsed do action....: {action}")
                 return action, None

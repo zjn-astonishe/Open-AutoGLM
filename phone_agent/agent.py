@@ -5,7 +5,7 @@ import time
 import json
 import traceback
 from dataclasses import dataclass
-from typing import Any, Callable
+from typing import Any, Callable, Dict, List
 
 from phone_agent.actions import ActionHandler
 from phone_agent.actions.handler import do, finish, parse_action
@@ -16,6 +16,7 @@ from phone_agent.model import ModelClient, ModelConfig
 from phone_agent.model.client import MessageBuilder
 from phone_agent.planner import Planner
 from phone_agent.skill_executor import SkillExecutor
+from phone_agent.speculative_executor import SpeculativeExecutor
 
 from act_mem.act_mem import ActionMemory
 from act_mem.workrecorder import WorkflowRecorder
@@ -48,8 +49,10 @@ class StepResult:
 
     success: bool
     finished: bool
-    action: dict[str, Any] | None
+    action: Dict[str, Any] | None
     thinking: str
+    predict: Dict[str, str] | None = None
+    tag: str | None = None
     message: str | None = None
 
 
@@ -92,11 +95,13 @@ class PhoneAgent:
             takeover_callback=takeover_callback,
         )
         self.memory = ActionMemory(self.agent_config.memory_dir)
+        self._context = StructuredContext()
 
         self.planner = Planner(model_config=model_config)
         self.skill_executor = SkillExecutor(device_id=self.agent_config.device_id)
+        self.speculative_executor = SpeculativeExecutor(memory=self.memory, device_id=self.agent_config.device_id, context = self._context)
 
-        self._context = StructuredContext()
+        self._predict = False
         self._step_count = 0
         self._actions_executed: list[dict[str, Any]] = []
         self._last_screenshot = None  # Cache for screenshot reuse
@@ -161,6 +166,9 @@ class PhoneAgent:
                     'step_count': self._step_count
                 }
             
+            if result.success and result.predict is not None and self._predict:
+                self.speculative_executor.executor(result.predict, result.tag)
+
             # time.sleep(1)
         
         self.memory.to_json()
@@ -230,9 +238,6 @@ class PhoneAgent:
         
         current_app = device_factory.get_current_app(self.agent_config.device_id)
         
-        if is_first:
-            # System prompt and task are already set in run() method
-            pass
         # 在每个步骤中进行planning，决定是否使用skill
         # 避免在skill执行后的验证步骤中重复planning
         if not self._post_skill_execution:
@@ -261,7 +266,7 @@ class PhoneAgent:
                             self.memory.from_json(
                                 task=user_prompt,
                                 target_tag=target_tag,
-                                similarity_threshold=0.7
+                                similarity_threshold=0.5
                             )
                             memory_end_time = time.time()
                             
@@ -384,6 +389,7 @@ class PhoneAgent:
                             finished=False,  # 继续执行后续步骤
                             action={"action": "SkillExecution", "skill_name": plan.skill_name},
                             thinking=f"Executed and verified skill {plan.skill_name}",
+                            tag=plan.skill_name.replace("_", "."),
                             message=skill_message
                         )
                     else:
@@ -413,7 +419,7 @@ class PhoneAgent:
             }
             
             elements_info.append({
-                "id": f"R{i}",
+                "id": f"A{i}",
                 **common_fields,
                 "bbox": e.bbox,
             })
@@ -434,6 +440,40 @@ class PhoneAgent:
         self._context.add_screenshot(screenshot.base64_data)
         self._context.add_screen_info(screen_info)
 
+        # TODO: Generate speculative context for future UI states
+        try:
+            if self.agent_config.verbose:
+                print("🔮 Generating speculative context for future UI states...")
+            
+            speculative_start_time = time.time()
+            speculative_context = self.speculative_executor.get_speculative_context(
+                current_elements=elements,
+                task=user_prompt,
+                current_app=current_app
+            )
+            speculative_end_time = time.time()
+            
+            if speculative_context and speculative_context.strip():
+                self._predict = True
+                self._context.set_speculative_context(
+                    context=speculative_context
+                )
+                
+                if self.agent_config.verbose:
+                    print(f"🔮 Speculative context generated in {speculative_end_time - speculative_start_time:.2f} seconds")
+                    print(f"📝 Speculative context preview: {speculative_context}")
+            else:
+                # Clear any existing speculative context if no predictions available
+                self._context.clear_speculative_context()
+                self._predict = False
+                if self.agent_config.verbose:
+                    print("🔮 No speculative context generated (no suitable predictions found)")
+                    
+        except Exception as e:
+            if self.agent_config.verbose:
+                print(f"⚠️ Speculative context generation failed: {e}")
+            # Clear speculative context on error
+            self._context.clear_speculative_context()
 
         # Get model response
         try:
@@ -473,7 +513,7 @@ class PhoneAgent:
                 self.memory.from_json(
                     task=user_prompt,
                     target_tag=response.tag,
-                    similarity_threshold=0.7
+                    similarity_threshold=0.5
                 )
                 memory_end_time = time.time()
                 
@@ -491,7 +531,8 @@ class PhoneAgent:
         else:
             if self.agent_config.verbose:
                 print(f"🧠 Memory for tag '{response.tag}' already loaded, skipping")
-            
+        
+        
         try:
             # Extract action string from response.action dict
             # action_str = list(response.action.values())[0]
@@ -537,6 +578,8 @@ class PhoneAgent:
 
         # Clear current step's screenshot and screen info to save space
         self._context.clear_current_step()
+        self._context.clear_speculative_context()
+        print(f"📚 Context:\n {self._context.to_messages()}\n")
 
         # Execute action
         try:
@@ -669,15 +712,19 @@ class PhoneAgent:
             elif self.agent_config.verbose:
                 # For successful actions, we can optionally add a simple success reflection
                 # but keep it minimal to avoid context bloat
-                print("✅ Reflection indicates success - not adding to context to keep it clean")
+                print("✅ Reflection indicates success - not adding to context to contentkeep it clean")
 
-            print(f"📚 Context:\n {self._context.to_messages()}\n")
+            # print(f"📚 Context:\n {self._context.to_messages()}\n")
 
         if self.agent_config.verbose:
             print(f"Context length: {len(self._context.to_messages())} messages")
 
         if is_first:
             recorder.set_tag(response.tag)
+        
+        # Set the tag for the current node to enable proper memory loading
+        if response.tag and response.tag.strip():
+            node.add_tag(tag=response.tag)
         
         recorder.on_action_executed(
             from_node_id=node.id,
@@ -716,6 +763,8 @@ class PhoneAgent:
             finished=finished,
             action=action,
             thinking=response.thinking,
+            predict=response.predict,
+            tag=response.tag,
             message=result.message or action.get("message"),
         )
 

@@ -88,7 +88,7 @@ class AndroidWorldEvaluator:
         }
         
         if not self.env:
-            evaluation_result['error'] = "Android World environment not available"
+            evaluation_result['error'] = "⚠️ Android World environment not available"
             return evaluation_result
         
         if not task_instance:

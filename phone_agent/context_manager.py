@@ -78,8 +78,8 @@ class HistorySection(ContextSection):
             status = "✅" if entry.success else "❌"
             history_content += f"**Step {entry.step}** {entry.tag} {status}\n"
             # history_content += f"- {entry.thinking[:100]}{'...' if len(entry.thinking) > 100 else ''}\n"
-            history_content += f"- {entry.thinking}\n"
-            # history_content += f"- Action: {entry.action_description}\n"
+            # history_content += f"- {entry.thinking}\n"
+            history_content += f"- Action: {entry.action_description}\n"
             # history_content += f"- Code: `{entry.action_code}`\n\n"
         
         
@@ -173,12 +173,31 @@ class ScreenInfoSection(ContextSection):
     
     def to_messages(self) -> List[Dict[str, Any]]:
         # Build structured screen info
+        if not self.extra_info:
+            return []
+        
         screen_info = {
             "current_app": self.current_app,
             **self.extra_info 
         }
         
         content = f"# Screen Info\n\n{json.dumps(screen_info, ensure_ascii=False, indent=2)}"
+        
+        return [MessageBuilder.create_user_message(content)]
+
+
+@dataclass
+class SpeculativeContextSection(ContextSection):
+    """Speculative context section containing predicted future UI states."""
+    
+    speculative_context: Optional[str] = None
+    
+    def to_messages(self) -> List[Dict[str, Any]]:
+        if not self.speculative_context:
+            return []
+        
+        content = f"# Predicted Future UI States\n\n"
+        content += self.speculative_context
         
         return [MessageBuilder.create_user_message(content)]
 
@@ -194,6 +213,7 @@ class StructuredContext:
     - Reflection: Analysis and insights from recent actions
     - Screenshot: Current UI image
     - Screen Info: Structured UI element data
+    - Speculative Context: Predicted future UI states
     """
     
     def __init__(self):
@@ -203,6 +223,7 @@ class StructuredContext:
         self.reflection = ReflectionSection()
         self.screenshot = ScreenshotSection()
         self.screen_info = ScreenInfoSection()
+        self.speculative_context = SpeculativeContextSection()
         
         self._step_count = 0
     
@@ -298,6 +319,14 @@ class StructuredContext:
         
         self.set_screen_info(current_app, **processed_extra_info)
     
+    def set_speculative_context(self, context: str) -> None:
+        """Set the speculative context with predicted future UI states."""
+        self.speculative_context.speculative_context = context
+    
+    def clear_speculative_context(self) -> None:
+        """Clear the speculative context."""
+        self.speculative_context = SpeculativeContextSection()
+    
     def add_history_entry(self, content: str, action: Dict[str, Any] | None = None, tag: Optional[str] = None) -> None:
         """Add a history entry (thinking/response) to context."""
         # Add thinking content as a history entry
@@ -330,6 +359,7 @@ class StructuredContext:
         4. Reflection (only important insights)
         5. Screenshot (current UI)
         6. Screen Info (current UI elements)
+        7. Speculative Context (predicted future UI states)
         """
         messages = []
         
@@ -344,12 +374,15 @@ class StructuredContext:
         
         # 4. Reflection (only important insights)
         messages.extend(self.reflection.to_messages())
-        
+          
         # 5. Screenshot (current UI state)
         messages.extend(self.screenshot.to_messages())
         
         # 6. Screen Info (current UI elements)
         messages.extend(self.screen_info.to_messages())
+
+        # 7. Speculative Context (predicted future UI states)
+        messages.extend(self.speculative_context.to_messages())
         
         return messages
     
@@ -360,6 +393,7 @@ class StructuredContext:
         self.reflection = ReflectionSection()
         self.screenshot = ScreenshotSection()
         self.screen_info = ScreenInfoSection()
+        self.speculative_context = SpeculativeContextSection()
         self._step_count = 0
     
     def get_context_summary(self) -> Dict[str, Any]:

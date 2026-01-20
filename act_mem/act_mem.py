@@ -12,13 +12,22 @@ class ActionMemory:
     Class representing the memory structure for storing work nodes.
     
     Attributes:
-        work_nodes (Dict[str, WorkNode]): A dictionary mapping node IDs to WorkNode instances.
+        workgraphs (List[WorkGraph]): Current runtime work graphs.
+        workflows (List[Workflow]): Current runtime workflows.
+        historical_workgraphs (List[WorkGraph]): Historical work graphs loaded from JSON files.
+        historical_workflows (List[Workflow]): Historical workflows loaded from JSON files.
     """
     
     def __init__(self, memory_dir: str) -> None:
         self.memory_dir = memory_dir
+        
+        # 当前运行时的记录
         self.workgraphs: List[WorkGraph] = []
         self.workflows: List[Workflow] = []
+        
+        # 从JSON加载的历史记录，与当前运行时记录分开
+        self.historical_workgraphs: List[WorkGraph] = []
+        self.historical_workflows: List[Workflow] = []
 
         
     def add_work_graph(self, app_name: str) -> WorkGraph:
@@ -39,7 +48,7 @@ class ActionMemory:
         
     def get_work_graph(self, app_name: str) -> WorkGraph | None:
         """
-        Find a work graph by app name.
+        Find a work graph by app name in current runtime graphs.
         
         Args:
             app_name (str): The name of the app whose work graph is to be found.
@@ -52,6 +61,21 @@ class ActionMemory:
                 return graph
         return None
     
+    def get_historical_work_graph(self, app_name: str) -> WorkGraph | None:
+        """
+        Find a work graph by app name in historical graphs.
+        
+        Args:
+            app_name (str): The name of the app whose work graph is to be found.
+        
+        Returns:
+            WorkGraph | None: The found work graph or None if not found.
+        """
+        for graph in self.historical_workgraphs:
+            if graph.app == app_name:
+                return graph
+        return None
+    
     def create_workflow(self, task: str) -> Workflow:
         id = str(uuid.uuid4())
         workflow = Workflow(id=id, task=task)
@@ -59,8 +83,33 @@ class ActionMemory:
         return workflow
         
     def find_workflow(self, task: str) -> List[Workflow]:
+        """
+        Find workflows by task in current runtime workflows.
+        
+        Args:
+            task (str): The task to search for.
+        
+        Returns:
+            List[Workflow]: List of matching workflows.
+        """
         workflows = []
         for workflow in self.workflows:
+            if task == workflow.task:
+                workflows.append(workflow)
+        return workflows
+    
+    def find_historical_workflow(self, task: str) -> List[Workflow]:
+        """
+        Find workflows by task in historical workflows.
+        
+        Args:
+            task (str): The task to search for.
+        
+        Returns:
+            List[Workflow]: List of matching historical workflows.
+        """
+        workflows = []
+        for workflow in self.historical_workflows:
             if task == workflow.task:
                 workflows.append(workflow)
         return workflows
@@ -212,6 +261,15 @@ class ActionMemory:
             float: Cosine similarity score between -1 and 1
         """
         try:
+            # 确保embedding是一维数组
+            embedding1 = np.array(embedding1).flatten()
+            embedding2 = np.array(embedding2).flatten()
+            
+            # 检查形状是否匹配
+            if embedding1.shape != embedding2.shape:
+                print(f"Warning: Embedding shapes don't match after flattening: {embedding1.shape} vs {embedding2.shape}")
+                return 0.0
+            
             # 计算余弦相似度
             similarity = np.dot(embedding1, embedding2) / (
                 np.linalg.norm(embedding1) * np.linalg.norm(embedding2)
@@ -225,12 +283,15 @@ class ActionMemory:
             self, 
             task: str,
             target_tag: str | None = None,
-            similarity_threshold: float = 0.7,
+            similarity_threshold: float = 0.5,
             tag_similarity_threshold: float = 0.8,
         ) -> None:
         """
-        Load work graphs and workflows from JSON files, filtered by target apps/tasks.
+        Load work graphs and workflows from JSON files into historical memory, filtered by target apps/tasks.
         First filters by target_tag, then by task embedding similarity.
+        
+        Note: This method loads data into historical_workgraphs and historical_workflows,
+        keeping them separate from current runtime records to avoid confusion.
         
         Args:
             task (str): The task description to match against
@@ -271,7 +332,7 @@ class ActionMemory:
                         # 首先尝试精确匹配
                         if tag == target_tag:
                             tag_matches = True
-                            print(f"Tag exact match: {tag}")
+                            # print(f"Tag exact match: {tag}")
                         
                         # 如果精确匹配失败，尝试语义相似度匹配
                         elif target_tag_embedding is not None:
@@ -281,9 +342,10 @@ class ActionMemory:
                                 
                                 if tag_similarity >= tag_similarity_threshold:
                                     tag_matches = True
-                                    print(f"Tag semantic match: {tag} (similarity: {tag_similarity:.3f})")
+                                    # print(f"Tag semantic match: {tag} (similarity: {tag_similarity:.3f})")
                                 else:
                                     print(f"Tag similarity too low: {tag} (similarity: {tag_similarity:.3f})")
+
                             except Exception as e:
                                 print(f"Warning: Error calculating tag similarity for {tag}: {str(e)}")
                         
@@ -313,10 +375,10 @@ class ActionMemory:
                             print(f"Warning: Invalid workflow data in {filepath} (not a dict), skipping.")
                             continue
 
-                        # 检查 ID 是否已存在（避免重复加载）
-                        existing_workflow = next((w for w in self.workflows if w.id == workflow_data.get("id")), None)
+                        # 检查 ID 是否已存在于历史记录中（避免重复加载）
+                        existing_workflow = next((w for w in self.historical_workflows if w.id == workflow_data.get("id")), None)
                         if existing_workflow:
-                            print(f"Workflow with id {workflow_data.get('id')} already exists, skipping load from {filepath}.")
+                            print(f"Historical workflow with id {workflow_data.get('id')} already exists, skipping load from {filepath}.")
                             continue
 
                         # 校验必要字段（id/task 不能为空）
@@ -398,9 +460,9 @@ class ActionMemory:
                             if transition.to_node_id:
                                 required_node_ids.add(transition.to_node_id)
 
-                        # 将合法的 Workflow 添加到内存
-                        self.workflows.append(workflow)
-                        print(f"Loaded workflow (id: {workflow.id}) for task '{workflow.task}' from {filepath}")
+                        # 将合法的 Workflow 添加到历史记录内存
+                        self.historical_workflows.append(workflow)
+                        print(f"Loaded historical workflow (id: {workflow.id}) for task '{workflow.task}' from {filepath}")
 
         # 第二步：根据workflow中的节点ID加载相关的workgraph节点
         if required_node_ids and os.path.exists(graph_dir):
@@ -413,20 +475,28 @@ class ActionMemory:
                     with open(filepath, 'r', encoding='utf-8') as f:
                         graph_data = json.load(f)
                     
-                    # 检查是否已存在同名app的graph，如果存在则跳过加载
-                    existing_graph = self.get_work_graph(graph_data["app"])
+                    # 检查是否已存在同名app的历史graph
+                    existing_graph = self.get_historical_work_graph(graph_data["app"])
                     if existing_graph:
-                        print(f"Work graph for app '{graph_data['app']}' already exists, skipping load.")
-                        continue
+                        # 如果历史graph已存在，检查是否需要加载新的节点
+                        graph = existing_graph
+                        print(f"Historical work graph for app '{graph_data['app']}' already exists, checking for new nodes.")
+                    else:
+                        # 创建新的WorkGraph实例并添加到历史记录
+                        graph = WorkGraph(app=graph_data["app"])
+                        self.historical_workgraphs.append(graph)
                     
-                    # 创建新的WorkGraph实例
-                    graph = WorkGraph(app=graph_data["app"])
                     nodes_loaded = 0
                     
                     # 只加载required_node_ids中包含的节点
                     for node_id, node_data in graph_data["nodes"].items():
                         # 只加载workflow中需要的节点
                         if node_id not in required_node_ids:
+                            continue
+                        
+                        # 检查节点是否已经存在于graph中
+                        if node_id in graph.nodes:
+                            print(f"Node {node_id} already exists in graph for app '{graph_data['app']}', skipping.")
                             continue
 
                         # 检查标签是否匹配（如果指定了target_tag）
@@ -451,6 +521,7 @@ class ActionMemory:
                             
                             # 如果节点tag不匹配，跳过此节点
                             if not node_tag_matches:
+                                print(f"Node {node_id} tag '{node_tag}' does not match target tag '{target_tag}', skipping.")
                                 continue
 
                         # 创建WorkNode实例
@@ -484,7 +555,9 @@ class ActionMemory:
                         graph.nodes[node.id] = node
                         nodes_loaded += 1
                     
-                    # 将图添加到内存中（只有当加载了节点时）
-                    if not graph.is_empty():
-                        self.workgraphs.append(graph)
-                        print(f"Loaded work graph for app '{graph_data['app']}' with {nodes_loaded} nodes from {filepath}")
+                    # 只有当加载了新节点时才打印消息
+                    if nodes_loaded > 0:
+                        if existing_graph:
+                            print(f"Added {nodes_loaded} new nodes to existing historical work graph for app '{graph_data['app']}' from {filepath}")
+                        else:
+                            print(f"Loaded historical work graph for app '{graph_data['app']}' with {nodes_loaded} nodes from {filepath}")

@@ -213,7 +213,7 @@ class AndroidWorldController(base_wrapper.BaseWrapper):
       self,
       env: env_interface.AndroidEnvInterface,
       a11y_method: A11yMethod = A11yMethod.A11Y_FORWARDER_APP,
-      install_a11y_forwarding_app: bool = True,
+      install_a11y_forwarding_app: bool = False,
   ):
     self._original_env = env
     if a11y_method == A11yMethod.A11Y_FORWARDER_APP:
