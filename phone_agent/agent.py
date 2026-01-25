@@ -168,6 +168,10 @@ class PhoneAgent:
             
             if result.success and result.predict is not None and self._predict:
                 self.speculative_executor.executor(result.predict, result.tag)
+                # Invalidate cached screenshot since speculative execution changed UI state
+                self._last_screenshot = None
+                if self.agent_config.verbose:
+                    print("🔄 Cleared screenshot cache after speculative execution")
 
             # time.sleep(1)
         
@@ -416,6 +420,7 @@ class PhoneAgent:
             common_fields = {
                 "content": e.elem_id,
                 "option": e.checked,
+                "focused": e.focused,
             }
             
             elements_info.append({
@@ -433,9 +438,11 @@ class PhoneAgent:
         if not is_first:
             recorder.on_new_node(current_node_id=node.id)
 
+        print(f"📚 Context:\n {self._context.to_messages()}\n")
+
         screen_info_str = MessageBuilder.build_screen_info(current_app, extra_info=elements_info)
         screen_info = json.loads(screen_info_str)
-        
+
         # Add screenshot and screen info to structured context
         self._context.add_screenshot(screenshot.base64_data)
         self._context.add_screen_info(screen_info)
@@ -579,7 +586,7 @@ class PhoneAgent:
         # Clear current step's screenshot and screen info to save space
         self._context.clear_current_step()
         self._context.clear_speculative_context()
-        print(f"📚 Context:\n {self._context.to_messages()}\n")
+        # print(f"📚 Context:\n {self._context.to_messages()}\n")
 
         # Execute action
         try:
@@ -834,6 +841,7 @@ class PhoneAgent:
             {
                 "content": e.elem_id,
                 "checked": e.checked,
+                "focused": e.focused,
                 "bbox": e.bbox,
             }
             for e in before_screenshot.elements
@@ -843,6 +851,7 @@ class PhoneAgent:
             {
                 "content": e.elem_id,
                 "checked": e.checked,
+                "focused": e.focused,
                 "bbox": e.bbox,
             }
             for e in current_screenshot.elements
@@ -1085,6 +1094,21 @@ class PhoneAgent:
                     #     status = "activated" if after_option else "deactivated"
                     #     changes.append(f"Element '{content}' {status}")
                     changes.append(f"Element '{content}' {after_option}")
+            
+            # Compare focused state (this is the actual field used in the data structure)
+            before_focused = before_elem.get('focused', None)
+            after_focused = after_elem.get('focused', None)
+
+            if before_focused != after_focused:
+                if before_focused == "enabled" and after_focused == "disabled":
+                    before_content = before_elem.get('content', 'Unknown element')
+                    # print(f"Element '{before_content}' lost focus")
+                    changes.append(f"Element '{before_content}' lost focus")
+                elif before_focused == "disabled" and after_focused == "enabled":
+                    after_content = after_elem.get('content', 'Unknown element')
+                    # print(f"Element '{after_content}' gained focus")
+                    changes.append(f"Element '{after_content}' gained focus")
+
         
         # Also check for elements that appeared or disappeared with specific states
         before_keys = set(before_dict.keys())
@@ -1146,6 +1170,7 @@ class PhoneAgent:
         for indicator in navigation_indicators:
             if indicator in new_content_text and indicator not in removed_content_text:
                 return True
+        
         
         # Check for state changes (e.g., toggles, checkboxes, buttons)
         if state_changes:

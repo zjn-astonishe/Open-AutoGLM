@@ -379,6 +379,9 @@ class SpeculativeExecutor:
                         self._future_nodes[i].elements_info[j]['id'] = f"C{j+1}"
                 print(f"predictive action content: {list(prediction.values())[i]}")
                 action, element_content = parse_action(list(prediction.values())[i], self._future_nodes[i].elements_info)
+                if action == "Finish":
+                    print("Speculative action is Finish, skipping execution.")
+                    continue
 
                 if ('element' not in action) or (action['element'] and element_content):
                     print(f"Executing speculative action: {action}")

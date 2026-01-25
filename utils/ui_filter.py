@@ -14,11 +14,13 @@ class AndroidElement:
                  checked: bool,
                  center: Tuple[int, int],
                  raw_attrib: Dict[str, str],
-                 ui_path: List[Dict[str, str]]):
+                 ui_path: List[Dict[str, str]],
+                 focused: bool = False):
         self.elem_id = elem_id
         self.bbox = bbox
         self.center = center
         self.checked = checked
+        self.focused = focused
         self.raw = raw_attrib
         self.ui_path = ui_path  # 父子路径信息，用于生成语义XPath
         # self.compressed_xpath = ""
@@ -223,6 +225,7 @@ def ui_filter(xml_path: str, min_dist: int = 30) -> List[AndroidElement]:
         
         checked = "enabled" if elem.attrib.get("checked") == "true" and elem.attrib.get("checkable") == "true" else "disabled"
         focused = "enabled" if elem.attrib.get("focused") == "true" and elem.attrib.get("focusable") == "true" else "disabled"
+        # Keep checked as the primary state indicator for backwards compatibility
         checked = checked or focused
 
         return AndroidElement(
@@ -231,7 +234,8 @@ def ui_filter(xml_path: str, min_dist: int = 30) -> List[AndroidElement]:
             checked=checked,
             center=center,
             raw_attrib=elem.attrib,
-            ui_path=ui_path
+            ui_path=ui_path,
+            focused=focused
         )
 
     # 第一遍：收集所有可点击元素
