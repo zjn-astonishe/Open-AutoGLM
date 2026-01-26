@@ -1043,10 +1043,10 @@ def main():
     if args.task:
         print(f"\nTask: {args.task}\n")
         
-        start_time = time.time()
+        # start_time = time.time()
         result = agent.run(args.task)
-        end_time = time.time()
-        print(f"\nTime taken: {end_time - start_time:.2f} seconds")
+        # end_time = time.time()
+        # print(f"\nTime taken: {end_time - start_time:.2f} seconds")
         # print(f"\nResult: {result}")
     else:
         # Interactive mode
@@ -1064,10 +1064,10 @@ def main():
                     continue
 
                 print()
-                start_time = time.time()
+                # start_time = time.time()
                 result = agent.run(task)
-                end_time = time.time()
-                print(f"Time taken: {end_time - start_time:.2f} seconds")
+                # end_time = time.time()
+                # print(f"Time taken: {end_time - start_time:.2f} seconds")
                 # print(f"\nResult: {result}\n")
                 agent.reset()
 

@@ -78,7 +78,7 @@ class HistorySection(ContextSection):
             status = "✅" if entry.success else "❌"
             history_content += f"**Step {entry.step}** {entry.tag} {status}\n"
             # history_content += f"- {entry.thinking[:100]}{'...' if len(entry.thinking) > 100 else ''}\n"
-            # history_content += f"- {entry.thinking}\n"
+            history_content += f"- {entry.thinking}\n"
             history_content += f"- Action: {entry.action_description}\n"
             # history_content += f"- Code: `{entry.action_code}`\n\n"
         
@@ -117,23 +117,36 @@ class ReflectionSection(ContextSection):
         if not self.entries:
             return []
         
-        # Only include reflection if the most recent action failed or had low confidence
+        # Always include reflection for the most recent action
+        # This allows the agent to know "Action '...' was successful" or not
         latest_entry = self.entries[-1]
         
-        # Only show reflection if the latest action was problematic
-        if latest_entry.success and latest_entry.confidence_score >= 0.7:
-            return []
-        
-        reflection_content = "# Previous Action Issue\n\n"
-        
-        status = "⚠️" if not latest_entry.success else "🔍"
-        confidence = f"(confidence: {latest_entry.confidence_score:.2f})"
-        
-        reflection_content += f"**{status} Step {latest_entry.step}** - {latest_entry.action_type} {confidence}\n"
-        reflection_content += f"- Issue: {latest_entry.reasoning}\n"
-        if latest_entry.suggestions:
-            reflection_content += f"- Suggestion: {latest_entry.suggestions}"
-        # reflection_content += "\n---\n\n"
+        # Format reflection based on success/failure
+        if latest_entry.success and latest_entry.confidence_score >= 0.8:
+            # Successful action - brief confirmation
+            reflection_content = "# Reflection of Previous Action\n\n"
+            reflection_content += f"**✅ Step {latest_entry.step}** - {latest_entry.action_type} was successful\n"
+            # reflection_content += f"- {latest_entry.reasoning}"
+        elif not latest_entry.success:
+            # Failed action - detailed information
+            reflection_content = "# Reflection of Previous Action\n\n"
+            status = "❌"
+            confidence = f"(confidence: {latest_entry.confidence_score:.2f})"
+            
+            reflection_content += f"**{status} Step {latest_entry.step}** - {latest_entry.action_type} {confidence}\n"
+            reflection_content += f"- Issue: {latest_entry.reasoning}\n"
+            if latest_entry.suggestions:
+                reflection_content += f"- Suggestion: {latest_entry.suggestions}"
+        else:
+            # Uncertain result - include observations
+            reflection_content = "# Reflection of Previous Action\n\n"
+            status = "⚠️"
+            confidence = f"(confidence: {latest_entry.confidence_score:.2f})"
+            
+            reflection_content += f"**{status} Step {latest_entry.step}** - {latest_entry.action_type} {confidence}\n"
+            reflection_content += f"- Observation: {latest_entry.reasoning}\n"
+            if latest_entry.suggestions:
+                reflection_content += f"- Suggestion: {latest_entry.suggestions}"
         
         return [MessageBuilder.create_assistant_message(reflection_content)]
 

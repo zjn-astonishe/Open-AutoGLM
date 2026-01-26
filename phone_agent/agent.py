@@ -10,6 +10,7 @@ from typing import Any, Callable, Dict, List
 from phone_agent.actions import ActionHandler
 from phone_agent.actions.handler import do, finish, parse_action
 from phone_agent.config import get_messages, get_system_prompt
+from phone_agent.config.prompts_en import SYSTEM_PROMPT_PREDICTION as SYSTEM_PROMPT_PREDICTION_EN
 from phone_agent.context_manager import StructuredContext
 from phone_agent.device_factory import get_device_factory
 from phone_agent.model import ModelClient, ModelConfig
@@ -127,6 +128,7 @@ class PhoneAgent:
         Returns:
             Dictionary containing execution results with actions list.
         """
+        start_time = time.time()
         self._context.reset()
         self._context.set_system_prompt(self.agent_config.system_prompt)
         self._context.set_task(task)
@@ -158,6 +160,10 @@ class PhoneAgent:
             result = self._execute_step(task, recorder, is_first=False)
 
             if result.finished:
+                end_time = time.time()
+                print(f"🏁 Task completed in {self._step_count} steps, time taken: {end_time - start_time:.2f} seconds")
+                workflow.set_step(self._step_count)
+                workflow.set_timecost(end_time - start_time)
                 self.memory.to_json()
                 return {
                     'finished': True,
@@ -167,15 +173,28 @@ class PhoneAgent:
                 }
             
             if result.success and result.predict is not None and self._predict:
-                self.speculative_executor.executor(result.predict, result.tag)
-                # Invalidate cached screenshot since speculative execution changed UI state
-                self._last_screenshot = None
-                if self.agent_config.verbose:
-                    print("🔄 Cleared screenshot cache after speculative execution")
+                # Pass cached screenshot to executor and get final screenshot back
+                final_screenshot = self.speculative_executor.executor(
+                    result.predict, 
+                    result.tag, 
+                    recorder,
+                    initial_screenshot=self._last_screenshot
+                )
+                # Cache the final screenshot for next step
+                if final_screenshot is not None:
+                    self._last_screenshot = final_screenshot
+                    if self.agent_config.verbose:
+                        print("📸 Cached final screenshot from speculative execution for next step")
+                else:
+                    # No actions executed, keep current cache
+                    if self.agent_config.verbose:
+                        print("📸 No speculative actions executed, keeping current screenshot cache")
 
             # time.sleep(1)
-        
-        self.memory.to_json()
+
+        end_time = time.time()
+        print(f"🏁 Task failed in {self._step_count} steps, time taken: {end_time - start_time:.2f} seconds")
+        # self.memory.to_json()
 
         return {
             'finished': False,
@@ -279,7 +298,7 @@ class PhoneAgent:
                             
                             if self.agent_config.verbose:
                                 print(f"🧠 Memory loading taken: {memory_end_time - memory_start_time:.2f} seconds")
-                                print(f"📚 Loaded {len(self.memory.workflows)} workflows, {len(self.memory.workgraphs)} workgraphs")
+                                print(f"📚 Loaded {len(self.memory.historical_workflows)} workflows, {len(self.memory.historical_workgraphs)} workgraphs")
                                 
                         except Exception as e:
                             if self.agent_config.verbose:
@@ -438,7 +457,7 @@ class PhoneAgent:
         if not is_first:
             recorder.on_new_node(current_node_id=node.id)
 
-        print(f"📚 Context:\n {self._context.to_messages()}\n")
+        # print(f"📚 Context:\n {self._context.to_messages()}\n")
 
         screen_info_str = MessageBuilder.build_screen_info(current_app, extra_info=elements_info)
         screen_info = json.loads(screen_info_str)
@@ -462,15 +481,17 @@ class PhoneAgent:
             
             if speculative_context and speculative_context.strip():
                 self._predict = True
+                self._context.set_system_prompt(SYSTEM_PROMPT_PREDICTION_EN)
                 self._context.set_speculative_context(
                     context=speculative_context
                 )
                 
                 if self.agent_config.verbose:
                     print(f"🔮 Speculative context generated in {speculative_end_time - speculative_start_time:.2f} seconds")
-                    print(f"📝 Speculative context preview: {speculative_context}")
+                    # print(f"📝 Speculative context preview: {speculative_context}")
             else:
                 # Clear any existing speculative context if no predictions available
+                self._context.set_system_prompt(self.agent_config.system_prompt)
                 self._context.clear_speculative_context()
                 self._predict = False
                 if self.agent_config.verbose:
@@ -493,7 +514,10 @@ class PhoneAgent:
             # print(f"📚 Context:\n {self._context.to_messages()}\n")
             # print(f"+" * 50)
             start_time = time.time()
-            response = self.model_client.request(self._context.to_messages())
+            if self._predict:
+                response = self.model_client.request(self._context.to_messages(), mode="predict")
+            else:
+                response = self.model_client.request(self._context.to_messages())
             end_time = time.time()
             print(f"Inference Time taken: {end_time - start_time:.2f} seconds")
             
@@ -529,7 +553,7 @@ class PhoneAgent:
                 
                 if self.agent_config.verbose:
                     print(f"🧠 Memory loading taken: {memory_end_time - memory_start_time:.2f} seconds")
-                    print(f"📚 Loaded {len(self.memory.workflows)} workflows, {len(self.memory.workgraphs)} workgraphs")
+                    print(f"📚 Loaded {len(self.memory.historical_workflows)} workflows, {len(self.memory.historical_workgraphs)} workgraphs")
                     
             except Exception as e:
                 if self.agent_config.verbose:
@@ -668,58 +692,52 @@ class PhoneAgent:
         # Add assistant response to context
         self._context.add_history_entry(response.thinking, response.action, response.tag)
         
-        # Include simplified reflection result in context if available and meaningful
+        # Include simplified reflection result in context if available
         if reflection_result:
-            # Only add reflection to context if it indicates failure or provides important insights
             action_successful = reflection_result.get('action_successful')
             confidence_score = reflection_result.get('confidence_score', 0.0)
+            reasoning = reflection_result.get('reflection_reasoning', '').strip()
+            suggestions = reflection_result.get('improvement_suggestions', '').strip()
             
-            # Add to context only if:
-            # 1. Action failed (action_successful is False)
-            # 2. Low confidence (< 0.7) indicating uncertainty
-            # 3. Has important improvement suggestions
-            should_add_to_context = (
-                action_successful is False or 
-                confidence_score < 0.7 or
-                (reflection_result.get('improvement_suggestions', '').strip() and 
-                 reflection_result.get('execution_result') != 'success')
-            )
-            
-            if should_add_to_context:
-                # Create a simplified reflection message with only key information
-                reflect_parts = []
+            # Always add reflection to context, but format differently based on success
+            if action_successful is True and confidence_score >= 0.8:
+                # Successful action - add simple confirmation
+                self._context.add_reflection(
+                    action_type=action["action"],
+                    success=True,
+                    confidence=confidence_score,
+                    reasoning=f"Action '{action['action']}' was successful",
+                    suggestions=""
+                )
                 
-                if action_successful is False:
-                    reflect_parts.append(f"Action may have failed")
-                elif confidence_score < 0.7:
-                    reflect_parts.append(f"Action success uncertain (confidence: {confidence_score:.2f})")
-                
-                # Add key insights
-                reasoning = reflection_result.get('reflection_reasoning', '').strip()
-                if reasoning:
-                    reflect_parts.append(f"Observation: {reasoning}")
-                
-                # Add improvement suggestions if action wasn't fully successful
-                suggestions = reflection_result.get('improvement_suggestions', '').strip()
-                if suggestions and reflection_result.get('execution_result') != 'success':
-                    reflect_parts.append(f"Suggestion: {suggestions}")
-                
-                if reflect_parts:
-                    self._context.add_reflection(
-                        action_type=action["action"],
-                        success=action_successful,
-                        confidence=confidence_score,
-                        reasoning=reasoning,
-                        suggestions=suggestions
-                    )
+                if self.agent_config.verbose:
+                    print(f"✅ Added success reflection to context (confidence: {confidence_score:.2f})")
                     
-                    if self.agent_config.verbose:
-                        reflect_message = "Reflection: " + "; ".join(reflect_parts)
-                        print(f"📝 Added simplified reflection to context: {reflect_message}")
-            elif self.agent_config.verbose:
-                # For successful actions, we can optionally add a simple success reflection
-                # but keep it minimal to avoid context bloat
-                print("✅ Reflection indicates success - not adding to context to contentkeep it clean")
+            elif action_successful is False:
+                # Failed action - add detailed information
+                self._context.add_reflection(
+                    action_type=action["action"],
+                    success=False,
+                    confidence=confidence_score,
+                    reasoning=reasoning or "Action may have failed",
+                    suggestions=suggestions
+                )
+                
+                if self.agent_config.verbose:
+                    print(f"❌ Added failure reflection to context: {reasoning}")
+                    
+            else:
+                # Uncertain result - add with observations
+                self._context.add_reflection(
+                    action_type=action["action"],
+                    success=action_successful,
+                    confidence=confidence_score,
+                    reasoning=reasoning or f"Action success uncertain (confidence: {confidence_score:.2f})",
+                    suggestions=suggestions
+                )
+                
+                if self.agent_config.verbose:
+                    print(f"⚠️ Added uncertain reflection to context (confidence: {confidence_score:.2f})")
 
             # print(f"📚 Context:\n {self._context.to_messages()}\n")
 

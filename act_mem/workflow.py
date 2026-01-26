@@ -34,6 +34,8 @@ class Workflow:
         self.tag: str = ""
         self.tag_embedding = None  # 初始化为None，而不是空列表
         self.path: List[WorkTransition] = []   # sequence of node IDs representing the transition order.
+        self.step = 0
+        self.timecost = 0
 
     def add_transition(self, from_node_id: str, to_node_id: str, action: WorkAction, success: bool=True):
         if self.get_start_id() == None or from_node_id == self.get_last_id():
@@ -47,6 +49,12 @@ class Workflow:
     
     def get_last_id(self) -> str | None:
         return self.path[-1].to_node_id if self.path else None
+    
+    def set_step(self, step: int) -> None:
+        self.step = step
+    
+    def set_timecost(self, timecost: float) -> None:
+        self.timecost = timecost
 
     def set_tag(self, tag: str) -> None:
         self.tag = tag
@@ -60,6 +68,8 @@ class Workflow:
             "tag_embedding": self.tag_embedding.tolist() if self.tag_embedding is not None else [],  # 添加检查
             "task": self.task,
             "task_embedding": self.task_embedding.tolist(),
+            "step": self.step,
+            "timecost": self.timecost,
             "path": []
         }
         for transition in self.path:

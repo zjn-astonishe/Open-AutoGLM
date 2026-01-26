@@ -13,7 +13,7 @@ class ActionMemory:
     
     Attributes:
         workgraphs (List[WorkGraph]): Current runtime work graphs.
-        workflows (List[Workflow]): Current runtime workflows.
+        workflow (Workflow): Current runtime workflow.
         historical_workgraphs (List[WorkGraph]): Historical work graphs loaded from JSON files.
         historical_workflows (List[Workflow]): Historical workflows loaded from JSON files.
     """
@@ -23,7 +23,8 @@ class ActionMemory:
         
         # 当前运行时的记录
         self.workgraphs: List[WorkGraph] = []
-        self.workflows: List[Workflow] = []
+        self.workflow: Workflow = None
+        # self.workflows: List[Workflow] = []
         
         # 从JSON加载的历史记录，与当前运行时记录分开
         self.historical_workgraphs: List[WorkGraph] = []
@@ -79,8 +80,18 @@ class ActionMemory:
     def create_workflow(self, task: str) -> Workflow:
         id = str(uuid.uuid4())
         workflow = Workflow(id=id, task=task)
-        self.workflows.append(workflow)
+        self.workflow = workflow
+        # self.workflows.append(workflow)
         return workflow
+
+    def get_current_workflow(self) -> Workflow | None:
+        """
+        Get the current runtime workflow.
+        
+        Returns:
+            Workflow | None: The current workflow or None if not set.
+        """
+        return self.workflow
         
     def find_workflow(self, task: str) -> List[Workflow]:
         """
@@ -93,7 +104,7 @@ class ActionMemory:
             List[Workflow]: List of matching workflows.
         """
         workflows = []
-        for workflow in self.workflows:
+        for workflow in self.historical_workflows:
             if task == workflow.task:
                 workflows.append(workflow)
         return workflows
@@ -130,14 +141,13 @@ class ActionMemory:
             print(f"\n")
         
         # Print workflows
-        if self.workflows:
-            print("Workflows:")
-            for workflow in self.workflows:
-                print(f"  Task: {workflow.task}")
-                for transition in workflow.path:
-                    print(f"    Transition from {transition.from_node_id} to {transition.to_node_id}")
-                    print(f"      Action: {transition.action.action_type}, Description: {transition.action.description}, Zone Path: {transition.action.zone_path}")
-                print(f"\n")
+        if self.workflow:
+            print("Workflow:")
+            print(f"  Task: {self.workflow.task}")
+            for transition in self.workflow.path:
+                print(f"    Transition from {transition.from_node_id} to {transition.to_node_id}")
+                print(f"      Action: {transition.action.action_type}, Description: {transition.action.description}, Zone Path: {transition.action.zone_path}")
+            print(f"\n")
     
     def to_json(self) -> None:
         """
@@ -148,6 +158,8 @@ class ActionMemory:
         self._ensure_directories()
         self._save_work_graphs()
         self._save_workflows()
+        self.workgraphs = []
+        self.workflow = None
     
     def _ensure_directories(self) -> None:
         """Ensure necessary directories exist."""
@@ -200,23 +212,22 @@ class ActionMemory:
         """Save workflows to JSON files."""
         workflow_dir = os.path.join(self.memory_dir, "workflow")
         
-        for workflow in self.workflows:
-            workflow_data = workflow.to_json()
-            tag = workflow.tag
-            
-            task_filename = f"{tag.replace('.', '_').strip()}.json"
-            task_filepath = os.path.join(workflow_dir, task_filename)
+        workflow_data = self.workflow.to_json()
+        tag = self.workflow.tag
+        
+        task_filename = f"{tag.replace('.', '_').strip()}.json"
+        task_filepath = os.path.join(workflow_dir, task_filename)
 
-            existing_workflows = self._load_existing_workflows(task_filepath)
-            
-            if self._workflow_already_exists(workflow, existing_workflows, task_filepath):
-                continue
+        existing_workflows = self._load_existing_workflows(task_filepath)
+        
+        if self._workflow_already_exists(self.workflow, existing_workflows, task_filepath):
+            return
 
-            existing_workflows.append(workflow_data)
-            with open(task_filepath, 'w', encoding='utf-8') as f:
-                json.dump(existing_workflows, f, ensure_ascii=False, indent=2)
-                
-            print(f"Saved workflow for task '{workflow.task}' to {task_filepath}")
+        existing_workflows.append(workflow_data)
+        with open(task_filepath, 'w', encoding='utf-8') as f:
+            json.dump(existing_workflows, f, ensure_ascii=False, indent=2)
+            
+        print(f"Saved workflow for task '{self.workflow.task}' to {task_filepath}")
     
     def _load_existing_workflows(self, filepath: str) -> list:
         """Load existing workflows from file, with error handling."""

@@ -151,12 +151,15 @@ class ModelClient:
         # Parse response based on mode
         if mode == "reflect":
             thinking, action, tag = self._parse_reflect_response(raw_content)
+        elif mode == "predict":
+            thinking, answer, predict, tag = self._parse_response_with_predict(raw_content)
+            action = self._parse_action(answer)
+            predict = self._parse_predict(predict)
         elif mode == "action":
             # Parse thinking and action from response for normal action mode
             # thinking, action = self._parse_response(raw_content)
-            thinking, answer, predict, tag = self._parse_response(raw_content)
+            thinking, answer, tag = self._parse_response(raw_content)
             action = self._parse_action(answer)
-            predict = self._parse_predict(predict)
 
         # Print performance metrics
         lang = self.config.lang
@@ -177,11 +180,12 @@ class ModelClient:
         )
         print("=" * 50)
 
-        if mode == "reflect":
+        if mode == "predict":
             return ModelResponse(
                 thinking=thinking,
                 action=action,
                 tag=tag.strip(),
+                predict=predict,
                 raw_content=raw_content,
                 time_to_first_token=time_to_first_token,
                 time_to_thinking_end=time_to_thinking_end,
@@ -192,7 +196,6 @@ class ModelClient:
                 thinking=thinking,
                 action=action,
                 tag=tag.strip(),
-                predict=predict,
                 raw_content=raw_content,
                 time_to_first_token=time_to_first_token,
                 time_to_thinking_end=time_to_thinking_end,
@@ -250,7 +253,7 @@ class ModelClient:
         # Rule 4: No markers found, return content as action
         return "", content
     
-    def _parse_response(self, content: str) -> tuple[str, str, str, str]:
+    def _parse_response_with_predict(self, content: str) -> tuple[str, str, str, str]:
         """
         Parse the model response into thinking, action parts and tag.
 
@@ -268,6 +271,23 @@ class ModelClient:
         tag = re.findall(r"<tag>(.*?)</tag>", content, re.DOTALL)[0]
 
         return thinking, answer, predict, tag
+    
+    def _parse_response(self, content: str) -> tuple[str, str, str]:
+        """
+        Parse the model response into thinking, action parts and tag.
+
+        Args:
+            content: Raw response content.
+        
+        Returns:
+            Tuple of (thinking, action, tag).
+        """
+
+        thinking = re.findall(r"<observe>(.*?)</observe>", content, re.DOTALL)[0]
+        answer = re.findall(r"<answer>(.*?)</answer>", content, re.DOTALL)[0]
+        tag = re.findall(r"<tag>(.*?)</tag>", content, re.DOTALL)[0]
+
+        return thinking, answer, tag
 
     def _parse_action(self, content: str) -> Dict[str, str]:
         """

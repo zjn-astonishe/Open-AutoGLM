@@ -1,9 +1,11 @@
 """Speculative executor for predicting future UI states and actions."""
 
 import json
+import time
 import random
 from typing import List, Dict, Any, Optional, Tuple, Callable
 from dataclasses import dataclass
+from sentence_transformers import SentenceTransformer
 
 from phone_agent.device_factory import get_device_factory
 from phone_agent.actions.handler import parse_action
@@ -13,6 +15,7 @@ from phone_agent.actions.handler import ActionHandler
 from act_mem.act_mem import ActionMemory
 from act_mem.workflow import Workflow, WorkGraph
 from act_mem.worknode import WorkNode, WorkAction
+
 
 
 @dataclass
@@ -345,24 +348,65 @@ class SpeculativeExecutor:
         
         return '\n'.join(context_lines)
     
-    def executor(self, prediction: Dict[str, str], tag: str) -> None:
+    def executor(self, prediction: Dict[str, str], tag: str, recorder=None, initial_screenshot=None):
         """
         Execute speculative predictions by storing them in action memory.
         
         Args:
             prediction: List of predicted actions
+            recorder: WorkflowRecorder instance for recording actions (optional)
+            initial_screenshot: Initial screenshot to use (optional, will capture if not provided)
+            
+        Returns:
+            The final screenshot after all speculative actions, or None if no actions executed
         """
 
         device_factory = get_device_factory()
-        screenshot = device_factory.get_screenshot(device_id=self.device_id)
+        
+        # Use provided screenshot or capture new one
+        if initial_screenshot is not None:
+            screenshot = initial_screenshot
+        else:
+            screenshot = device_factory.get_screenshot(device_id=self.device_id)
+        final_screenshot = None
 
         current_elements = []
 
-        for i, e in enumerate(screenshot.elements, 1):
+        for e in screenshot.elements:
             current_elements.append({
                 "content": e.elem_id,
                 "bbox": e.bbox,
             })
+
+        # IMPORTANT: Complete any pending transition from agent.py before we start
+        # Otherwise our on_action_executed calls will overwrite agent.py's pending transition
+        if recorder and recorder._pending_from_node_id is not None:
+            # Get current screenshot to create the to_node for agent.py's pending transition
+            current_screenshot = screenshot
+            
+            # Get current app and work graph
+            current_app = device_factory.get_current_app(self.device_id)
+            work_graph = self._memory.get_work_graph(current_app)
+            if work_graph is None:
+                work_graph = self._memory.add_work_graph(current_app)
+            
+            # Create to_node for agent.py's action
+            after_elements = []
+            for e in current_screenshot.elements:
+                after_elements.append({
+                    "content": e.elem_id,
+                    "option": e.checked,
+                    "focused": e.focused,
+                    "path": e.get_xpath()
+                })
+            
+            to_node = work_graph.create_node(after_elements)
+            to_node.add_tag(tag=tag)
+            
+            # Complete agent.py's pending transition
+            recorder.on_new_node(current_node_id=to_node.id)
+            # print("✅ Completed agent.py's pending transition before speculative execution")
+        # Track the previous to_node to reuse as from_node in next iteration
         for i in range(len(self._future_nodes)):
             is_match = self._elements_match(current_elements, self._future_nodes[i].elements_info)
             print(f"Elements match with speculative node: {is_match}")
@@ -371,13 +415,22 @@ class SpeculativeExecutor:
                     for e2 in self._future_nodes[i].elements_info:
                         if e1['content'] == e2['content']:
                             e2['bbox'] = e1['bbox']
-                            break
+                        else:
+                            model = SentenceTransformer('./model/sentence-transformers/all-MiniLM-L6-v2')
+                            e1_embedding = model.encode(e1['content'])
+                            e2_embedding = model.encode(e2['content'])
+                            similarity = self._memory._calculate_cosine_similarity(e1_embedding, e2_embedding)
+                            if similarity > 0.7:  # High similarity threshold
+                                e2['bbox'] = e1['bbox']
+                            else:
+                                break
                 for j in range(len(self._future_nodes[i].elements_info)):
                     if i == 0:
                         self._future_nodes[i].elements_info[j]['id'] = f"B{j+1}"
                     elif i == 1:
                         self._future_nodes[i].elements_info[j]['id'] = f"C{j+1}"
                 print(f"predictive action content: {list(prediction.values())[i]}")
+                print(f"predictive action elements_info: {self._future_nodes[i].elements_info}")
                 action, element_content = parse_action(list(prediction.values())[i], self._future_nodes[i].elements_info)
                 if action == "Finish":
                     print("Speculative action is Finish, skipping execution.")
@@ -386,15 +439,123 @@ class SpeculativeExecutor:
                 if ('element' not in action) or (action['element'] and element_content):
                     print(f"Executing speculative action: {action}")
                     try:
+                        # Record action to memory - get from_node before execution
+                        from_node_id = None
+                        node_action = None
+                        
+                        if recorder:
+                            # Get current app
+                            current_app = device_factory.get_current_app(self.device_id)
+                            
+                            # Get or create work graph for current app
+                            work_graph = self._memory.get_work_graph(current_app)
+                            if work_graph is None:
+                                work_graph = self._memory.add_work_graph(current_app)
+
+                            workflow = self._memory.get_current_workflow()
+                            
+                            from_node_id = workflow.get_last_id()
+                            from_node = work_graph.get_node_by_id(from_node_id)
+
+                            # Get current elements for from_node
+                            before_elements = []
+                            for e in screenshot.elements:
+                                before_elements.append({
+                                    "content": e.elem_id,
+                                    "option": e.checked,
+                                    "focused": e.focused,
+                                    "path": e.get_xpath()
+                                })
+                            
+                            # Add action to from_node based on action type
+                            if action["action"] == "Type":
+                                node_action = from_node.add_action(
+                                    action_type=action["action"],
+                                    description=list(prediction.keys())[i],
+                                    text=action.get("text")
+                                )
+                            elif action["action"] == "Swipe":
+                                # Find matching element path
+                                zone_path = None
+                                if element_content:
+                                    for e in before_elements:
+                                        if e["content"] == element_content:
+                                            zone_path = e["path"]
+                                            break
+                                node_action = from_node.add_action(
+                                    action_type=action["action"],
+                                    description=list(prediction.keys())[i],
+                                    zone_path=zone_path,
+                                    direction=action.get("direction"),
+                                    distance=action.get("dist")
+                                )
+                            else:
+                                # For Click and other actions
+                                zone_path = None
+                                if element_content:
+                                    for e in before_elements:
+                                        if e["content"] == element_content:
+                                            zone_path = e["path"]
+                                            break
+                                node_action = from_node.add_action(
+                                    action_type=action["action"],
+                                    description=list(prediction.keys())[i],
+                                    zone_path=zone_path
+                                )
+                        
+                        # Execute the action
                         result = self.action_handler.execute(action, screenshot.width, screenshot.height)
-                        # TODO
-                        # Convert single prediction action to dictionary format expected by add_history_entry
+                        
+                        # After execution, create to_node and record transition
+                        if recorder and from_node_id and node_action:
+                            # Record action execution with from_node_id
+                            recorder.on_action_executed(
+                                from_node_id=from_node_id,
+                                action=node_action,
+                                success=result.success
+                            )
+                            
+                            # Get screenshot after action execution to create to_node
+                            after_screenshot = device_factory.get_screenshot(device_id=self.device_id)
+                            after_elements = []
+                            for e in after_screenshot.elements:
+                                after_elements.append({
+                                    "content": e.elem_id,
+                                    "option": e.checked,
+                                    "focused": e.focused,
+                                    "path": e.get_xpath()
+                                })
+                            
+                            # Create to_node
+                            to_node = work_graph.create_node(after_elements)
+                            to_node.add_tag(tag=tag)
+                            
+                            # Complete the transition by recording the to_node
+                            recorder.on_new_node(current_node_id=to_node.id)
+                            
+                            # Update screenshot and current_elements for next iteration
+                            screenshot = after_screenshot
+                            final_screenshot = after_screenshot
+                            
+                            # Update current_elements for next speculative action matching
+                            current_elements = []
+                            for e in screenshot.elements:
+                                current_elements.append({
+                                    "content": e.elem_id,
+                                    "bbox": e.bbox,
+                                })
+                        
                         action_dict = {list(prediction.keys())[i]: list(prediction.values())[i]}
+                        print(f"Speculative action executed and recorded: {action_dict}")
                         self._context.add_history_entry(content="", action=action_dict, tag=tag)
                         
                     except Exception as e:
                         print(f"Speculative action execution error: {e}")
                         break
+            else:
+                break
+
+        return final_screenshot
 
     def _elements_match(
         self, 
@@ -407,6 +568,5 @@ class SpeculativeExecutor:
         Uses a similarity-based approach rather than exact matching.
         """
         similarity = self._calculate_elements_similarity(current_elements, stored_elements)
-        if similarity > self._elements_match_threshold:
-            print(f"Element similarity: {similarity:.2f}")
+        print(f"Element similarity: {similarity:.2f}")
         return similarity > self._elements_match_threshold  # 70% similarity threshold
