@@ -114,6 +114,12 @@ class PhoneAgent:
         # 记忆加载缓存
         self._loaded_tags = set()  # 记录已加载的tag，避免重复加载
         
+        # Planning优化：缓存planning结果和控制调用频率
+        self._planning_cache = {}  # 缓存planning结果 {task_hash: (plan, timestamp)}
+        self._last_planning_step = -1  # 上次planning的步骤
+        self._planning_interval = 5  # Planning调用间隔（步数）
+        self._planning_done = False  # 标记是否已经完成初始planning
+        
         
         # 错误分析器
         self.error_analyzer = ErrorAnalyzer()
@@ -140,6 +146,11 @@ class PhoneAgent:
         # 初始化skill执行状态跟踪
         self._post_skill_execution = False
         self._executed_skills = []
+        
+        # 重置planning缓存
+        self._planning_cache = {}
+        self._last_planning_step = -1
+        self._planning_done = False
         
         # First step with user prompt
         result = self._execute_step(task, recorder, is_first=True)
@@ -237,6 +248,10 @@ class PhoneAgent:
         self._executed_skills = []
         # 重置记忆加载缓存
         self._loaded_tags = set()
+        # 重置planning缓存
+        self._planning_cache = {}
+        self._last_planning_step = -1
+        self._planning_done = False
 
     def _execute_step(
         self, user_prompt: str, recorder: WorkflowRecorder, is_first: bool = False
@@ -261,17 +276,33 @@ class PhoneAgent:
         
         current_app = device_factory.get_current_app(self.agent_config.device_id)
         
-        # 在每个步骤中进行planning，决定是否使用skill
-        # 避免在skill执行后的验证步骤中重复planning
-        if not self._post_skill_execution:
+        # 优化：只在特定条件下进行planning
+        # 1. 首次执行时（步骤0或1）
+        # 2. 距离上次planning超过指定间隔
+        # 3. 检测到明显的上下文变化（如应用切换）
+        should_plan = self._should_run_planning(is_first)
+        
+        if should_plan and not self._post_skill_execution:
             try:
-                start_time = time.time()
-                plan = self.planner.plan_task(user_prompt)
-                end_time = time.time()
+                # 检查缓存
+                plan = self._get_cached_or_new_plan(user_prompt)
                 
-                if self.agent_config.verbose:
-                    print(f"🧠 Planning taken: {end_time - start_time:.2f} seconds")
-                    # print(f"📋 Plan decision: {plan.decision}")
+                if plan is None:
+                    # 需要新的planning
+                    start_time = time.time()
+                    plan = self.planner.plan_task(user_prompt)
+                    end_time = time.time()
+                    
+                    # 缓存结果
+                    self._cache_planning_result(user_prompt, plan)
+                    self._last_planning_step = self._step_count
+                    self._planning_done = True
+                    
+                    if self.agent_config.verbose:
+                        print(f"🧠 Planning taken: {end_time - start_time:.2f} seconds")
+                else:
+                    if self.agent_config.verbose:
+                        print(f"🧠 Using cached planning result")
                 
                 # 根据planning结果加载相关记忆数据
                 if plan.decision == "use_skill" and plan.skill_name:
@@ -426,6 +457,8 @@ class PhoneAgent:
                     print(f"⚠️ Planning failed: {e}")
                     traceback.print_exc()
                 # Planning失败，继续使用原子动作
+        elif self.agent_config.verbose and not self._post_skill_execution:
+            print(f"🧠 Skipping planning at step {self._step_count} (interval: {self._planning_interval})")
         
         work_graph = self.memory.get_work_graph(current_app)
         if work_graph is None:
@@ -802,6 +835,76 @@ class PhoneAgent:
     def step_count(self) -> int:
         """Get the current step count."""
         return self._step_count
+
+    def _should_run_planning(self, is_first: bool) -> bool:
+        """
+        Determine if planning should be run at this step.
+        
+        Planning is run when:
+        1. It's the first step (initial task analysis)
+        2. Enough steps have passed since last planning (interval-based)
+        3. Planning hasn't been done yet
+        
+        Args:
+            is_first: Whether this is the first step
+            
+        Returns:
+            Boolean indicating if planning should run
+        """
+        # Always plan on first step
+        if is_first:
+            return True
+        
+        # If planning never completed successfully, try again
+        if not self._planning_done:
+            return True
+        
+        # Check if enough steps have passed since last planning
+        steps_since_last_plan = self._step_count - self._last_planning_step
+        if steps_since_last_plan >= self._planning_interval:
+            return True
+        
+        return False
+
+    def _get_cached_or_new_plan(self, task: str):
+        """
+        Get cached planning result or return None if new planning is needed.
+        
+        Args:
+            task: The task description
+            
+        Returns:
+            Cached PlannerResponse or None if cache miss/expired
+        """
+        # Simple task-based caching with hash
+        task_hash = hash(task.lower().strip())
+        
+        if task_hash in self._planning_cache:
+            cached_plan, cached_time = self._planning_cache[task_hash]
+            
+            # Cache is valid for the entire task duration
+            # (no time-based expiration within a single task run)
+            if self.agent_config.verbose:
+                cache_age = time.time() - cached_time
+                print(f"📦 Found cached plan (age: {cache_age:.1f}s)")
+            
+            return cached_plan
+        
+        return None
+
+    def _cache_planning_result(self, task: str, plan) -> None:
+        """
+        Cache the planning result for future use.
+        
+        Args:
+            task: The task description
+            plan: The PlannerResponse to cache
+        """
+        task_hash = hash(task.lower().strip())
+        self._planning_cache[task_hash] = (plan, time.time())
+        
+        if self.agent_config.verbose:
+            print(f"💾 Cached planning result for task")
 
     def reflect(
         self,

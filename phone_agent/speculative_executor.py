@@ -1,8 +1,6 @@
 """Speculative executor for predicting future UI states and actions."""
 
-import json
 import time
-import random
 from typing import List, Dict, Any, Optional, Tuple, Callable
 from dataclasses import dataclass
 from sentence_transformers import SentenceTransformer
@@ -24,19 +22,8 @@ class SpeculativeNode:
     
     node_id: str
     elements_info: List[Dict[str, Any]]
-    confidence: float
     source_workflow: str
     transition_action: Optional[WorkAction] = None
-
-
-@dataclass
-class SpeculativePrediction:
-    """Represents a prediction of future actions and UI states."""
-    
-    next_action: Dict[str, Any]
-    predicted_nodes: List[SpeculativeNode]
-    confidence_score: float
-    reasoning: str
 
 
 class SpeculativeExecutor:
@@ -67,7 +54,6 @@ class SpeculativeExecutor:
         self.device_id = device_id
         self._future_nodes = []
         self.max_speculative_nodes = 2  # Maximum number of future nodes to predict
-        self.confidence_threshold = 0.6  # Minimum confidence for including predictions
         self._elements_match_threshold = 0.7  # Similarity threshold for matching UI elements
         self.action_handler = ActionHandler(
             device_id=device_id,
@@ -104,6 +90,7 @@ class SpeculativeExecutor:
             return None
         
         # Predict future nodes
+        # print("Predicting future UI states based on current matches...")
         self._future_nodes = self._predict_future_nodes(current_node_matches)
         
         if not self._future_nodes:
@@ -153,7 +140,10 @@ class SpeculativeExecutor:
                     # Calculate similarity score for this node
                     similarity = self._calculate_elements_similarity(current_elements, node.elements_info)
                     if similarity > self._elements_match_threshold:
+                        # print(f"Node {node.id} similarity {similarity:.2f} above threshold")
                         all_matches.append((node, workflow, i, similarity))
+                    # else:
+                        # print(f"Node {node.id} similarity {similarity:.2f} below threshold")
         
         if not all_matches:
             return []
@@ -237,70 +227,37 @@ class SpeculativeExecutor:
         next_position = position + 1
         if next_position < len(workflow.path):
             next_transition = workflow.path[next_position]
+            print(f"Next transition: {next_transition.from_node_id}")
             next_node = self._find_node_by_id(next_transition.from_node_id)
             
             if next_node:
-                
-                # Calculate confidence for next step
-                confidence = self._calculate_confidence(1, next_transition)
-                
-                if confidence >= self.confidence_threshold:
-                    speculative_node = SpeculativeNode(
-                        node_id=next_node.id,
-                        elements_info=next_node.elements_info,
-                        confidence=confidence,
-                        source_workflow=workflow.id,
-                        transition_action=next_transition.action
-                    )
-                    future_nodes.append(speculative_node)
-        
+
+                speculative_node = SpeculativeNode(
+                    node_id=next_node.id,
+                    elements_info=next_node.elements_info,
+                    source_workflow=workflow.id,
+                    transition_action=next_transition.action
+                )
+                future_nodes.append(speculative_node)
+
         # Predict UI state after next (2 steps ahead)
         next_next_position = position + 2
         if next_next_position < len(workflow.path):
             next_next_transition = workflow.path[next_next_position]
+            print(f"Next Next transition: {next_next_transition.from_node_id}")
             next_next_node = self._find_node_by_id(next_next_transition.from_node_id)
             
             if next_next_node:
                 
-                # Calculate confidence for two steps ahead (lower confidence)
-                confidence = self._calculate_confidence(2, next_next_transition)
+                speculative_node = SpeculativeNode(
+                    node_id=next_next_node.id,
+                    elements_info=next_next_node.elements_info,
+                    source_workflow=workflow.id,
+                    transition_action=next_next_transition.action
+                )
+                future_nodes.append(speculative_node)
                 
-                if confidence >= self.confidence_threshold:
-                    speculative_node = SpeculativeNode(
-                        node_id=next_next_node.id,
-                        elements_info=next_next_node.elements_info,
-                        confidence=confidence,
-                        source_workflow=workflow.id,
-                        transition_action=next_next_transition.action
-                    )
-                    future_nodes.append(speculative_node)
-        
-        # Sort by confidence and return top nodes (limit to 2: next + next-next)
-        
-        future_nodes.sort(key=lambda x: x.confidence, reverse=True)
-        # print(f"Future nodes: {[ (node.node_id, node.confidence) for node in future_nodes ]}")
         return future_nodes[:self.max_speculative_nodes]
-    
-  
-    def _calculate_confidence(
-        self, 
-        step_ahead: int, 
-        transition: Any
-    ) -> float:
-        """Calculate confidence score for a predicted node."""
-        base_confidence = 0.8
-        
-        # Reduce confidence based on step distance
-        distance_penalty = 0.1 * (step_ahead - 1)
-        
-        # Adjust based on transition success rate
-        success_bonus = 0.1 if getattr(transition, 'success', True) else -0.2
-        
-        # Add some randomness to avoid deterministic behavior
-        random_factor = random.uniform(-0.05, 0.05)
-        
-        confidence = base_confidence - distance_penalty + success_bonus + random_factor
-        return max(0.0, min(1.0, confidence))
     
     def _format_speculative_context(
         self, 
@@ -320,7 +277,6 @@ class SpeculativeExecutor:
             node = future_nodes[0]
             context_lines.append("--- NEXT UI STATE (after current action) ---")
             context_lines.extend([
-                f"Confidence: {node.confidence:.2f}",
                 "Key UI Elements:"
             ])
             
@@ -336,7 +292,6 @@ class SpeculativeExecutor:
             node = future_nodes[1]
             context_lines.append("--- UI STATE AFTER NEXT (two steps ahead) ---")
             context_lines.extend([
-                f"Confidence: {node.confidence:.2f}",
                 "Key UI Elements:"
             ])
             
@@ -368,7 +323,7 @@ class SpeculativeExecutor:
             screenshot = initial_screenshot
         else:
             screenshot = device_factory.get_screenshot(device_id=self.device_id)
-        final_screenshot = None
+        final_screenshot = screenshot
 
         current_elements = []
 
@@ -411,26 +366,30 @@ class SpeculativeExecutor:
             is_match = self._elements_match(current_elements, self._future_nodes[i].elements_info)
             print(f"Elements match with speculative node: {is_match}")
             if is_match:
-                for e1 in current_elements:
-                    for e2 in self._future_nodes[i].elements_info:
+                for e2 in self._future_nodes[i].elements_info:
+                    for e1 in current_elements:
                         if e1['content'] == e2['content']:
                             e2['bbox'] = e1['bbox']
+                            break
                         else:
+                            e2['bbox'] = None
+                    if e2['bbox'] is None:
+                        for e1 in current_elements:
                             model = SentenceTransformer('./model/sentence-transformers/all-MiniLM-L6-v2')
                             e1_embedding = model.encode(e1['content'])
                             e2_embedding = model.encode(e2['content'])
                             similarity = self._memory._calculate_cosine_similarity(e1_embedding, e2_embedding)
                             if similarity > 0.7:  # High similarity threshold
                                 e2['bbox'] = e1['bbox']
-                            else:
-                                break
+                    if e2['bbox'] is None:
+                        return final_screenshot
                 for j in range(len(self._future_nodes[i].elements_info)):
                     if i == 0:
                         self._future_nodes[i].elements_info[j]['id'] = f"B{j+1}"
                     elif i == 1:
                         self._future_nodes[i].elements_info[j]['id'] = f"C{j+1}"
                 print(f"predictive action content: {list(prediction.values())[i]}")
-                print(f"predictive action elements_info: {self._future_nodes[i].elements_info}")
+                # print(f"predictive action elements_info: {self._future_nodes[i].elements_info}")
                 action, element_content = parse_action(list(prediction.values())[i], self._future_nodes[i].elements_info)
                 if action == "Finish":
                     print("Speculative action is Finish, skipping execution.")

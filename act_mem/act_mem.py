@@ -510,31 +510,6 @@ class ActionMemory:
                             print(f"Node {node_id} already exists in graph for app '{graph_data['app']}', skipping.")
                             continue
 
-                        # 检查标签是否匹配（如果指定了target_tag）
-                        if target_tag:
-                            node_tag = node_data.get("tag")
-                            node_tag_matches = False
-                            
-                            # 处理节点标签（现在是单个字符串或None）
-                            if node_tag:
-                                # 首先尝试精确匹配
-                                if node_tag == target_tag:
-                                    node_tag_matches = True
-                                # 如果精确匹配失败，尝试语义相似度匹配
-                                elif target_tag_embedding is not None:
-                                    try:
-                                        node_tag_embedding = model.encode(node_tag)
-                                        tag_similarity = self._calculate_cosine_similarity(target_tag_embedding, node_tag_embedding)
-                                        if tag_similarity >= tag_similarity_threshold:
-                                            node_tag_matches = True
-                                    except Exception:
-                                        pass
-                            
-                            # 如果节点tag不匹配，跳过此节点
-                            if not node_tag_matches:
-                                print(f"Node {node_id} tag '{node_tag}' does not match target tag '{target_tag}', skipping.")
-                                continue
-
                         # 创建WorkNode实例
                         node = WorkNode(
                             id=node_data["id"],

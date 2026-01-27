@@ -351,6 +351,9 @@ class ModelClient:
         lines = [line.strip() for line in content.strip().split("\n") if line.strip()]
 
         # Process lines in pairs: description followed by action
+        if len(lines) % 6 != 0:  # Ensure we have an even number of lines
+            print_with_color("Warning: Predict content format unexpected.", "yellow")
+            return None
         for i in range(0, len(lines), 3):
             if i + 1 < len(lines) and i + 2 < len(lines):  # Ensure we have both description and action
                 action_desc = lines[i + 1].strip()
