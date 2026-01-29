@@ -14,6 +14,8 @@ Environment Variables:
 """
 
 import argparse
+import asyncio
+import json
 import os
 import time
 import shutil
@@ -29,15 +31,150 @@ from phone_agent.agent_ios import IOSAgentConfig, IOSPhoneAgent
 from phone_agent.config.apps import list_supported_apps
 from phone_agent.config.apps_harmonyos import list_supported_apps as list_harmonyos_apps
 from phone_agent.config.apps_ios import list_supported_apps as list_ios_apps
-from phone_agent.device_factory import DeviceType, get_device_factory, set_device_type
+from phone_agent.device_factory import DeviceType, get_device_factory, set_device_type, DeviceFactory
 from phone_agent.model import ModelConfig
 from phone_agent.xctest import XCTestConnection
 from phone_agent.xctest import list_devices as list_ios_devices
 from utils.config import load_config
 from utils.util import print_with_color
+from phone_agent.portal import (
+    PORTAL_PACKAGE_NAME,
+    download_portal_apk,
+    download_versioned_portal_apk,
+    enable_portal_accessibility,
+    get_compatible_portal_version,
+    ping_portal,
+    ping_portal_content,
+    ping_portal_tcp,
+)
 
+async def _setup_portal(path: str | None, device_factory: DeviceFactory, debug: bool, latest: bool = False, specific_version: str | None = None):
+    """Internal async function to install and enable the DroidRun Portal on a device."""
+    try:
+        # Get device 
+        from async_adbutils import adb
+        devices = await adb.list()
+        if not devices:
+            print_with_color("No devices found!", "red")
+            return
+        
+        device = devices[0].serial
+        print_with_color(f"Using device: {devices}", "blue")
 
-def check_system_requirements(
+        device_obj = await adb.device(device)
+        if not device_obj:
+            print_with_color("Error: Could not connect to device!", "red")
+            return
+
+        if path:
+            print_with_color(f"Using provided APK:[/] {path}", "blue")
+            from contextlib import nullcontext
+            apk_context = nullcontext(path)
+        elif specific_version:
+            __version__ = specific_version.lstrip("v")
+            __version__ = f"v{__version__}"
+            download_base = "https://github.com/droidrun/droidrun-portal/releases/download"
+            apk_context = download_versioned_portal_apk(__version__, download_base, debug)
+        elif latest:
+            print_with_color("Downloading latest Portal APK...", "blue")
+            apk_context = download_portal_apk(debug)
+        else:
+            from importlib.metadata import version
+            __version__ = version("droidrun")
+            portal_version, download_base, mapping_fetched = get_compatible_portal_version(__version__, debug)
+
+            if portal_version:
+                apk_context = download_versioned_portal_apk(portal_version, download_base, debug)
+            else:
+                if not mapping_fetched:
+                    print_with_color("Could not fetch version mapping, falling back to latest...", "yellow")
+                apk_context = download_portal_apk(debug)
+
+        with apk_context as apk_path:
+            if not os.path.exists(apk_path):
+                print_with_color(f"Error: APK file not found at {apk_path}", "red")
+                return
+
+            print_with_color(f"Step 1/2: Installing APK: {apk_path}", "blue")
+            try:
+                await device_obj.install(
+                    apk_path, uninstall=True, flags=["-g"], silent=not debug
+                )
+            except Exception as e:
+                print_with_color(f"Installation failed: {e}", "red")
+                return
+
+            print_with_color("Installation successful!", "green")
+
+            print_with_color("Step 2/2: Enabling accessibility service", "blue")
+
+            try:
+                await enable_portal_accessibility(device_factory)
+
+                print_with_color("Accessibility service enabled successfully!", "green")
+                print_with_color(
+                    "\nSetup complete! The DroidRun Portal is now installed and ready to use.", 
+                    "green"
+                )
+
+            except Exception as e:
+                print_with_color(
+                    f"Could not automatically enable accessibility service: {e}",
+                    "yellow"
+                )
+                print_with_color(
+                    "Opening accessibility settings for manual configuration...",
+                    "yellow"
+                )
+
+                await device_factory.shell(
+                    "am start -a android.settings.ACCESSIBILITY_SETTINGS"
+                )
+
+                print_with_color(
+                    "\nPlease complete the following steps on your device:",
+                    "yellow"
+                )
+                print_with_color(
+                    f"1. Find {PORTAL_PACKAGE_NAME} in the accessibility services list"
+                )
+                print_with_color("2. Tap on the service name")
+                print_with_color(
+                    "3. Toggle the switch to ON to enable the service"
+                )
+                print_with_color("4. Accept any permission dialogs that appear")
+
+                print_with_color(
+                    "\nAPK installation complete![/] Please manually enable the accessibility service using the steps above.",
+                    "green"
+                )
+
+    except Exception as e:
+        print_with_color(f"Error: {e}", "red")
+
+        if debug:
+            import traceback
+
+            traceback.print_exc()
+
+async def get_portal_version(device_factory) -> str | None:
+    try:
+        version_output = await device_factory.shell(
+            "content query --uri content://com.droidrun.portal/version"
+        )
+
+        if "result=" in version_output:
+            json_str = version_output.split("result=", 1)[1].strip()
+            version_data = json.loads(json_str)
+
+            if version_data.get("status") == "success":
+                # Check for 'result' first (new portal), then 'data' (legacy)
+                return version_data.get("result") or version_data.get("data")
+        return None
+    except Exception:
+        return None
+
+async def check_system_requirements(
     device_type: DeviceType = DeviceType.ADB, wda_url: str = "http://localhost:8100"
 ) -> bool:
     """
@@ -196,39 +333,52 @@ def check_system_requirements(
 
     # Check 3: ADB Keyboard installed (only for ADB) or WebDriverAgent (for iOS)
     if device_type == DeviceType.ADB:
-        print("3. Checking ADB Keyboard...", end=" ")
-        try:
-            result = subprocess.run(
-                ["adb", "shell", "ime", "list", "-s"],
-                capture_output=True,
-                text=True,
-                timeout=10,
-            )
-            ime_list = result.stdout.strip()
+        # print("3. Checking ADB Keyboard...", end=" ")
+        # try:
+        #     result = subprocess.run(
+        #         ["adb", "shell", "ime", "list", "-s"],
+        #         capture_output=True,
+        #         text=True,
+        #         timeout=10,
+        #     )
+        #     ime_list = result.stdout.strip()
 
-            if "com.android.adbkeyboard/.AdbIME" in ime_list:
-                print("✅ OK")
-            else:
-                print("❌ FAILED")
-                print("   Error: ADB Keyboard is not installed on the device.")
-                print("   Solution:")
-                print("     1. Download ADB Keyboard APK from:")
-                print(
-                    "        https://github.com/senzhk/ADBKeyBoard/blob/master/ADBKeyboard.apk"
-                )
-                print("     2. Install it on your device: adb install ADBKeyboard.apk")
-                print(
-                    "     3. Enable it in Settings > System > Languages & Input > Virtual Keyboard"
-                )
-                all_passed = False
-        except subprocess.TimeoutExpired:
-            print("❌ FAILED")
-            print("   Error: ADB command timed out.")
-            all_passed = False
-        except Exception as e:
-            print("❌ FAILED")
-            print(f"   Error: {e}")
-            all_passed = False
+        #     if "com.android.adbkeyboard/.AdbIME" in ime_list:
+        #         print("✅ OK")
+        #     else:
+        #         print("❌ FAILED")
+        #         print("   Error: ADB Keyboard is not installed on the device.")
+        #         print("   Solution:")
+        #         print("     1. Download ADB Keyboard APK from:")
+        #         print(
+        #             "        https://github.com/senzhk/ADBKeyBoard/blob/master/ADBKeyboard.apk"
+        #         )
+        #         print("     2. Install it on your device: adb install ADBKeyboard.apk")
+        #         print(
+        #             "     3. Enable it in Settings > System > Languages & Input > Virtual Keyboard"
+        #         )
+        #         all_passed = False
+        # except subprocess.TimeoutExpired:
+        #     print("❌ FAILED")
+        #     print("   Error: ADB command timed out.")
+        #     all_passed = False
+        # except Exception as e:
+        #     print("❌ FAILED")
+        #     print(f"   Error: {e}")
+        #     all_passed = False
+        print("3. Checking Portal...", end=" ")
+        device_factory = await get_device_factory()
+        portal_version = await get_portal_version(device_factory)
+        if not portal_version or portal_version < "0.4.1":
+            print(f"⚠️  Portal version {portal_version} is outdated")
+            print(f"Running setup...")
+            await _setup_portal(
+                path=None, 
+                device_factory=device_factory,
+                debug=False
+            )
+        else:
+            print("✅ OK")
     elif device_type == DeviceType.HDC:
         # For HDC, skip keyboard check as it uses different input method
         print("3. Skipping keyboard check for HarmonyOS...", end=" ")
@@ -675,7 +825,7 @@ def handle_android_world_commands(args) -> bool:
     return False
 
 
-def handle_device_commands(args) -> bool:
+async def handle_device_commands(args) -> bool:
     """
     Handle device-related commands.
 
@@ -716,13 +866,13 @@ def handle_device_commands(args) -> bool:
     if device_type == DeviceType.IOS:
         return handle_ios_device_commands(args)
 
-    device_factory = get_device_factory()
+    device_factory = await get_device_factory()
     ConnectionClass = device_factory.get_connection_class()
     conn = ConnectionClass()
 
     # Handle --list-devices
     if args.list_devices:
-        devices = device_factory.list_devices()
+        devices = await device_factory.list_devices()
         if not devices:
             print("No devices connected.")
         else:
@@ -781,7 +931,7 @@ def handle_device_commands(args) -> bool:
     return False
 
 
-def main():
+async def main():
     """Main entry point."""
     args = parse_args()
     configs = load_config()
@@ -796,7 +946,7 @@ def main():
 
     # Set device type globally for non-iOS devices
     if device_type != DeviceType.IOS:
-        set_device_type(device_type)
+        await set_device_type(device_type)
 
     # Enable HDC verbose mode if using HDC
     if device_type == DeviceType.HDC:
@@ -809,7 +959,7 @@ def main():
         return
 
     # Handle device commands (these may need partial system checks)
-    if handle_device_commands(args):
+    if await handle_device_commands(args):
         return
 
     # Handle step recorder
@@ -850,7 +1000,7 @@ def main():
         return
 
     # Run system requirements check before proceeding
-    if not check_system_requirements(
+    if not await check_system_requirements(
         device_type,
         wda_url=args.wda_url
         if device_type == DeviceType.IOS
@@ -946,8 +1096,8 @@ def main():
             if device.model and device.ios_version:
                 print(f"        {device.model}, iOS {device.ios_version}")
     else:
-        device_factory = get_device_factory()
-        devices = device_factory.list_devices()
+        device_factory = await get_device_factory()
+        devices = await device_factory.list_devices()
         if agent_config.device_id:
             print(f"Device: {agent_config.device_id}")
         elif devices:
@@ -1044,7 +1194,7 @@ def main():
         print(f"\nTask: {args.task}\n")
         
         # start_time = time.time()
-        result = agent.run(args.task)
+        result = await agent.run(args.task)
         # end_time = time.time()
         # print(f"\nTime taken: {end_time - start_time:.2f} seconds")
         # print(f"\nResult: {result}")
@@ -1065,7 +1215,7 @@ def main():
 
                 print()
                 # start_time = time.time()
-                result = agent.run(task)
+                result = await agent.run(task)
                 # end_time = time.time()
                 # print(f"Time taken: {end_time - start_time:.2f} seconds")
                 # print(f"\nResult: {result}\n")
@@ -1079,4 +1229,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

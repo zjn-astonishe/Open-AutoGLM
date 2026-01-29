@@ -1,5 +1,6 @@
 """Main PhoneAgent class for orchestrating phone automation."""
 
+import asyncio
 import os
 import time
 import json
@@ -124,7 +125,7 @@ class PhoneAgent:
         # 错误分析器
         self.error_analyzer = ErrorAnalyzer()
 
-    def run(self, task: str) -> dict[str, Any]:
+    async def run(self, task: str) -> dict[str, Any]:
         """
         Run the agent to complete a task.
 
@@ -153,7 +154,7 @@ class PhoneAgent:
         self._planning_done = False
         
         # First step with user prompt
-        result = self._execute_step(task, recorder, is_first=True)
+        result = await self._execute_step(task, recorder, is_first=True)
         # time.sleep(1)
         
 
@@ -168,7 +169,7 @@ class PhoneAgent:
 
         # Continue until finished or max steps reached
         while self._step_count < self.agent_config.max_steps:
-            result = self._execute_step(task, recorder, is_first=False)
+            result = await self._execute_step(task, recorder, is_first=False)
 
             if result.finished:
                 end_time = time.time()
@@ -185,7 +186,7 @@ class PhoneAgent:
             
             if result.success and result.predict is not None and self._predict:
                 # Pass cached screenshot to executor and get final screenshot back
-                final_screenshot = self.speculative_executor.executor(
+                final_screenshot = await self.speculative_executor.executor(
                     result.predict, 
                     result.tag, 
                     recorder,
@@ -214,7 +215,7 @@ class PhoneAgent:
             'step_count': self._step_count
         }
 
-    def step(self, task: str | None = None) -> StepResult:
+    async def step(self, task: str | None = None) -> StepResult:
         """
         Execute a single step of the agent.
 
@@ -235,7 +236,7 @@ class PhoneAgent:
             self._context.set_system_prompt(self.agent_config.system_prompt)
             self._context.set_task(task)
 
-        return self._execute_step(task, is_first)
+        return await self._execute_step(task, is_first)
 
     def reset(self) -> None:
         """Reset the agent state for a new task."""
@@ -253,14 +254,14 @@ class PhoneAgent:
         self._last_planning_step = -1
         self._planning_done = False
 
-    def _execute_step(
-        self, user_prompt: str, recorder: WorkflowRecorder, is_first: bool = False
+    async def _execute_step(
+        self, user_prompt: str, recorder: WorkflowRecorder, is_first: bool = False, is_portal: bool = True
     ) -> StepResult:
         """Execute a single step of the agent loop."""
         self._step_count += 1
 
         # Optimize screenshot capture - reuse cached screenshot if available
-        device_factory = get_device_factory()
+        device_factory = await get_device_factory()
         
         # Use cached screenshot as before_screenshot if available (from previous step)
         if self._last_screenshot is not None and not is_first:
@@ -269,12 +270,12 @@ class PhoneAgent:
             if self.agent_config.verbose:
                 print("📸 Reusing cached screenshot to avoid redundant capture")
         else:
-            screenshot = device_factory.get_screenshot(device_id=self.agent_config.device_id)
+            screenshot = await device_factory.get_screenshot(device_id=self.agent_config.device_id)
             before_screenshot = screenshot
             if self.agent_config.verbose and not is_first:
                 print("📸 Capturing fresh screenshot (no cache available)")
         
-        current_app = device_factory.get_current_app(self.agent_config.device_id)
+        current_app = await device_factory.get_current_app(self.agent_config.device_id)
         
         # 优化：只在特定条件下进行planning
         # 1. 首次执行时（步骤0或1）
@@ -290,7 +291,7 @@ class PhoneAgent:
                 if plan is None:
                     # 需要新的planning
                     start_time = time.time()
-                    plan = self.planner.plan_task(user_prompt)
+                    plan = await self.planner.plan_task(user_prompt)
                     end_time = time.time()
                     
                     # 缓存结果
@@ -348,12 +349,22 @@ class PhoneAgent:
                         print(f"📝 Skill params: {plan.skill_params}")
                     
                     start_time = time.time()
-                    skill_res = self.skill_executor.execute_skill(plan.skill_name, plan.skill_params)
+                    try:
+                        skill_res = await self.skill_executor.execute_skill(plan.skill_name, plan.skill_params)
+                    except Exception as e:
+                        skill_res = "Error"
+                        if self.agent_config.verbose:
+                            print(f"❌ Skill execution exception: {e}")
+                            traceback.print_exc()
+                    
                     end_time = time.time()
                     
                     if self.agent_config.verbose:
                         print(f"⚡ Skill execution taken: {end_time - start_time:.2f} seconds")
-                        print(f"✅ Skill result: {skill_res}")
+                        if skill_res != "Error":
+                            print(f"✅ Skill result: {skill_res}")
+                        else:
+                            print(f"❌ Skill execution failed")
                     
                     recorder.set_tag(plan.skill_name.replace("_", "."))
                     
@@ -384,7 +395,7 @@ class PhoneAgent:
                         
                         # 获取skill执行后的截图用于验证
                         try:
-                            after_skill_screenshot = device_factory.get_screenshot(device_id=self.agent_config.device_id)
+                            after_skill_screenshot = await device_factory.get_screenshot(device_id=self.agent_config.device_id)
                         except Exception as e:
                             if self.agent_config.verbose:
                                 print(f"Failed to capture post-skill screenshot: {e}")
@@ -394,7 +405,7 @@ class PhoneAgent:
                         reflection_result = None
                         if self.agent_config.enable_reflection:
                             try:
-                                reflection_result = self.reflect(
+                                reflection_result = await self.reflect(
                                     action_type="SkillExecution", 
                                     action_description=f"Executed skill '{plan.skill_name}' with params {plan.skill_params}", 
                                     before_screenshot=screenshot,
@@ -464,26 +475,44 @@ class PhoneAgent:
         if work_graph is None:
             work_graph = self.memory.add_work_graph(current_app)
 
+        
+        # for i, (e, crop_b64) in enumerate(zip(screenshot.elements, screenshot.crop_base64_data), 1):
         elements_info = []
         elements = []
-        # for i, (e, crop_b64) in enumerate(zip(screenshot.elements, screenshot.crop_base64_data), 1):
-        for i, e in enumerate(screenshot.elements, 1):
-            
-            common_fields = {
-                "content": e.elem_id,
-                "option": e.checked,
-                "focused": e.focused,
-            }
-            
-            elements_info.append({
-                "id": f"A{i}",
-                **common_fields,
-                "bbox": e.bbox,
-            })
-            elements.append({
-                **common_fields,
-                "path": e.get_xpath()
-            })
+        if not is_portal:
+            for i, e in enumerate(screenshot.elements, 1):             
+                common_fields = {
+                    "content": e.elem_id,
+                    "option": e.checked,
+                    "focused": e.focused,
+                }            
+                elements_info.append({
+                    "id": f"A{i}",
+                    **common_fields,
+                    "bbox": e.bbox,
+                })
+                elements.append({
+                    **common_fields,
+                    "path": e.get_xpath()
+                })
+        else:
+            elements_info = []
+            elements = []
+            for i, e in enumerate(screenshot.elements, 1):  
+                common_fields = {
+                    "resourceId": e.resourceId,
+                    "className": e.className,
+                    "text": e.text,
+                    "checked": e.checked,
+                } 
+                elements_info.append({
+                    "id": f"A{i}",
+                    **common_fields,
+                    "bbox": e.bounds
+                })
+                elements.append({
+                    **common_fields
+                })
 
         node = work_graph.create_node(elements)
         node.add_task(user_prompt)
@@ -491,8 +520,11 @@ class PhoneAgent:
             recorder.on_new_node(current_node_id=node.id)
 
         # print(f"📚 Context:\n {self._context.to_messages()}\n")
-
-        screen_info_str = MessageBuilder.build_screen_info(current_app, extra_info=elements_info)
+        
+        if not is_portal:
+            screen_info_str = MessageBuilder.build_screen_info(current_app, extra_info=elements_info)
+        else:
+            screen_info_str = MessageBuilder.build_screen_info(current_app, extra_info=screenshot.formatted_text)
         screen_info = json.loads(screen_info_str)
 
         # Add screenshot and screen info to structured context
@@ -548,9 +580,9 @@ class PhoneAgent:
             # print(f"+" * 50)
             start_time = time.time()
             if self._predict:
-                response = self.model_client.request(self._context.to_messages(), mode="predict")
+                response = await self.model_client.request(self._context.to_messages(), mode="predict")
             else:
-                response = self.model_client.request(self._context.to_messages())
+                response = await self.model_client.request(self._context.to_messages())
             end_time = time.time()
             print(f"Inference Time taken: {end_time - start_time:.2f} seconds")
             
@@ -600,19 +632,26 @@ class PhoneAgent:
         try:
             # Extract action string from response.action dict
             # action_str = list(response.action.values())[0]
-            action, element_content = parse_action(action_code=list(response.action.values())[0], elements_info=elements_info)
-            if element_content is None:
-                if action["action"] == "Type":
-                    node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0], text=action["text"])
+            if not is_portal:
+                action, element_content = parse_action(action_code=list(response.action.values())[0], elements_info=elements_info, is_portal=False)
+                if element_content is None:
+                    node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0])
+                else:
+                    for e in elements:
+                        if e["content"] == element_content:
+                            if action["action"] == "Swipe":
+                                node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0], zone_path=e["path"], direction=action["direction"], distance=action["dist"])
+                            elif action["action"] == "Type":
+                                node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0], text=action["text"], zone_path=e["path"])
+                            else:
+                                node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0], zone_path=e["path"])
+            else:
+                action, resourceId, className, text = parse_action(action_code=list(response.action.values())[0], elements_info=elements_info)
+                if resourceId and className and text:
+                    node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0], zone_path=f"{resourceId}/{className}/{text}")
                 else:
                     node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0])
-            else:
-                for e in elements:
-                    if e["content"] == element_content:
-                        if action["action"] == "Swipe":
-                            node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0], zone_path=e["path"], direction=action["direction"], distance=action["dist"])
-                        else:
-                            node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0], zone_path=e["path"])
+                
         except ValueError:
             if self.agent_config.verbose:
                 traceback.print_exc()
@@ -647,13 +686,13 @@ class PhoneAgent:
 
         # Execute action
         try:
-            result = self.action_handler.execute(
+            result = await self.action_handler.execute(
                 action, screenshot.width, screenshot.height
             )
         except Exception as e:
             if self.agent_config.verbose:
                 traceback.print_exc()
-            result = self.action_handler.execute(
+            result = await self.action_handler.execute(
                 finish(message=str(e)), screenshot.width, screenshot.height
             )
         
@@ -670,7 +709,7 @@ class PhoneAgent:
             
             if should_reflect:
                 try:
-                    reflection_result = self.reflect(action_type=action["action"], action_description=list(response.action.keys())[0], before_screenshot=before_screenshot)
+                    reflection_result = await self.reflect(action_type=action["action"], action_description=list(response.action.keys())[0], before_screenshot=before_screenshot)
                     
                     # Update node_action with reflection result
                     if reflection_result and 'node_action' in locals():
@@ -798,7 +837,7 @@ class PhoneAgent:
         # This avoids redundant screenshot capture in consecutive steps
         if not finished:
             try:
-                self._last_screenshot = device_factory.get_screenshot(device_id=self.agent_config.device_id)
+                self._last_screenshot = await device_factory.get_screenshot(device_id=self.agent_config.device_id)
                 if self.agent_config.verbose:
                     print("📸 Cached after-action screenshot for next step")
             except Exception as e:
@@ -906,12 +945,13 @@ class PhoneAgent:
         if self.agent_config.verbose:
             print(f"💾 Cached planning result for task")
 
-    def reflect(
+    async def reflect(
         self,
         action_type: str,
         action_description: str,
         before_screenshot: Any = None,
-        is_skill_execution: bool = False
+        is_skill_execution: bool = False,
+        is_portal: bool = True,
     ) -> dict[str, Any]:
         """
         Reflect on action execution by comparing before and after interface states.
@@ -931,7 +971,7 @@ class PhoneAgent:
                 elements_after: int
             }
         """
-        device_factory = get_device_factory()
+        device_factory = await get_device_factory()
 
         # ---------- 1. Validate input ----------
         if before_screenshot is None:
@@ -953,30 +993,49 @@ class PhoneAgent:
             }
 
         # ---------- 2. Capture after screenshot ----------
-        current_screenshot = device_factory.get_screenshot(
+        current_screenshot = await device_factory.get_screenshot(
             device_id=self.agent_config.device_id
         )
 
         # ---------- 3. Extract UI elements ----------
-        before_elements = [
-            {
-                "content": e.elem_id,
-                "checked": e.checked,
-                "focused": e.focused,
-                "bbox": e.bbox,
-            }
-            for e in before_screenshot.elements
-        ]
-
-        after_elements = [
-            {
-                "content": e.elem_id,
-                "checked": e.checked,
-                "focused": e.focused,
-                "bbox": e.bbox,
-            }
-            for e in current_screenshot.elements
-        ]
+        if not is_portal:
+            before_elements = [
+                {
+                    "content": e.elem_id,
+                    "checked": e.checked,
+                    "focused": e.focused,
+                    "bbox": e.bbox,
+                }
+                for e in before_screenshot.elements
+            ]
+            after_elements = [
+                {
+                    "content": e.elem_id,
+                    "checked": e.checked,
+                    "focused": e.focused,
+                    "bbox": e.bbox,
+                }
+                for e in current_screenshot.elements
+            ]
+        else:
+            before_elements = [
+                {
+                    "resourceId": e.resourceId,
+                    "className": e.className,
+                    "text": e.text,
+                    "checked": e.checked
+                }
+                for e in before_screenshot.elements
+            ]
+            after_elements = [
+                {
+                    "resourceId": e.resourceId,
+                    "className": e.className,
+                    "text": e.text,
+                    "checked": e.checked
+                }
+                for e in current_screenshot.elements
+            ]
 
         # ---------- 4. Fast-path for atomic actions ----------
         changes_analysis = self._analyze_interface_changes(
@@ -1050,7 +1109,7 @@ class PhoneAgent:
         ]
 
         try:
-            response = self.model_client.request(reflection_context, mode="reflect")
+            response = await self.model_client.request(reflection_context, mode="reflect")
             raw_output = response.raw_content.strip()
 
             # ---------- 7. Robust JSON extraction ----------

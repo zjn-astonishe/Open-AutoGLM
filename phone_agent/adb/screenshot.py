@@ -1,5 +1,6 @@
 """Screenshot utilities for capturing Android device screen."""
 
+import asyncio
 import base64
 import os
 import shutil
@@ -11,7 +12,7 @@ from io import BytesIO
 from typing import List
 from dataclasses import dataclass
 from utils.ui_xml import get_emulator_ui_xml
-from utils.ui_filter import AndroidElement, ui_filter
+from utils.ui_filter import AndroidElement, ui_filter, ui_portal, AndroidPortalElement
 # from utils.draw_bbox import draw_bbox_multi
 from utils.crop_ui_elements import crop_ui_elements
 
@@ -21,16 +22,17 @@ from utils.crop_ui_elements import crop_ui_elements
 class Screenshot:
     """Represents a captured screenshot."""
 
-    elements: list[AndroidElement]
+    elements: List[AndroidElement] | List[AndroidPortalElement]
     base64_data: str
     crop_base64_data: List[str]
     width: int
     height: int
+    formatted_text: str | None = None
     is_sensitive: bool = False
     path: str | None = None
 
 
-def get_screenshot(prefix: str | None = None, save_dir: str | None = None, device_id: str | None = None, timeout: int = 10) -> Screenshot:
+async def get_screenshot(prefix: str | None = None, save_dir: str | None = None, device_id: str | None = None, timeout: int = 10, is_portal: bool = True) -> Screenshot:
     """
     Capture a screenshot from the connected Android device.
 
@@ -58,43 +60,62 @@ def get_screenshot(prefix: str | None = None, save_dir: str | None = None, devic
         # temp_bbox_path = os.path.join(os.path.dirname(temp_path), f"{prefix}_screenshot_bbox.png")
         # temp_crop_dir = os.path.join(save_dir, f"{prefix}_crops")
     
-    adb_prefix = _get_adb_prefix(device_id)
+    adb_prefix = await _get_adb_prefix(device_id)
 
     try:
         # Execute screenshot command
-        result = subprocess.run(
-            adb_prefix + ["shell", "screencap", "-p", "/sdcard/tmp.png"],
-            capture_output=True,
-            text=True,
-            timeout=timeout,
+        process = await asyncio.create_subprocess_exec(
+            *adb_prefix, "shell", "screencap", "-p", "/sdcard/tmp.png",
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE
         )
+        
+        try:
+            stdout, stderr = await asyncio.wait_for(process.communicate(), timeout=timeout)
+        except asyncio.TimeoutError:
+            process.kill()
+            await process.wait()
+            return _create_fallback_screenshot(is_sensitive=False)
+        
+        output = stdout.decode('utf-8') + stderr.decode('utf-8')
 
         # Check for screenshot failure (sensitive screen)
-        output = result.stdout + result.stderr
         if "Status: -1" in output or "Failed" in output:
             return _create_fallback_screenshot(is_sensitive=True)
 
         # Pull screenshot to local temp path
-        subprocess.run(
-            adb_prefix + ["pull", "/sdcard/tmp.png", temp_path],
-            capture_output=True,
-            text=True,
-            timeout=5,
+        pull_process = await asyncio.create_subprocess_exec(
+            *adb_prefix, "pull", "/sdcard/tmp.png", temp_path,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE
         )
+        
+        try:
+            await asyncio.wait_for(pull_process.communicate(), timeout=5)
+        except asyncio.TimeoutError:
+            pull_process.kill()
+            await pull_process.wait()
+            return _create_fallback_screenshot(is_sensitive=False)
 
         if not os.path.exists(temp_path):
             return _create_fallback_screenshot(is_sensitive=False)
 
-        # Get XML corresponding to the screenshot
-        xml_file = get_emulator_ui_xml("tmp", os.path.dirname(temp_path), emulator_device=device_id)
-        elements = ui_filter(xml_file)
-        # draw_bbox_multi(img_path=temp_path, output_path=temp_bbox_path, elem_list=elements)
-        # crop_list = crop_ui_elements(
-        #     img_path=temp_path, 
-        #     output_dir=temp_crop_dir, 
-        #     elem_list=elements
-        # )
-
+        if not is_portal:
+            # Get XML corresponding to the screenshot
+            xml_file = get_emulator_ui_xml("tmp", os.path.dirname(temp_path), emulator_device=device_id)
+            elements = ui_filter(xml_file)
+        
+            # draw_bbox_multi(img_path=temp_path, output_path=temp_bbox_path, elem_list=elements)
+            # crop_list = crop_ui_elements(
+            #     img_path=temp_path, 
+            #     output_dir=temp_crop_dir, 
+            #     elem_list=elements
+            # )
+        else:
+            formatted_text, elements = (
+                await ui_portal()
+            )
+        
         # Read and encode image
         img = Image.open(temp_path)
         width, height = img.size
@@ -117,32 +138,55 @@ def get_screenshot(prefix: str | None = None, save_dir: str | None = None, devic
             os.remove(temp_path)
             # os.remove(temp_bbox_path)
             # shutil.rmtree(temp_crop_dir)
-            os.remove(xml_file)
-            return Screenshot(
-                base64_data=base64_data, 
-                crop_base64_data=crop_base64_data,
-                width=width, 
-                height=height, 
-                elements=elements,
-                is_sensitive=False
-            )
+            if is_portal:
+                return Screenshot(
+                    base64_data=base64_data, 
+                    crop_base64_data=crop_base64_data,
+                    width=width, 
+                    height=height, 
+                    elements=elements,
+                    formatted_text=formatted_text,
+                    is_sensitive=False
+                )
+            else:
+                os.remove(xml_file)
+                return Screenshot(
+                    base64_data=base64_data, 
+                    crop_base64_data=crop_base64_data,
+                    width=width, 
+                    height=height, 
+                    elements=elements,
+                    is_sensitive=False
+                )
         else:
-            return Screenshot(
-                base64_data=base64_data,
-                crop_base64_data=crop_base64_data,
-                width=width,
-                height=height,
-                elements=elements,
-                is_sensitive=False,
-                path=temp_path
-            )
+            if is_portal:
+                return Screenshot(
+                    base64_data=base64_data,
+                    crop_base64_data=crop_base64_data,
+                    width=width,
+                    height=height,
+                    elements=elements,
+                    formatted_text=formatted_text,
+                    is_sensitive=False,
+                    path=temp_path
+                )
+            else:
+                return Screenshot(
+                    base64_data=base64_data,
+                    crop_base64_data=crop_base64_data,
+                    width=width,
+                    height=height,
+                    elements=elements,
+                    is_sensitive=False,
+                    path=temp_path
+                )
 
     except Exception as e:
         print(f"Screenshot error: {e}")
         return _create_fallback_screenshot(is_sensitive=False)
 
 
-def _get_adb_prefix(device_id: str | None) -> list:
+async def _get_adb_prefix(device_id: str | None) -> list:
     """Get ADB command prefix with optional device specifier."""
     if device_id:
         return ["adb", "-s", device_id]

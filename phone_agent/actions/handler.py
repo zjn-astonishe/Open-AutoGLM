@@ -1,11 +1,12 @@
 """Action handler for processing AI model outputs."""
 
 import ast
+import asyncio
 import re
 import subprocess
 import time
 from dataclasses import dataclass
-from typing import Any, Callable, List, Dict
+from typing import Any, Callable, List, Dict, Tuple
 
 from phone_agent.config.timing import TIMING_CONFIG
 from phone_agent.device_factory import get_device_factory
@@ -42,7 +43,7 @@ class ActionHandler:
         self.confirmation_callback = confirmation_callback or self._default_confirmation
         self.takeover_callback = takeover_callback or self._default_takeover
 
-    def execute(
+    async def execute(
         self, action: dict[str, Any], screen_width: int, screen_height: int
     ) -> ActionResult:
         """
@@ -84,7 +85,7 @@ class ActionHandler:
             )
 
         try:
-            return handler_method(action, screen_width, screen_height)
+            return await handler_method(action, screen_width, screen_height)
         except Exception as e:
             return ActionResult(
                 success=False, should_finish=False, message=f"Action failed: {e}"
@@ -121,20 +122,20 @@ class ActionHandler:
         y = int(element[1])
         return x, y
 
-    def _handle_launch(self, action: dict, width: int, height: int) -> ActionResult:
+    async def _handle_launch(self, action: dict, width: int, height: int) -> ActionResult:
         """Handle app launch action."""
         app_name = action.get("app")
         # print(f"Launching app: {app_name}")
         if not app_name:
             return ActionResult(False, False, "No app name specified")
 
-        device_factory = get_device_factory()
-        success = device_factory.launch_app(app_name, self.device_id)
+        device_factory = await get_device_factory()
+        success = await device_factory.launch_app(app_name, self.device_id)
         if success:
             return ActionResult(True, False)
         return ActionResult(False, False, f"App not found: {app_name}")
 
-    def _handle_tap(self, action: dict, width: int, height: int) -> ActionResult:
+    async def _handle_tap(self, action: dict, width: int, height: int) -> ActionResult:
         """Handle tap action."""
         element = action.get("element")
         if not element:
@@ -152,11 +153,11 @@ class ActionHandler:
                     message="User cancelled sensitive operation",
                 )
 
-        device_factory = get_device_factory()
-        device_factory.tap(x, y, self.device_id)
+        device_factory = await get_device_factory()
+        await device_factory.tap(x, y, self.device_id)
         return ActionResult(True, False)
 
-    def _handle_type(self, action: dict, width: int, height: int) -> ActionResult:
+    async def _handle_type(self, action: dict, width: int, height: int) -> ActionResult:
         """Handle text input action."""
         text = action.get("text", "")
         element = action.get("element")
@@ -165,24 +166,24 @@ class ActionHandler:
 
         x, y = self._convert_relative_to_absolute(element, width, height)
 
-        device_factory = get_device_factory()
-        device_factory.tap(x, y, self.device_id)
+        device_factory = await get_device_factory()
+        await device_factory.tap(x, y, self.device_id)
 
         # Switch to ADB keyboard
-        original_ime = device_factory.detect_and_set_adb_keyboard(self.device_id)
-        time.sleep(TIMING_CONFIG.action.keyboard_switch_delay)
+        original_ime = await device_factory.detect_and_set_adb_keyboard(self.device_id)
+        await asyncio.sleep(TIMING_CONFIG.action.keyboard_switch_delay)
 
         # Clear existing text and type new text
-        device_factory.clear_text(self.device_id)
-        time.sleep(TIMING_CONFIG.action.text_clear_delay)
+        await device_factory.clear_text(self.device_id)
+        await asyncio.sleep(TIMING_CONFIG.action.text_clear_delay)
 
         # Handle multiline text by splitting on newlines
-        device_factory.type_text(text, self.device_id)
-        time.sleep(TIMING_CONFIG.action.text_input_delay)
+        await device_factory.type_text(text, self.device_id)
+        await asyncio.sleep(TIMING_CONFIG.action.text_input_delay)
 
         # Restore original keyboard
-        device_factory.restore_keyboard(original_ime, self.device_id)
-        time.sleep(TIMING_CONFIG.action.keyboard_restore_delay)
+        await device_factory.restore_keyboard(original_ime, self.device_id)
+        await asyncio.sleep(TIMING_CONFIG.action.keyboard_restore_delay)
 
         return ActionResult(True, False)
 
@@ -201,10 +202,10 @@ class ActionHandler:
     #     device_factory.swipe(start_x, start_y, end_x, end_y, device_id=self.device_id)
     #     return ActionResult(True, False)
     
-    def _handle_swipe(self, action: dict, width: int, height: int) -> ActionResult:
+    async def _handle_swipe(self, action: dict, width: int, height: int) -> ActionResult:
+        """Handle swipe action."""
         dist = action.get("distance", "medium")
         direction = action.get("direction")
-        """Handle swipe action."""
         unit_dist = int(width / 10)
         if dist == "long":
             unit_dist *= 10
@@ -221,47 +222,47 @@ class ActionHandler:
         elif direction == "right":
             offset = unit_dist, 0
         else:
-            return "ERROR"
+            return ActionResult(False, False, "Invalid swipe direction")
         start_x, start_y = action.get("element")
-        device_factory = get_device_factory()
-        device_factory.swipe(start_x, start_y, start_x+offset[0], start_y+offset[1], device_id=self.device_id)
+        device_factory = await get_device_factory()
+        await device_factory.swipe(start_x, start_y, start_x+offset[0], start_y+offset[1], device_id=self.device_id)
         return ActionResult(True, False)
 
-    def _handle_back(self, action: dict, width: int, height: int) -> ActionResult:
+    async def _handle_back(self, action: dict, width: int, height: int) -> ActionResult:
         """Handle back button action."""
-        device_factory = get_device_factory()
-        device_factory.back(self.device_id)
+        device_factory = await get_device_factory()
+        await device_factory.back(self.device_id)
         return ActionResult(True, False)
 
-    def _handle_home(self, action: dict, width: int, height: int) -> ActionResult:
+    async def _handle_home(self, action: dict, width: int, height: int) -> ActionResult:
         """Handle home button action."""
-        device_factory = get_device_factory()
-        device_factory.home(self.device_id)
+        device_factory = await get_device_factory()
+        await device_factory.home(self.device_id)
         return ActionResult(True, False)
 
-    def _handle_double_tap(self, action: dict, width: int, height: int) -> ActionResult:
+    async def _handle_double_tap(self, action: dict, width: int, height: int) -> ActionResult:
         """Handle double tap action."""
         element = action.get("element")
         if not element:
             return ActionResult(False, False, "No element coordinates")
 
         x, y = self._convert_relative_to_absolute(element, width, height)
-        device_factory = get_device_factory()
-        device_factory.double_tap(x, y, self.device_id)
+        device_factory = await get_device_factory()
+        await device_factory.double_tap(x, y, self.device_id)
         return ActionResult(True, False)
 
-    def _handle_long_press(self, action: dict, width: int, height: int) -> ActionResult:
+    async def _handle_long_press(self, action: dict, width: int, height: int) -> ActionResult:
         """Handle long press action."""
         element = action.get("element")
         if not element:
             return ActionResult(False, False, "No element coordinates")
 
         x, y = self._convert_relative_to_absolute(element, width, height)
-        device_factory = get_device_factory()
-        device_factory.long_press(x, y, device_id=self.device_id)
+        device_factory = await get_device_factory()
+        await device_factory.long_press(x, y, device_id=self.device_id)
         return ActionResult(True, False)
 
-    def _handle_wait(self, action: dict, width: int, height: int) -> ActionResult:
+    async def _handle_wait(self, action: dict, width: int, height: int) -> ActionResult:
         """Handle wait action."""
         duration_str = action.get("duration", "1 seconds")
         try:
@@ -269,44 +270,44 @@ class ActionHandler:
         except ValueError:
             duration = 1.0
 
-        time.sleep(duration)
+        await asyncio.sleep(duration)
         return ActionResult(True, False)
 
-    def _handle_takeover(self, action: dict, width: int, height: int) -> ActionResult:
+    async def _handle_takeover(self, action: dict, width: int, height: int) -> ActionResult:
         """Handle takeover request (login, captcha, etc.)."""
         message = action.get("message", "User intervention required")
         self.takeover_callback(message)
         return ActionResult(True, False)
 
-    def _handle_note(self, action: dict, width: int, height: int) -> ActionResult:
+    async def _handle_note(self, action: dict, width: int, height: int) -> ActionResult:
         """Handle note action (placeholder for content recording)."""
         # This action is typically used for recording page content
         # Implementation depends on specific requirements
         return ActionResult(True, False)
 
-    def _handle_call_api(self, action: dict, width: int, height: int) -> ActionResult:
+    async def _handle_call_api(self, action: dict, width: int, height: int) -> ActionResult:
         """Handle API call action (placeholder for summarization)."""
         # This action is typically used for content summarization
         # Implementation depends on specific requirements
         return ActionResult(True, False)
 
-    def _handle_interact(self, action: dict, width: int, height: int) -> ActionResult:
+    async def _handle_interact(self, action: dict, width: int, height: int) -> ActionResult:
         """Handle interaction request (user choice needed)."""
         # This action signals that user input is needed
         return ActionResult(True, False, message="User interaction required")
     
-    def _handle_finish(self, action: dict, width: int, height: int) -> ActionResult:
+    async def _handle_finish(self, action: dict, width: int, height: int) -> ActionResult:
         """Handle finish action."""
         return ActionResult(
             success=True, should_finish=True, message=action.get("message")
         )
 
-    def _send_keyevent(self, keycode: str) -> None:
+    async def _send_keyevent(self, keycode: str) -> None:
         """Send a keyevent to the device."""
         from phone_agent.device_factory import DeviceType, get_device_factory
         from phone_agent.hdc.connection import _run_hdc_command
 
-        device_factory = get_device_factory()
+        device_factory = await get_device_factory()
 
         # Handle HDC devices with HarmonyOS-specific keyEvent command
         if device_factory.device_type == DeviceType.HDC:
@@ -375,7 +376,7 @@ class ActionHandler:
         input(f"{message}\nPress Enter after completing manual operation...")
 
 
-def parse_action(action_code: str, elements_info: List[Dict[str, str]]) -> tuple[dict[str, Any], str]:
+def parse_action(action_code: str, elements_info: List[Dict[str, str]], is_portal: bool = True) -> Tuple[dict[str, Any], str] | Tuple[dict[str, Any], str, str, str]:
     """
     Parse action from model response.
 
@@ -431,8 +432,11 @@ def parse_action(action_code: str, elements_info: List[Dict[str, str]]) -> tuple
                             center_x = (bbox[0][0] + bbox[1][0]) // 2
                             center_y = (bbox[0][1] + bbox[1][1]) // 2
                             # Convert to relative coordinates (0-1000 scale)
-                            action["element"] = [center_x, center_y]                    
-                            return action, element["content"]
+                            action["element"] = [center_x, center_y]
+                            if not is_portal:
+                                return action, element["content"]
+                            else:
+                                return action, element["resourceId"], element["className"], element["text"]
                     
                     return action, None
                     

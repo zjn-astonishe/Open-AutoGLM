@@ -1,5 +1,6 @@
 """ADB connection management for local and remote devices."""
 
+import asyncio
 import subprocess
 import time
 from dataclasses import dataclass
@@ -117,7 +118,7 @@ class ADBConnection:
         except Exception as e:
             return False, f"Disconnect error: {e}"
 
-    def list_devices(self) -> list[DeviceInfo]:
+    async def list_devices(self) -> list[DeviceInfo]:
         """
         List all connected devices.
 
@@ -125,15 +126,25 @@ class ADBConnection:
             List of DeviceInfo objects.
         """
         try:
-            result = subprocess.run(
-                [self.adb_path, "devices", "-l"],
-                capture_output=True,
-                text=True,
-                timeout=5,
+            process = await asyncio.create_subprocess_exec(
+                self.adb_path,
+                "devices",
+                "-l",
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.PIPE,
             )
+            
+            try:
+                stdout, stderr = await asyncio.wait_for(process.communicate(), timeout=5)
+            except asyncio.TimeoutError:
+                process.kill()
+                await process.wait()
+                raise subprocess.TimeoutExpired([self.adb_path, "devices", "-l"], 5)
+            
+            result_stdout = stdout.decode()
 
             devices = []
-            for line in result.stdout.strip().split("\n")[1:]:  # Skip header
+            for line in result_stdout.strip().split("\n")[1:]:  # Skip header
                 if not line.strip():
                     continue
 
@@ -172,7 +183,7 @@ class ADBConnection:
             print(f"Error listing devices: {e}")
             return []
 
-    def get_device_info(self, device_id: str | None = None) -> DeviceInfo | None:
+    async def get_device_info(self, device_id: str | None = None) -> DeviceInfo | None:
         """
         Get detailed information about a device.
 
@@ -182,7 +193,7 @@ class ADBConnection:
         Returns:
             DeviceInfo or None if not found.
         """
-        devices = self.list_devices()
+        devices = await self.list_devices()
 
         if not devices:
             return None
@@ -196,7 +207,7 @@ class ADBConnection:
 
         return None
 
-    def is_connected(self, device_id: str | None = None) -> bool:
+    async def is_connected(self, device_id: str | None = None) -> bool:
         """
         Check if a device is connected.
 
@@ -206,7 +217,7 @@ class ADBConnection:
         Returns:
             True if connected, False otherwise.
         """
-        devices = self.list_devices()
+        devices = await self.list_devices()
 
         if not devices:
             return False
@@ -342,7 +353,7 @@ def quick_connect(address: str) -> tuple[bool, str]:
     return conn.connect(address)
 
 
-def list_devices() -> list[DeviceInfo]:
+async def list_devices() -> list[DeviceInfo]:
     """
     Quick helper to list connected devices.
 
@@ -350,4 +361,4 @@ def list_devices() -> list[DeviceInfo]:
         List of DeviceInfo objects.
     """
     conn = ADBConnection()
-    return conn.list_devices()
+    return await conn.list_devices()

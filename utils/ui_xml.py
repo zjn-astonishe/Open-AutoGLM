@@ -1,7 +1,10 @@
 import os
-import pkg_resources
+import json
+# import pkg_resources
+import asyncio
 import uiautomator2 as u2
-
+from typing import Dict, Any, Optional
+from phone_agent.device_factory import DeviceFactory, get_device_factory
 
 def get_emulator_ui_xml(prefix: str, save_dir: str, emulator_device: str = "emulator-5554") -> str:
     """
@@ -50,18 +53,113 @@ def get_emulator_ui_xml(prefix: str, save_dir: str, emulator_device: str = "emul
 
     return save_path
 
+def _parse_content_provider_output(
+        raw_output: str
+    ) -> Optional[Dict[str, Any]]:
+        """
+        Parse the raw ADB content provider output and extract JSON data.
 
+        Args:
+            raw_output: Raw output from ADB content query command
 
+        Returns:
+            Parsed JSON data or None if parsing failed
+        """
+        lines = raw_output.strip().split("\n")
+
+        # Try line-by-line parsing
+        for line in lines:
+            line = line.strip()
+
+            # Look for "result=" pattern (common content provider format)
+            if "result=" in line:
+                result_start = line.find("result=") + 7
+                json_str = line[result_start:]
+                try:
+                    json_data = json.loads(json_str)
+                    # Handle nested "result" or "data" field with JSON string (backward compatible)
+                    if isinstance(json_data, dict):
+                        # Check for 'result' first (new portal format), then 'data' (legacy)
+                        inner_key = "result" if "result" in json_data else "data" if "data" in json_data else None
+                        if inner_key:
+                            inner_value = json_data[inner_key]
+                            if isinstance(inner_value, str):
+                                try:
+                                    return json.loads(inner_value)
+                                except json.JSONDecodeError:
+                                    return inner_value
+                            return inner_value
+                    return json_data
+                except json.JSONDecodeError:
+                    continue
+
+            # Fallback: try lines starting with JSON
+            elif line.startswith("{") or line.startswith("["):
+                try:
+                    return json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+
+        # Last resort: try parsing entire output
+        try:
+            return json.loads(raw_output.strip())
+        except json.JSONDecodeError:
+            return None
+
+async def get_state_portal(device: DeviceFactory) -> Dict[str, Any]:
+        """Get state via content provider (fallback)."""
+        try:
+            output = await device.shell(
+                "content query --uri content://com.droidrun.portal/state_full"
+            )
+            state_data = _parse_content_provider_output(output)
+
+            if state_data is None:
+                return {
+                    "error": "Parse Error",
+                    "message": "Failed to parse state data from ContentProvider",
+                }
+
+            # Handle nested "result" or "data" field if present (backward compatible)
+            if isinstance(state_data, dict):
+                # Check for 'result' first (new portal format), then 'data' (legacy)
+                inner_key = "result" if "result" in state_data else "data" if "data" in state_data else None
+                if inner_key:
+                    inner_value = state_data[inner_key]
+                    if isinstance(inner_value, str):
+                        try:
+                            return json.loads(inner_value)
+                        except json.JSONDecodeError:
+                            return {
+                                "error": "Parse Error",
+                                "message": "Failed to parse nested JSON data",
+                            }
+                    elif isinstance(inner_value, dict):
+                        return inner_value
+
+            return state_data
+
+        except Exception as e:
+            return {"error": "ContentProvider Error", "message": str(e)}
+
+async def main():
+    # 可选：查看当前 uiautomator2 版本（便于排查问题）
+    # try:
+    #     u2_version = pkg_resources.get_distribution("uiautomator2").version
+    #     print(f"当前 uiautomator2 版本：{u2_version}")
+    # except:
+    #     print("无法获取 uiautomator2 版本")
+    
+    # # 1. 连接模拟器，获取 XML（设备名默认 emulator-5554，可根据 adb devices 结果修改）
+    # xml_path = "tests"
+    # get_emulator_ui_xml(emulator_device="emulator-5554", save_dir=xml_path, prefix="test")
+    device = get_device_factory()
+    formatted_text, focused_text, a11y_tree, phone_state = await get_state_portal(device)
+    print(f"格式化后的文本：{formatted_text}")
+    print(f"聚焦的文本：{focused_text}")
+    print(f"获取状态成功：{phone_state}")
+    print(f"UI 树结构：{a11y_tree}")
 
 # ========== 主执行逻辑 ==========
 if __name__ == "__main__":
-    # 可选：查看当前 uiautomator2 版本（便于排查问题）
-    try:
-        u2_version = pkg_resources.get_distribution("uiautomator2").version
-        print(f"当前 uiautomator2 版本：{u2_version}")
-    except:
-        print("无法获取 uiautomator2 版本")
-    
-    # 1. 连接模拟器，获取 XML（设备名默认 emulator-5554，可根据 adb devices 结果修改）
-    xml_path = "tests"
-    get_emulator_ui_xml(emulator_device="emulator-5554", save_dir=xml_path, prefix="test")
+    asyncio.run(main())

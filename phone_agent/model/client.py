@@ -6,7 +6,7 @@ import time
 from dataclasses import dataclass, field
 from typing import Any, Dict, List
 
-from openai import OpenAI
+from openai import AsyncOpenAI
 
 from phone_agent.config.i18n import get_message
 from utils.util import print_with_color
@@ -53,9 +53,9 @@ class ModelClient:
 
     def __init__(self, config: ModelConfig | None = None):
         self.config = config or ModelConfig()
-        self.client = OpenAI(base_url=self.config.base_url, api_key=self.config.api_key)
+        self.client = AsyncOpenAI(base_url=self.config.base_url, api_key=self.config.api_key)
 
-    def request(self, messages: list[dict[str, Any]], mode: str = "action") -> ModelResponse:
+    async def request(self, messages: list[dict[str, Any]], mode: str = "action") -> ModelResponse:
         """
         Send a request to the model.
 
@@ -74,7 +74,7 @@ class ModelClient:
         time_to_first_token = None
         time_to_thinking_end = None
 
-        stream = self.client.chat.completions.create(
+        stream = await self.client.chat.completions.create(
             messages=messages,
             model=self.config.model_name,
             max_tokens=self.config.max_tokens,
@@ -92,7 +92,7 @@ class ModelClient:
         in_action_phase = False  # Track if we've entered the action phase
         first_token_received = False
 
-        for chunk in stream:
+        async for chunk in stream:
             if len(chunk.choices) == 0:
                 continue
             if chunk.choices[0].delta.content is not None:
@@ -328,11 +328,13 @@ class ModelClient:
             # print(f"🤖 Action: {action}\n Description: {action_desc}")
             # print("+" * 50)
             action_dict[action_desc] = action
+            print(f"action: {action}, action_desc: {action_desc}")
             return action_dict
 
         # Rule 4: No markers found, return content as action
         action_desc = ""
         action_dict[action_desc] = content
+        
         return action_dict
 
     def _parse_predict(self, content: str) -> Dict[str, str]:

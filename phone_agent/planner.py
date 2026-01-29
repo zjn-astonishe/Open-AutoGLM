@@ -2,7 +2,7 @@ import os
 import re
 import json
 import importlib.util
-from openai import OpenAI
+from openai import AsyncOpenAI
 from phone_agent.model.client import ModelConfig
 from typing import Dict, Any, List, Optional, Tuple
 from phone_agent.config.prompts_en import SYSTEM_PROMPT_ROUTER
@@ -24,9 +24,9 @@ class Planner:
     
     def __init__(self, model_config: ModelConfig | None = None):
         self.config = model_config or ModelConfig()
-        self.client = OpenAI(base_url=self.config.base_url, api_key=self.config.api_key)
+        self.client = AsyncOpenAI(base_url=self.config.base_url, api_key=self.config.api_key)
         
-    def plan_task(self, user_task: str) -> PlannerResponse:
+    async def plan_task(self, user_task: str) -> PlannerResponse:
         """
         Analyze user task and decide whether to use skills or atomic actions.
         
@@ -46,7 +46,7 @@ class Planner:
         
         try:
             # Get response from the model
-            response = self.client.chat.completions.create(
+            response = await self.client.chat.completions.create(
                 messages=messages,
                 model=self.config.model_name,
                 max_tokens=self.config.max_tokens,
@@ -305,5 +305,3 @@ class Planner:
         
         # Return as string if all else fails
         return value_str
-    
-    

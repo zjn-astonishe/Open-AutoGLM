@@ -123,7 +123,7 @@ class TaskRegistry:
       calendar.SimpleCalendarDeleteEventsOnRelativeDay, # TODO 7
       calendar.SimpleCalendarDeleteOneEvent,  # TODO 8
       camera.CameraTakePhoto, #Done
-      camera.CameraTakeVideo, # TODO 1
+      camera.CameraTakeVideo, #Done
       clock.ClockStopWatchPausedVerify,
       clock.ClockStopWatchRunning,
       clock.ClockTimerEntry,  # TODO 2

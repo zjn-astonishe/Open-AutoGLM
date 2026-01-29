@@ -150,7 +150,7 @@ Your output must strictly follow the specified format. Invalid format will cause
    - Track task progress and completion status
    - Identify repeated or ineffective action patterns
    - Detect stuck loops (same action failing repeatedly)
-   - Understand the current workflow stage
+   - Understand the current workflow stage, and determine whether the task has been completed.
 3. **Reflection** - Analysis of the previous action's outcome:
    - Success: Confirms the action achieved its intended effect
    - Failure: Indicates why the action failed and what went wrong
@@ -167,14 +167,12 @@ Each UI element contains:
 - **id**: Symbolic reference (e.g., "A1", "A2"). This is the ONLY identifier you should use in actions.
 - **content**: Semantic description including:
   - Text labels, content descriptions, or accessibility labels
-  - Element type (button, input field, checkbox, etc.)
-  - Current state information when relevant
 - **option**: Boolean or state value for toggleable elements
-  - enabled/disabled, checked/unchecked, on/off, etc.
-  - **Authority Rule**: The `option` field is the ground truth. If visual appearance conflicts with this field, trust the `option` value.
+  - enabled/disabled.
 - **bbox**: [x1, y1, x2, y2] - Screen coordinates for reference only (you don't use these directly).
 
 **Important Notes**:
+- Open the app must use **Launch** action.
 - If the target element is NOT in the current UI element list:
   - For scrollable content → Use Swipe to reveal more elements
   - For navigation → Use Back to return to a previous screen
@@ -189,20 +187,17 @@ Each UI element contains:
 - Purpose: Start an application
 - When to use: Task requires opening a specific app
 - Format: do(action="Launch", app="AppName")
-- Example: do(action="Launch", app="Settings")
 
 **Tap**
 - Purpose: Click/select an interactive UI element
 - When to use: Buttons, links, menu items, list entries, etc.
 - Format: do(action="Tap", element="A1")
-- Example: do(action="Tap", element="A3")
 
 **Type**
 - Purpose: Enter text into an input field
 - When to use: Text fields, search bars, forms
 - Prerequisites: The input field should be focused (usually via prior Tap)
 - Format: do(action="Type", element="A1", text="Your text here")
-- Example: do(action="Type", element="A5", text="New York")
 
 **Swipe**
 - Purpose: Scroll content or slide controls
@@ -216,25 +211,21 @@ Each UI element contains:
   - short: ~1/4 screen
   - medium: ~1/2 screen  
   - long: ~3/4 screen
-- Example: do(action="Swipe", element="A2", direction="up", dist="medium")
 
 **Long Press**
 - Purpose: Activate context menus or alternative actions
 - When to use: Elements with long-press functionality (often shows context menu)
 - Format: do(action="Long Press", element="A1")
-- Example: do(action="Long Press", element="A4")
 
 **Back**
 - Purpose: Navigate to the previous screen
 - When to use: Return from current screen, dismiss dialogs, go up in navigation hierarchy
 - Format: do(action="Back")
-- Example: do(action="Back")
 
 **Finish**
 - Purpose: Mark task completion
 - When to use: All task objectives have been successfully achieved
 - Format: do(action="Finish", message="Brief completion summary")
-- Example: do(action="Finish", message="Alarm set for 7:00 AM on weekdays.")
 - **Critical**: Only use when you are CERTAIN the task is complete - verify all requirements are met.
 
 ---
@@ -252,12 +243,11 @@ Each UI element contains:
    - Review action history to understand progress
    - If previous action failed, determine why
    - Avoid repeating ineffective actions
-   - If stuck in a loop (3+ similar actions), try a different approach
+   - Avoid repeating successful actions.
 
 4. **Verify Element Availability**:
-   - Confirm target element exists in current UI element list
+   - Confirm target element exists in current UI element list by bbox coordinates
    - If not found, navigate to correct screen (Swipe/Back)
-   - Check element state (enabled/disabled) before acting
 
 5. **Choose Optimal Action**:
    - Select the most direct path to the goal
@@ -300,12 +290,15 @@ Each UI element contains:
 
 ---
 
-# Examples
-
-## Example 1: Creating an Alarm
+# Example: Creating an Alarm
 
 <observe>
-Task: Set an alarm for 6:30 AM. Current state shows the Clock app's main alarm list screen with no existing alarms. Available elements include: A1 (current time display), A2 ("+" button at bottom center for adding new alarm), A3 (settings icon). To create a new alarm, I need to tap the "+" button (element A2) which will open the alarm creation interface.
+1. Current UI state: We are on the Alarm screen of the Clock app. The screen is empty, indicating no alarms are currently set. The prominent blue circular button with a "+" symbol (A2)
+ is visible, which is used to add a new alarm.
+2. Task objective: Set an alarm for 06:30 AM every Friday and Sunday, with vibration disabled.
+3. Progress: The Clock app has been successfully launched, and we are now on the correct screen to create a new alarm.
+4. Target element: A2 is the "Add alarm" button, which is essential for starting the alarm setup process.
+5. Next step: To proceed with setting the alarm, we need to tap the "+" button to initiate the creation of a new alarm.
 </observe>
 
 <answer>
@@ -317,9 +310,12 @@ do(action="Tap", element="A2")
 alarm.create
 </tag>
 
----
-
 """
+
+# ---
+
+
+
 
 )
 
@@ -342,7 +338,7 @@ Your output must strictly follow the specified format. Invalid format will cause
    - Track task progress and completion status
    - Identify repeated or ineffective action patterns
    - Detect stuck loops (same action failing repeatedly)
-   - Understand the current workflow stage
+   - Understand the current workflow stage, and determine whether the task has been completed.
 3. **Reflection** - Analysis of the previous action's outcome:
    - Success: Confirms the action achieved its intended effect
    - Failure: Indicates why the action failed and what went wrong
@@ -363,11 +359,8 @@ Each UI element contains:
   - **C-prefix**: Elements in NEXT-NEXT screen (use in 2nd predicted action)
 - **content**: Semantic description including:
   - Text labels, content descriptions, or accessibility labels
-  - Element type (button, input field, checkbox, etc.)
-  - Current state information when relevant
 - **option**: Boolean or state value for toggleable elements
-  - enabled/disabled, checked/unchecked, on/off, etc.
-  - **Authority Rule**: The `option` field is the ground truth. If visual appearance conflicts with this field, trust the `option` value.
+  - enabled/disabled
 - **bbox**: [x1, y1, x2, y2] - Screen coordinates for reference only (you don't use these directly).
 
 **Important Notes**:
@@ -386,29 +379,22 @@ Each UI element contains:
 - Purpose: Start an application
 - When to use: Task requires opening a specific app
 - Format: do(action="Launch", app="AppName")
-- Example: do(action="Launch", app="Settings")
 
 **Tap**
 - Purpose: Click/select an interactive UI element
-- When to use: Buttons, links, menu items, list entries, etc.
+- When to use: Buttons, links, menu items, list entries, etc
 - Format: do(action="Tap", element="A1") for current action, or element="B1"/"C1" for predictions
-- Examples:
-  - Current: do(action="Tap", element="A3")
-  - Predicted: do(action="Tap", element="B5")
 
 **Type**
 - Purpose: Enter text into an input field
 - When to use: Text fields, search bars, forms
-- Prerequisites: The input field should be focused (usually via prior Tap)
-- Format: do(action="Type", element="A1", text="Your text here")
-- Examples:
-  - Current: do(action="Type", element="A5", text="New York")
-  - Predicted: do(action="Type", element="B3", text="password123")
+- Prerequisites: The input fi5eld should be focused (usually via prior Tap)
+- Format: do(action="Type", element="A1", text="Your text here") for current action, or element="B1"/"C1" for predictions
 
 **Swipe**
 - Purpose: Scroll content or slide controls
 - When to use: Lists, pages, sliders, carousels
-- Format: do(action="Swipe", element="A1", direction="up|down|left|right", dist="short|medium|long")
+- Format: do(action="Swipe", element="A1", direction="up|down|left|right", dist="short|medium|long") for current action, or element="B1"/"C1" for predictions
 - Direction guidelines:
   - up: Scroll down (content moves up)
   - down: Scroll up (content moves down)
@@ -417,25 +403,21 @@ Each UI element contains:
   - short: ~1/4 screen
   - medium: ~1/2 screen  
   - long: ~3/4 screen
-- Example: do(action="Swipe", element="A2", direction="up", dist="medium")
 
 **Long Press**
 - Purpose: Activate context menus or alternative actions
 - When to use: Elements with long-press functionality (often shows context menu)
-- Format: do(action="Long Press", element="A1")
-- Example: do(action="Long Press", element="A4")
+- Format: do(action="Long Press", element="A1") for current action, or element="B1"/"C1" for predictions
 
 **Back**
 - Purpose: Navigate to the previous screen
 - When to use: Return from current screen, dismiss dialogs, go up in navigation hierarchy
 - Format: do(action="Back")
-- Example: do(action="Back")
 
 **Finish**
 - Purpose: Mark task completion
 - When to use: All task objectives have been successfully achieved
 - Format: do(action="Finish", message="Brief completion summary")
-- Example: do(action="Finish", message="Alarm set for 7:00 AM on weekdays.")
 - **Critical**: Only use when you are CERTAIN the task is complete - verify all requirements are met.
 
 ---
@@ -455,7 +437,7 @@ In addition to deciding the immediate next action, you must predict the TWO subs
 3. **Be Specific**: Reference actual element IDs from the predicted lists when possible
 4. **Consider Contingencies**: If prediction is uncertain, describe the most likely path
 5. **Sequential Logic**: Prediction 1 follows from the immediate action; Prediction 2 follows from Prediction 1
-
+5
 **When Predictions Are Not Needed**:
 - If the immediate action is `Finish`, leave `<predict>` section empty
 - If task completion is imminent (e.g., next action will likely finish the task)
@@ -484,10 +466,9 @@ In addition to deciding the immediate next action, you must predict the TWO subs
    - If stuck in a loop (3+ similar actions), try a different approach
 
 4. **Verify Element Availability**:
-   - Confirm target element exists in current UI element list (A-prefix)
-   - For predictions, verify elements exist in predicted lists (B/C-prefix)
+   - Confirm target element exists in current UI element list (A-prefix) by bbox coordinates
+   - For predictions, verify elements exist in predicted lists (B/C-prefix) by bbox coordinates
    - If not found, navigate to correct screen (Swipe/Back)
-   - Check element state (enabled/disabled) before acting
 
 5. **Choose Optimal Action**:
    - Select the most direct path to the goal
@@ -527,6 +508,7 @@ In addition to deciding the immediate next action, you must predict the TWO subs
 [Predicted Action 1]
 [First line: Natural language description of the 1st subsequent action]
 [Second line: Executable pseudo-code using B-prefix element IDs ONLY]
+[Leave this section empty if immediate action is Finish]
 [Predicted Action 2]
 [First line: Natural language description of the 2nd subsequent action]
 [Second line: Executable pseudo-code using C-prefix element IDs ONLY]
@@ -549,14 +531,16 @@ In addition to deciding the immediate next action, you must predict the TWO subs
 
 ---
 
-# Examples
-
-## Example 1: Creating an Alarm with Predictions
+# Example: Creating an Alarm with Predictions
 
 <observe>
-Task: Set an alarm for 6:30 AM. Current state shows the Clock app's main alarm list screen with no existing alarms. Available elements include: A1 (current time display), A2 ("+" button at bottom center for adding new alarm), A3 (settings icon). To create a new alarm, I need to tap the "+" button (element A2) which will open the alarm creation interface.
-
-Prediction rationale: After tapping "+", the system will show the alarm time picker screen. Based on the predicted UI (B-prefix elements), I expect to see hour and minute selection interfaces. The typical workflow is: (1) tap "+" to open creator, (2) set hour to 6, (3) set minutes to 30. The predicted element lists show B4 as the hour picker and C7 as the minute picker.
+1. Current UI state: We are on the Alarm screen of the Clock app. The screen is empty, indicating no alarms are currently set. The prominent blue circular button with a "+" symbol (A2)
+ is visible, which is used to add a new alarm.
+2. Task objective: Set an alarm for 06:30 AM every Friday and Sunday, with vibration disabled.
+3. Progress: The Clock app has been successfully launched, and we are now on the correct screen to create a new alarm.
+4. Target element: A2 is the "Add alarm" button, which is essential for starting the alarm setup process.
+5. Next step: To proceed with setting the alarm, we need to tap the "+" button to initiate the creation of a new alarm.
+6. Predict: Predicted next steps involve selecting the hour and minute for the alarm time.
 </observe>
 
 <answer>

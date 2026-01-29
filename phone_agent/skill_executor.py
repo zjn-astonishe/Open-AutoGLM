@@ -1,5 +1,6 @@
 import os
 import time
+import asyncio
 import importlib.util
 from dataclasses import dataclass
 from .device_factory import get_device_factory
@@ -29,7 +30,7 @@ class SkillExecutor:
             takeover_callback=takeover_callback,
         )
     
-    def execute_skill(self, skill_name: str, skill_params: Dict[str, Any]) -> str:
+    async def execute_skill(self, skill_name: str, skill_params: Dict[str, Any]) -> str:
         """Execute a skill by name with given parameters."""
         try:
             # Get skill file path
@@ -51,7 +52,7 @@ class SkillExecutor:
                 actions = skill_function(**skill_params)
                 
                 # Execute actions using existing run method
-                return self.run(actions)
+                return await self.run(actions)
             else:
                 return f"Error: Function '{skill_name}' not found in skill module"
                 
@@ -68,14 +69,14 @@ class SkillExecutor:
             return skill_path
         return None
     
-    def run(self, actions: List[Dict[str, Any]]) -> str:
+    async def run(self, actions: List[Dict[str, Any]]) -> str:
         
         if not actions:
             return "Error, No actions provided"
         
         result = None
         for action in actions:
-            result = self._execute_step(action)
+            result = await self._execute_step(action)
             # If any action fails, return immediately
             if not result.success:
                 return f"Error, {result.message}"
@@ -86,10 +87,10 @@ class SkillExecutor:
         
         return "Error, Unknown error occurred"
 
-    def _execute_step(self, action_code: Dict[str, Any]) -> StepResult:
+    async def _execute_step(self, action_code: Dict[str, Any]) -> StepResult:
         
-        device_factory = get_device_factory()
-        screenshot = device_factory.get_screenshot(device_id=self.device_id)
+        device_factory = await get_device_factory()
+        screenshot = await device_factory.get_screenshot(device_id=self.device_id)
         elements_info = []
 
         for e in screenshot.elements:
@@ -102,9 +103,9 @@ class SkillExecutor:
         print(f"Action: {action}")
 
         try:
-            result = self.action_handler.execute(action, screenshot.width, screenshot.height)
+            result = await self.action_handler.execute(action, screenshot.width, screenshot.height)
         except Exception as e:
-            result = self.action_handler.execute(
+            result = await self.action_handler.execute(
                 finish(message=str(e)), screenshot.width, screenshot.height
             )
             return StepResult(False, str(e))

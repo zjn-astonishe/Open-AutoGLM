@@ -3,8 +3,16 @@ Android UI元素过滤工具模块
 用于解析和过滤Android UI XML结构中的可操作元素
 并生成类似HTML XPath的语义路径
 """
+import asyncio
+import logging
 import xml.etree.ElementTree as ET
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Any
+from utils.ui_xml import get_state_portal
+from phone_agent.device_factory import DeviceFactory, get_device_factory
+from phone_agent.portal_cli.filters import DetailedFilter
+from phone_agent.portal_cli.formatters import IndexedFormatter
+
+logger = logging.getLogger("ui_filter")
 
 class AndroidElement:
     """Android UI元素类，表示一个可交互的UI元素"""
@@ -62,6 +70,26 @@ class AndroidElement:
         
         return "/" + name
 
+class AndroidPortalElement:
+    """Android Portal UI元素类，表示一个可交互的UI元素"""
+    def __init__(
+            self,
+            resourceId: str,
+            className: str,
+            text: str,
+            bounds: Tuple[Tuple[int, int], Tuple[int, int]],
+            checked: bool
+        ):
+        self.resourceId = resourceId
+        self.className = className
+        self.text = text
+        self.checked = checked
+        self.bounds = bounds
+        self.center = ((self.bounds[0][0] + self.bounds[1][0]) / 2, (self.bounds[0][1] + self.bounds[1][1]) / 2)
+
+    def __repr__(self) -> str:
+        # return f"<UIElem {self.elem_id} @ {self.center}>"
+        return f"<UIElem id={self.resourceId}> @ {self.bounds}"
 
 def parse_bounds(elem: ET.Element) -> Tuple[Tuple[int, int], Tuple[int, int], Tuple[int, int]]:
     """解析元素bounds属性，返回(left_top, right_bottom, center)"""
@@ -298,14 +326,136 @@ def ui_filter(xml_path: str, min_dist: int = 30) -> List[AndroidElement]:
     
     return elem_list
 
+async def filter_state_portal(use_normalized: bool=False) -> Tuple[str, str, List[Dict[str, Any]], Dict[str, Any]]:
+    """
+    Get device state with configurable filtering.
+
+    Returns:
+        Tuple of (formatted_text, focused_text, a11y_tree, phone_state)
+    """
+
+    max_retries = 3
+    last_error = None
+
+    for attempt in range(max_retries):
+        try:
+            logger.debug(f"Getting state (attempt {attempt + 1}/{max_retries})")
+            device = await get_device_factory()
+            combined_data = await get_state_portal(device)
+
+            if "error" in combined_data:
+                raise Exception(
+                    f"Portal returned error: {combined_data.get('message', 'Unknown error')}"
+                )
+
+            required_keys = ["a11y_tree", "phone_state", "device_context"]
+            missing_keys = [
+                key for key in required_keys if key not in combined_data
+            ]
+            if missing_keys:
+                raise Exception(f"Missing data in state: {', '.join(missing_keys)}")
+
+            # Store screen dimensions for coordinate conversion
+            device_context = combined_data["device_context"]
+            screen_bounds = device_context.get("screen_bounds", {})
+            screen_width = screen_bounds.get("width")
+            screen_height = screen_bounds.get("height")
+
+            raw_tree_cache = combined_data["a11y_tree"]
+
+            tree_filter = DetailedFilter()
+            filtered_tree_cache = tree_filter.filter(
+                raw_tree_cache, combined_data["device_context"]
+            )
+            # print(f"-" * 80)
+            # print(f"{filtered_tree_cache}")
+            # print(f"-" * 80)
+
+            # Set formatter screen dimensions for normalized bounds
+            tree_formatter = IndexedFormatter()
+            tree_formatter.screen_width = screen_width
+            tree_formatter.screen_height = screen_height
+            tree_formatter.use_normalized = use_normalized
+
+            formatted_text, focused_text, a11y_tree, phone_state = (
+                tree_formatter.format(
+                    filtered_tree_cache, combined_data["phone_state"]
+                )
+            )
+
+            clickable_elements_cache = a11y_tree
+
+            # print(f"+" * 80)
+            # print(f"{clickable_elements_cache}")
+            # print(f"+" * 80)
+
+            return (formatted_text, focused_text, a11y_tree, phone_state)
+
+        except Exception as e:
+            last_error = str(e)
+            logger.warning(f"get_state attempt {attempt + 1} failed: {last_error}")
+
+            if attempt < max_retries - 1:
+                await asyncio.sleep(0.5)
+            else:
+                error_msg = f"Failed to get state after {max_retries} attempts: {last_error}"
+                logger.error(error_msg)
+                raise Exception(error_msg)
+            
+async def ui_portal() -> Tuple[str, List[AndroidPortalElement]]:
+    """
+    Get device state and return formatted text with AndroidPortalElement list.
+
+    Returns:
+        Tuple of (formatted_text, List[AndroidPortalElement])
+    """
+    formatted_text, _, a11y_tree, _ = (
+        await filter_state_portal()
+    )
+    
+    # Convert a11y_tree to list of AndroidPortalElement objects
+    portal_elements = []
+    for elem in a11y_tree:
+        # Parse bounds string "x1,y1,x2,y2" to tuple format
+        bounds_str = elem.get("bounds", "0,0,0,0")
+        coords = bounds_str.split(",")
+        if len(coords) == 4:
+            x1, y1, x2, y2 = map(int, coords)
+            bounds = ((x1, y1), (x2, y2))
+        else:
+            bounds = ((0, 0), (0, 0))
+        
+        portal_elem = AndroidPortalElement(
+            resourceId=elem.get("resourceId", ""),
+            className=elem.get("className", ""),
+            text=elem.get("text", ""),
+            bounds=bounds,
+            checked=elem.get("checked", False)
+        )
+        # print(f"""Portal element: {portal_elem}""")
+        portal_elements.append(portal_elem)
+    
+    return (formatted_text, portal_elements)
+
+
+async def main():
+    # 测试用例
+    # xml_file = "tests/test_ui.xml"
+    # elems = ui_filter(xml_file)
+
+    # print(f"Found {len(elems)} actionable elements\n")
+    # for i, e in enumerate(elems, 1):
+    #     print(f"{i:02d}. {e}")
+    #     print(f"    XPath: {e.get_xpath()}")
+        # print(f"    Compress_XPath: {e.compressed_xpath}\n")
+
+    formatted_text, a11y_tree = (
+        await ui_portal()
+    )
+    print(f"格式化后的文本：{formatted_text}")
+    # print(f"聚焦的文本：{focused_text}")
+    # print(f"获取状态成功：{phone_state}")
+    print(f"UI 树结构：{a11y_tree}")
 
 if __name__ == "__main__":
-    # 测试用例
-    xml_file = "tests/test_ui.xml"
-    elems = ui_filter(xml_file)
-
-    print(f"Found {len(elems)} actionable elements\n")
-    for i, e in enumerate(elems, 1):
-        print(f"{i:02d}. {e}")
-        print(f"    XPath: {e.get_xpath()}")
-        # print(f"    Compress_XPath: {e.compressed_xpath}\n")
+    asyncio.run(main())

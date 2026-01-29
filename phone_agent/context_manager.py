@@ -344,11 +344,20 @@ class StructuredContext:
         """Add a history entry (thinking/response) to context."""
         # Add thinking content as a history entry
         self._step_count += 1
+        
+        # Handle case when action is None
+        if action is None:
+            action_description = "SkillExecution"
+            action_code = content
+        else:
+            action_description = list(action.keys())[0] if action.keys() else "Unknown"
+            action_code = list(action.values())[0] if action.values() else ""
+        
         entry = HistoryEntry(
             step=self._step_count,
             thinking=content,
-            action_description=list(action.keys())[0],  # Will be filled when action is executed
-            action_code=list(action.values())[0],  # Will be filled when action is executed
+            action_description=action_description,
+            action_code=action_code,
             success=True,  # Default to True, will be updated based on action result
             tag=tag
         )

@@ -13,7 +13,7 @@ from utils.ui_filter import ui_filter
 from act_mem import ActionMemory, WorkflowRecorder
 
 
-def run_step_recorder(app=None, demo_name=None, root_dir="./", device_type="adb", device_id=None):
+async def run_step_recorder(app=None, demo_name=None, root_dir="./", device_type="adb", device_id=None):
     """
     Run the step recorder for human demonstration.
     
@@ -52,7 +52,7 @@ def run_step_recorder(app=None, demo_name=None, root_dir="./", device_type="adb"
     os.makedirs(xml_dir, exist_ok=True)
 
     # Initialize device factory
-    device_factory = get_device_factory()
+    device_factory = await get_device_factory()
     device_factory.device_type = device_type_enum
 
     # Get device list

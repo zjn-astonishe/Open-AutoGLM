@@ -1,5 +1,6 @@
 """Device control utilities for Android automation."""
 
+import asyncio
 import os
 import subprocess
 import time
@@ -9,7 +10,7 @@ from phone_agent.config.apps import APP_PACKAGES
 from phone_agent.config.timing import TIMING_CONFIG
 
 
-def get_current_app(device_id: str | None = None) -> str:
+async def get_current_app(device_id: str | None = None) -> str:
     """
     Get the currently focused app name.
 
@@ -19,13 +20,17 @@ def get_current_app(device_id: str | None = None) -> str:
     Returns:
         The app name if recognized, otherwise "System Home".
     """
-    adb_prefix = _get_adb_prefix(device_id)
+    adb_prefix = await _get_adb_prefix(device_id)
     # print(f"adb_prefix: {adb_prefix}")
 
-    result = subprocess.run(
-        adb_prefix + ["shell", "dumpsys", "window"], capture_output=True, text=True, encoding="utf-8"
+    process = await asyncio.create_subprocess_exec(
+        *adb_prefix, "shell", "dumpsys", "window",
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE
     )
-    output = result.stdout
+    stdout, stderr = await process.communicate()
+    output = stdout.decode("utf-8")
+    
     if not output:
         raise ValueError("No output from dumpsys window")
 
@@ -39,7 +44,7 @@ def get_current_app(device_id: str | None = None) -> str:
     return "System Home"
 
 
-def tap(
+async def tap(
     x: int, y: int, device_id: str | None = None, delay: float | None = None
 ) -> None:
     """
@@ -54,15 +59,18 @@ def tap(
     if delay is None:
         delay = TIMING_CONFIG.device.default_tap_delay
 
-    adb_prefix = _get_adb_prefix(device_id)
+    adb_prefix = await _get_adb_prefix(device_id)
 
-    subprocess.run(
-        adb_prefix + ["shell", "input", "tap", str(x), str(y)], capture_output=True
+    process = await asyncio.create_subprocess_exec(
+        *adb_prefix, "shell", "input", "tap", str(x), str(y),
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE
     )
-    time.sleep(delay)
+    await process.communicate()
+    await asyncio.sleep(delay)
 
 
-def double_tap(
+async def double_tap(
     x: int, y: int, device_id: str | None = None, delay: float | None = None
 ) -> None:
     """
@@ -77,19 +85,26 @@ def double_tap(
     if delay is None:
         delay = TIMING_CONFIG.device.default_double_tap_delay
 
-    adb_prefix = _get_adb_prefix(device_id)
+    adb_prefix = await _get_adb_prefix(device_id)
 
-    subprocess.run(
-        adb_prefix + ["shell", "input", "tap", str(x), str(y)], capture_output=True
+    process = await asyncio.create_subprocess_exec(
+        *adb_prefix, "shell", "input", "tap", str(x), str(y),
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE
     )
-    time.sleep(TIMING_CONFIG.device.double_tap_interval)
-    subprocess.run(
-        adb_prefix + ["shell", "input", "tap", str(x), str(y)], capture_output=True
+    await process.communicate()
+    await asyncio.sleep(TIMING_CONFIG.device.double_tap_interval)
+    
+    process = await asyncio.create_subprocess_exec(
+        *adb_prefix, "shell", "input", "tap", str(x), str(y),
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE
     )
-    time.sleep(delay)
+    await process.communicate()
+    await asyncio.sleep(delay)
 
 
-def long_press(
+async def long_press(
     x: int,
     y: int,
     duration_ms: int = 3000,
@@ -109,16 +124,18 @@ def long_press(
     if delay is None:
         delay = TIMING_CONFIG.device.default_long_press_delay
 
-    adb_prefix = _get_adb_prefix(device_id)
+    adb_prefix = await _get_adb_prefix(device_id)
 
-    subprocess.run(
-        adb_prefix
-        + ["shell", "input", "swipe", str(x), str(y), str(x), str(y), str(duration_ms)],
-        capture_output=True,
+    process = await asyncio.create_subprocess_exec(
+        *adb_prefix, "shell", "input", "swipe", str(x), str(y), str(x), str(y), str(duration_ms),
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE
     )
-    time.sleep(delay)
+    await process.communicate()
+    await asyncio.sleep(delay)
 
-def swipe(
+
+async def swipe(
     start_x: int,
     start_y: int,
     end_x: int,
@@ -142,7 +159,7 @@ def swipe(
     if delay is None:
         delay = TIMING_CONFIG.device.default_swipe_delay
 
-    adb_prefix = _get_adb_prefix(device_id)
+    adb_prefix = await _get_adb_prefix(device_id)
 
     if duration_ms is None:
         # Calculate duration based on distance
@@ -152,23 +169,17 @@ def swipe(
     
     # print(f"swipe: {start_x}, {start_y} -> {end_x}, {end_y}")
 
-    subprocess.run(
-        adb_prefix
-        + [
-            "shell",
-            "input",
-            "swipe",
-            str(start_x),
-            str(start_y),
-            str(end_x),
-            str(end_y),
-            str(duration_ms),
-        ],
-        capture_output=True,
+    process = await asyncio.create_subprocess_exec(
+        *adb_prefix, "shell", "input", "swipe",
+        str(start_x), str(start_y), str(end_x), str(end_y), str(duration_ms),
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE
     )
-    time.sleep(delay)
+    await process.communicate()
+    await asyncio.sleep(delay)
 
-def back(device_id: str | None = None, delay: float | None = None) -> None:
+
+async def back(device_id: str | None = None, delay: float | None = None) -> None:
     """
     Press the back button.
 
@@ -179,15 +190,18 @@ def back(device_id: str | None = None, delay: float | None = None) -> None:
     if delay is None:
         delay = TIMING_CONFIG.device.default_back_delay
 
-    adb_prefix = _get_adb_prefix(device_id)
+    adb_prefix = await _get_adb_prefix(device_id)
 
-    subprocess.run(
-        adb_prefix + ["shell", "input", "keyevent", "4"], capture_output=True
+    process = await asyncio.create_subprocess_exec(
+        *adb_prefix, "shell", "input", "keyevent", "4",
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE
     )
-    time.sleep(delay)
+    await process.communicate()
+    await asyncio.sleep(delay)
 
 
-def home(device_id: str | None = None, delay: float | None = None) -> None:
+async def home(device_id: str | None = None, delay: float | None = None) -> None:
     """
     Press the home button.
 
@@ -198,15 +212,18 @@ def home(device_id: str | None = None, delay: float | None = None) -> None:
     if delay is None:
         delay = TIMING_CONFIG.device.default_home_delay
 
-    adb_prefix = _get_adb_prefix(device_id)
+    adb_prefix = await _get_adb_prefix(device_id)
 
-    subprocess.run(
-        adb_prefix + ["shell", "input", "keyevent", "KEYCODE_HOME"], capture_output=True
+    process = await asyncio.create_subprocess_exec(
+        *adb_prefix, "shell", "input", "keyevent", "KEYCODE_HOME",
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE
     )
-    time.sleep(delay)
+    await process.communicate()
+    await asyncio.sleep(delay)
 
 
-def launch_app(
+async def launch_app(
     app_name: str, device_id: str | None = None, delay: float | None = None
 ) -> bool:
     """
@@ -232,29 +249,23 @@ def launch_app(
     if app_name not in APP_PACKAGES:
         return False
 
-    adb_prefix = _get_adb_prefix(device_id)
+    adb_prefix = await _get_adb_prefix(device_id)
     
     package = APP_PACKAGES[app_name]
     # print(f"package: {package}")
 
-    subprocess.run(
-        adb_prefix
-        + [
-            "shell",
-            "monkey",
-            "-p",
-            package,
-            "-c",
-            "android.intent.category.LAUNCHER",
-            "1",
-        ],
-        capture_output=True,
+    process = await asyncio.create_subprocess_exec(
+        *adb_prefix, "shell", "monkey", "-p", package,
+        "-c", "android.intent.category.LAUNCHER", "1",
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE
     )
-    time.sleep(delay)
+    await process.communicate()
+    await asyncio.sleep(delay)
     return True
 
 
-def _get_adb_prefix(device_id: str | None) -> list:
+async def _get_adb_prefix(device_id: str | None) -> list:
     """Get ADB command prefix with optional device specifier."""
     if device_id:
         return ["adb", "-s", device_id]

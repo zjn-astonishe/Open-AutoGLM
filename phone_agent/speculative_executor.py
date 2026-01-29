@@ -1,6 +1,7 @@
 """Speculative executor for predicting future UI states and actions."""
 
 import time
+import asyncio
 from typing import List, Dict, Any, Optional, Tuple, Callable
 from dataclasses import dataclass
 from sentence_transformers import SentenceTransformer
@@ -303,7 +304,7 @@ class SpeculativeExecutor:
         
         return '\n'.join(context_lines)
     
-    def executor(self, prediction: Dict[str, str], tag: str, recorder=None, initial_screenshot=None):
+    async def executor(self, prediction: Dict[str, str], tag: str, recorder=None, initial_screenshot=None, is_portal: bool = True):
         """
         Execute speculative predictions by storing them in action memory.
         
@@ -316,22 +317,31 @@ class SpeculativeExecutor:
             The final screenshot after all speculative actions, or None if no actions executed
         """
 
-        device_factory = get_device_factory()
+        device_factory = await get_device_factory()
         
         # Use provided screenshot or capture new one
         if initial_screenshot is not None:
             screenshot = initial_screenshot
         else:
-            screenshot = device_factory.get_screenshot(device_id=self.device_id)
+            screenshot = await device_factory.get_screenshot(device_id=self.device_id)
         final_screenshot = screenshot
 
         current_elements = []
 
-        for e in screenshot.elements:
-            current_elements.append({
-                "content": e.elem_id,
-                "bbox": e.bbox,
-            })
+        if not is_portal:
+            for e in screenshot.elements:
+                current_elements.append({
+                    "content": e.elem_id,
+                    "bbox": e.bbox,
+                })
+        else:
+            for e in screenshot.elements:
+                current_elements.append({
+                    "resourceId": e.resourceId,
+                    "className": e.className,
+                    "text": e.text,
+                    "bbox": e.bounds,
+                })
 
         # IMPORTANT: Complete any pending transition from agent.py before we start
         # Otherwise our on_action_executed calls will overwrite agent.py's pending transition
@@ -340,7 +350,7 @@ class SpeculativeExecutor:
             current_screenshot = screenshot
             
             # Get current app and work graph
-            current_app = device_factory.get_current_app(self.device_id)
+            current_app = await device_factory.get_current_app(self.device_id)
             work_graph = self._memory.get_work_graph(current_app)
             if work_graph is None:
                 work_graph = self._memory.add_work_graph(current_app)
@@ -404,7 +414,7 @@ class SpeculativeExecutor:
                         
                         if recorder:
                             # Get current app
-                            current_app = device_factory.get_current_app(self.device_id)
+                            current_app = await device_factory.get_current_app(self.device_id)
                             
                             # Get or create work graph for current app
                             work_graph = self._memory.get_work_graph(current_app)
@@ -418,13 +428,22 @@ class SpeculativeExecutor:
 
                             # Get current elements for from_node
                             before_elements = []
-                            for e in screenshot.elements:
-                                before_elements.append({
-                                    "content": e.elem_id,
-                                    "option": e.checked,
-                                    "focused": e.focused,
-                                    "path": e.get_xpath()
-                                })
+                            if not is_portal:
+                                for e in screenshot.elements:
+                                    before_elements.append({
+                                        "content": e.elem_id,
+                                        "option": e.checked,
+                                        "focused": e.focused,
+                                        "path": e.get_xpath()
+                                    })
+                            else:
+                                for e in screenshot.elements:
+                                    before_elements.append({
+                                        "resourceId": e.elem_id,
+                                        "className": e.className,
+                                        "text": e.text,
+                                        "checked": e.checked,
+                                    })
                             
                             # Add action to from_node based on action type
                             if action["action"] == "Type":
@@ -463,7 +482,7 @@ class SpeculativeExecutor:
                                 )
                         
                         # Execute the action
-                        result = self.action_handler.execute(action, screenshot.width, screenshot.height)
+                        result = await self.action_handler.execute(action, screenshot.width, screenshot.height)
                         
                         # After execution, create to_node and record transition
                         if recorder and from_node_id and node_action:
@@ -475,15 +494,24 @@ class SpeculativeExecutor:
                             )
                             
                             # Get screenshot after action execution to create to_node
-                            after_screenshot = device_factory.get_screenshot(device_id=self.device_id)
+                            after_screenshot = await device_factory.get_screenshot(device_id=self.device_id)
                             after_elements = []
-                            for e in after_screenshot.elements:
-                                after_elements.append({
-                                    "content": e.elem_id,
-                                    "option": e.checked,
-                                    "focused": e.focused,
-                                    "path": e.get_xpath()
-                                })
+                            if not is_portal:
+                                for e in after_screenshot.elements:
+                                    after_elements.append({
+                                        "content": e.elem_id,
+                                        "option": e.checked,
+                                        "focused": e.focused,
+                                        "path": e.get_xpath()
+                                    })
+                            else:
+                                for e in screenshot.elements:
+                                    before_elements.append({
+                                        "resourceId": e.elem_id,
+                                        "className": e.className,
+                                        "text": e.text,
+                                        "checked": e.checked,
+                                    })
                             
                             # Create to_node
                             to_node = work_graph.create_node(after_elements)
@@ -498,11 +526,20 @@ class SpeculativeExecutor:
                             
                             # Update current_elements for next speculative action matching
                             current_elements = []
-                            for e in screenshot.elements:
-                                current_elements.append({
-                                    "content": e.elem_id,
-                                    "bbox": e.bbox,
-                                })
+                            if not is_portal:
+                                for e in screenshot.elements:
+                                    current_elements.append({
+                                        "content": e.elem_id,
+                                        "bbox": e.bbox,
+                                    })
+                            else:
+                                for e in screenshot.elements:
+                                    current_elements.append({
+                                        "resourceId": e.resourceId,
+                                        "className": e.className,
+                                        "text": e.text,
+                                        "bbox": e.bounds,
+                                    })
                         
                         action_dict = {list(prediction.keys())[i]: list(prediction.values())[i]}
                         print(f"Speculative action executed and recorded: {action_dict}")

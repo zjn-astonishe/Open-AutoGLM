@@ -40,7 +40,7 @@ class WorkNode:
             self, 
             action_type: str, 
             description: str, 
-            zone_path: Optional[str] = None, 
+            zone_path: Optional[str] = None,
             direction: Optional[str] = None,
             distance: Optional[int] = None, 
             text: Optional[str] = None,

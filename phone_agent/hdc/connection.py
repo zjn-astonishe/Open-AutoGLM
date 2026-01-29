@@ -1,5 +1,6 @@
 """HDC connection management for HarmonyOS devices."""
 
+import asyncio
 import os
 import subprocess
 import time
@@ -36,6 +37,61 @@ def _run_hdc_command(cmd: list, **kwargs) -> subprocess.CompletedProcess:
             print(f"[HDC] Error: {result.stderr}")
 
     return result
+
+
+async def _run_hdc_command_async(cmd: list, **kwargs) -> subprocess.CompletedProcess:
+    """
+    Run HDC command asynchronously with optional verbose output.
+
+    Args:
+        cmd: Command list to execute.
+        **kwargs: Additional arguments for asyncio.create_subprocess_exec.
+
+    Returns:
+        CompletedProcess-like object with stdout, stderr, and returncode.
+    """
+    if _HDC_VERBOSE:
+        print(f"[HDC] Running async command: {' '.join(cmd)}")
+
+    # Extract subprocess-specific kwargs
+    capture_output = kwargs.pop('capture_output', False)
+    text = kwargs.pop('text', False)
+    encoding = kwargs.pop('encoding', None)
+    timeout = kwargs.pop('timeout', None)
+    
+    # Set up pipes if capture_output is True
+    if capture_output:
+        kwargs['stdout'] = asyncio.subprocess.PIPE
+        kwargs['stderr'] = asyncio.subprocess.PIPE
+    
+    process = await asyncio.create_subprocess_exec(*cmd, **kwargs)
+    
+    try:
+        stdout, stderr = await asyncio.wait_for(process.communicate(), timeout=timeout)
+    except asyncio.TimeoutError:
+        process.kill()
+        await process.wait()
+        raise subprocess.TimeoutExpired(cmd, timeout)
+    
+    # Decode if text mode
+    if text or encoding:
+        enc = encoding or 'utf-8'
+        stdout = stdout.decode(enc) if stdout else ''
+        stderr = stderr.decode(enc) if stderr else ''
+    
+    if _HDC_VERBOSE and process.returncode != 0:
+        print(f"[HDC] Command failed with return code {process.returncode}")
+        if stderr:
+            print(f"[HDC] Error: {stderr}")
+    
+    # Create a CompletedProcess-like object
+    class AsyncCompletedProcess:
+        def __init__(self, returncode, stdout, stderr):
+            self.returncode = returncode
+            self.stdout = stdout
+            self.stderr = stderr
+    
+    return AsyncCompletedProcess(process.returncode, stdout, stderr)
 
 
 def set_hdc_verbose(verbose: bool):
@@ -128,7 +184,7 @@ class HDCConnection:
         except Exception as e:
             return False, f"Connection error: {e}"
 
-    def disconnect(self, address: str | None = None) -> tuple[bool, str]:
+    async def disconnect(self, address: str | None = None) -> tuple[bool, str]:
         """
         Disconnect from a remote device.
 
@@ -143,7 +199,7 @@ class HDCConnection:
                 cmd = [self.hdc_path, "tdisconn", address]
             else:
                 # HDC doesn't have a "disconnect all" command, so we need to list and disconnect each
-                devices = self.list_devices()
+                devices = await self.list_devices()
                 for device in devices:
                     if ":" in device.device_id:  # Remote device
                         _run_hdc_command(
@@ -162,7 +218,7 @@ class HDCConnection:
         except Exception as e:
             return False, f"Disconnect error: {e}"
 
-    def list_devices(self) -> list[DeviceInfo]:
+    async def list_devices(self) -> list[DeviceInfo]:
         """
         List all connected devices.
 
@@ -170,7 +226,7 @@ class HDCConnection:
             List of DeviceInfo objects.
         """
         try:
-            result = _run_hdc_command(
+            result = await _run_hdc_command_async(
                 [self.hdc_path, "list", "targets"],
                 capture_output=True,
                 text=True,
@@ -209,7 +265,7 @@ class HDCConnection:
             print(f"Error listing devices: {e}")
             return []
 
-    def get_device_info(self, device_id: str | None = None) -> DeviceInfo | None:
+    async def get_device_info(self, device_id: str | None = None) -> DeviceInfo | None:
         """
         Get detailed information about a device.
 
@@ -219,7 +275,7 @@ class HDCConnection:
         Returns:
             DeviceInfo or None if not found.
         """
-        devices = self.list_devices()
+        devices = await self.list_devices()
 
         if not devices:
             return None
@@ -233,7 +289,7 @@ class HDCConnection:
 
         return None
 
-    def is_connected(self, device_id: str | None = None) -> bool:
+    async def is_connected(self, device_id: str | None = None) -> bool:
         """
         Check if a device is connected.
 
@@ -243,7 +299,7 @@ class HDCConnection:
         Returns:
             True if connected, False otherwise.
         """
-        devices = self.list_devices()
+        devices = await self.list_devices()
 
         if not devices:
             return False
@@ -370,7 +426,7 @@ def quick_connect(address: str) -> tuple[bool, str]:
     return conn.connect(address)
 
 
-def list_devices() -> list[DeviceInfo]:
+async def list_devices() -> list[DeviceInfo]:
     """
     Quick helper to list connected devices.
 
@@ -378,4 +434,4 @@ def list_devices() -> list[DeviceInfo]:
         List of DeviceInfo objects.
     """
     conn = HDCConnection()
-    return conn.list_devices()
+    return await conn.list_devices()
