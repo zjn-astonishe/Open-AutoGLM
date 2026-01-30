@@ -76,20 +76,20 @@ class AndroidPortalElement:
             self,
             resourceId: str,
             className: str,
-            text: str,
+            content_desc: str,
+            state_desc: str,
             bounds: Tuple[Tuple[int, int], Tuple[int, int]],
-            checked: bool
         ):
         self.resourceId = resourceId
         self.className = className
-        self.text = text
-        self.checked = checked
+        self.content_desc = content_desc
+        self.state_desc = state_desc
         self.bounds = bounds
         self.center = ((self.bounds[0][0] + self.bounds[1][0]) / 2, (self.bounds[0][1] + self.bounds[1][1]) / 2)
 
     def __repr__(self) -> str:
         # return f"<UIElem {self.elem_id} @ {self.center}>"
-        return f"<UIElem id={self.resourceId}> @ {self.bounds}"
+        return f"<UIElem id={self.resourceId}> @ {self.state_desc}"
 
 def parse_bounds(elem: ET.Element) -> Tuple[Tuple[int, int], Tuple[int, int], Tuple[int, int]]:
     """解析元素bounds属性，返回(left_top, right_bottom, center)"""
@@ -428,9 +428,9 @@ async def ui_portal() -> Tuple[str, List[AndroidPortalElement]]:
         portal_elem = AndroidPortalElement(
             resourceId=elem.get("resourceId", ""),
             className=elem.get("className", ""),
-            text=elem.get("text", ""),
+            content_desc=elem.get("content_desc", ""),
+            state_desc=elem.get("state_desc", ""),
             bounds=bounds,
-            checked=elem.get("checked", False)
         )
         # print(f"""Portal element: {portal_elem}""")
         portal_elements.append(portal_elem)

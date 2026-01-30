@@ -1,6 +1,6 @@
 [
   {
-    "id": "46462a42-5f68-4b32-9424-3dae452572d2",
+    "id": "6feb3213-22e3-4c16-933f-085aed2f6447",
     "tag": "alarm.create",
     "tag_embedding": [
       -0.028443342074751854,
@@ -775,16 +775,29 @@
       -0.06883726269006729,
       -0.06708765774965286
     ],
-    "step": 9,
-    "timecost": 101.49538445472717,
+    "step": 10,
+    "timecost": 155.0935573577881,
     "path": [
       {
-        "from_node_id": "774afd2d-e0f3-4031-8d0b-5a411376f129",
-        "to_node_id": "008a86e5-5866-4183-91bd-9c19dab16736",
+        "from_node_id": "9f321da1-8709-436b-80f6-ee93d733eed6",
+        "to_node_id": "f65a83c7-2566-433b-867b-3853a05a1265",
         "action": {
-          "action_type": "Launch",
-          "description": "Open the Clock app to begin setting the alarm.",
-          "zone_path": null,
+          "action_type": "Swipe",
+          "description": "Swipe up from the bottom of the screen to open the app drawer.",
+          "zone_path": "/FrameLayout/",
+          "direction": "up",
+          "distance": "medium",
+          "text": null
+        },
+        "success": true
+      },
+      {
+        "from_node_id": "f65a83c7-2566-433b-867b-3853a05a1265",
+        "to_node_id": "09b5f7b2-545b-46c6-b612-7a12c6f3a960",
+        "action": {
+          "action_type": "Tap",
+          "description": "Tap the Clock app icon to open the application.",
+          "zone_path": "com.google.android.apps.nexuslauncher:id/icon/TextView/Clock:Clock",
           "direction": null,
           "distance": null,
           "text": null
@@ -792,8 +805,8 @@
         "success": true
       },
       {
-        "from_node_id": "008a86e5-5866-4183-91bd-9c19dab16736",
-        "to_node_id": "5e39b19d-4397-4d0e-9dd5-b6099ba06c9a",
+        "from_node_id": "09b5f7b2-545b-46c6-b612-7a12c6f3a960",
+        "to_node_id": "1a26b3ba-b084-4340-bc73-e49e50379b8b",
         "action": {
           "action_type": "Tap",
           "description": "Tap the \"+\" button to create a new alarm.",
@@ -805,12 +818,12 @@
         "success": true
       },
       {
-        "from_node_id": "5e39b19d-4397-4d0e-9dd5-b6099ba06c9a",
-        "to_node_id": "61395ccb-338a-4156-a860-d20307bac4ac",
+        "from_node_id": "1a26b3ba-b084-4340-bc73-e49e50379b8b",
+        "to_node_id": "58ecbc5a-353b-48c3-8d57-ce86ef4bc3c2",
         "action": {
           "action_type": "Tap",
-          "description": "Tap on the \"12\" hour marker to set the hour to 12.",
-          "zone_path": null,
+          "description": "Tap on the \"12\" hour mark to set the hour to 12.",
+          "zone_path": "/TextView/12:12 hours",
           "direction": null,
           "distance": null,
           "text": null
@@ -818,12 +831,12 @@
         "success": true
       },
       {
-        "from_node_id": "61395ccb-338a-4156-a860-d20307bac4ac",
-        "to_node_id": "71f4f143-cc7d-4678-a390-6f6ccb790b31",
+        "from_node_id": "58ecbc5a-353b-48c3-8d57-ce86ef4bc3c2",
+        "to_node_id": "07ddcfc0-fb2b-4c4d-814c-63302de7268d",
         "action": {
           "action_type": "Tap",
-          "description": "Tap on the \"30\" minute marker to set the minutes to 30.",
-          "zone_path": null,
+          "description": "Tap on the \"30\" minute mark to set the minutes to 30.",
+          "zone_path": "/TextView/30:30 minutes",
           "direction": null,
           "distance": null,
           "text": null
@@ -831,11 +844,11 @@
         "success": true
       },
       {
-        "from_node_id": "71f4f143-cc7d-4678-a390-6f6ccb790b31",
-        "to_node_id": "1dd765e2-0acd-48c6-a6c6-5e973cad9617",
+        "from_node_id": "07ddcfc0-fb2b-4c4d-814c-63302de7268d",
+        "to_node_id": "29711884-2112-4342-a33f-6949e65449ec",
         "action": {
           "action_type": "Tap",
-          "description": "Tap the \"OK\" button to confirm the selected time of 12:30.",
+          "description": "Tap the \"OK\" button to confirm the 12:30 PM time setting.",
           "zone_path": "com.google.android.deskclock:id/material_timepicker_ok_button/Button/OK",
           "direction": null,
           "distance": null,
@@ -844,11 +857,11 @@
         "success": true
       },
       {
-        "from_node_id": "1dd765e2-0acd-48c6-a6c6-5e973cad9617",
-        "to_node_id": "30f01512-2f4e-490f-9bf1-d24b0e08d1a7",
+        "from_node_id": "29711884-2112-4342-a33f-6949e65449ec",
+        "to_node_id": "e4e6a854-f060-40f1-9a63-05336b66f7e1",
         "action": {
           "action_type": "Tap",
-          "description": "Select Friday as a repeat day for the alarm.",
+          "description": "Tap the Friday checkbox to select it as a repeat day for the alarm.",
           "zone_path": "com.google.android.deskclock:id/day_button_5/CheckBox/F:Friday",
           "direction": null,
           "distance": null,
@@ -857,11 +870,11 @@
         "success": true
       },
       {
-        "from_node_id": "30f01512-2f4e-490f-9bf1-d24b0e08d1a7",
-        "to_node_id": "8e7a3403-4607-41e9-9f2a-13a04cc3ca98",
+        "from_node_id": "e4e6a854-f060-40f1-9a63-05336b66f7e1",
+        "to_node_id": "5f50c663-f00c-4659-8469-80698b5fc679",
         "action": {
           "action_type": "Tap",
-          "description": "Tap on the \"S:Sunday\" checkbox to select Sunday as a repeat day for the alarm.",
+          "description": "Tap the Sunday checkbox to select it as a repeat day for the alarm.",
           "zone_path": "com.google.android.deskclock:id/day_button_0/CheckBox/S:Sunday",
           "direction": null,
           "distance": null,
@@ -870,11 +883,11 @@
         "success": true
       },
       {
-        "from_node_id": "8e7a3403-4607-41e9-9f2a-13a04cc3ca98",
-        "to_node_id": "4539c90a-4eb0-4f53-8edc-7091568b31e7",
+        "from_node_id": "5f50c663-f00c-4659-8469-80698b5fc679",
+        "to_node_id": "37349236-f874-467b-9aed-585a1a0e373d",
         "action": {
           "action_type": "Tap",
-          "description": "Disable vibration for the alarm by tapping the \"Vibrate\" checkbox.",
+          "description": "Tap the \"Vibrate\" checkbox to disable vibration for the alarm.",
           "zone_path": "com.google.android.deskclock:id/vibrate_onoff/CheckBox/Vibrate",
           "direction": null,
           "distance": null,

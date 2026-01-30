@@ -1,5 +1,6 @@
 """Speculative executor for predicting future UI states and actions."""
 
+import ast
 import time
 import asyncio
 from typing import List, Dict, Any, Optional, Tuple, Callable
@@ -7,7 +8,6 @@ from dataclasses import dataclass
 from sentence_transformers import SentenceTransformer
 
 from phone_agent.device_factory import get_device_factory
-from phone_agent.actions.handler import parse_action
 from phone_agent.context_manager import StructuredContext
 from phone_agent.actions.handler import ActionHandler
 
@@ -79,7 +79,7 @@ class SpeculativeExecutor:
             Formatted string containing speculative UI context, or None if no predictions
         """
         # Find relevant workflows for the current app and task
-        relevant_workflows = self._find_relevant_workflows(current_app, task)
+        relevant_workflows = self._find_relevant_workflows(current_app)
         print(f"Found {len(relevant_workflows)} relevant workflows for app '{current_app}' and task '{task}'")
         if not relevant_workflows:
             return None
@@ -98,9 +98,9 @@ class SpeculativeExecutor:
             return None
         
         # Format speculative context
-        return self._format_speculative_context(self._future_nodes, task)
+        return self._format_speculative_context(self._future_nodes)
     
-    def _find_relevant_workflows(self, current_app: str, task: str) -> List[Workflow]:
+    def _find_relevant_workflows(self, current_app: str) -> List[Workflow]:
         """Find workflows relevant to the current app and task."""
         relevant_workflows = []
         
@@ -262,8 +262,7 @@ class SpeculativeExecutor:
     
     def _format_speculative_context(
         self, 
-        future_nodes: List[SpeculativeNode], 
-        task: str
+        future_nodes: List[SpeculativeNode]
     ) -> str:
         """Format speculative nodes into context string for the model."""
         if not future_nodes:
@@ -304,6 +303,95 @@ class SpeculativeExecutor:
         
         return '\n'.join(context_lines)
     
+    async def parse_action(self, action_code: str, before_elements_index: int, elements_info: List[Dict[str, str]], is_portal: bool = True) -> Tuple[dict[str, Any], str]:
+        """
+        Parse action from model response.
+
+        Args:
+            action_code: The raw action string from the model.
+
+        Returns:
+            Parsed action dictionary.
+
+        Raises:
+            ValueError: If the response cannot be parsed.
+        """
+        try:
+            action_code = action_code.strip()
+            if action_code.startswith("do"):
+                # Use AST parsing instead of eval for safety
+                try:
+                    # Escape special characters (newlines, tabs, etc.) for valid Python syntax
+                    action_code = action_code.replace('\n', '\\n')
+                    action_code = action_code.replace('\r', '\\r')
+                    action_code = action_code.replace('\t', '\\t')
+
+                    tree = ast.parse(action_code, mode="eval")
+                    if not isinstance(tree.body, ast.Call):
+                        raise ValueError("Expected a function call")
+
+                    call = tree.body
+                    # Extract keyword arguments safely
+                    action = {"_metadata": "do"}
+                    for keyword in call.keywords:
+                        key = keyword.arg
+                        value = ast.literal_eval(keyword.value)
+                        action[key] = value
+                    
+                    # Convert element ID to actual coordinates if needed
+                    if "element" in action and isinstance(action["element"], str):
+                        element_id = action["element"]
+                        # Find the element with matching ID in elements_info
+                        for e2 in self._future_nodes[before_elements_index].elements_info:
+                            if element_id == e2["id"]:
+                                print(f"Found element with id: {element_id}")
+                                if is_portal:
+                                    e2_content = f"{e2['resourceId']}/{e2['className']}/{e2['content']}"
+                                else:
+                                    e2_content = e2["content"]
+                                print(f"Element content: {e2_content}")
+                                for e1 in elements_info:
+                                    if is_portal:
+                                        e1_content = f"{e1["resourceId"]}/{e1["className"]}/{e1["content"]}"
+                                    else:
+                                        e1_content = e1["content"]
+                        
+                                    if e1_content == e2_content:
+                                        print(f"Element content remained the same: {e1_content}")
+                                        bbox = e1['bbox']
+                                        break                                        
+                                    # else:
+                                    #     model = SentenceTransformer('./model/sentence-transformers/all-MiniLM-L6-v2')
+                                    #     e1_embedding = model.encode(e1_content)
+                                    #     e2_embedding = model.encode(e2_content)
+                                    #     similarity = self._memory._calculate_cosine_similarity(e1_embedding, e2_embedding)
+                                    #     if similarity > 0.9:  # High similarity threshold
+                                    #         print(f"Element content {e1_content} remained the same with similarity {similarity}")
+                                    #         bbox = e1['bbox']
+                                    #         break
+                                if bbox:
+                                    center_x = (bbox[0][0] + bbox[1][0]) // 2
+                                    center_y = (bbox[0][1] + bbox[1][1]) // 2
+                                    # Convert to relative coordinates (0-1000 scale)
+                                    action["element"] = [center_x, center_y]
+                                    if not is_portal:
+                                        return action, e1["content"]
+                                    else:
+                                        return action, f"{e1["resourceId"]}/{e1["className"]}/{e1["content"]}"
+                                else:
+                                    return None, None
+
+                        return None, None
+                        
+                    return action, None
+                except (SyntaxError, ValueError) as e:
+                    raise ValueError(f"Failed to parse do() action: {e}")
+            else:
+                raise ValueError(f"Failed to parse action: {action_code}")
+        except Exception as e:
+            raise ValueError(f"Failed to parse action: {e}")
+
+    
     async def executor(self, prediction: Dict[str, str], tag: str, recorder=None, initial_screenshot=None, is_portal: bool = True):
         """
         Execute speculative predictions by storing them in action memory.
@@ -339,7 +427,7 @@ class SpeculativeExecutor:
                 current_elements.append({
                     "resourceId": e.resourceId,
                     "className": e.className,
-                    "text": e.text,
+                    "content": e.content_desc,
                     "bbox": e.bounds,
                 })
 
@@ -357,13 +445,22 @@ class SpeculativeExecutor:
             
             # Create to_node for agent.py's action
             after_elements = []
-            for e in current_screenshot.elements:
-                after_elements.append({
-                    "content": e.elem_id,
-                    "option": e.checked,
-                    "focused": e.focused,
-                    "path": e.get_xpath()
-                })
+            if not is_portal:
+                for e in current_screenshot.elements:
+                    after_elements.append({
+                        "content": e.elem_id,
+                        "option": e.checked,
+                        "focused": e.focused,
+                        "path": e.get_xpath()
+                    })
+            else:
+                for e in screenshot.elements:
+                    current_elements.append({
+                        "resourceId": e.resourceId,
+                        "className": e.className,
+                        "content": e.content_desc,
+                        "checked": e.state_desc,
+                    })
             
             to_node = work_graph.create_node(after_elements)
             to_node.add_tag(tag=tag)
@@ -376,34 +473,22 @@ class SpeculativeExecutor:
             is_match = self._elements_match(current_elements, self._future_nodes[i].elements_info)
             print(f"Elements match with speculative node: {is_match}")
             if is_match:
-                for e2 in self._future_nodes[i].elements_info:
-                    for e1 in current_elements:
-                        if e1['content'] == e2['content']:
-                            e2['bbox'] = e1['bbox']
-                            break
-                        else:
-                            e2['bbox'] = None
-                    if e2['bbox'] is None:
-                        for e1 in current_elements:
-                            model = SentenceTransformer('./model/sentence-transformers/all-MiniLM-L6-v2')
-                            e1_embedding = model.encode(e1['content'])
-                            e2_embedding = model.encode(e2['content'])
-                            similarity = self._memory._calculate_cosine_similarity(e1_embedding, e2_embedding)
-                            if similarity > 0.7:  # High similarity threshold
-                                e2['bbox'] = e1['bbox']
-                    if e2['bbox'] is None:
-                        return final_screenshot
                 for j in range(len(self._future_nodes[i].elements_info)):
                     if i == 0:
                         self._future_nodes[i].elements_info[j]['id'] = f"B{j+1}"
                     elif i == 1:
                         self._future_nodes[i].elements_info[j]['id'] = f"C{j+1}"
                 print(f"predictive action content: {list(prediction.values())[i]}")
+                
                 # print(f"predictive action elements_info: {self._future_nodes[i].elements_info}")
-                action, element_content = parse_action(list(prediction.values())[i], self._future_nodes[i].elements_info)
+                action, element_content = await self.parse_action(list(prediction.values())[i], i, current_elements)
+
+                if action is None:
+                    break
+
                 if action == "Finish":
                     print("Speculative action is Finish, skipping execution.")
-                    continue
+                    break
 
                 if ('element' not in action) or (action['element'] and element_content):
                     print(f"Executing speculative action: {action}")
@@ -423,8 +508,21 @@ class SpeculativeExecutor:
 
                             workflow = self._memory.get_current_workflow()
                             
+                            # IMPORTANT: Get the last node ID from workflow to ensure consistency
+                            # This must match what the workflow expects as the from_node
                             from_node_id = workflow.get_last_id()
+                            
+                            if from_node_id is None:
+                                # This shouldn't happen, but handle it gracefully
+                                print("⚠️ Warning: workflow has no last node, cannot record speculative action")
+                                continue
+                            
                             from_node = work_graph.get_node_by_id(from_node_id)
+                            
+                            if from_node is None:
+                                # Node not found in graph, skip recording
+                                print(f"⚠️ Warning: from_node {from_node_id} not found in work_graph")
+                                continue
 
                             # Get current elements for from_node
                             before_elements = []
@@ -439,27 +537,40 @@ class SpeculativeExecutor:
                             else:
                                 for e in screenshot.elements:
                                     before_elements.append({
-                                        "resourceId": e.elem_id,
+                                        "resourceId": e.resourceId,
                                         "className": e.className,
-                                        "text": e.text,
-                                        "checked": e.checked,
+                                        "content": e.content_desc,
+                                        "checked": e.state_desc,
                                     })
                             
                             # Add action to from_node based on action type
                             if action["action"] == "Type":
+                                zone_path = None
+                                if element_content:
+                                    if not is_portal:
+                                        for e in before_elements:
+                                            if e["content"] == element_content:
+                                                zone_path = e["path"]
+                                                break
+                                    else:
+                                        zone_path = element_content
                                 node_action = from_node.add_action(
                                     action_type=action["action"],
                                     description=list(prediction.keys())[i],
-                                    text=action.get("text")
+                                    text=action.get("text"),
+                                    zone_path=zone_path,
                                 )
                             elif action["action"] == "Swipe":
                                 # Find matching element path
                                 zone_path = None
                                 if element_content:
-                                    for e in before_elements:
-                                        if e["content"] == element_content:
-                                            zone_path = e["path"]
-                                            break
+                                    if not is_portal:
+                                        for e in before_elements:
+                                            if e["content"] == element_content:
+                                                zone_path = e["path"]
+                                                break
+                                    else:
+                                        zone_path = element_content
                                 node_action = from_node.add_action(
                                     action_type=action["action"],
                                     description=list(prediction.keys())[i],
@@ -471,16 +582,19 @@ class SpeculativeExecutor:
                                 # For Click and other actions
                                 zone_path = None
                                 if element_content:
-                                    for e in before_elements:
-                                        if e["content"] == element_content:
-                                            zone_path = e["path"]
-                                            break
+                                    if not is_portal:
+                                        for e in before_elements:
+                                            if e["content"] == element_content:
+                                                zone_path = e["path"]
+                                                break
+                                    else:
+                                        zone_path = element_content
                                 node_action = from_node.add_action(
                                     action_type=action["action"],
                                     description=list(prediction.keys())[i],
                                     zone_path=zone_path
                                 )
-                        
+                                
                         # Execute the action
                         result = await self.action_handler.execute(action, screenshot.width, screenshot.height)
                         
@@ -507,10 +621,10 @@ class SpeculativeExecutor:
                             else:
                                 for e in screenshot.elements:
                                     before_elements.append({
-                                        "resourceId": e.elem_id,
+                                        "resourceId": e.resourceId,
                                         "className": e.className,
-                                        "text": e.text,
-                                        "checked": e.checked,
+                                        "content": e.content_desc,
+                                        "checked": e.state_desc,
                                     })
                             
                             # Create to_node
@@ -537,7 +651,7 @@ class SpeculativeExecutor:
                                     current_elements.append({
                                         "resourceId": e.resourceId,
                                         "className": e.className,
-                                        "text": e.text,
+                                        "content": e.content_desc,
                                         "bbox": e.bounds,
                                     })
                         

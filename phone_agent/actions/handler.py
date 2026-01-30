@@ -376,7 +376,7 @@ class ActionHandler:
         input(f"{message}\nPress Enter after completing manual operation...")
 
 
-def parse_action(action_code: str, elements_info: List[Dict[str, str]], is_portal: bool = True) -> Tuple[dict[str, Any], str] | Tuple[dict[str, Any], str, str, str]:
+def parse_action(action_code: str, elements_info: List[Dict[str, str]], is_portal: bool = True) -> Tuple[dict[str, Any], str]:
     """
     Parse action from model response.
 
@@ -436,8 +436,7 @@ def parse_action(action_code: str, elements_info: List[Dict[str, str]], is_porta
                             if not is_portal:
                                 return action, element["content"]
                             else:
-                                return action, element["resourceId"], element["className"], element["text"]
-                    
+                                return action, f"{element["resourceId"]}/{element["className"]}/{element["content"]}"
                     return action, None
                     
                 # print(f"Parsed do action....: {action}")

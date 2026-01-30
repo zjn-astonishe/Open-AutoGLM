@@ -68,7 +68,7 @@ class IndexedFormatter(TreeFormatter):
     def _format_ui_elements_text(self, a11y_tree: List[Dict[str, Any]]) -> str:
         """Format UI elements text."""
         coord_note = " (normalized [0-1000])" if self.use_normalized else ""
-        schema = "'index. className: resourceId|text|checked|bounds(x1,y1,x2,y2)'"
+        schema = "'index. className: content|state|bounds(x1,y1,x2,y2)'"
         if a11y_tree:
             formatted_ui = IndexedFormatter._format_ui_elements(a11y_tree)
             ui_elements_text = (
@@ -98,9 +98,9 @@ class IndexedFormatter(TreeFormatter):
             index = element.get("index", "")
             class_name = element.get("className", "")
             resource_id = element.get("resourceId", "")
-            text = element.get("text", "")
+            text = element.get("content_desc", "")
             bounds = element.get("bounds", "")
-            checked = element.get("checked", "")
+            state = element.get("state_desc", "")
             children = element.get("children", [])
 
             line_parts = []
@@ -109,16 +109,18 @@ class IndexedFormatter(TreeFormatter):
             if class_name:
                 line_parts.append(class_name + ":")
 
-            details = []
-            if resource_id:
-                details.append(f'"{resource_id}"')
-            if text:
-                details.append(f'"{text}"')
-            if details:
-                line_parts.append(", ".join(details))
 
-            if checked is not "":
-                line_parts.append(f"| checked({checked})")
+            if text:
+                line_parts.append(f'| "{text}"')
+            elif resource_id:
+                line_parts.append(f"| {resource_id}")
+            else:
+                line_parts.append("|")
+
+            if state:
+                line_parts.append(f"| {state}")
+            else:
+                line_parts.append("|")
 
             if bounds:
                 line_parts.append(f"| ({bounds})")
@@ -159,12 +161,14 @@ class IndexedFormatter(TreeFormatter):
         if self.use_normalized and self.screen_width and self.screen_height:
             bounds_str = bounds_to_normalized(bounds_str, self.screen_width, self.screen_height)
 
-        text = (
-            node.get("text")
-            or node.get("contentDescription")
-            or node.get("resourceId")
-            or node.get("className", "")
-        )
+        if node.get("contentDescription") and node.get("text"):
+            text = node.get("text") + ":" + node.get("contentDescription")
+        elif node.get("contentDescription"):
+            text = node.get("contentDescription")
+        elif node.get("text"):
+            text = node.get("text")
+        else:
+            text = ""
 
         class_name = node.get("className", "")
         short_class = class_name.split(".")[-1] if class_name else ""
@@ -173,8 +177,8 @@ class IndexedFormatter(TreeFormatter):
             "index": index,
             "resourceId": node.get("resourceId", ""),
             "className": short_class,
-            "text": text,
+            "content_desc": text,
             "bounds": bounds_str,
-            "checked": node.get("isChecked", False),
+            "state_desc": node.get("stateDescription", ""),
             "children": [],
         }

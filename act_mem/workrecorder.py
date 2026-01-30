@@ -30,8 +30,7 @@ class WorkflowRecorder:
                 to_node_id=current_node_id,
                 action=self._pending_action,
                 success=self._pending_success,
-            )
-            
+            )    
         self._clear_pending_transition()
         
     def on_action_executed(

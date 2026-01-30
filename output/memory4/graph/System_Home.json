@@ -1,92 +1,92 @@
 {
   "app": "System Home",
   "nodes": {
-    "4048851d-b07e-4080-b77a-0a89f664e6d7": {
-      "id": "4048851d-b07e-4080-b77a-0a89f664e6d7",
+    "774afd2d-e0f3-4031-8d0b-5a411376f129": {
+      "id": "774afd2d-e0f3-4031-8d0b-5a411376f129",
       "elements_info": [
         {
-          "content": "com.google.android.apps.nexuslauncher:id_drag_layer__com.google.android.apps.nexuslauncher:id_workspace_com.google.android.apps.nexuslauncher:id_search_container_workspace",
-          "option": "disabled",
-          "focused": "disabled",
-          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]"
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
         },
         {
-          "content": "com.google.android.apps.nexuslauncher:id_bc_smartspace_view__com.google.android.apps.nexuslauncher:id_smartspace_card_pager_Sun, Oct 15_com.google.android.apps.nexuslauncher:id_text_group",
-          "option": "disabled",
-          "focused": "disabled",
-          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]/ViewGroup/ViewGroup/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_workspace\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/bc_smartspace_view\"]/ViewPager[@resource-id=\"com.google.android.apps.nexuslauncher:id/smartspace_card_pager\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+          "resourceId": "com.google.android.apps.nexuslauncher:id/workspace",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
         },
         {
-          "content": "com.google.android.apps.nexuslauncher:id_smartspace_card_pager__Sun, Oct 15_com.google.android.apps.nexuslauncher:id_text_group",
-          "option": "disabled",
-          "focused": "disabled",
-          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]/ViewGroup/ViewGroup/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_workspace\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/bc_smartspace_view\"]/ViewPager[@resource-id=\"com.google.android.apps.nexuslauncher:id/smartspace_card_pager\"]/ViewGroup[@content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+          "resourceId": "com.google.android.apps.nexuslauncher:id/date",
+          "className": "TextView",
+          "content": "Fri, Jan 30:Fri, Jan 30",
+          "checked": ""
         },
         {
-          "content": "com.google.android.apps.nexuslauncher:id_text_group__com.google.android.apps.nexuslauncher:id_date_Sun, Oct 15_Sun, Oct 15",
-          "option": "disabled",
-          "focused": "disabled",
-          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]/ViewGroup/ViewGroup/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_workspace\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/bc_smartspace_view\"]/ViewPager[@resource-id=\"com.google.android.apps.nexuslauncher:id/smartspace_card_pager\"]/ViewGroup/RelativeLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/text_group\"]/TextView[@resource-id=\"com.google.android.apps.nexuslauncher:id/date\" | @content-desc=\"Sun, Oct 15\" | @text=\"Sun, Oct 15\"]"
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Gmail:Gmail",
+          "checked": ""
         },
         {
-          "content": "android.view.ViewGroup_966x1528__Gmail_Gmail",
-          "option": "disabled",
-          "focused": "disabled",
-          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]/ViewGroup/ViewGroup/TextView[@content-desc=\"Gmail\" | @text=\"Gmail\"]"
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Photos:Photos",
+          "checked": ""
         },
         {
-          "content": "android.view.ViewGroup_966x1528__Photos_Photos",
-          "option": "disabled",
-          "focused": "disabled",
-          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]/ViewGroup/ViewGroup/TextView[@content-desc=\"Photos\" | @text=\"Photos\"]"
+          "resourceId": "",
+          "className": "TextView",
+          "content": "YouTube:YouTube",
+          "checked": ""
         },
         {
-          "content": "android.view.ViewGroup_966x1528__YouTube_YouTube",
-          "option": "disabled",
-          "focused": "disabled",
-          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ScrollView[@resource-id=\"com.google.android.apps.nexuslauncher:id/workspace\"]/ViewGroup/ViewGroup/TextView[@content-desc=\"YouTube\" | @text=\"YouTube\"]"
+          "resourceId": "",
+          "className": "View",
+          "content": "Home",
+          "checked": ""
         },
         {
-          "content": "android.view.ViewGroup_928x195__Phone_Phone",
-          "option": "disabled",
-          "focused": "disabled",
-          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/ViewGroup/TextView[@content-desc=\"Phone\" | @text=\"Phone\"]"
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Phone:Phone",
+          "checked": ""
         },
         {
-          "content": "android.view.ViewGroup_928x195__Messages_Messages",
-          "option": "disabled",
-          "focused": "disabled",
-          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/ViewGroup/TextView[@content-desc=\"Messages\" | @text=\"Messages\"]"
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Messages:Messages",
+          "checked": ""
         },
         {
-          "content": "android.view.ViewGroup_928x195__Chrome_Chrome",
-          "option": "disabled",
-          "focused": "disabled",
-          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/ViewGroup/TextView[@content-desc=\"Chrome\" | @text=\"Chrome\"]"
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Chrome:Chrome",
+          "checked": ""
         },
         {
-          "content": "com.google.android.apps.nexuslauncher:id_hotseat__com.google.android.apps.nexuslauncher:id_search_container_hotseat_Search",
-          "option": "disabled",
-          "focused": "disabled",
-          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_hotseat\" | @content-desc=\"Search\"]"
+          "resourceId": "com.google.android.apps.nexuslauncher:id/search_container_hotseat",
+          "className": "FrameLayout",
+          "content": "Search",
+          "checked": ""
         },
         {
-          "content": "com.google.android.apps.nexuslauncher:id_search_container_hotseat_Search__com.google.android.apps.nexuslauncher:id_g_icon_Google app",
-          "option": "disabled",
-          "focused": "disabled",
-          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_hotseat\" | @content-desc=\"Search\"]/ImageView[@resource-id=\"com.google.android.apps.nexuslauncher:id/g_icon\" | @content-desc=\"Google app\"]"
+          "resourceId": "com.google.android.apps.nexuslauncher:id/g_icon",
+          "className": "ImageView",
+          "content": "Google app",
+          "checked": ""
         },
         {
-          "content": "com.google.android.apps.nexuslauncher:id_end_part__com.google.android.apps.nexuslauncher:id_mic_icon_Voice search",
-          "option": "disabled",
-          "focused": "disabled",
-          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_hotseat\" | @content-desc=\"Search\"]/LinearLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/end_part\"]/ImageView[@resource-id=\"com.google.android.apps.nexuslauncher:id/mic_icon\" | @content-desc=\"Voice search\"]"
+          "resourceId": "com.google.android.apps.nexuslauncher:id/mic_icon",
+          "className": "ImageView",
+          "content": "Voice search",
+          "checked": ""
         },
         {
-          "content": "com.google.android.apps.nexuslauncher:id_end_part__com.google.android.apps.nexuslauncher:id_lens_icon_Google Lens",
-          "option": "disabled",
-          "focused": "disabled",
-          "path": "/FrameLayout/LinearLayout/FrameLayout[@resource-id=\"android:id/content\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/launcher\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/drag_layer\"]/ViewGroup[@resource-id=\"com.google.android.apps.nexuslauncher:id/hotseat\"]/FrameLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/search_container_hotseat\" | @content-desc=\"Search\"]/LinearLayout[@resource-id=\"com.google.android.apps.nexuslauncher:id/end_part\"]/ImageButton[@resource-id=\"com.google.android.apps.nexuslauncher:id/lens_icon\" | @content-desc=\"Google Lens\"]"
+          "resourceId": "com.google.android.apps.nexuslauncher:id/lens_icon",
+          "className": "ImageButton",
+          "content": "Google Lens",
+          "checked": ""
         }
       ],
       "tasks": [
@@ -95,20 +95,20 @@
       "actions": [
         {
           "action_type": "Launch",
-          "description": "Search for and launch the Clock app from the app drawer or search bar.",
+          "description": "Open the Clock app to begin setting the alarm.",
           "zone_path": null,
           "reflection_result": {
             "action_successful": true,
             "execution_result": "success",
-            "interface_changes": "Removed 5 interface elements; New content appeared: android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_stopwatch_Stopwatch, com.google.android.deskclock:id_fab_container__com.google.android.deskclock:id_fab_Add alarm, android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_alarm_Alarm; Content disappeared: android.view.ViewGroup_928x195__Messages_Messages, android.view.ViewGroup_966x1528__Photos_Photos, com.google.android.apps.nexuslauncher:id_end_part__com.google.android.apps.nexuslauncher:id_lens_icon_Google Lens; New active element appeared: 'android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_stopwatch_Stopwatch'; New active element appeared: 'com.google.android.deskclock:id_fab_container__com.google.android.deskclock:id_fab_Add alarm'; New active element appeared: 'android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_alarm_Alarm'; New active element appeared: 'android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_clock_Clock'; New active element appeared: 'com.google.android.deskclock:id_desk_clock_pager_frame__com.google.android.deskclock:id_desk_clock_pager_com.google.android.deskclock:id_main'; New active element appeared: 'com.google.android.deskclock:id_main__com.google.android.deskclock:id_alarm_recycler_view'; New active element appeared: 'android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_bedtime_Bedtime'; New active element appeared: 'android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_timer_Timer'; New active element appeared: 'android.support.v7.widget.LinearLayoutCompat_105x147__com.google.android.deskclock:id_overflow_action_button_More options'; Active element disappeared: 'android.view.ViewGroup_928x195__Messages_Messages'; Active element disappeared: 'android.view.ViewGroup_966x1528__Photos_Photos'; Active element disappeared: 'com.google.android.apps.nexuslauncher:id_end_part__com.google.android.apps.nexuslauncher:id_lens_icon_Google Lens'; Active element disappeared: 'com.google.android.apps.nexuslauncher:id_bc_smartspace_view__com.google.android.apps.nexuslauncher:id_smartspace_card_pager_Sun, Oct 15_com.google.android.apps.nexuslauncher:id_text_group'; Active element disappeared: 'com.google.android.apps.nexuslauncher:id_search_container_hotseat_Search__com.google.android.apps.nexuslauncher:id_g_icon_Google app'; Active element disappeared: 'android.view.ViewGroup_966x1528__Gmail_Gmail'; Active element disappeared: 'com.google.android.apps.nexuslauncher:id_smartspace_card_pager__Sun, Oct 15_com.google.android.apps.nexuslauncher:id_text_group'; Active element disappeared: 'android.view.ViewGroup_966x1528__YouTube_YouTube'; Active element disappeared: 'com.google.android.apps.nexuslauncher:id_text_group__com.google.android.apps.nexuslauncher:id_date_Sun, Oct 15_Sun, Oct 15'; Active element disappeared: 'com.google.android.apps.nexuslauncher:id_drag_layer__com.google.android.apps.nexuslauncher:id_workspace_com.google.android.apps.nexuslauncher:id_search_container_workspace'; Active element disappeared: 'android.view.ViewGroup_928x195__Phone_Phone'; Active element disappeared: 'com.google.android.apps.nexuslauncher:id_hotseat__com.google.android.apps.nexuslauncher:id_search_container_hotseat_Search'; Active element disappeared: 'android.view.ViewGroup_928x195__Chrome_Chrome'; Active element disappeared: 'com.google.android.apps.nexuslauncher:id_end_part__com.google.android.apps.nexuslauncher:id_mic_icon_Voice search'",
+            "interface_changes": "Removed 2 interface elements; New content appeared: com.google.android.deskclock:id/tab_menu_clock/FrameLayout/Clock, ViewGroup, com.google.android.deskclock:id/tab_menu_alarm/FrameLayout/Alarm; Content disappeared: com.google.android.apps.nexuslauncher:id/date/TextView/Fri, Jan 30:Fri, Jan 30, TextView/Chrome:Chrome, TextView/Gmail:Gmail; New active element appeared: 'More options'; New active element appeared: 'Alarm'; New active element appeared: 'Add alarm'; New active element appeared: 'Timer'; New active element appeared: 'Alarm'; New active element appeared: 'Bedtime'; New active element appeared: 'Clock'; New active element appeared: 'Stopwatch'; Active element disappeared: 'Photos:Photos'; Active element disappeared: 'Home'; Active element disappeared: 'Search'; Active element disappeared: 'Messages:Messages'; Active element disappeared: 'Phone:Phone'; Active element disappeared: 'Chrome:Chrome'; Active element disappeared: 'Fri, Jan 30:Fri, Jan 30'; Active element disappeared: 'YouTube:YouTube'; Active element disappeared: 'Voice search'; Active element disappeared: 'Google Lens'; Active element disappeared: 'Gmail:Gmail'; Active element disappeared: 'Google app'",
             "expected_vs_actual": "UI changed consistently with atomic action",
             "abnormal_states": "None",
             "improvement_suggestions": "",
             "confidence_score": 0.9,
-            "reflection_reasoning": "Removed 5 interface elements; New content appeared: android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_stopwatch_Stopwatch, com.google.android.deskclock:id_fab_container__com.google.android.deskclock:id_fab_Add alarm, android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_alarm_Alarm; Content disappeared: android.view.ViewGroup_928x195__Messages_Messages, android.view.ViewGroup_966x1528__Photos_Photos, com.google.android.apps.nexuslauncher:id_end_part__com.google.android.apps.nexuslauncher:id_lens_icon_Google Lens; New active element appeared: 'android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_stopwatch_Stopwatch'; New active element appeared: 'com.google.android.deskclock:id_fab_container__com.google.android.deskclock:id_fab_Add alarm'; New active element appeared: 'android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_alarm_Alarm'; New active element appeared: 'android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_clock_Clock'; New active element appeared: 'com.google.android.deskclock:id_desk_clock_pager_frame__com.google.android.deskclock:id_desk_clock_pager_com.google.android.deskclock:id_main'; New active element appeared: 'com.google.android.deskclock:id_main__com.google.android.deskclock:id_alarm_recycler_view'; New active element appeared: 'android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_bedtime_Bedtime'; New active element appeared: 'android.view.ViewGroup_1080x210__com.google.android.deskclock:id_tab_menu_timer_Timer'; New active element appeared: 'android.support.v7.widget.LinearLayoutCompat_105x147__com.google.android.deskclock:id_overflow_action_button_More options'; Active element disappeared: 'android.view.ViewGroup_928x195__Messages_Messages'; Active element disappeared: 'android.view.ViewGroup_966x1528__Photos_Photos'; Active element disappeared: 'com.google.android.apps.nexuslauncher:id_end_part__com.google.android.apps.nexuslauncher:id_lens_icon_Google Lens'; Active element disappeared: 'com.google.android.apps.nexuslauncher:id_bc_smartspace_view__com.google.android.apps.nexuslauncher:id_smartspace_card_pager_Sun, Oct 15_com.google.android.apps.nexuslauncher:id_text_group'; Active element disappeared: 'com.google.android.apps.nexuslauncher:id_search_container_hotseat_Search__com.google.android.apps.nexuslauncher:id_g_icon_Google app'; Active element disappeared: 'android.view.ViewGroup_966x1528__Gmail_Gmail'; Active element disappeared: 'com.google.android.apps.nexuslauncher:id_smartspace_card_pager__Sun, Oct 15_com.google.android.apps.nexuslauncher:id_text_group'; Active element disappeared: 'android.view.ViewGroup_966x1528__YouTube_YouTube'; Active element disappeared: 'com.google.android.apps.nexuslauncher:id_text_group__com.google.android.apps.nexuslauncher:id_date_Sun, Oct 15_Sun, Oct 15'; Active element disappeared: 'com.google.android.apps.nexuslauncher:id_drag_layer__com.google.android.apps.nexuslauncher:id_workspace_com.google.android.apps.nexuslauncher:id_search_container_workspace'; Active element disappeared: 'android.view.ViewGroup_928x195__Phone_Phone'; Active element disappeared: 'com.google.android.apps.nexuslauncher:id_hotseat__com.google.android.apps.nexuslauncher:id_search_container_hotseat_Search'; Active element disappeared: 'android.view.ViewGroup_928x195__Chrome_Chrome'; Active element disappeared: 'com.google.android.apps.nexuslauncher:id_end_part__com.google.android.apps.nexuslauncher:id_mic_icon_Voice search'",
+            "reflection_reasoning": "Removed 2 interface elements; New content appeared: com.google.android.deskclock:id/tab_menu_clock/FrameLayout/Clock, ViewGroup, com.google.android.deskclock:id/tab_menu_alarm/FrameLayout/Alarm; Content disappeared: com.google.android.apps.nexuslauncher:id/date/TextView/Fri, Jan 30:Fri, Jan 30, TextView/Chrome:Chrome, TextView/Gmail:Gmail; New active element appeared: 'More options'; New active element appeared: 'Alarm'; New active element appeared: 'Add alarm'; New active element appeared: 'Timer'; New active element appeared: 'Alarm'; New active element appeared: 'Bedtime'; New active element appeared: 'Clock'; New active element appeared: 'Stopwatch'; Active element disappeared: 'Photos:Photos'; Active element disappeared: 'Home'; Active element disappeared: 'Search'; Active element disappeared: 'Messages:Messages'; Active element disappeared: 'Phone:Phone'; Active element disappeared: 'Chrome:Chrome'; Active element disappeared: 'Fri, Jan 30:Fri, Jan 30'; Active element disappeared: 'YouTube:YouTube'; Active element disappeared: 'Voice search'; Active element disappeared: 'Google Lens'; Active element disappeared: 'Gmail:Gmail'; Active element disappeared: 'Google app'",
             "used_model_analysis": false,
             "elements_before": 14,
-            "elements_after": 9
+            "elements_after": 12
           },
           "confidence_score": 0.9,
           "direction": null,

@@ -137,7 +137,7 @@ SYSTEM_PROMPT_DIY = (
     + """
 # Setup
 You are a professional Android operation agent with expertise in task planning and execution.
-Your responsibility is to understand user intent, analyze interaction history, and decide the optimal next action.
+Your responsibility is to understand user intent, analyze interaction history, and decide the optimal next one action.
 You work at the semantic level - choosing WHAT to interact with based on element IDs, not WHERE on the screen.
 Your output must strictly follow the specified format. Invalid format will cause execution failure.
 
@@ -184,7 +184,7 @@ Each UI element contains:
 # Supported Actions
 
 **Launch**
-- Purpose: Start an application
+- Purpose: Open an application
 - When to use: Task requires opening a specific app
 - Format: do(action="Launch", app="AppName")
 
@@ -325,7 +325,7 @@ SYSTEM_PROMPT_PREDICTION = (
     + """
 # Setup
 You are a professional Android operation agent with predictive planning capabilities.
-Your responsibility is to understand user intent, analyze interaction history, decide the optimal next action, AND predict two subsequent actions to enable speculative execution.
+Your responsibility is to understand user intent, analyze interaction history, decide the optimal next one action, AND predict two subsequent actions to enable speculative execution.
 You work at the semantic level - choosing WHAT to interact with based on element IDs, not WHERE on the screen.
 Your output must strictly follow the specified format. Invalid format will cause execution failure.
 

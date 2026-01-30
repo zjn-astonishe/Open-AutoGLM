@@ -2,19 +2,19 @@
 MODEL: "OpenAI"  # The type of multi-modal LLM you would like to use to power the AppAgent, must be either OpenAI or Qwen
 
 # OPENAI_API_BASE: "https://api.openai.com/v1/chat/completions"
-OPENAI_API_BASE: "https://api.zhizengzeng.com/v1"
-OPENAI_API_KEY: "sk-zk293317101239fff1d9f9f91612069fca66926b4775165f"  # Set the value to sk-xxx if you host the openai interface for open llm model
-OPENAI_API_MODEL: "gpt-4o"
+# OPENAI_API_BASE: "https://api.zhizengzeng.com/v1"
+# OPENAI_API_KEY: "sk-zk293317101239fff1d9f9f91612069fca66926b4775165f"  # Set the value to sk-xxx if you host the openai interface for open llm model
+# OPENAI_API_MODEL: "gpt-4o"
 # OPENAI_API_MODEL: "gpt-4o"  # Changed from deprecated gpt-4-vision-preview to gpt-3.5-turbo
 # OPENAI_API_BASE: "http://localhost:8001/v1"
 # OPENAI_API_KEY: "qwerasdfzxcv123"
+# OPENAI_API_MODEL: "qwen3-vl-8B-instruct"
 # OPENAI_API_MODEL: "autoglm-phone-9b-multilingual"
 # OPENAI_API_MODEL: "qwen2.5-vl-7B-instruct"
-# OPENAI_API_MODEL: "qwen3-vl-8B-instruct"
 # OPENAI_API_MODEL: "GUI-Owl-7B"
-# OPENAI_API_BASE: "https://dashscope.aliyuncs.com/compatible-mode/v1"
-# OPENAI_API_KEY: "sk-4d34e688c7224c8d8a7753d7f419d752"
-# OPENAI_API_MODEL: "qwen-vl-max"
+OPENAI_API_BASE: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+OPENAI_API_KEY: "sk-4d34e688c7224c8d8a7753d7f419d752"
+OPENAI_API_MODEL: "qwen-vl-max"
 OPENAI_CODE_API_MODEL: "qwen3-coder-plus"
 
 LANG: "en"  # The language for the agent to operate in, currently only "en" (English) and "cn" (Chinese) is supported

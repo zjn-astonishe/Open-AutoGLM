@@ -502,9 +502,9 @@ class PhoneAgent:
                 common_fields = {
                     "resourceId": e.resourceId,
                     "className": e.className,
-                    "text": e.text,
-                    "checked": e.checked,
-                } 
+                    "content": e.content_desc,
+                    "checked": e.state_desc,
+                }
                 elements_info.append({
                     "id": f"A{i}",
                     **common_fields,
@@ -515,8 +515,12 @@ class PhoneAgent:
                 })
 
         node = work_graph.create_node(elements)
+        print(f"Node {node.id} created.")
         node.add_task(user_prompt)
-        if not is_first:
+        
+        # Only complete pending transition if there is one
+        # After speculative execution, there's no pending transition to complete
+        if not is_first and recorder._pending_from_node_id is not None:
             recorder.on_new_node(current_node_id=node.id)
 
         # print(f"📚 Context:\n {self._context.to_messages()}\n")
@@ -632,26 +636,27 @@ class PhoneAgent:
         try:
             # Extract action string from response.action dict
             # action_str = list(response.action.values())[0]
-            if not is_portal:
-                action, element_content = parse_action(action_code=list(response.action.values())[0], elements_info=elements_info, is_portal=False)
-                if element_content is None:
-                    node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0])
-                else:
+            action, element_content = parse_action(action_code=list(response.action.values())[0], elements_info=elements_info)
+            print(f"element_content: {element_content}")
+            if element_content is None:
+                node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0])
+            else:
+                if not is_portal:
                     for e in elements:
                         if e["content"] == element_content:
                             if action["action"] == "Swipe":
-                                node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0], zone_path=e["path"], direction=action["direction"], distance=action["dist"])
+                                    node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0], zone_path=e["path"], direction=action["direction"], distance=action["dist"])
                             elif action["action"] == "Type":
                                 node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0], text=action["text"], zone_path=e["path"])
                             else:
                                 node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0], zone_path=e["path"])
-            else:
-                action, resourceId, className, text = parse_action(action_code=list(response.action.values())[0], elements_info=elements_info)
-                if resourceId and className and text:
-                    node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0], zone_path=f"{resourceId}/{className}/{text}")
                 else:
-                    node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0])
-                
+                    if action["action"] == "Swipe":
+                        node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0], zone_path=element_content, direction=action["direction"], distance=action["dist"])
+                    elif action["action"] == "Type":
+                        node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0], text=action["text"], zone_path=element_content)
+                    else:
+                        node_action = node.add_action(action_type=action["action"], description=list(response.action.keys())[0], zone_path=element_content)      
         except ValueError:
             if self.agent_config.verbose:
                 traceback.print_exc()
@@ -768,8 +773,8 @@ class PhoneAgent:
         if reflection_result:
             action_successful = reflection_result.get('action_successful')
             confidence_score = reflection_result.get('confidence_score', 0.0)
-            reasoning = reflection_result.get('reflection_reasoning', '').strip()
-            suggestions = reflection_result.get('improvement_suggestions', '').strip()
+            reasoning = (reflection_result.get('reflection_reasoning') or '').strip()
+            suggestions = (reflection_result.get('improvement_suggestions') or '').strip()
             
             # Always add reflection to context, but format differently based on success
             if action_successful is True and confidence_score >= 0.8:
@@ -1022,8 +1027,9 @@ class PhoneAgent:
                 {
                     "resourceId": e.resourceId,
                     "className": e.className,
-                    "text": e.text,
-                    "checked": e.checked
+                    "content": e.content_desc,
+                    "checked": e.state_desc,
+                    "bbox": e.bounds,
                 }
                 for e in before_screenshot.elements
             ]
@@ -1031,12 +1037,14 @@ class PhoneAgent:
                 {
                     "resourceId": e.resourceId,
                     "className": e.className,
-                    "text": e.text,
-                    "checked": e.checked
+                    "content": e.content_desc,
+                    "checked": e.state_desc,
+                    "bbox": e.bounds,
                 }
                 for e in current_screenshot.elements
             ]
 
+        
         # ---------- 4. Fast-path for atomic actions ----------
         changes_analysis = self._analyze_interface_changes(
             before_elements, after_elements
@@ -1188,7 +1196,7 @@ class PhoneAgent:
                 "elements_after": len(after_elements),
             }
 
-    def _analyze_interface_changes(self, before_elements: list, after_elements: list) -> dict:
+    def _analyze_interface_changes(self, before_elements: list, after_elements: list, is_portal: bool=True) -> dict:
         """Analyze interface changes between before and after states.
         
         Returns:
@@ -1203,25 +1211,40 @@ class PhoneAgent:
         # Compare element counts
         element_count_diff = len(after_elements) - len(before_elements)
         
-        # Compare element contents (simplified)
-        before_contents = set(elem.get('content', '') for elem in before_elements if elem.get('content', '').strip())
-        after_contents = set(elem.get('content', '') for elem in after_elements if elem.get('content', '').strip())
+        if not is_portal:
+            # Compare element contents (simplified)
+            before_contents = set(elem.get('content', '') for elem in before_elements if elem.get('content', '').strip())
+            after_contents = set(elem.get('content', '') for elem in after_elements if elem.get('content', '').strip())
+        else:
+            before_resourceId = [elem.get('resourceId', '') for elem in before_elements]
+            before_className = [elem.get('className', '') for elem in before_elements]
+            before_content = [elem.get('content', '') for elem in before_elements]
+
+            after_resourceId = [elem.get('resourceId', '') for elem in after_elements]
+            after_className = [elem.get('className', '') for elem in after_elements]
+            after_content = [elem.get('content', '') for elem in after_elements]
+
+            before_contents = set(zip(before_resourceId, before_className, before_content))
+            after_contents = set(zip(after_resourceId, after_className, after_content))
         
         new_contents = after_contents - before_contents
         removed_contents = before_contents - after_contents
         
         # Compare element states
+        # print(f"Comparing element states...")
         state_changes = self._compare_element_states(before_elements, after_elements)
-        
+        # print(f"state changes: {state_changes}")
         # Determine if changes are obvious
         has_obvious_changes = self._determine_obvious_changes(
             element_count_diff, new_contents, removed_contents, state_changes
         )
+        # print(f"Has obvious changes: {has_obvious_changes}")
         
         # Build description
         changes_description = self._build_changes_description(
             element_count_diff, new_contents, removed_contents, state_changes
         )
+        # print(f"Changes Description: {changes_description}")
         
         return {
             'element_count_diff': element_count_diff,
@@ -1232,13 +1255,24 @@ class PhoneAgent:
             'changes_description': changes_description
         }
 
-    def _compare_element_states(self, before_elements: list, after_elements: list) -> list:
+
+
+    def _compare_element_states(self, before_elements: list, after_elements: list, is_portal: bool=True) -> list:
         """Compare states of elements between before and after states."""
         changes = []
         
         # Create dictionaries for quick lookup using content and bbox for better matching
         def create_element_key(elem):
-            content = elem.get('content', '')
+            if is_portal:
+                # For portal, combine resourceId, className and content_desc to form content
+                resource_id = elem.get('resourceId', '')
+                class_name = elem.get('className', '')
+                content_desc = elem.get('content', '')
+                
+                # Combine all three with a separator
+                content = f"{resource_id}|{content_desc}|{class_name}".strip('|')
+            else:
+                content = elem.get('content', '')
             bbox = elem.get('bbox', [])
             # Use content and approximate position for matching
             if bbox and len(bbox) >= 4:
@@ -1250,16 +1284,15 @@ class PhoneAgent:
         
         # Find elements that exist in both lists and compare their states
         common_keys = set(before_dict.keys()) & set(after_dict.keys())
-        # print(f"Common keys: {common_keys}")
         
         for key in common_keys:
             before_elem = before_dict[key]
             after_elem = after_dict[key]
             
             # Compare option state (this is the actual field used in the data structure)
-            before_option = before_elem.get('checked', None)
-            after_option = after_elem.get('checked', None)
-            # print(f"before_option: {before_option}, after_option: {after_option}")
+            before_option = before_elem.get('checked', "")
+            after_option = after_elem.get('checked', "")
+            
             
             
             if before_option != after_option:
@@ -1276,18 +1309,19 @@ class PhoneAgent:
                     changes.append(f"Element '{content}' {after_option}")
             
             # Compare focused state (this is the actual field used in the data structure)
-            before_focused = before_elem.get('focused', None)
-            after_focused = after_elem.get('focused', None)
+            if not is_portal:      
+                before_focused = before_elem.get('focused', None)
+                after_focused = after_elem.get('focused', None)
 
-            if before_focused != after_focused:
-                if before_focused == "enabled" and after_focused == "disabled":
-                    before_content = before_elem.get('content', 'Unknown element')
-                    # print(f"Element '{before_content}' lost focus")
-                    changes.append(f"Element '{before_content}' lost focus")
-                elif before_focused == "disabled" and after_focused == "enabled":
-                    after_content = after_elem.get('content', 'Unknown element')
-                    # print(f"Element '{after_content}' gained focus")
-                    changes.append(f"Element '{after_content}' gained focus")
+                if before_focused != after_focused:
+                    if before_focused == "enabled" and after_focused == "disabled":
+                        before_content = before_elem.get('content', 'Unknown element')
+                        # print(f"Element '{before_content}' lost focus")
+                        changes.append(f"Element '{before_content}' lost focus")
+                    elif before_focused == "disabled" and after_focused == "enabled":
+                        after_content = after_elem.get('content', 'Unknown element')
+                        # print(f"Element '{after_content}' gained focus")
+                        changes.append(f"Element '{after_content}' gained focus")
 
         
         # Also check for elements that appeared or disappeared with specific states
@@ -1296,6 +1330,7 @@ class PhoneAgent:
         
         # New elements with active states
         new_keys = after_keys - before_keys
+        
         for key in new_keys:
             elem = after_dict[key]
             if elem.get('checked') is not None:
@@ -1327,8 +1362,9 @@ class PhoneAgent:
             return True
         
         # Check for specific indicators of successful actions
-        new_content_text = ' '.join(new_contents).lower()
-        removed_content_text = ' '.join(removed_contents).lower()
+        # Convert all items to strings before joining to prevent tuple errors
+        new_content_text = ' '.join(str(item) for item in new_contents).lower()
+        removed_content_text = ' '.join(str(item) for item in removed_contents).lower()
         
         # Common success indicators
         success_indicators = [
@@ -1373,12 +1409,46 @@ class PhoneAgent:
         
         # Describe content changes
         if new_contents:
-            changes.append(f"New content appeared: {', '.join(list(new_contents)[:3])}")
+            # Convert tuples to strings if needed
+            content_strs = []
+            for content in list(new_contents)[:3]:
+                if isinstance(content, tuple):
+                    # Format tuple as "resourceId/className/content", filtering empty strings
+                    parts = [str(x).strip() for x in content if str(x).strip()]
+                    content_str = '/'.join(parts) if parts else 'Unknown'
+                    content_strs.append(content_str)
+                else:
+                    content_strs.append(str(content))
+            if content_strs:
+                changes.append(f"New content appeared: {', '.join(content_strs)}")
+            
         if removed_contents:
-            changes.append(f"Content disappeared: {', '.join(list(removed_contents)[:3])}")
+            # Convert tuples to strings if needed
+            content_strs = []
+            for content in list(removed_contents)[:3]:
+                if isinstance(content, tuple):
+                    # Format tuple as "resourceId/className/content", filtering empty strings
+                    parts = [str(x).strip() for x in content if str(x).strip()]
+                    content_str = '/'.join(parts) if parts else 'Unknown'
+                    content_strs.append(content_str)
+                else:
+                    content_strs.append(str(content))
+            if content_strs:
+                changes.append(f"Content disappeared: {', '.join(content_strs)}")
         
-        # Add state changes
+        # Add state changes - ensure all are strings
         if state_changes:
-            changes.extend(state_changes)
+            # Ensure each state change is a string
+            string_changes = []
+            for change in state_changes:
+                if isinstance(change, (tuple, list)):
+                    # Convert tuple/list to string representation
+                    string_changes.append(str(change))
+                else:
+                    string_changes.append(str(change))
+            changes.extend(string_changes)
         
-        return "; ".join(changes) if changes else "No obvious interface changes detected"
+        # Final safety check: ensure all items are strings before joining
+        # This prevents "sequence item 0: expected str instance, tuple found" errors
+        safe_changes = [str(item) if not isinstance(item, str) else item for item in changes]
+        return "; ".join(safe_changes) if safe_changes else "No obvious interface changes detected"
