@@ -1456,6 +1456,1039 @@
       "tag": [
         "alarm.create"
       ]
+    },
+    "453b14e4-cc8a-4999-a8ff-ed891d074cee": {
+      "id": "453b14e4-cc8a-4999-a8ff-ed891d074cee",
+      "elements_info": [],
+      "tasks": [],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the \"Add alarm\" button to create a new alarm.",
+          "zone_path": "com.google.android.deskclock:id/fab/Button/Add alarm",
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        {
+          "action_type": "Tap",
+          "description": "Tap on the \"OK\" button to confirm the selected time of 12:30 PM.",
+          "zone_path": "com.google.android.deskclock:id/material_timepicker_ok_button/Button/OK",
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        {
+          "action_type": "Tap",
+          "description": "Tap on the \"Vibrate\" checkbox to disable the vibration setting for the alarm.",
+          "zone_path": "com.google.android.deskclock:id/vibrate_onoff/CheckBox/Vibrate",
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ],
+      "tag": [
+        "alarm.create"
+      ]
+    },
+    "0fd6b37f-34e8-4ac0-bb7e-907648045b40": {
+      "id": "0fd6b37f-34e8-4ac0-bb7e-907648045b40",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/material_hour_tv",
+          "className": "View",
+          "content": "20:20 hours",
+          "checked": "checked"
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/material_minute_tv",
+          "className": "View",
+          "content": "00:0 minutes",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/material_clock_face",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "11:11 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "00:00 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "10:10 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "23:23 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "12:12 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "13:13 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "1:1 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "2:2 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "9:9 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "21:21 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "22:22 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "14:14 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "20:20 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "16:16 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "15:15 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "3:3 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "8:8 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "7:7 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "19:19 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "18:18 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "6:6 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "17:17 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "5:5 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "4:4 hours",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/material_timepicker_mode_button",
+          "className": "Button",
+          "content": "Switch to text input mode for the time input.",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/material_timepicker_cancel_button",
+          "className": "Button",
+          "content": "Cancel",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/material_timepicker_ok_button",
+          "className": "Button",
+          "content": "OK",
+          "checked": ""
+        }
+      ],
+      "tasks": [],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the hour \"12\" to set the alarm hour to 12 PM.",
+          "zone_path": "/TextView/12:12 hours",
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ],
+      "tag": [
+        "alarm.create"
+      ]
+    },
+    "22d87bd4-c41a-4141-8101-f3bb28df3bf0": {
+      "id": "22d87bd4-c41a-4141-8101-f3bb28df3bf0",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/material_hour_tv",
+          "className": "View",
+          "content": "12:12 hours",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/material_minute_tv",
+          "className": "View",
+          "content": "00:0 minutes",
+          "checked": "checked"
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/material_clock_face",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "55:55 minutes",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "00:00 minutes",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "50:50 minutes",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "05:05 minutes",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "10:10 minutes",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "45:45 minutes",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "15:15 minutes",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "40:40 minutes",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "35:35 minutes",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "30:30 minutes",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "25:25 minutes",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "20:20 minutes",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/material_timepicker_mode_button",
+          "className": "Button",
+          "content": "Switch to text input mode for the time input.",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/material_timepicker_cancel_button",
+          "className": "Button",
+          "content": "Cancel",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/material_timepicker_ok_button",
+          "className": "Button",
+          "content": "OK",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "set an alarm at 12:30 pm every Friday and Sunday, disable the vibration"
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the \"30\" minute mark to set the alarm time to 12:30 PM.",
+          "zone_path": "/TextView/30:30 minutes",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Interface element count remained the same; New content appeared: com.google.android.deskclock:id/material_minute_tv/View/30:30 minutes; Content disappeared: com.google.android.deskclock:id/material_minute_tv/View/00:0 minutes; New active element appeared: '30:30 minutes'; Active element disappeared: '00:0 minutes'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Interface element count remained the same; New content appeared: com.google.android.deskclock:id/material_minute_tv/View/30:30 minutes; Content disappeared: com.google.android.deskclock:id/material_minute_tv/View/00:0 minutes; New active element appeared: '30:30 minutes'; Active element disappeared: '00:0 minutes'",
+            "used_model_analysis": false,
+            "elements_before": 20,
+            "elements_after": 20
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ],
+      "tag": [
+        "alarm.create"
+      ]
+    },
+    "949a781e-d64a-4aab-a77e-9872284b6371": {
+      "id": "949a781e-d64a-4aab-a77e-9872284b6371",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/action_bar_title",
+          "className": "TextView",
+          "content": "Alarm",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/overflow_action_button",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/alarm_recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/edit_label",
+          "className": "TextView",
+          "content": "Add label:No label specified",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/arrow",
+          "className": "ImageButton",
+          "content": "Collapse alarm",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/digital_clock",
+          "className": "TextView",
+          "content": "12:30:12:30",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/repeat_summary",
+          "className": "TextView",
+          "content": "Tomorrow:Tomorrow",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/onoff",
+          "className": "Switch",
+          "content": "",
+          "checked": "ON"
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_0",
+          "className": "CheckBox",
+          "content": "S:Sunday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_1",
+          "className": "CheckBox",
+          "content": "M:Monday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_2",
+          "className": "CheckBox",
+          "content": "T:Tuesday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_3",
+          "className": "CheckBox",
+          "content": "W:Wednesday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_4",
+          "className": "CheckBox",
+          "content": "T:Thursday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_5",
+          "className": "CheckBox",
+          "content": "F:Friday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_6",
+          "className": "CheckBox",
+          "content": "S:Saturday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/blackout_title",
+          "className": "TextView",
+          "content": "Schedule alarm",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/choose_ringtone",
+          "className": "TextView",
+          "content": "Default (Cesium):Ringtone Default (Cesium)",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/vibrate_onoff",
+          "className": "CheckBox",
+          "content": "Vibrate",
+          "checked": "Checked"
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/workflow_label",
+          "className": "TextView",
+          "content": "Google Assistant Routine",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/delete",
+          "className": "Button",
+          "content": "Delete",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/fab",
+          "className": "Button",
+          "content": "Add alarm",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/tab_menu_alarm",
+          "className": "FrameLayout",
+          "content": "Alarm",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/tab_menu_clock",
+          "className": "FrameLayout",
+          "content": "Clock",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/tab_menu_timer",
+          "className": "FrameLayout",
+          "content": "Timer",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/tab_menu_stopwatch",
+          "className": "FrameLayout",
+          "content": "Stopwatch",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/tab_menu_bedtime",
+          "className": "FrameLayout",
+          "content": "Bedtime",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/snackbar_text",
+          "className": "TextView",
+          "content": "Alarm set for 16 hours and 34 minutes from now.",
+          "checked": ""
+        }
+      ],
+      "tasks": [],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the \"F:Friday\" checkbox to select Friday as one of the days for the alarm.",
+          "zone_path": "com.google.android.deskclock:id/day_button_5/CheckBox/F:Friday",
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ],
+      "tag": [
+        "alarm.create"
+      ]
+    },
+    "a5cc147d-a867-4a96-96e8-ce4b4a9bc017": {
+      "id": "a5cc147d-a867-4a96-96e8-ce4b4a9bc017",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/action_bar_title",
+          "className": "TextView",
+          "content": "Alarm",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/overflow_action_button",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/alarm_recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/edit_label",
+          "className": "TextView",
+          "content": "Add label:No label specified",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/arrow",
+          "className": "ImageButton",
+          "content": "Collapse alarm",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/digital_clock",
+          "className": "TextView",
+          "content": "12:30:12:30",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/repeat_summary",
+          "className": "TextView",
+          "content": "Friday:Friday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/onoff",
+          "className": "Switch",
+          "content": "",
+          "checked": "ON"
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_0",
+          "className": "CheckBox",
+          "content": "S:Sunday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_1",
+          "className": "CheckBox",
+          "content": "M:Monday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_2",
+          "className": "CheckBox",
+          "content": "T:Tuesday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_3",
+          "className": "CheckBox",
+          "content": "W:Wednesday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_4",
+          "className": "CheckBox",
+          "content": "T:Thursday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_5",
+          "className": "CheckBox",
+          "content": "F:Friday",
+          "checked": "Checked"
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_6",
+          "className": "CheckBox",
+          "content": "S:Saturday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/blackout_title",
+          "className": "TextView",
+          "content": "Pause alarm",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/choose_ringtone",
+          "className": "TextView",
+          "content": "Default (Cesium):Ringtone Default (Cesium)",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/vibrate_onoff",
+          "className": "CheckBox",
+          "content": "Vibrate",
+          "checked": "Checked"
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/workflow_label",
+          "className": "TextView",
+          "content": "Google Assistant Routine",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/delete",
+          "className": "Button",
+          "content": "Delete",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/fab",
+          "className": "Button",
+          "content": "Add alarm",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/tab_menu_alarm",
+          "className": "FrameLayout",
+          "content": "Alarm",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/tab_menu_clock",
+          "className": "FrameLayout",
+          "content": "Clock",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/tab_menu_timer",
+          "className": "FrameLayout",
+          "content": "Timer",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/tab_menu_stopwatch",
+          "className": "FrameLayout",
+          "content": "Stopwatch",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/tab_menu_bedtime",
+          "className": "FrameLayout",
+          "content": "Bedtime",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/snackbar_text",
+          "className": "TextView",
+          "content": "Alarm set for 6 days, 16 hours, and 34 minutes from now.",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "set an alarm at 12:30 pm every Friday and Sunday, disable the vibration"
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the \"S:Sunday\" checkbox to select Sunday as one of the days for the alarm.",
+          "zone_path": "com.google.android.deskclock:id/day_button_0/CheckBox/S:Sunday",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Interface element count remained the same; New content appeared: com.google.android.deskclock:id/repeat_summary/TextView/Sun, Fri:Sunday, Friday, com.google.android.deskclock:id/snackbar_text/TextView/Alarm set for 1 day, 16 hours, and 33 minutes from now.; Content disappeared: com.google.android.deskclock:id/snackbar_text/TextView/Alarm set for 6 days, 16 hours, and 34 minutes from now., com.google.android.deskclock:id/repeat_summary/TextView/Friday:Friday; Element 'S:Sunday' Checked; New active element appeared: 'Alarm set for 1 day, 16 hours, and 33 minutes from now.'; New active element appeared: 'Sun, Fri:Sunday, Friday'; Active element disappeared: 'Friday:Friday'; Active element disappeared: 'Alarm set for 6 days, 16 hours, and 34 minutes from now.'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Interface element count remained the same; New content appeared: com.google.android.deskclock:id/repeat_summary/TextView/Sun, Fri:Sunday, Friday, com.google.android.deskclock:id/snackbar_text/TextView/Alarm set for 1 day, 16 hours, and 33 minutes from now.; Content disappeared: com.google.android.deskclock:id/snackbar_text/TextView/Alarm set for 6 days, 16 hours, and 34 minutes from now., com.google.android.deskclock:id/repeat_summary/TextView/Friday:Friday; Element 'S:Sunday' Checked; New active element appeared: 'Alarm set for 1 day, 16 hours, and 33 minutes from now.'; New active element appeared: 'Sun, Fri:Sunday, Friday'; Active element disappeared: 'Friday:Friday'; Active element disappeared: 'Alarm set for 6 days, 16 hours, and 34 minutes from now.'",
+            "used_model_analysis": false,
+            "elements_before": 31,
+            "elements_after": 31
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ],
+      "tag": [
+        "alarm.create"
+      ]
+    },
+    "78d881bc-93b9-407e-a4c4-d2a25e786f6a": {
+      "id": "78d881bc-93b9-407e-a4c4-d2a25e786f6a",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/action_bar_title",
+          "className": "TextView",
+          "content": "Alarm",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/overflow_action_button",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/alarm_recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/edit_label",
+          "className": "TextView",
+          "content": "Add label:No label specified",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/arrow",
+          "className": "ImageButton",
+          "content": "Collapse alarm",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/digital_clock",
+          "className": "TextView",
+          "content": "12:30:12:30",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/repeat_summary",
+          "className": "TextView",
+          "content": "Sun, Fri:Sunday, Friday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/onoff",
+          "className": "Switch",
+          "content": "",
+          "checked": "ON"
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_0",
+          "className": "CheckBox",
+          "content": "S:Sunday",
+          "checked": "Checked"
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_1",
+          "className": "CheckBox",
+          "content": "M:Monday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_2",
+          "className": "CheckBox",
+          "content": "T:Tuesday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_3",
+          "className": "CheckBox",
+          "content": "W:Wednesday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_4",
+          "className": "CheckBox",
+          "content": "T:Thursday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_5",
+          "className": "CheckBox",
+          "content": "F:Friday",
+          "checked": "Checked"
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/day_button_6",
+          "className": "CheckBox",
+          "content": "S:Saturday",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/blackout_title",
+          "className": "TextView",
+          "content": "Pause alarm",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/choose_ringtone",
+          "className": "TextView",
+          "content": "Default (Cesium):Ringtone Default (Cesium)",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/vibrate_onoff",
+          "className": "CheckBox",
+          "content": "Vibrate",
+          "checked": "Not checked"
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/workflow_label",
+          "className": "TextView",
+          "content": "Google Assistant Routine",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/delete",
+          "className": "Button",
+          "content": "Delete",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/fab",
+          "className": "Button",
+          "content": "Add alarm",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/tab_menu_alarm",
+          "className": "FrameLayout",
+          "content": "Alarm",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/tab_menu_clock",
+          "className": "FrameLayout",
+          "content": "Clock",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/tab_menu_timer",
+          "className": "FrameLayout",
+          "content": "Timer",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/tab_menu_stopwatch",
+          "className": "FrameLayout",
+          "content": "Stopwatch",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.deskclock:id/tab_menu_bedtime",
+          "className": "FrameLayout",
+          "content": "Bedtime",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "set an alarm at 12:30 pm every Friday and Sunday, disable the vibration"
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "The alarm has been successfully set for 12:30 PM every Friday and Sunday with vibration disabled. All requirements are met.",
+          "zone_path": null,
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ],
+      "tag": [
+        "alarm.create"
+      ]
     }
   }
 }

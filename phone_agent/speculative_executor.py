@@ -619,8 +619,8 @@ class SpeculativeExecutor:
                                         "path": e.get_xpath()
                                     })
                             else:
-                                for e in screenshot.elements:
-                                    before_elements.append({
+                                for e in after_screenshot.elements:
+                                    after_elements.append({
                                         "resourceId": e.resourceId,
                                         "className": e.className,
                                         "content": e.content_desc,

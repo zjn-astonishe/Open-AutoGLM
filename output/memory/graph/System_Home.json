@@ -328,6 +328,334 @@
       "tag": [
         "alarm.create"
       ]
+    },
+    "700c0ee4-f119-4a90-afe8-11480f7a97eb": {
+      "id": "700c0ee4-f119-4a90-afe8-11480f7a97eb",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/workspace",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/date",
+          "className": "TextView",
+          "content": "Fri, Jan 30:Fri, Jan 30",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Gmail:Gmail",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Photos:Photos",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "YouTube:YouTube",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "View",
+          "content": "Home",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Phone:Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Messages:Messages",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Chrome:Chrome",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/search_container_hotseat",
+          "className": "FrameLayout",
+          "content": "Search",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/g_icon",
+          "className": "ImageView",
+          "content": "Google app",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/mic_icon",
+          "className": "ImageView",
+          "content": "Voice search",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/lens_icon",
+          "className": "ImageButton",
+          "content": "Google Lens",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "set an alarm at 12:30 pm every Friday and Sunday, disable the vibration"
+      ],
+      "actions": [
+        {
+          "action_type": "Swipe",
+          "description": "Swipe up from the home screen to open the app drawer and locate the Clock app.",
+          "zone_path": "/FrameLayout/",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 15 interface elements; New content appeared: com.google.android.apps.nexuslauncher:id/icon/TextView/Messages:Messages, com.google.android.apps.nexuslauncher:id/icon/TextView/Files:Files, com.google.android.apps.nexuslauncher:id/icon/TextView/TMoble:TMoble; Content disappeared: View/Home, TextView/Phone:Phone, com.google.android.apps.nexuslauncher:id/search_container_hotseat/FrameLayout/Search; New active element appeared: 'YT Music:YT Music'; New active element appeared: 'Photos:Photos'; New active element appeared: 'Audio Recorder:Audio Recorder'; New active element appeared: 'Chrome:Chrome'; New active element appeared: 'Settings:Settings'; New active element appeared: 'App Launcher:App Launcher'; New active element appeared: 'Camera:Camera'; New active element appeared: 'Messages:Messages'; New active element appeared: 'Droidrun Portal:Droidrun Portal'; New active element appeared: 'Google:Google'; New active element appeared: 'Gmail:Gmail'; New active element appeared: 'Clock:Clock'; New active element appeared: 'Search apps, web and more'; New active element appeared: 'Files:Files'; New active element appeared: 'Drive:Drive'; New active element appeared: 'TMoble:TMoble'; New active element appeared: 'Contacts:Contacts'; New active element appeared: 'Maps:Maps'; New active element appeared: 'Pro Expense:Pro Expense'; New active element appeared: 'YouTube:YouTube'; New active element appeared: 'Calendar:Calendar'; New active element appeared: 'Phone:Phone'; Active element disappeared: 'Messages:Messages'; Active element disappeared: 'Search'; Active element disappeared: 'Chrome:Chrome'; Active element disappeared: 'Photos:Photos'; Active element disappeared: 'Fri, Jan 30:Fri, Jan 30'; Active element disappeared: 'Home'; Active element disappeared: 'Phone:Phone'; Active element disappeared: 'Gmail:Gmail'; Active element disappeared: 'YouTube:YouTube'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 15 interface elements; New content appeared: com.google.android.apps.nexuslauncher:id/icon/TextView/Messages:Messages, com.google.android.apps.nexuslauncher:id/icon/TextView/Files:Files, com.google.android.apps.nexuslauncher:id/icon/TextView/TMoble:TMoble; Content disappeared: View/Home, TextView/Phone:Phone, com.google.android.apps.nexuslauncher:id/search_container_hotseat/FrameLayout/Search; New active element appeared: 'YT Music:YT Music'; New active element appeared: 'Photos:Photos'; New active element appeared: 'Audio Recorder:Audio Recorder'; New active element appeared: 'Chrome:Chrome'; New active element appeared: 'Settings:Settings'; New active element appeared: 'App Launcher:App Launcher'; New active element appeared: 'Camera:Camera'; New active element appeared: 'Messages:Messages'; New active element appeared: 'Droidrun Portal:Droidrun Portal'; New active element appeared: 'Google:Google'; New active element appeared: 'Gmail:Gmail'; New active element appeared: 'Clock:Clock'; New active element appeared: 'Search apps, web and more'; New active element appeared: 'Files:Files'; New active element appeared: 'Drive:Drive'; New active element appeared: 'TMoble:TMoble'; New active element appeared: 'Contacts:Contacts'; New active element appeared: 'Maps:Maps'; New active element appeared: 'Pro Expense:Pro Expense'; New active element appeared: 'YouTube:YouTube'; New active element appeared: 'Calendar:Calendar'; New active element appeared: 'Phone:Phone'; Active element disappeared: 'Messages:Messages'; Active element disappeared: 'Search'; Active element disappeared: 'Chrome:Chrome'; Active element disappeared: 'Photos:Photos'; Active element disappeared: 'Fri, Jan 30:Fri, Jan 30'; Active element disappeared: 'Home'; Active element disappeared: 'Phone:Phone'; Active element disappeared: 'Gmail:Gmail'; Active element disappeared: 'YouTube:YouTube'",
+            "used_model_analysis": false,
+            "elements_before": 14,
+            "elements_after": 29
+          },
+          "confidence_score": 0.9,
+          "direction": "up",
+          "distance": "medium",
+          "text": null
+        }
+      ],
+      "tag": [
+        "alarm.create"
+      ]
+    },
+    "a51e31f2-25c8-4a3f-9ce5-b11eb5ce37c0": {
+      "id": "a51e31f2-25c8-4a3f-9ce5-b11eb5ce37c0",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/apps_list_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "App Launcher:App Launcher",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Audio Recorder:Audio Recorder",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Calendar:Calendar",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Calendar:Calendar",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Calendar:Calendar",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Camera:Camera",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Chrome:Chrome",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Clock:Clock",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Contacts:Contacts",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Drive:Drive",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Droidrun Portal:Droidrun Portal",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Files:Files",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Gmail:Gmail",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Google:Google",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Maps:Maps",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Messages:Messages",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Phone:Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Photos:Photos",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Pro Expense:Pro Expense",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "Settings:Settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "TMoble:TMoble",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "YouTube:YouTube",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/icon",
+          "className": "TextView",
+          "content": "YT Music:YT Music",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/g_icon",
+          "className": "ImageView",
+          "content": "Google app",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/input",
+          "className": "EditText",
+          "content": "Search apps, web and more",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/mic_icon",
+          "className": "ImageView",
+          "content": "Voice search",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.apps.nexuslauncher:id/lens_icon",
+          "className": "ImageButton",
+          "content": "Google Lens",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "set an alarm at 12:30 pm every Friday and Sunday, disable the vibration"
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the Clock app icon to open the Clock application.",
+          "zone_path": "com.google.android.apps.nexuslauncher:id/icon/TextView/Clock:Clock",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 17 interface elements; New content appeared: ViewGroup, com.google.android.deskclock:id/alarm_recycler_view/RecyclerView, com.google.android.deskclock:id/tab_menu_bedtime/FrameLayout/Bedtime; Content disappeared: com.google.android.apps.nexuslauncher:id/icon/TextView/Messages:Messages, com.google.android.apps.nexuslauncher:id/icon/TextView/Files:Files, com.google.android.apps.nexuslauncher:id/icon/TextView/TMoble:TMoble; New active element appeared: 'Stopwatch'; New active element appeared: 'Alarm'; New active element appeared: 'Timer'; New active element appeared: 'Alarm'; New active element appeared: 'More options'; New active element appeared: 'Clock'; New active element appeared: 'Add alarm'; New active element appeared: 'Bedtime'; Active element disappeared: 'YT Music:YT Music'; Active element disappeared: 'Photos:Photos'; Active element disappeared: 'Audio Recorder:Audio Recorder'; Active element disappeared: 'Chrome:Chrome'; Active element disappeared: 'Settings:Settings'; Active element disappeared: 'App Launcher:App Launcher'; Active element disappeared: 'Google app'; Active element disappeared: 'Camera:Camera'; Active element disappeared: 'Messages:Messages'; Active element disappeared: 'Droidrun Portal:Droidrun Portal'; Active element disappeared: 'Google:Google'; Active element disappeared: 'Gmail:Gmail'; Active element disappeared: 'Voice search'; Active element disappeared: 'Clock:Clock'; Active element disappeared: 'Search apps, web and more'; Active element disappeared: 'Files:Files'; Active element disappeared: 'Drive:Drive'; Active element disappeared: 'TMoble:TMoble'; Active element disappeared: 'Contacts:Contacts'; Active element disappeared: 'Google Lens'; Active element disappeared: 'Maps:Maps'; Active element disappeared: 'Pro Expense:Pro Expense'; Active element disappeared: 'YouTube:YouTube'; Active element disappeared: 'Calendar:Calendar'; Active element disappeared: 'Phone:Phone'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 17 interface elements; New content appeared: ViewGroup, com.google.android.deskclock:id/alarm_recycler_view/RecyclerView, com.google.android.deskclock:id/tab_menu_bedtime/FrameLayout/Bedtime; Content disappeared: com.google.android.apps.nexuslauncher:id/icon/TextView/Messages:Messages, com.google.android.apps.nexuslauncher:id/icon/TextView/Files:Files, com.google.android.apps.nexuslauncher:id/icon/TextView/TMoble:TMoble; New active element appeared: 'Stopwatch'; New active element appeared: 'Alarm'; New active element appeared: 'Timer'; New active element appeared: 'Alarm'; New active element appeared: 'More options'; New active element appeared: 'Clock'; New active element appeared: 'Add alarm'; New active element appeared: 'Bedtime'; Active element disappeared: 'YT Music:YT Music'; Active element disappeared: 'Photos:Photos'; Active element disappeared: 'Audio Recorder:Audio Recorder'; Active element disappeared: 'Chrome:Chrome'; Active element disappeared: 'Settings:Settings'; Active element disappeared: 'App Launcher:App Launcher'; Active element disappeared: 'Google app'; Active element disappeared: 'Camera:Camera'; Active element disappeared: 'Messages:Messages'; Active element disappeared: 'Droidrun Portal:Droidrun Portal'; Active element disappeared: 'Google:Google'; Active element disappeared: 'Gmail:Gmail'; Active element disappeared: 'Voice search'; Active element disappeared: 'Clock:Clock'; Active element disappeared: 'Search apps, web and more'; Active element disappeared: 'Files:Files'; Active element disappeared: 'Drive:Drive'; Active element disappeared: 'TMoble:TMoble'; Active element disappeared: 'Contacts:Contacts'; Active element disappeared: 'Google Lens'; Active element disappeared: 'Maps:Maps'; Active element disappeared: 'Pro Expense:Pro Expense'; Active element disappeared: 'YouTube:YouTube'; Active element disappeared: 'Calendar:Calendar'; Active element disappeared: 'Phone:Phone'",
+            "used_model_analysis": false,
+            "elements_before": 29,
+            "elements_after": 12
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ],
+      "tag": [
+        "alarm.create"
+      ]
     }
   }
 }
