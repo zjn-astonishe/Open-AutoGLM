@@ -14,6 +14,7 @@ from phone_agent.actions.handler import ActionHandler
 from act_mem.act_mem import ActionMemory
 from act_mem.workflow import Workflow, WorkGraph
 from act_mem.worknode import WorkNode, WorkAction
+from act_mem.workrecorder import WorkflowRecorder
 
 
 
@@ -392,7 +393,14 @@ class SpeculativeExecutor:
             raise ValueError(f"Failed to parse action: {e}")
 
     
-    async def executor(self, prediction: Dict[str, str], tag: str, recorder=None, initial_screenshot=None, is_portal: bool = True):
+    async def executor(
+            self, 
+            prediction: Dict[str, str], 
+            # tag: str, 
+            recorder=None, 
+            initial_screenshot=None, 
+            is_portal: bool = True
+        ):
         """
         Execute speculative predictions by storing them in action memory.
         
@@ -431,48 +439,51 @@ class SpeculativeExecutor:
                     "bbox": e.bounds,
                 })
 
-        # IMPORTANT: Complete any pending transition from agent.py before we start
-        # Otherwise our on_action_executed calls will overwrite agent.py's pending transition
-        if recorder and recorder._pending_from_node_id is not None:
-            # Get current screenshot to create the to_node for agent.py's pending transition
-            current_screenshot = screenshot
-            
-            # Get current app and work graph
-            current_app = await device_factory.get_current_app(self.device_id)
-            work_graph = self._memory.get_work_graph(current_app)
-            if work_graph is None:
-                work_graph = self._memory.add_work_graph(current_app)
-            
-            # Create to_node for agent.py's action
-            after_elements = []
-            if not is_portal:
-                for e in current_screenshot.elements:
-                    after_elements.append({
-                        "content": e.elem_id,
-                        "option": e.checked,
-                        "focused": e.focused,
-                        "path": e.get_xpath()
-                    })
-            else:
-                for e in screenshot.elements:
-                    current_elements.append({
-                        "resourceId": e.resourceId,
-                        "className": e.className,
-                        "content": e.content_desc,
-                        "checked": e.state_desc,
-                    })
-            
-            to_node = work_graph.create_node(after_elements)
-            to_node.add_tag(tag=tag)
-            
-            # Complete agent.py's pending transition
-            recorder.on_new_node(current_node_id=to_node.id)
-            # print("✅ Completed agent.py's pending transition before speculative execution")
+        # Track if we need to complete agent.py's pending transition
+        # Only complete it if we actually execute at least one speculative action
+        pending_transition_completed = False
+        
         # Track the previous to_node to reuse as from_node in next iteration
         for i in range(len(self._future_nodes)):
             is_match = self._elements_match(current_elements, self._future_nodes[i].elements_info)
             print(f"Elements match with speculative node: {is_match}")
             if is_match:
+                # IMPORTANT: Complete any pending transition from agent.py before first speculative action
+                # Only do this once, when we're sure we'll execute at least one action
+                if not pending_transition_completed and recorder and recorder._pending_from_node_id is not None:
+                    # Get current app and work graph
+                    current_app = await device_factory.get_current_app(self.device_id)
+                    work_graph = self._memory.get_work_graph(current_app)
+                    if work_graph is None:
+                        work_graph = self._memory.add_work_graph(current_app)
+                    
+                    # Create to_node for agent.py's action
+                    after_elements = []
+                    if not is_portal:
+                        for e in screenshot.elements:
+                            after_elements.append({
+                                "content": e.elem_id,
+                                "option": e.checked,
+                                "focused": e.focused,
+                                "path": e.get_xpath()
+                            })
+                    else:
+                        for e in screenshot.elements:
+                            after_elements.append({
+                                "resourceId": e.resourceId,
+                                "className": e.className,
+                                "content": e.content_desc,
+                                "checked": e.state_desc,
+                            })
+                    
+                    to_node = work_graph.create_node(after_elements)
+                    # to_node.add_tag(tag=tag)
+                    
+                    # Complete agent.py's pending transition
+                    recorder.on_new_node(current_node_id=to_node.id)
+                    pending_transition_completed = True
+                    print("✅ Completed agent.py's pending transition before first speculative action")
+                
                 for j in range(len(self._future_nodes[i].elements_info)):
                     if i == 0:
                         self._future_nodes[i].elements_info[j]['id'] = f"B{j+1}"
@@ -629,7 +640,7 @@ class SpeculativeExecutor:
                             
                             # Create to_node
                             to_node = work_graph.create_node(after_elements)
-                            to_node.add_tag(tag=tag)
+                            # to_node.add_tag(tag=tag)
                             
                             # Complete the transition by recording the to_node
                             recorder.on_new_node(current_node_id=to_node.id)
@@ -657,7 +668,8 @@ class SpeculativeExecutor:
                         
                         action_dict = {list(prediction.keys())[i]: list(prediction.values())[i]}
                         print(f"Speculative action executed and recorded: {action_dict}")
-                        self._context.add_history_entry(content="", action=action_dict, tag=tag)
+                        # self._context.add_history_entry(content="", action=action_dict, tag=tag)
+                        self._context.add_history_entry(content="", action=action_dict)
                         
                     except Exception as e:
                         print(f"Speculative action execution error: {e}")

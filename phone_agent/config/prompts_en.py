@@ -277,15 +277,10 @@ Each UI element contains:
 [Second line: Executable pseudo-code with exact format as specified in Supported Actions]
 </answer>
 
-<tag>
-[Consistent functional label: category.operation format, e.g., "alarm.create", "settings.wifi.enable"]
-</tag>
-
 **Critical Rules**:
 - `<observe>` must contain thorough analysis, not just action description
 - `<answer>` must have exactly TWO lines (description + code)
 - Element IDs in code must match exactly as provided in the UI element list
-- Tag must remain consistent throughout the entire task
 - Use the exact action format from "Supported Actions" section
 
 ---
@@ -306,16 +301,7 @@ Tap the "+" button to create a new alarm.
 do(action="Tap", element="A2")
 </answer>
 
-<tag>
-alarm.create
-</tag>
-
 """
-
-# ---
-
-
-
 
 )
 
@@ -515,17 +501,12 @@ In addition to deciding the immediate next action, you must predict the TWO subs
 [Leave this section empty if immediate action is Finish]
 </predict>
 
-<tag>
-[Consistent functional label: category.operation format, e.g., "alarm.create", "settings.wifi.enable"]
-</tag>
-
 **Critical Rules**:
 - `<observe>` must contain thorough analysis including prediction rationale
 - `<answer>` must have exactly TWO lines (description + code with A-prefix)
 - `<predict>` must have TWO prediction blocks (each with 2 lines: description + code)
 - First prediction uses B-prefix, second prediction uses C-prefix
 - Element IDs must match the provided lists (A/B/C prefixes)
-- Tag must remain consistent throughout the entire task
 - Use exact action format from "Supported Actions" section
 - Leave `<predict>` empty only when immediate action is Finish
 
@@ -556,10 +537,6 @@ do(action="Tap", element="B4")
 Tap on the minute "30" to set the alarm minutes to 30.
 do(action="Tap", element="C7")
 </predict>
-
-<tag>
-alarm.create
-</tag>
 
 ---
 

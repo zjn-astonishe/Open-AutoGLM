@@ -49,7 +49,7 @@ class HistoryEntry:
     action_description: str
     action_code: str
     success: bool
-    tag: Optional[str] = None  # Add tag to distinguish different functional contexts
+    # tag: Optional[str] = None  # Add tag to distinguish different functional contexts
     timestamp: Optional[str] = None
 
 
@@ -76,7 +76,8 @@ class HistorySection(ContextSection):
         
         for entry in self.entries:  # Show last 5 entries in detail
             status = "✅" if entry.success else "❌"
-            history_content += f"**Step {entry.step}** {entry.tag} {status}\n"
+            # history_content += f"**Step {entry.step}** {entry.tag} {status}\n"
+            history_content += f"**Step {entry.step}** {status}\n"
             # history_content += f"- {entry.thinking[:100]}{'...' if len(entry.thinking) > 100 else ''}\n"
             history_content += f"- {entry.thinking}\n"
             history_content += f"- Action: {entry.action_description}\n"
@@ -340,7 +341,12 @@ class StructuredContext:
         """Clear the speculative context."""
         self.speculative_context = SpeculativeContextSection()
     
-    def add_history_entry(self, content: str, action: Dict[str, Any] | None = None, tag: Optional[str] = None) -> None:
+    def add_history_entry(
+            self, 
+            content: str, 
+            action: Dict[str, Any] | None = None, 
+            # tag: Optional[str] = None
+        ) -> None:
         """Add a history entry (thinking/response) to context."""
         # Add thinking content as a history entry
         self._step_count += 1
@@ -359,7 +365,7 @@ class StructuredContext:
             action_description=action_description,
             action_code=action_code,
             success=True,  # Default to True, will be updated based on action result
-            tag=tag
+            # tag=tag
         )
         self.history.add_entry(entry)
     

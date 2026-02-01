@@ -84,5 +84,5 @@ class WorkNode:
                     "text": action.text
                 } for action in self.actions
             ],
-            "tag": self.tag
+            # "tag": self.tag
         }

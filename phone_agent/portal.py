@@ -199,7 +199,11 @@ async def enable_portal_accessibility(
     device: DeviceFactory, service_name: str = A11Y_SERVICE_NAME
 ):
     """
-    Enable the Portal accessibility service on the device.
+    Enable the Portal accessibility service on the device without disabling others.
+    
+    This function adds the Portal service to the existing list of enabled accessibility
+    services, preserving any other services that are already enabled (like Google's
+    AccessibilityForwarder).
 
     Args:
         device: ADB device connection
@@ -209,8 +213,28 @@ async def enable_portal_accessibility(
         This may fail on some devices due to security restrictions.
         Manual enablement may be required.
     """
+    # Get current enabled accessibility services
+    current_services = await device.shell(
+        "settings get secure enabled_accessibility_services"
+    )
+    current_services = current_services.strip()
+    
+    # If Portal service is already in the list, no need to add it
+    if service_name in current_services:
+        # Just make sure accessibility is enabled
+        await device.shell("settings put secure accessibility_enabled 1")
+        return
+    
+    # Add Portal service to the list (preserve existing services)
+    if current_services and current_services != "null":
+        # There are existing services, append Portal to the list
+        new_services = f"{current_services}:{service_name}"
+    else:
+        # No existing services, just set Portal
+        new_services = service_name
+    
     await device.shell(
-        f"settings put secure enabled_accessibility_services {service_name}"
+        f"settings put secure enabled_accessibility_services {new_services}"
     )
     await device.shell("settings put secure accessibility_enabled 1")
 

@@ -54,7 +54,7 @@ class StepResult:
     action: Dict[str, Any] | None
     thinking: str
     predict: Dict[str, str] | None = None
-    tag: str | None = None
+    # tag: str | None = None
     message: str | None = None
 
 
@@ -113,7 +113,7 @@ class PhoneAgent:
         self._executed_skills = []  # 记录已执行的skill列表
         
         # 记忆加载缓存
-        self._loaded_tags = set()  # 记录已加载的tag，避免重复加载
+        # self._loaded_tags = set()  # 记录已加载的tag，避免重复加载
         
         # Planning优化：缓存planning结果和控制调用频率
         self._planning_cache = {}  # 缓存planning结果 {task_hash: (plan, timestamp)}
@@ -152,6 +152,27 @@ class PhoneAgent:
         self._planning_cache = {}
         self._last_planning_step = -1
         self._planning_done = False
+
+        try:
+            # 使用双重筛选加载记忆：先tag筛选，再embedding筛选
+            memory_start_time = time.time()
+            self.memory.from_json(
+                task=task,
+                # target_tag=response.tag,
+                similarity_threshold=0.5
+            )
+            memory_end_time = time.time()
+            
+            # 记录已加载的tag
+            # self._loaded_tags.add(response.tag)
+            
+            if self.agent_config.verbose:
+                print(f"🧠 Memory loading taken: {memory_end_time - memory_start_time:.2f} seconds")
+                print(f"📚 Loaded {len(self.memory.historical_workflows)} workflows, {len(self.memory.historical_workgraphs)} workgraphs")
+                
+        except Exception as e:
+            if self.agent_config.verbose:
+                print(f"⚠️ Memory loading failed: {e}")
         
         # First step with user prompt
         result = await self._execute_step(task, recorder, is_first=True)
@@ -188,7 +209,7 @@ class PhoneAgent:
                 # Pass cached screenshot to executor and get final screenshot back
                 final_screenshot = await self.speculative_executor.executor(
                     result.predict, 
-                    result.tag, 
+                    # result.tag, 
                     recorder,
                     initial_screenshot=self._last_screenshot
                 )
@@ -248,7 +269,7 @@ class PhoneAgent:
         self._post_skill_execution = False
         self._executed_skills = []
         # 重置记忆加载缓存
-        self._loaded_tags = set()
+        # self._loaded_tags = set()
         # 重置planning缓存
         self._planning_cache = {}
         self._last_planning_step = -1
@@ -306,39 +327,39 @@ class PhoneAgent:
                         print(f"🧠 Using cached planning result")
                 
                 # 根据planning结果加载相关记忆数据
-                if plan.decision == "use_skill" and plan.skill_name:
+                # if plan.decision == "use_skill" and plan.skill_name:
                     # 将skill_name转换为tag格式
-                    target_tag = plan.skill_name.replace("_", ".")
+                    # target_tag = plan.skill_name.replace("_", ".")
                     
                     # 检查是否已经加载过这个tag
-                    if target_tag not in self._loaded_tags:
-                        if self.agent_config.verbose:
-                            print(f"🧠 Loading memory for skill: {plan.skill_name} (tag: {target_tag})")
+                    # if target_tag not in self._loaded_tags:
+                    #     if self.agent_config.verbose:
+                    #         print(f"🧠 Loading memory for skill: {plan.skill_name} (tag: {target_tag})")
                         
-                        try:
-                            # 使用双重筛选加载记忆：先tag筛选，再embedding筛选
-                            memory_start_time = time.time()
-                            self.memory.from_json(
-                                task=user_prompt,
-                                target_tag=target_tag,
-                                similarity_threshold=0.5
-                            )
-                            memory_end_time = time.time()
+                        # try:
+                        #     # 使用双重筛选加载记忆：先tag筛选，再embedding筛选
+                        #     memory_start_time = time.time()
+                        #     self.memory.from_json(
+                        #         task=user_prompt,
+                        #         # target_tag=target_tag,
+                        #         similarity_threshold=0.5
+                        #     )
+                        #     memory_end_time = time.time()
                             
-                            # 记录已加载的tag
-                            self._loaded_tags.add(target_tag)
+                        #     # 记录已加载的tag
+                        #     # self._loaded_tags.add(target_tag)
                             
-                            if self.agent_config.verbose:
-                                print(f"🧠 Memory loading taken: {memory_end_time - memory_start_time:.2f} seconds")
-                                print(f"📚 Loaded {len(self.memory.historical_workflows)} workflows, {len(self.memory.historical_workgraphs)} workgraphs")
+                        #     if self.agent_config.verbose:
+                        #         print(f"🧠 Memory loading taken: {memory_end_time - memory_start_time:.2f} seconds")
+                        #         print(f"📚 Loaded {len(self.memory.historical_workflows)} workflows, {len(self.memory.historical_workgraphs)} workgraphs")
                                 
-                        except Exception as e:
-                            if self.agent_config.verbose:
-                                print(f"⚠️ Memory loading failed: {e}")
+                        # except Exception as e:
+                        #     if self.agent_config.verbose:
+                        #         print(f"⚠️ Memory loading failed: {e}")
                             # 继续执行，不因为记忆加载失败而中断
-                    else:
-                        if self.agent_config.verbose:
-                            print(f"🧠 Memory for tag '{target_tag}' already loaded, skipping")
+                    # else:
+                    #     if self.agent_config.verbose:
+                            # print(f"🧠 Memory for tag '{target_tag}' already loaded, skipping")
                 
                 # 如果决定使用skill且该skill未被执行过
                 if (plan.decision == "use_skill" and 
@@ -366,7 +387,7 @@ class PhoneAgent:
                         else:
                             print(f"❌ Skill execution failed")
                     
-                    recorder.set_tag(plan.skill_name.replace("_", "."))
+                    # recorder.set_tag(plan.skill_name.replace("_", "."))
                     
                     # 记录技能执行到工作流中
                     from_node_id = f"skill_{plan.skill_name}_{int(start_time)}"
@@ -444,7 +465,7 @@ class PhoneAgent:
                         
                         # 添加skill执行和验证结果到上下文
                         print(f"✅ {skill_message}")
-                        self._context.add_history_entry(skill_message, tag=plan.skill_name.replace("_", "."))
+                        # self._context.add_history_entry(skill_message, tag=plan.skill_name.replace("_", "."))
                         
                         # 完全跳过后续的验证步骤，直接重置标志
                         self._post_skill_execution = False
@@ -454,7 +475,7 @@ class PhoneAgent:
                             finished=False,  # 继续执行后续步骤
                             action={"action": "SkillExecution", "skill_name": plan.skill_name},
                             thinking=f"Executed and verified skill {plan.skill_name}",
-                            tag=plan.skill_name.replace("_", "."),
+                            # tag=plan.skill_name.replace("_", "."),
                             message=skill_message
                         )
                     else:
@@ -603,34 +624,34 @@ class PhoneAgent:
 
         # Parse action from response
         # print(f"response.action: {list(response.action.values())[0]}, {type(response.action)}")
-        if response.tag not in self._loaded_tags:
-            if self.agent_config.verbose:
-                print(f"🧠 Loading memory for tag: {response.tag}")
+        # if response.tag not in self._loaded_tags:
+            # if self.agent_config.verbose:
+                # print(f"🧠 Loading memory for tag: {response.tag}")
             
-            try:
-                # 使用双重筛选加载记忆：先tag筛选，再embedding筛选
-                memory_start_time = time.time()
-                self.memory.from_json(
-                    task=user_prompt,
-                    target_tag=response.tag,
-                    similarity_threshold=0.5
-                )
-                memory_end_time = time.time()
+        # try:
+        #     # 使用双重筛选加载记忆：先tag筛选，再embedding筛选
+        #     memory_start_time = time.time()
+        #     self.memory.from_json(
+        #         task=user_prompt,
+        #         # target_tag=response.tag,
+        #         similarity_threshold=0.5
+        #     )
+        #     memory_end_time = time.time()
+            
+        #     # 记录已加载的tag
+        #     # self._loaded_tags.add(response.tag)
+            
+        #     if self.agent_config.verbose:
+        #         print(f"🧠 Memory loading taken: {memory_end_time - memory_start_time:.2f} seconds")
+        #         print(f"📚 Loaded {len(self.memory.historical_workflows)} workflows, {len(self.memory.historical_workgraphs)} workgraphs")
                 
-                # 记录已加载的tag
-                self._loaded_tags.add(response.tag)
-                
-                if self.agent_config.verbose:
-                    print(f"🧠 Memory loading taken: {memory_end_time - memory_start_time:.2f} seconds")
-                    print(f"📚 Loaded {len(self.memory.historical_workflows)} workflows, {len(self.memory.historical_workgraphs)} workgraphs")
-                    
-            except Exception as e:
-                if self.agent_config.verbose:
-                    print(f"⚠️ Memory loading failed: {e}")
-                # 继续执行，不因为记忆加载失败而中断
-        else:
-            if self.agent_config.verbose:
-                print(f"🧠 Memory for tag '{response.tag}' already loaded, skipping")
+        # except Exception as e:
+        #     if self.agent_config.verbose:
+        #         print(f"⚠️ Memory loading failed: {e}")
+
+        # else:
+        #     if self.agent_config.verbose:
+        #         print(f"🧠 Memory for tag '{response.tag}' already loaded, skipping")
         
         
         try:
@@ -767,7 +788,8 @@ class PhoneAgent:
         self._actions_executed.append(action)
 
         # Add assistant response to context
-        self._context.add_history_entry(response.thinking, response.action, response.tag)
+        # self._context.add_history_entry(response.thinking, response.action, response.tag)
+        self._context.add_history_entry(response.thinking, response.action)
         
         # Include simplified reflection result in context if available
         if reflection_result:
@@ -821,12 +843,12 @@ class PhoneAgent:
         if self.agent_config.verbose:
             print(f"Context length: {len(self._context.to_messages())} messages")
 
-        if is_first:
-            recorder.set_tag(response.tag)
+        # if is_first:
+            # recorder.set_tag(response.tag)
         
         # Set the tag for the current node to enable proper memory loading
-        if response.tag and response.tag.strip():
-            node.add_tag(tag=response.tag)
+        # if response.tag and response.tag.strip():
+            # node.add_tag(tag=response.tag)
         
         recorder.on_action_executed(
             from_node_id=node.id,
@@ -866,7 +888,7 @@ class PhoneAgent:
             action=action,
             thinking=response.thinking,
             predict=response.predict,
-            tag=response.tag,
+            # tag=response.tag,
             message=result.message or action.get("message"),
         )
 

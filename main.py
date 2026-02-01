@@ -39,6 +39,9 @@ from utils.config import load_config
 from utils.util import print_with_color
 from phone_agent.portal import (
     PORTAL_PACKAGE_NAME,
+    check_portal_accessibility,
+    toggle_overlay,
+    disable_keyboard,
     download_portal_apk,
     download_versioned_portal_apk,
     enable_portal_accessibility,
@@ -79,8 +82,15 @@ async def _setup_portal(path: str | None, device_factory: DeviceFactory, debug: 
             print_with_color("Downloading latest Portal APK...", "blue")
             apk_context = download_portal_apk(debug)
         else:
-            from importlib.metadata import version
-            __version__ = version("droidrun")
+            from importlib.metadata import version, PackageNotFoundError
+            try:
+                # Try to get version from installed package
+                __version__ = version("phone-agent")
+            except PackageNotFoundError:
+                # If package not installed via pip, use a default version
+                __version__ = "0.1.0"
+                print_with_color(f"Package not installed, using default version: {__version__}", "yellow")
+            
             portal_version, download_base, mapping_fetched = get_compatible_portal_version(__version__, debug)
 
             if portal_version:
@@ -148,6 +158,12 @@ async def _setup_portal(path: str | None, device_factory: DeviceFactory, debug: 
                     "\nAPK installation complete![/] Please manually enable the accessibility service using the steps above.",
                     "green"
                 )
+        
+        # Return to system home after setup
+        print_with_color("\nReturning to system home...", "blue")
+        await device_factory.shell("input keyevent KEYCODE_HOME")
+        await asyncio.sleep(1.0)
+        print_with_color("✓ Returned to home screen", "green")
 
     except Exception as e:
         print_with_color(f"Error: {e}", "red")
@@ -377,6 +393,7 @@ async def check_system_requirements(
                 device_factory=device_factory,
                 debug=False
             )
+            
         else:
             print("✅ OK")
     elif device_type == DeviceType.HDC:
@@ -1114,11 +1131,32 @@ async def main():
             print("=" * 50)
             
             # Create test runner with Open-AutoGLM agent
+            # This will initialize Android World environment first
             test_runner = AndroidWorldTestRunner(
                 agent=agent,
                 timeout_per_task=args.aw_timeout,
                 verbose=not configs["QUIET"]
             )
+            
+            # Re-check and setup Portal AFTER Android World environment initialization
+            # This ensures Portal is properly configured after any Android World setup
+            print("\n🔧 Verifying Portal after Android World initialization...")
+            device_factory = await get_device_factory()
+            
+            portal_version = await get_portal_version(device_factory)
+            if not portal_version or portal_version < "0.4.1":
+                print(f"⚠️  Portal version {portal_version} needs setup")
+                await _setup_portal(
+                    path=None, 
+                    device_factory=device_factory,
+                    debug=False
+                )
+            else:
+                # Verify Portal accessibility is still enabled
+                if not await check_portal_accessibility(device_factory):
+                    print("⚠️  Portal accessibility service was disabled, re-enabling...")
+                    await enable_portal_accessibility(device_factory)
+                print(f"✅ Portal {portal_version} is ready")
             
             start_time = time.time()
             
@@ -1134,7 +1172,7 @@ async def main():
                     )
                 else:
                     print(f"Running single task: {args.aw_task}")
-                    result = test_runner.run_single_task(
+                    result = await test_runner.run_single_task(
                         task_name=args.aw_task,
                         family=args.aw_family,
                         timeout=args.aw_timeout
@@ -1143,7 +1181,7 @@ async def main():
             elif args.aw_tasks:
                 # Run specific task list
                 print(f"Running {len(args.aw_tasks)} tasks: {', '.join(args.aw_tasks)}")
-                result = test_runner.run_task_list(
+                result = await test_runner.run_task_list(
                     task_names=args.aw_tasks,
                     family=args.aw_family,
                     timeout_per_task=args.aw_timeout

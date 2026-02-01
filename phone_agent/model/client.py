@@ -4,7 +4,7 @@ import re
 import json
 import time
 from dataclasses import dataclass, field
-from typing import Any, Dict, List
+from typing import Any, Dict, Optional
 
 from openai import AsyncOpenAI
 
@@ -32,15 +32,15 @@ class ModelConfig:
 class ModelResponse:
     """Response from the AI model."""
 
-    thinking: str
     action: Dict[str, str]
-    tag: str
     raw_content: str
-    predict: Dict[str, str] | None = None
+    # tag: str
+    thinking: Optional[str] = None
+    predict: Optional[Dict[str, str]] = None
     # Performance metrics
-    time_to_first_token: float | None = None  # Time to first token (seconds)
-    time_to_thinking_end: float | None = None  # Time to thinking end (seconds)
-    total_time: float | None = None  # Total inference time (seconds)
+    time_to_first_token: Optional[float] = None  # Time to first token (seconds)
+    time_to_thinking_end: Optional[float] = None  # Time to thinking end (seconds)
+    total_time: Optional[float] = None  # Total inference time (seconds)
 
 
 class ModelClient:
@@ -150,15 +150,17 @@ class ModelClient:
         
         # Parse response based on mode
         if mode == "reflect":
-            thinking, action, tag = self._parse_reflect_response(raw_content)
+            action = self._parse_reflect_response(raw_content)
         elif mode == "predict":
-            thinking, answer, predict, tag = self._parse_response_with_predict(raw_content)
+            # thinking, answer, predict, tag = self._parse_response_with_predict(raw_content)
+            thinking, answer, predict = self._parse_response_with_predict(raw_content)
             action = self._parse_action(answer)
             predict = self._parse_predict(predict)
         elif mode == "action":
             # Parse thinking and action from response for normal action mode
             # thinking, action = self._parse_response(raw_content)
-            thinking, answer, tag = self._parse_response(raw_content)
+            # thinking, answer, tag = self._parse_response(raw_content)
+            thinking, answer = self._parse_response(raw_content)
             action = self._parse_action(answer)
 
         # Print performance metrics
@@ -184,7 +186,7 @@ class ModelClient:
             return ModelResponse(
                 thinking=thinking,
                 action=action,
-                tag=tag.strip(),
+                # tag=tag.strip(),
                 predict=predict,
                 raw_content=raw_content,
                 time_to_first_token=time_to_first_token,
@@ -193,9 +195,8 @@ class ModelClient:
             )
         else:
             return ModelResponse(
-                thinking=thinking,
                 action=action,
-                tag=tag.strip(),
+                # tag=tag.strip(),
                 raw_content=raw_content,
                 time_to_first_token=time_to_first_token,
                 time_to_thinking_end=time_to_thinking_end,
@@ -253,7 +254,8 @@ class ModelClient:
         # Rule 4: No markers found, return content as action
         return "", content
     
-    def _parse_response_with_predict(self, content: str) -> tuple[str, str, str, str]:
+    # def _parse_response_with_predict(self, content: str) -> tuple[str, str, str, str]:
+    def _parse_response_with_predict(self, content: str) -> tuple[str, str, str]:
         """
         Parse the model response into thinking, action parts and tag.
 
@@ -261,18 +263,21 @@ class ModelClient:
             content: Raw response content.
         
         Returns:
-            Tuple of (thinking, action, tag).
+            # Tuple of (thinking, action, predict, tag).
+            Tuple of (thinking, answer, predict).
         """
 
         thinking = re.findall(r"<observe>(.*?)</observe>", content, re.DOTALL)[0]
         answer = re.findall(r"<answer>(.*?)</answer>", content, re.DOTALL)[0]
         predict = re.findall(r"<predict>(.*?)</predict>", content, re.DOTALL)[0]
         print(f"predict: {predict}")
-        tag = re.findall(r"<tag>(.*?)</tag>", content, re.DOTALL)[0]
+        # tag = re.findall(r"<tag>(.*?)</tag>", content, re.DOTALL)[0]
 
-        return thinking, answer, predict, tag
+        # return thinking, answer, predict, tag
+        return thinking, answer, predict
     
-    def _parse_response(self, content: str) -> tuple[str, str, str]:
+    # def _parse_response(self, content: str) -> tuple[str, str, str]:
+    def _parse_response(self, content: str) -> tuple[str, str]:
         """
         Parse the model response into thinking, action parts and tag.
 
@@ -280,14 +285,16 @@ class ModelClient:
             content: Raw response content.
         
         Returns:
-            Tuple of (thinking, action, tag).
+            # Tuple of (thinking, action, tag).
+            Tuple of (thinking, answer).
         """
 
         thinking = re.findall(r"<observe>(.*?)</observe>", content, re.DOTALL)[0]
         answer = re.findall(r"<answer>(.*?)</answer>", content, re.DOTALL)[0]
-        tag = re.findall(r"<tag>(.*?)</tag>", content, re.DOTALL)[0]
+        # tag = re.findall(r"<tag>(.*?)</tag>", content, re.DOTALL)[0]
 
-        return thinking, answer, tag
+        # return thinking, answer, tag
+        return thinking, answer
 
     def _parse_action(self, content: str) -> Dict[str, str]:
         """
@@ -364,7 +371,8 @@ class ModelClient:
 
         return predict_dict
 
-    def _parse_reflect_response(self, content: str) -> tuple[str, Dict[str, str], str]:
+    # def _parse_reflect_response(self, content: str) -> tuple[str, Dict[str, str], str]:
+    def _parse_reflect_response(self, content: str) -> tuple[Dict[str, str]]:
         """
         Parse the model response for reflection analysis.
         
@@ -375,7 +383,7 @@ class ModelClient:
             content: Raw response content.
 
         Returns:
-            Tuple of (thinking, action_dict, tag).
+            Tuple of action_dict.
         """
         # For reflect mode, the entire content is the analysis
         # We can try to extract structured information if available
@@ -416,7 +424,8 @@ class ModelClient:
         }
         
         # For reflect mode, thinking is empty and tag is "reflect"
-        return "", action_dict, "reflect"
+        # return "", action_dict, "reflect"
+        return action_dict
 
 class MessageBuilder:
     """Helper class for building conversation messages."""

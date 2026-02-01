@@ -42,6 +42,8 @@ class Workflow:
             self.path.append(WorkTransition(from_node_id=from_node_id, to_node_id=to_node_id, action=action, success=success))
         else:
             print(f"Transition from {from_node_id} to {to_node_id} does not match this workflow. The workflow start id is {self.get_start_id()}, last id is {self.get_last_id()}")
+            for transition in self.path:
+                print(transition)
             raise ValueError("This transition does not match this workflow.")
 
     def get_start_id(self) -> str | None:
@@ -64,8 +66,8 @@ class Workflow:
     def to_json(self) -> Dict[str, Any]:
         workflow_data = {
             "id": self.id,
-            "tag": self.tag,
-            "tag_embedding": self.tag_embedding.tolist() if self.tag_embedding is not None else [],  # 添加检查
+            # "tag": self.tag,
+            # "tag_embedding": self.tag_embedding.tolist() if self.tag_embedding is not None else [],  # 添加检查
             "task": self.task,
             "task_embedding": self.task_embedding.tolist(),
             "step": self.step,

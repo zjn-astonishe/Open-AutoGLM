@@ -95,7 +95,7 @@ class AndroidWorldTestRunner:
         if self.verbose:
             print(f"Android World Test Runner initialized for device {device_id}")
     
-    def run_single_task(self, 
+    async def run_single_task(self, 
                        task_name: str, 
                        family: Optional[str] = None,
                        timeout: int = 300) -> Dict[str, Any]:
@@ -137,7 +137,7 @@ class AndroidWorldTestRunner:
             agent_start_time = time.time()
             
             try:
-                agent_result = self.agent.run(task_goal)
+                agent_result = await self.agent.run(task_goal)
                 agent_execution_time = time.time() - agent_start_time
                 
                 # Ensure agent_result has required fields
@@ -215,7 +215,7 @@ class AndroidWorldTestRunner:
                 'error': error_msg
             }
     
-    def run_task_list(self, 
+    async def run_task_list(self, 
                      task_names: List[str], 
                      family: Optional[str] = None,
                      timeout_per_task: int = 300) -> Dict[str, Any]:
@@ -239,7 +239,7 @@ class AndroidWorldTestRunner:
             print(f"\n--- Task {i}/{len(task_names)} ---")
             
             try:
-                result = self.run_single_task(task_name, family, timeout_per_task)
+                result = await self.run_single_task(task_name, family, timeout_per_task)
                 results.append(result)
                 
             except KeyboardInterrupt:

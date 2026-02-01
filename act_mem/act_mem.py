@@ -213,9 +213,10 @@ class ActionMemory:
         workflow_dir = os.path.join(self.memory_dir, "workflow")
         
         workflow_data = self.workflow.to_json()
-        tag = self.workflow.tag
+        # tag = self.workflow.tag
         
-        task_filename = f"{tag.replace('.', '_').strip()}.json"
+        # task_filename = f"{tag.replace('.', '_').strip()}.json"
+        task_filename = f"history.json"
         task_filepath = os.path.join(workflow_dir, task_filename)
 
         existing_workflows = self._load_existing_workflows(task_filepath)
@@ -293,9 +294,9 @@ class ActionMemory:
     def from_json(
             self, 
             task: str,
-            target_tag: str | None = None,
+            # target_tag: str | None = None,
             similarity_threshold: float = 0.5,
-            tag_similarity_threshold: float = 0.8,
+            # tag_similarity_threshold: float = 0.8,
         ) -> None:
         """
         Load work graphs and workflows from JSON files into historical memory, filtered by target apps/tasks.
@@ -306,9 +307,9 @@ class ActionMemory:
         
         Args:
             task (str): The task description to match against
-            target_tag (str | None): Optional tag to filter by first
+            # target_tag (str | None): Optional tag to filter by first
             similarity_threshold (float): Minimum cosine similarity threshold for task embedding matching (default: 0.7)
-            tag_similarity_threshold (float): Minimum cosine similarity threshold for tag matching when target_tag is provided (default: 0.8)
+            # tag_similarity_threshold (float): Minimum cosine similarity threshold for tag matching when target_tag is provided (default: 0.8)
         """
         
         # 计算输入task的embedding用于相似度比较
@@ -316,9 +317,9 @@ class ActionMemory:
         task_embedding = model.encode(task)
         
         # 如果提供了target_tag，也计算其embedding用于tag相似度匹配
-        target_tag_embedding = None
-        if target_tag:
-            target_tag_embedding = model.encode(target_tag)
+        # target_tag_embedding = None
+        # if target_tag:
+            # target_tag_embedding = model.encode(target_tag)
         
         # 确保目录存在
         graph_dir = os.path.join(self.memory_dir, "graph")
@@ -333,36 +334,36 @@ class ActionMemory:
                 if filename.endswith(".json"):
                     # 从文件名提取tag
                     filepath = os.path.join(workflow_dir, filename)
-                    tag = os.path.splitext(filename)[0]
-                    tag = tag.replace('_', '.')
+                    # tag = os.path.splitext(filename)[0]
+                    # tag = tag.replace('_', '.')
                     
                     # 如果指定了target_tag，进行tag匹配（支持精确匹配和语义相似度匹配）
-                    if target_tag:
-                        tag_matches = False
+                    # if target_tag:
+                        # tag_matches = False
                         
                         # 首先尝试精确匹配
-                        if tag == target_tag:
-                            tag_matches = True
+                        # if tag == target_tag:
+                            # tag_matches = True
                             # print(f"Tag exact match: {tag}")
                         
                         # 如果精确匹配失败，尝试语义相似度匹配
-                        elif target_tag_embedding is not None:
-                            try:
-                                tag_embedding = model.encode(tag)
-                                tag_similarity = self._calculate_cosine_similarity(target_tag_embedding, tag_embedding)
+                        # elif target_tag_embedding is not None:
+                            # try:
+                            #     tag_embedding = model.encode(tag)
+                            #     tag_similarity = self._calculate_cosine_similarity(target_tag_embedding, tag_embedding)
                                 
-                                if tag_similarity >= tag_similarity_threshold:
-                                    tag_matches = True
-                                    # print(f"Tag semantic match: {tag} (similarity: {tag_similarity:.3f})")
-                                else:
-                                    print(f"Tag similarity too low: {tag} (similarity: {tag_similarity:.3f})")
+                            #     if tag_similarity >= tag_similarity_threshold:
+                            #         tag_matches = True
+                            #         # print(f"Tag semantic match: {tag} (similarity: {tag_similarity:.3f})")
+                            #     else:
+                            #         print(f"Tag similarity too low: {tag} (similarity: {tag_similarity:.3f})")
 
-                            except Exception as e:
-                                print(f"Warning: Error calculating tag similarity for {tag}: {str(e)}")
+                            # except Exception as e:
+                            #     print(f"Warning: Error calculating tag similarity for {tag}: {str(e)}")
                         
                         # 如果tag不匹配，跳过此文件
-                        if not tag_matches:
-                            continue
+                        # if not tag_matches:
+                        #     continue
                     
                     file_workflows = []
                     try:
@@ -423,7 +424,7 @@ class ActionMemory:
                         )
 
                         # 设置标签，使用从文件名提取并恢复的tag
-                        workflow.tag = tag
+                        # workflow.tag = tag
                         
                         # 如果有保存的embedding，直接使用，否则重新计算
                         if "task_embedding" in workflow_data:
@@ -520,7 +521,7 @@ class ActionMemory:
                         node.tasks = node_data["tasks"] if "tasks" in node_data else []
                         
                         # 设置节点的标签（单个字符串）
-                        node.tag = node_data.get("tag")
+                        # node.tag = node_data.get("tag")
                         
                         # 设置节点的动作列表
                         if "actions" in node_data:
