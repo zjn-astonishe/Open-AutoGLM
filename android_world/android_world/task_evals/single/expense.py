@@ -79,7 +79,7 @@ class _ExpenseDeleteMultiple(_Expense, sqlite_validators.DeleteMultipleRows):
     expense_names = [expense.name for expense in targets]
     expense_names_str = ', '.join(expense_names)
     return (
-        f'Delete the following expenses from {_APP_NAME}: {expense_names_str}.'
+        f"Delete the following expenses from {_APP_NAME}: {expense_names_str}"
     )
 
   def validate_deletion_integrity(
@@ -259,7 +259,7 @@ class _ExpenseAddMultiple(_Expense, sqlite_validators.AddMultipleRows):
         self.params[sqlite_validators.ROW_OBJECTS],
         self.params[_TEXT_REPRESENTATION_TYPE],
     )
-    return f'Add the following expenses into the {_APP_NAME}:\n{text_repr}'
+    return f"Add the following expenses into the {_APP_NAME}:\n{text_repr}. Don't include money symbols when input amounts."
 
   def validate_addition_integrity(
       self,

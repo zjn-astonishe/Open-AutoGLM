@@ -355,7 +355,7 @@ class PortalClient:
             logger.error(f"Content provider input_text error: {e}")
             return False
 
-    async def take_screenshot(self, hide_overlay: bool = True) -> bytes:
+    async def take_screenshot(self, hide_overlay: bool = False) -> bytes:
         """
         Take screenshot of device.
         Auto-selects TCP or ADB screencap.

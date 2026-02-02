@@ -1,6 +1,8 @@
 """Test runner for Android World tasks using Open-AutoGLM."""
 
+import os
 import time
+import asyncio
 from typing import Dict, List, Any, Optional, Tuple
 from datetime import datetime
 import traceback
@@ -11,8 +13,148 @@ from .result_reporter import AndroidWorldResultReporter
 
 # Import Open-AutoGLM components
 from phone_agent.agent import PhoneAgent, AgentConfig
+from phone_agent.device_factory import get_device_factory, DeviceFactory
+
 from phone_agent.model import ModelConfig
 from utils.config import load_config
+from utils.util import print_with_color
+
+from phone_agent.portal import (
+    PORTAL_PACKAGE_NAME,
+    toggle_overlay,
+    download_portal_apk,
+    download_versioned_portal_apk,
+    enable_portal_accessibility,
+    get_compatible_portal_version,
+)
+
+async def _setup_portal(path: str | None, device_factory: DeviceFactory, debug: bool, latest: bool = False, specific_version: str | None = None):
+    """Internal async function to install and enable the DroidRun Portal on a device."""
+    try:
+        # Get device 
+        from async_adbutils import adb
+        devices = await adb.list()
+        if not devices:
+            print_with_color("No devices found!", "red")
+            return
+        
+        device = devices[0].serial
+        print_with_color(f"Using device: {devices}", "blue")
+
+        device_obj = await adb.device(device)
+        if not device_obj:
+            print_with_color("Error: Could not connect to device!", "red")
+            return
+        
+        # Check for local portal.apk first
+        local_apk_path = "portal.apk"
+        if not path and os.path.exists(local_apk_path):
+            print_with_color(f"Found local Portal APK: {local_apk_path}", "green")
+            path = local_apk_path
+
+        if path:
+            print_with_color(f"Using provided APK: {path}", "blue")
+            from contextlib import nullcontext
+            apk_context = nullcontext(path)
+        elif specific_version:
+            __version__ = specific_version.lstrip("v")
+            __version__ = f"v{__version__}"
+            download_base = "https://github.com/droidrun/droidrun-portal/releases/download"
+            apk_context = download_versioned_portal_apk(__version__, download_base, debug)
+        elif latest:
+            print_with_color("Downloading latest Portal APK...", "blue")
+            apk_context = download_portal_apk(debug)
+        else:
+            from importlib.metadata import version, PackageNotFoundError
+            try:
+                # Try to get version from installed package
+                __version__ = version("phone-agent")
+            except PackageNotFoundError:
+                # If package not installed via pip, use a default version
+                __version__ = "0.1.0"
+                print_with_color(f"Package not installed, using default version: {__version__}", "yellow")
+            
+            portal_version, download_base, mapping_fetched = get_compatible_portal_version(__version__, debug)
+
+            if portal_version:
+                apk_context = download_versioned_portal_apk(portal_version, download_base, debug)
+            else:
+                if not mapping_fetched:
+                    print_with_color("Could not fetch version mapping, falling back to latest...", "yellow")
+                apk_context = download_portal_apk(debug)
+
+        with apk_context as apk_path:
+            if not os.path.exists(apk_path):
+                print_with_color(f"Error: APK file not found at {apk_path}", "red")
+                return
+
+            print_with_color(f"Step 1/2: Installing APK: {apk_path}", "blue")
+            try:
+                await device_obj.install(
+                    apk_path, uninstall=True, flags=["-g"], silent=not debug
+                )
+            except Exception as e:
+                print_with_color(f"Installation failed: {e}", "red")
+                return
+
+            print_with_color("Installation successful!", "green")
+
+            print_with_color("Step 2/2: Enabling accessibility service", "blue")
+
+            try:
+                await enable_portal_accessibility(device_factory)
+
+                print_with_color("Accessibility service enabled successfully!", "green")
+                print_with_color(
+                    "\nSetup complete! The DroidRun Portal is now installed and ready to use.", 
+                    "green"
+                )
+                await asyncio.sleep(1.0)
+            except Exception as e:
+                print_with_color(
+                    f"Could not automatically enable accessibility service: {e}",
+                    "yellow"
+                )
+                print_with_color(
+                    "Opening accessibility settings for manual configuration...",
+                    "yellow"
+                )
+
+                await device_factory.shell(
+                    "am start -a android.settings.ACCESSIBILITY_SETTINGS"
+                )
+
+                print_with_color(
+                    "\nPlease complete the following steps on your device:",
+                    "yellow"
+                )
+                print_with_color(
+                    f"1. Find {PORTAL_PACKAGE_NAME} in the accessibility services list"
+                )
+                print_with_color("2. Tap on the service name")
+                print_with_color(
+                    "3. Toggle the switch to ON to enable the service"
+                )
+                print_with_color("4. Accept any permission dialogs that appear")
+
+                print_with_color(
+                    "\nAPK installation complete![/] Please manually enable the accessibility service using the steps above.",
+                    "green"
+                )
+        
+        # Return to system home after setup
+        print_with_color("\nReturning to system home...", "blue")
+        await device_factory.shell("input keyevent KEYCODE_HOME")
+        await asyncio.sleep(1.0)
+        print_with_color("✓ Returned to home screen", "green")
+
+    except Exception as e:
+        print_with_color(f"Error: {e}", "red")
+
+        if debug:
+            import traceback
+
+            traceback.print_exc()
 
 
 class AndroidWorldTestRunner:
@@ -129,6 +271,18 @@ class AndroidWorldTestRunner:
                 except Exception as e:
                     print(f"⚠️ Warning: Failed to initialize AndroidWorld task: {e}")
             
+            # Re-check and setup Portal AFTER Android World environment initialization
+            # This ensures Portal is properly configured after any Android World setup
+            print("\n🔧 Verifying Portal after Android World initialization...")
+            device_factory = await get_device_factory()
+            
+            await _setup_portal(
+                path=None, 
+                device_factory=device_factory,
+                debug=False
+            )
+            # await toggle_overlay(device_factory, visible=False)
+
             # Reset agent state
             self.agent.reset()
             

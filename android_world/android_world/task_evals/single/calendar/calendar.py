@@ -379,6 +379,7 @@ class SimpleCalendarDeleteEventsOnRelativeDay(SimpleCalendarDeleteEvents):
   _DAY_RANGE: int = 6
 
   template = (
+      "Today is October 15, 2023."
       "In Simple Calendar Pro, delete all events scheduled for this"
       " {day_of_week}."
   )

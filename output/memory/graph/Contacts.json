@@ -1,0 +1,1983 @@
+{
+  "app": "Contacts",
+  "nodes": {
+    "4e5bec91-8424-42f3-9600-b7e0ea6a706a": {
+      "id": "4e5bec91-8424-42f3-9600-b7e0ea6a706a",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/drawer_layout",
+          "className": "DrawerLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/root",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "SlidingPaneLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_list_fragment",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_list",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/open_search_bar",
+          "className": "EditText",
+          "content": "Search contacts",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Open navigation drawer",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/selected_account_disc",
+          "className": "FrameLayout",
+          "content": "Signed in as Device\nAccount and settings.",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/chips_container",
+          "className": "HorizontalScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/chip_group",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Button",
+          "content": "Phone contacts",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "Button",
+          "content": "Email contacts",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "Button",
+          "content": "Company",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/empty_view",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/text1",
+          "className": "TextView",
+          "content": "No contacts yet",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/floating_action_button",
+          "className": "ImageButton",
+          "content": "Create contact",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contacts",
+          "className": "FrameLayout",
+          "content": "Contacts",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/highlights",
+          "className": "FrameLayout",
+          "content": "Highlights",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/nav_manage",
+          "className": "FrameLayout",
+          "content": "Fix & manage",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Open 'Contacts' App. Create a new contact for Liam da Silva. Their number is +15666734094. (name: Liam da Silva, phone: +15666734094)"
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Create contact\" button to start adding a new contact.",
+          "zone_path": "com.google.android.contacts:id/floating_action_button/ImageButton/Create contact",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Interface element count remained the same; New content appeared: com.google.android.contacts:id/text_input_end_icon/ImageButton/Show date picker, EditText/Phone, com.google.android.contacts:id/button_change_photo/Button/Add picture; Content disappeared: com.google.android.contacts:id/floating_action_button/ImageButton/Create contact, SlidingPaneLayout, com.google.android.contacts:id/nav_manage/FrameLayout/Fix & manage; New active element appeared: 'Phone'; New active element appeared: 'Show date picker'; New active element appeared: 'Create contact'; New active element appeared: 'Home:Home Email'; New active element appeared: 'Email'; New active element appeared: 'Show more name fields'; New active element appeared: 'Significant date'; New active element appeared: 'Cancel'; New active element appeared: 'Company'; New active element appeared: 'Add contact photo'; New active element appeared: 'First name'; New active element appeared: 'Mobile:Mobile Phone'; New active element appeared: 'Add picture'; New active element appeared: 'More options'; New active element appeared: 'Show dropdown menu'; New active element appeared: 'Save'; New active element appeared: 'Last name'; Active element disappeared: 'Contacts'; Active element disappeared: 'Phone contacts'; Active element disappeared: 'Open navigation drawer'; Active element disappeared: 'Create contact'; Active element disappeared: 'Email contacts'; Active element disappeared: 'Company'; Active element disappeared: 'Signed in as Device\nAccount and settings.'; Active element disappeared: 'Fix & manage'; Active element disappeared: 'Highlights'; Active element disappeared: 'No contacts yet'; Active element disappeared: 'Search contacts'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Interface element count remained the same; New content appeared: com.google.android.contacts:id/text_input_end_icon/ImageButton/Show date picker, EditText/Phone, com.google.android.contacts:id/button_change_photo/Button/Add picture; Content disappeared: com.google.android.contacts:id/floating_action_button/ImageButton/Create contact, SlidingPaneLayout, com.google.android.contacts:id/nav_manage/FrameLayout/Fix & manage; New active element appeared: 'Phone'; New active element appeared: 'Show date picker'; New active element appeared: 'Create contact'; New active element appeared: 'Home:Home Email'; New active element appeared: 'Email'; New active element appeared: 'Show more name fields'; New active element appeared: 'Significant date'; New active element appeared: 'Cancel'; New active element appeared: 'Company'; New active element appeared: 'Add contact photo'; New active element appeared: 'First name'; New active element appeared: 'Mobile:Mobile Phone'; New active element appeared: 'Add picture'; New active element appeared: 'More options'; New active element appeared: 'Show dropdown menu'; New active element appeared: 'Save'; New active element appeared: 'Last name'; Active element disappeared: 'Contacts'; Active element disappeared: 'Phone contacts'; Active element disappeared: 'Open navigation drawer'; Active element disappeared: 'Create contact'; Active element disappeared: 'Email contacts'; Active element disappeared: 'Company'; Active element disappeared: 'Signed in as Device\nAccount and settings.'; Active element disappeared: 'Fix & manage'; Active element disappeared: 'Highlights'; Active element disappeared: 'No contacts yet'; Active element disappeared: 'Search contacts'",
+            "used_model_analysis": false,
+            "elements_before": 22,
+            "elements_after": 22
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "9226e183-fc72-4209-886c-4fcf0ec9c497": {
+      "id": "9226e183-fc72-4209-886c-4fcf0ec9c497",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_fragment",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Cancel",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Create contact",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/toolbar_button",
+          "className": "Button",
+          "content": "Save",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_scroller",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/photo_update_clickable",
+          "className": "FrameLayout",
+          "content": "Add contact photo",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/button_change_photo",
+          "className": "Button",
+          "content": "Add picture",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "First name",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Last name",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view_container",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view",
+          "className": "ImageView",
+          "content": "Show more name fields",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Company",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Mobile:Mobile Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Email",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Home:Home Email",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Significant date",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show date picker",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Open 'Contacts' App. Create a new contact for Liam da Silva. Their number is +15666734094. (name: Liam da Silva, phone: +15666734094)"
+      ],
+      "actions": [
+        {
+          "action_type": "Type",
+          "description": "Enter \"Liam\" in the First name field.",
+          "zone_path": "/EditText/First name",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 2 interface elements; New content appeared: EditText/Liam; Content disappeared: com.google.android.contacts:id/text_input_end_icon/ImageButton/Show date picker, EditText/First name, EditText/Significant date; New active element appeared: 'Liam'; Active element disappeared: 'First name'; Active element disappeared: 'Significant date'; Active element disappeared: 'Show date picker'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 2 interface elements; New content appeared: EditText/Liam; Content disappeared: com.google.android.contacts:id/text_input_end_icon/ImageButton/Show date picker, EditText/First name, EditText/Significant date; New active element appeared: 'Liam'; Active element disappeared: 'First name'; Active element disappeared: 'Significant date'; Active element disappeared: 'Show date picker'",
+            "used_model_analysis": false,
+            "elements_before": 22,
+            "elements_after": 20
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": "Liam"
+        }
+      ]
+    },
+    "78b3f359-9217-4687-a5c5-a082a9bd83bd": {
+      "id": "78b3f359-9217-4687-a5c5-a082a9bd83bd",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_fragment",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Cancel",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Create contact",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/toolbar_button",
+          "className": "Button",
+          "content": "Save",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_scroller",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/photo_update_clickable",
+          "className": "FrameLayout",
+          "content": "Add contact photo",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/button_change_photo",
+          "className": "Button",
+          "content": "Add picture",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Liam",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Last name",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view_container",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view",
+          "className": "ImageView",
+          "content": "Show more name fields",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Company",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Mobile:Mobile Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Email",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Home:Home Email",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Open 'Contacts' App. Create a new contact for Liam da Silva. Their number is +15666734094. (name: Liam da Silva, phone: +15666734094)"
+      ],
+      "actions": [
+        {
+          "action_type": "Type",
+          "description": "Enter \"da Silva\" in the Last name field.",
+          "zone_path": "/EditText/Last name",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Interface element count remained the same; New content appeared: EditText/da Silva; Content disappeared: EditText/Last name; New active element appeared: 'da Silva'; Active element disappeared: 'Last name'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Interface element count remained the same; New content appeared: EditText/da Silva; Content disappeared: EditText/Last name; New active element appeared: 'da Silva'; Active element disappeared: 'Last name'",
+            "used_model_analysis": false,
+            "elements_before": 20,
+            "elements_after": 20
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": "da Silva"
+        }
+      ]
+    },
+    "25804b0f-e551-4544-aed5-86a7a031320f": {
+      "id": "25804b0f-e551-4544-aed5-86a7a031320f",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_fragment",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Cancel",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Create contact",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/toolbar_button",
+          "className": "Button",
+          "content": "Save",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_scroller",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/photo_update_clickable",
+          "className": "FrameLayout",
+          "content": "Add contact photo",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/button_change_photo",
+          "className": "Button",
+          "content": "Add picture",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Liam",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "da Silva",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view_container",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view",
+          "className": "ImageView",
+          "content": "Show more name fields",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Company",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Mobile:Mobile Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Email",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Home:Home Email",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Open 'Contacts' App. Create a new contact for Liam da Silva. Their number is +15666734094. (name: Liam da Silva, phone: +15666734094)"
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the \"Phone\" field to enter the phone number.",
+          "zone_path": "/EditText/Phone",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 2 interface elements; New content appeared: EditText/+1 566-673-4094, com.google.android.contacts:id/delete_button_container/FrameLayout/Delete Mobile Phone, com.google.android.contacts:id/delete_button/ImageView/delete; Content disappeared: EditText/Email, Spinner/Home:Home Email; New active element appeared: 'Home:Home Phone'; New active element appeared: 'Delete Mobile Phone'; New active element appeared: 'delete'; New active element appeared: '+1 566-673-4094'; Active element disappeared: 'Home:Home Email'; Active element disappeared: 'Email'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 2 interface elements; New content appeared: EditText/+1 566-673-4094, com.google.android.contacts:id/delete_button_container/FrameLayout/Delete Mobile Phone, com.google.android.contacts:id/delete_button/ImageView/delete; Content disappeared: EditText/Email, Spinner/Home:Home Email; New active element appeared: 'Home:Home Phone'; New active element appeared: 'Delete Mobile Phone'; New active element appeared: 'delete'; New active element appeared: '+1 566-673-4094'; Active element disappeared: 'Home:Home Email'; Active element disappeared: 'Email'",
+            "used_model_analysis": false,
+            "elements_before": 20,
+            "elements_after": 22
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "0f74b0da-7f09-4421-9dad-fda64701c3c3": {
+      "id": "0f74b0da-7f09-4421-9dad-fda64701c3c3",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_fragment",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Cancel",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Create contact",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/toolbar_button",
+          "className": "Button",
+          "content": "Save",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_scroller",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/photo_update_clickable",
+          "className": "FrameLayout",
+          "content": "Add contact photo",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/button_change_photo",
+          "className": "Button",
+          "content": "Add picture",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Liam",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "da Silva",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view_container",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view",
+          "className": "ImageView",
+          "content": "Show more name fields",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Company",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "+1 566-673-4094",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Mobile:Mobile Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/delete_button_container",
+          "className": "FrameLayout",
+          "content": "Delete Mobile Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/delete_button",
+          "className": "ImageView",
+          "content": "delete",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Home:Home Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Open 'Contacts' App. Create a new contact for Liam da Silva. Their number is +15666734094. (name: Liam da Silva, phone: +15666734094)"
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Save\" button to save the new contact.",
+          "zone_path": "com.google.android.contacts:id/toolbar_button/Button/Save",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 8 interface elements; New content appeared: com.google.android.contacts:id/icon_alternate/Button/Text Mobile +1 566-673-4094, com.google.android.contacts:id/sub_header/TextView/Mobile, com.google.android.contacts:id/menu_star/Button/Add to favorites; Content disappeared: EditText/+1 566-673-4094, EditText/Phone, com.google.android.contacts:id/button_change_photo/Button/Add picture; New active element appeared: 'Navigate up'; New active element appeared: 'Set up:Set up Duo video calling'; New active element appeared: 'Edit contact'; New active element appeared: 'Call:Call'; New active element appeared: 'Add to favorites'; New active element appeared: '+1 566-673-4094'; New active element appeared: 'Text:Text'; New active element appeared: 'Text Mobile +1 566-673-4094'; New active element appeared: 'Mobile'; New active element appeared: 'Contact photo'; New active element appeared: 'Contact info'; New active element appeared: 'Call Mobile +1 566-673-4094'; New active element appeared: 'Added Oct 15, 2023'; New active element appeared: 'Liam da Silva'; Active element disappeared: 'Phone'; Active element disappeared: 'Home:Home Phone'; Active element disappeared: '+1 566-673-4094'; Active element disappeared: 'Create contact'; Active element disappeared: 'da Silva'; Active element disappeared: 'Show more name fields'; Active element disappeared: 'Cancel'; Active element disappeared: 'Company'; Active element disappeared: 'delete'; Active element disappeared: 'Add contact photo'; Active element disappeared: 'Liam'; Active element disappeared: 'Mobile:Mobile Phone'; Active element disappeared: 'Add picture'; Active element disappeared: 'Delete Mobile Phone'; Active element disappeared: 'Show dropdown menu'; Active element disappeared: 'Save'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 8 interface elements; New content appeared: com.google.android.contacts:id/icon_alternate/Button/Text Mobile +1 566-673-4094, com.google.android.contacts:id/sub_header/TextView/Mobile, com.google.android.contacts:id/menu_star/Button/Add to favorites; Content disappeared: EditText/+1 566-673-4094, EditText/Phone, com.google.android.contacts:id/button_change_photo/Button/Add picture; New active element appeared: 'Navigate up'; New active element appeared: 'Set up:Set up Duo video calling'; New active element appeared: 'Edit contact'; New active element appeared: 'Call:Call'; New active element appeared: 'Add to favorites'; New active element appeared: '+1 566-673-4094'; New active element appeared: 'Text:Text'; New active element appeared: 'Text Mobile +1 566-673-4094'; New active element appeared: 'Mobile'; New active element appeared: 'Contact photo'; New active element appeared: 'Contact info'; New active element appeared: 'Call Mobile +1 566-673-4094'; New active element appeared: 'Added Oct 15, 2023'; New active element appeared: 'Liam da Silva'; Active element disappeared: 'Phone'; Active element disappeared: 'Home:Home Phone'; Active element disappeared: '+1 566-673-4094'; Active element disappeared: 'Create contact'; Active element disappeared: 'da Silva'; Active element disappeared: 'Show more name fields'; Active element disappeared: 'Cancel'; Active element disappeared: 'Company'; Active element disappeared: 'delete'; Active element disappeared: 'Add contact photo'; Active element disappeared: 'Liam'; Active element disappeared: 'Mobile:Mobile Phone'; Active element disappeared: 'Add picture'; Active element disappeared: 'Delete Mobile Phone'; Active element disappeared: 'Show dropdown menu'; Active element disappeared: 'Save'",
+            "used_model_analysis": false,
+            "elements_before": 22,
+            "elements_after": 30
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "69dc4030-7ef2-41ce-979a-5f501bc58494": {
+      "id": "69dc4030-7ef2-41ce-979a-5f501bc58494",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/drawer_layout",
+          "className": "DrawerLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/root",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "SlidingPaneLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_list_fragment",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/root",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Navigate up",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/menu_insert_or_edit",
+          "className": "Button",
+          "content": "Edit contact",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/menu_star",
+          "className": "Button",
+          "content": "Add to favorites",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/monogram_photo",
+          "className": "ImageView",
+          "content": "Contact photo",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/name_container",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/large_title_container",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/large_title",
+          "className": "TextView",
+          "content": "Liam da Silva",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/verbs_container",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/verb_call",
+          "className": "TextView",
+          "content": "Call:Call",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/verb_text",
+          "className": "TextView",
+          "content": "Text:Text",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/verb_video",
+          "className": "TextView",
+          "content": "Set up:Set up Duo video calling",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/content_scroll_view",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/cards",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_card",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/title",
+          "className": "TextView",
+          "content": "Contact info",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "RelativeLayout",
+          "content": "Call Mobile +1 566-673-4094",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/header",
+          "className": "TextView",
+          "content": "+1 566-673-4094",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/sub_header",
+          "className": "TextView",
+          "content": "Mobile",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/icon_alternate",
+          "className": "Button",
+          "content": "Text Mobile +1 566-673-4094",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "RelativeLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_create_date_text",
+          "className": "TextView",
+          "content": "Added Oct 15, 2023",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Open 'Contacts' App. Create a new contact for Liam da Silva. Their number is +15666734094. (name: Liam da Silva, phone: +15666734094)"
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "The contact \"Liam da Silva\" has been successfully created and saved with the phone number +15666734094.",
+          "zone_path": null,
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "6ff19c13-2abd-4867-958f-70b78cbac5bc": {
+      "id": "6ff19c13-2abd-4867-958f-70b78cbac5bc",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/drawer_layout",
+          "className": "DrawerLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/root",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "SlidingPaneLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_list_fragment",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_list",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/open_search_bar",
+          "className": "EditText",
+          "content": "Search contacts",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Open navigation drawer",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/selected_account_disc",
+          "className": "FrameLayout",
+          "content": "Signed in as Device\nAccount and settings.",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/chips_container",
+          "className": "HorizontalScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/chip_group",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Button",
+          "content": "Phone contacts",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "Button",
+          "content": "Email contacts",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "Button",
+          "content": "Company",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "android:id/list",
+          "className": "ListView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/attribution_header",
+          "className": "TextView",
+          "content": "Device • 1 contact",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/cliv_name_textview",
+          "className": "TextView",
+          "content": "Liam da Silva:Liam da Silva",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/floating_action_button",
+          "className": "ImageButton",
+          "content": "Create contact",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contacts",
+          "className": "FrameLayout",
+          "content": "Contacts",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/highlights",
+          "className": "FrameLayout",
+          "content": "Highlights",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/nav_manage",
+          "className": "FrameLayout",
+          "content": "Fix & manage",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Open 'Contacts' App. Go to the new contact screen and enter the following details: First Name: Eva, Last Name: Smith, Phone: 395-301-9656, Phone Label: Home. Do NOT hit save. (phone: 395-301-9656)"
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Create contact\" button to navigate to the new contact screen.",
+          "zone_path": "com.google.android.contacts:id/floating_action_button/ImageButton/Create contact",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 4 interface elements; New content appeared: com.google.android.contacts:id/expansion_view_container/FrameLayout, EditText/Last name, ImageButton/Cancel; Content disappeared: Button/Email contacts, SlidingPaneLayout, com.google.android.contacts:id/contact_list/ViewGroup; New active element appeared: 'Email'; New active element appeared: 'Company'; New active element appeared: 'Last name'; New active element appeared: 'Show more name fields'; New active element appeared: 'Save'; New active element appeared: 'Cancel'; New active element appeared: 'Show date picker'; New active element appeared: 'Add contact photo'; New active element appeared: 'Create contact'; New active element appeared: 'Home:Home Email'; New active element appeared: 'Significant date'; New active element appeared: 'First name'; New active element appeared: 'Phone'; New active element appeared: 'Mobile:Mobile Phone'; New active element appeared: 'Show dropdown menu'; New active element appeared: 'Add picture'; Active element disappeared: 'Email contacts'; Active element disappeared: 'Company'; Active element disappeared: 'Contacts'; Active element disappeared: 'Signed in as Device\nAccount and settings.'; Active element disappeared: 'Device • 1 contact'; Active element disappeared: 'Create contact'; Active element disappeared: 'Open navigation drawer'; Active element disappeared: 'Phone contacts'; Active element disappeared: 'Highlights'; Active element disappeared: 'Search contacts'; Active element disappeared: 'Fix & manage'; Active element disappeared: 'Liam da Silva:Liam da Silva'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 4 interface elements; New content appeared: com.google.android.contacts:id/expansion_view_container/FrameLayout, EditText/Last name, ImageButton/Cancel; Content disappeared: Button/Email contacts, SlidingPaneLayout, com.google.android.contacts:id/contact_list/ViewGroup; New active element appeared: 'Email'; New active element appeared: 'Company'; New active element appeared: 'Last name'; New active element appeared: 'Show more name fields'; New active element appeared: 'Save'; New active element appeared: 'Cancel'; New active element appeared: 'Show date picker'; New active element appeared: 'Add contact photo'; New active element appeared: 'Create contact'; New active element appeared: 'Home:Home Email'; New active element appeared: 'Significant date'; New active element appeared: 'First name'; New active element appeared: 'Phone'; New active element appeared: 'Mobile:Mobile Phone'; New active element appeared: 'Show dropdown menu'; New active element appeared: 'Add picture'; Active element disappeared: 'Email contacts'; Active element disappeared: 'Company'; Active element disappeared: 'Contacts'; Active element disappeared: 'Signed in as Device\nAccount and settings.'; Active element disappeared: 'Device • 1 contact'; Active element disappeared: 'Create contact'; Active element disappeared: 'Open navigation drawer'; Active element disappeared: 'Phone contacts'; Active element disappeared: 'Highlights'; Active element disappeared: 'Search contacts'; Active element disappeared: 'Fix & manage'; Active element disappeared: 'Liam da Silva:Liam da Silva'",
+            "used_model_analysis": false,
+            "elements_before": 26,
+            "elements_after": 22
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "c9128eb2-5b37-49be-8bc2-8bd598ee78c8": {
+      "id": "c9128eb2-5b37-49be-8bc2-8bd598ee78c8",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_fragment",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Cancel",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Create contact",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/toolbar_button",
+          "className": "Button",
+          "content": "Save",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_scroller",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/photo_update_clickable",
+          "className": "FrameLayout",
+          "content": "Add contact photo",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/button_change_photo",
+          "className": "Button",
+          "content": "Add picture",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "First name",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Last name",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view_container",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view",
+          "className": "ImageView",
+          "content": "Show more name fields",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Company",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Mobile:Mobile Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Email",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Home:Home Email",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Significant date",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show date picker",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Open 'Contacts' App. Go to the new contact screen and enter the following details: First Name: Eva, Last Name: Smith, Phone: 395-301-9656, Phone Label: Home. Do NOT hit save. (phone: 395-301-9656)"
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the \"First name\" field to begin entering the contact details.",
+          "zone_path": "/EditText/First name",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 2 interface elements; Content disappeared: EditText/Significant date, com.google.android.contacts:id/text_input_end_icon/ImageButton/Show date picker; Active element disappeared: 'Significant date'; Active element disappeared: 'Show date picker'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 2 interface elements; Content disappeared: EditText/Significant date, com.google.android.contacts:id/text_input_end_icon/ImageButton/Show date picker; Active element disappeared: 'Significant date'; Active element disappeared: 'Show date picker'",
+            "used_model_analysis": false,
+            "elements_before": 22,
+            "elements_after": 20
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "bd3e02c6-bedd-4f5b-bc27-edba80eeae4b": {
+      "id": "bd3e02c6-bedd-4f5b-bc27-edba80eeae4b",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_fragment",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Cancel",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Create contact",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/toolbar_button",
+          "className": "Button",
+          "content": "Save",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_scroller",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/photo_update_clickable",
+          "className": "FrameLayout",
+          "content": "Add contact photo",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/button_change_photo",
+          "className": "Button",
+          "content": "Add picture",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "First name",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Last name",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view_container",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view",
+          "className": "ImageView",
+          "content": "Show more name fields",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Company",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Mobile:Mobile Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Email",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Home:Home Email",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Open 'Contacts' App. Go to the new contact screen and enter the following details: First Name: Eva, Last Name: Smith, Phone: 395-301-9656, Phone Label: Home. Do NOT hit save. (phone: 395-301-9656)"
+      ],
+      "actions": [
+        {
+          "action_type": "Type",
+          "description": "Type \"Eva\" into the First name field.",
+          "zone_path": "/EditText/First name",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Interface element count remained the same; New content appeared: EditText/Eva; Content disappeared: EditText/First name; New active element appeared: 'Eva'; Active element disappeared: 'First name'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Interface element count remained the same; New content appeared: EditText/Eva; Content disappeared: EditText/First name; New active element appeared: 'Eva'; Active element disappeared: 'First name'",
+            "used_model_analysis": false,
+            "elements_before": 20,
+            "elements_after": 20
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": "Eva"
+        }
+      ]
+    },
+    "b55dbaa5-1cef-4bd5-b55b-82c79c8523c7": {
+      "id": "b55dbaa5-1cef-4bd5-b55b-82c79c8523c7",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_fragment",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Cancel",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Create contact",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/toolbar_button",
+          "className": "Button",
+          "content": "Save",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_scroller",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/photo_update_clickable",
+          "className": "FrameLayout",
+          "content": "Add contact photo",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/button_change_photo",
+          "className": "Button",
+          "content": "Add picture",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Eva",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Last name",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view_container",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view",
+          "className": "ImageView",
+          "content": "Show more name fields",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Company",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Mobile:Mobile Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Email",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Home:Home Email",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Open 'Contacts' App. Go to the new contact screen and enter the following details: First Name: Eva, Last Name: Smith, Phone: 395-301-9656, Phone Label: Home. Do NOT hit save. (phone: 395-301-9656)"
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the \"Last name\" field to prepare for entering \"Smith\".",
+          "zone_path": "/EditText/Last name",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Interface element count remained the same; New content appeared: EditText/Smith; Content disappeared: EditText/Last name; New active element appeared: 'Smith'; Active element disappeared: 'Last name'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Interface element count remained the same; New content appeared: EditText/Smith; Content disappeared: EditText/Last name; New active element appeared: 'Smith'; Active element disappeared: 'Last name'",
+            "used_model_analysis": false,
+            "elements_before": 20,
+            "elements_after": 20
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "4992f7ac-a4d9-4fe7-9c2c-0a30dac9d338": {
+      "id": "4992f7ac-a4d9-4fe7-9c2c-0a30dac9d338",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_fragment",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Cancel",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Create contact",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/toolbar_button",
+          "className": "Button",
+          "content": "Save",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_scroller",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/photo_update_clickable",
+          "className": "FrameLayout",
+          "content": "Add contact photo",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/button_change_photo",
+          "className": "Button",
+          "content": "Add picture",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Eva",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Smith",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view_container",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view",
+          "className": "ImageView",
+          "content": "Show more name fields",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Company",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Mobile:Mobile Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Email",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Home:Home Email",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Open 'Contacts' App. Go to the new contact screen and enter the following details: First Name: Eva, Last Name: Smith, Phone: 395-301-9656, Phone Label: Home. Do NOT hit save. (phone: 395-301-9656)"
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the Phone field to prepare for entering the phone number.",
+          "zone_path": "/EditText/Phone",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 2 interface elements; New content appeared: Spinner/Home:Home Phone, com.google.android.contacts:id/delete_button/ImageView/delete, EditText/395-301-9656; Content disappeared: EditText/Email, Spinner/Home:Home Email; New active element appeared: '395-301-9656'; New active element appeared: 'Delete Mobile Phone'; New active element appeared: 'Home:Home Phone'; New active element appeared: 'delete'; Active element disappeared: 'Home:Home Email'; Active element disappeared: 'Email'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 2 interface elements; New content appeared: Spinner/Home:Home Phone, com.google.android.contacts:id/delete_button/ImageView/delete, EditText/395-301-9656; Content disappeared: EditText/Email, Spinner/Home:Home Email; New active element appeared: '395-301-9656'; New active element appeared: 'Delete Mobile Phone'; New active element appeared: 'Home:Home Phone'; New active element appeared: 'delete'; Active element disappeared: 'Home:Home Email'; Active element disappeared: 'Email'",
+            "used_model_analysis": false,
+            "elements_before": 20,
+            "elements_after": 22
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "588965d9-ca09-402f-8208-671575a089d9": {
+      "id": "588965d9-ca09-402f-8208-671575a089d9",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_fragment",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Cancel",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Create contact",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/toolbar_button",
+          "className": "Button",
+          "content": "Save",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/contact_editor_scroller",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/photo_update_clickable",
+          "className": "FrameLayout",
+          "content": "Add contact photo",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/button_change_photo",
+          "className": "Button",
+          "content": "Add picture",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Eva",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Smith",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view_container",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/expansion_view",
+          "className": "ImageView",
+          "content": "Show more name fields",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Company",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "395-301-9656",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Mobile:Mobile Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/delete_button_container",
+          "className": "FrameLayout",
+          "content": "Delete Mobile Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/delete_button",
+          "className": "ImageView",
+          "content": "delete",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "EditText",
+          "content": "Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Spinner",
+          "content": "Home:Home Phone",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.contacts:id/text_input_end_icon",
+          "className": "ImageButton",
+          "content": "Show dropdown menu",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Open 'Contacts' App. Go to the new contact screen and enter the following details: First Name: Eva, Last Name: Smith, Phone: 395-301-9656, Phone Label: Home. Do NOT hit save. (phone: 395-301-9656)"
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the phone label spinner to change it from \"Mobile\" to \"Home\".",
+          "zone_path": "/Spinner/Mobile:Mobile Phone",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Focused Change",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Focused Change",
+            "used_model_analysis": false,
+            "elements_before": 22,
+            "elements_after": 22
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        {
+          "action_type": "Finish",
+          "description": "All required contact details have been entered correctly without saving. No further action is needed.",
+          "zone_path": null,
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    }
+  }
+}

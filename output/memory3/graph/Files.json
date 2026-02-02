@@ -1,0 +1,895 @@
+{
+  "app": "Files",
+  "nodes": {
+    "cf6417dc-6f6e-4991-ade5-a11c31112adc": {
+      "id": "cf6417dc-6f6e-4991-ade5-a11c31112adc",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/coordinator_layout",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_layout",
+          "className": "DrawerLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/horizontal_breadcrumb",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/breadcrumb_text",
+          "className": "TextView",
+          "content": "Downloads",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "HorizontalScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Images",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Audio",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Videos",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Documents",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/header_title",
+          "className": "TextView",
+          "content": "Files in Downloads",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/sub_menu_list",
+          "className": "TextView",
+          "content": "List view",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Show roots",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Downloads",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/option_menu_search",
+          "className": "TextView",
+          "content": "Search",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/dir_list",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "software_patch_0xYc.exe",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "0gzA_2023_04_19_active_snake.exe",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "2023_04_19_active_snake.exe",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "LGey_sample_pdf.pdf",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_edge",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/container_save",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Delete the file 2023_04_19_active_snake.exe from the Android filesystem located in the Download folder within the sdk_gphone_x86_64 storage area."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the file \"2023_04_19_active_snake.exe\" to select it for deletion.",
+          "zone_path": "android:id/title/TextView/2023_04_19_active_snake.exe",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 2 interface elements; New content appeared: com.google.android.documentsui:id/action_mode_bar/ViewGroup, com.google.android.documentsui:id/action_menu_delete/TextView/Delete, com.google.android.documentsui:id/action_mode_close_button/ImageView/Cancel; Content disappeared: com.google.android.documentsui:id/option_menu_search/TextView/Search, TextView/Downloads, ImageButton/Show roots; New active element appeared: 'Cancel'; New active element appeared: 'Delete'; New active element appeared: '1 selected'; New active element appeared: 'Share'; Active element disappeared: 'Downloads'; Active element disappeared: 'Search'; Active element disappeared: 'Show roots'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 2 interface elements; New content appeared: com.google.android.documentsui:id/action_mode_bar/ViewGroup, com.google.android.documentsui:id/action_menu_delete/TextView/Delete, com.google.android.documentsui:id/action_mode_close_button/ImageView/Cancel; Content disappeared: com.google.android.documentsui:id/option_menu_search/TextView/Search, TextView/Downloads, ImageButton/Show roots; New active element appeared: 'Cancel'; New active element appeared: 'Delete'; New active element appeared: '1 selected'; New active element appeared: 'Share'; Active element disappeared: 'Downloads'; Active element disappeared: 'Search'; Active element disappeared: 'Show roots'",
+            "used_model_analysis": false,
+            "elements_before": 40,
+            "elements_after": 42
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "4ec2eb75-f576-44c5-ab70-1388684da243": {
+      "id": "4ec2eb75-f576-44c5-ab70-1388684da243",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/coordinator_layout",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_layout",
+          "className": "DrawerLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/horizontal_breadcrumb",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/breadcrumb_text",
+          "className": "TextView",
+          "content": "Downloads",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "HorizontalScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Images",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Audio",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Videos",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Documents",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/header_title",
+          "className": "TextView",
+          "content": "Files in Downloads",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/sub_menu_list",
+          "className": "TextView",
+          "content": "List view",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/dir_list",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "software_patch_0xYc.exe",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "0gzA_2023_04_19_active_snake.exe",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "2023_04_19_active_snake.exe",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "LGey_sample_pdf.pdf",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_edge",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/container_save",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/action_mode_bar",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/action_mode_close_button",
+          "className": "ImageView",
+          "content": "Cancel",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/action_bar_title",
+          "className": "TextView",
+          "content": "1 selected",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/action_menu_share",
+          "className": "TextView",
+          "content": "Share",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/action_menu_delete",
+          "className": "TextView",
+          "content": "Delete",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Delete the file 2023_04_19_active_snake.exe from the Android filesystem located in the Download folder within the sdk_gphone_x86_64 storage area."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Delete\" button to delete the selected file.",
+          "zone_path": "com.google.android.documentsui:id/action_menu_delete/TextView/Delete",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 37 interface elements; New content appeared: android:id/button1/Button/OK, TextView/Delete \"2023_04_19_active_snake.exe\"?, com.google.android.documentsui:id/buttonPanel/ScrollView; Content disappeared: CompoundButton/Videos, com.google.android.documentsui:id/date/TextView/15:34, com.google.android.documentsui:id/details/TextView/21 B; New active element appeared: 'CANCEL'; New active element appeared: 'OK'; New active element appeared: 'Delete \"2023_04_19_active_snake.exe\"?'; Active element disappeared: 'Cancel'; Active element disappeared: 'List view'; Active element disappeared: 'Audio'; Active element disappeared: 'Downloads'; Active element disappeared: 'software_patch_0xYc.exe'; Active element disappeared: 'Share'; Active element disappeared: '15:34'; Active element disappeared: 'Documents'; Active element disappeared: 'Files in Downloads'; Active element disappeared: 'Delete'; Active element disappeared: '1 selected'; Active element disappeared: '2023_04_19_active_snake.exe'; Active element disappeared: 'Images'; Active element disappeared: 'Videos'; Active element disappeared: 'More options'; Active element disappeared: '0gzA_2023_04_19_active_snake.exe'; Active element disappeared: 'LGey_sample_pdf.pdf'; Active element disappeared: '21 B'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 37 interface elements; New content appeared: android:id/button1/Button/OK, TextView/Delete \"2023_04_19_active_snake.exe\"?, com.google.android.documentsui:id/buttonPanel/ScrollView; Content disappeared: CompoundButton/Videos, com.google.android.documentsui:id/date/TextView/15:34, com.google.android.documentsui:id/details/TextView/21 B; New active element appeared: 'CANCEL'; New active element appeared: 'OK'; New active element appeared: 'Delete \"2023_04_19_active_snake.exe\"?'; Active element disappeared: 'Cancel'; Active element disappeared: 'List view'; Active element disappeared: 'Audio'; Active element disappeared: 'Downloads'; Active element disappeared: 'software_patch_0xYc.exe'; Active element disappeared: 'Share'; Active element disappeared: '15:34'; Active element disappeared: 'Documents'; Active element disappeared: 'Files in Downloads'; Active element disappeared: 'Delete'; Active element disappeared: '1 selected'; Active element disappeared: '2023_04_19_active_snake.exe'; Active element disappeared: 'Images'; Active element disappeared: 'Videos'; Active element disappeared: 'More options'; Active element disappeared: '0gzA_2023_04_19_active_snake.exe'; Active element disappeared: 'LGey_sample_pdf.pdf'; Active element disappeared: '21 B'",
+            "used_model_analysis": false,
+            "elements_before": 42,
+            "elements_after": 5
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "a7657edf-0865-4ad9-b959-8a5e06cdb562": {
+      "id": "a7657edf-0865-4ad9-b959-8a5e06cdb562",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Delete \"2023_04_19_active_snake.exe\"?",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/buttonPanel",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/button2",
+          "className": "Button",
+          "content": "CANCEL",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/button1",
+          "className": "Button",
+          "content": "OK",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Delete the file 2023_04_19_active_snake.exe from the Android filesystem located in the Download folder within the sdk_gphone_x86_64 storage area."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Confirm the deletion by tapping the \"OK\" button.",
+          "zone_path": "android:id/button1/Button/OK",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 37 interface elements; New content appeared: CompoundButton/Videos, com.google.android.documentsui:id/date/TextView/15:34, com.google.android.documentsui:id/drawer_edge/View; Content disappeared: android:id/button1/Button/OK, TextView/Delete \"2023_04_19_active_snake.exe\"?, com.google.android.documentsui:id/buttonPanel/ScrollView; New active element appeared: 'List view'; New active element appeared: 'Audio'; New active element appeared: 'Downloads'; New active element appeared: 'software_patch_0xYc.exe'; New active element appeared: '15:34'; New active element appeared: 'Deleting 1 item.'; New active element appeared: 'Documents'; New active element appeared: 'Files in Downloads'; New active element appeared: 'PTfY_software_patch.exe'; New active element appeared: 'Show roots'; New active element appeared: 'More options'; New active element appeared: 'Images'; New active element appeared: 'Downloads'; New active element appeared: 'Videos'; New active element appeared: '0gzA_2023_04_19_active_snake.exe'; New active element appeared: 'LGey_sample_pdf.pdf'; New active element appeared: 'Search'; New active element appeared: '21 B'; Active element disappeared: 'CANCEL'; Active element disappeared: 'OK'; Active element disappeared: 'Delete \"2023_04_19_active_snake.exe\"?'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 37 interface elements; New content appeared: CompoundButton/Videos, com.google.android.documentsui:id/date/TextView/15:34, com.google.android.documentsui:id/drawer_edge/View; Content disappeared: android:id/button1/Button/OK, TextView/Delete \"2023_04_19_active_snake.exe\"?, com.google.android.documentsui:id/buttonPanel/ScrollView; New active element appeared: 'List view'; New active element appeared: 'Audio'; New active element appeared: 'Downloads'; New active element appeared: 'software_patch_0xYc.exe'; New active element appeared: '15:34'; New active element appeared: 'Deleting 1 item.'; New active element appeared: 'Documents'; New active element appeared: 'Files in Downloads'; New active element appeared: 'PTfY_software_patch.exe'; New active element appeared: 'Show roots'; New active element appeared: 'More options'; New active element appeared: 'Images'; New active element appeared: 'Downloads'; New active element appeared: 'Videos'; New active element appeared: '0gzA_2023_04_19_active_snake.exe'; New active element appeared: 'LGey_sample_pdf.pdf'; New active element appeared: 'Search'; New active element appeared: '21 B'; Active element disappeared: 'CANCEL'; Active element disappeared: 'OK'; Active element disappeared: 'Delete \"2023_04_19_active_snake.exe\"?'",
+            "used_model_analysis": false,
+            "elements_before": 5,
+            "elements_after": 42
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "30a067f6-1dea-47ca-9cd2-30fd83921628": {
+      "id": "30a067f6-1dea-47ca-9cd2-30fd83921628",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/coordinator_layout",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_layout",
+          "className": "DrawerLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/horizontal_breadcrumb",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/breadcrumb_text",
+          "className": "TextView",
+          "content": "Downloads",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "HorizontalScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Images",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Audio",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Videos",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Documents",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/header_title",
+          "className": "TextView",
+          "content": "Files in Downloads",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/sub_menu_list",
+          "className": "TextView",
+          "content": "List view",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Show roots",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Downloads",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/option_menu_search",
+          "className": "TextView",
+          "content": "Search",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/dir_list",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "software_patch_0xYc.exe",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "0gzA_2023_04_19_active_snake.exe",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "LGey_sample_pdf.pdf",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "PTfY_software_patch.exe",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_edge",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/container_save",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/snackbar_text",
+          "className": "TextView",
+          "content": "Deleting 1 item.",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Delete the file 2023_04_19_active_snake.exe from the Android filesystem located in the Download folder within the sdk_gphone_x86_64 storage area."
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "The file \"2023_04_19_active_snake.exe\" has been successfully deleted.",
+          "zone_path": null,
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    }
+  }
+}

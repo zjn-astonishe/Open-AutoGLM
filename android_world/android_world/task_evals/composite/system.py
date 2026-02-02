@@ -29,7 +29,7 @@ class TurnOnWifiAndOpenApp(task_eval.TaskEval):
   complexity = 2
   schema = schema.create([schema.string("app_name", is_required=True)])
 
-  template = "Turn on Wifi through settings app, then open the {app_name} app"
+  template = "Turn on Wifi, then open the {app_name} app"
 
   def initialize_task(self, env: interface.AsyncEnv):
     super().initialize_task(env)

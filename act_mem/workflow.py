@@ -52,8 +52,8 @@ class Workflow:
     def get_last_id(self) -> str | None:
         return self.path[-1].to_node_id if self.path else None
     
-    def set_step(self, step: int) -> None:
-        self.step = step
+    def set_step(self) -> None:
+        self.step = len(self.path)
     
     def set_timecost(self, timecost: float) -> None:
         self.timecost = timecost

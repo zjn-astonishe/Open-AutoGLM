@@ -1,7 +1,8 @@
 """Main PhoneAgent class for orchestrating phone automation."""
 
-import asyncio
+import re
 import os
+import asyncio
 import time
 import json
 import traceback
@@ -153,26 +154,26 @@ class PhoneAgent:
         self._last_planning_step = -1
         self._planning_done = False
 
-        try:
-            # 使用双重筛选加载记忆：先tag筛选，再embedding筛选
-            memory_start_time = time.time()
-            self.memory.from_json(
-                task=task,
-                # target_tag=response.tag,
-                similarity_threshold=0.5
-            )
-            memory_end_time = time.time()
+        # try:
+        #     # 使用双重筛选加载记忆：先tag筛选，再embedding筛选
+        #     memory_start_time = time.time()
+        #     self.memory.from_json(
+        #         task=task,
+        #         # target_tag=response.tag,
+        #         similarity_threshold=0.5
+        #     )
+        #     memory_end_time = time.time()
             
-            # 记录已加载的tag
-            # self._loaded_tags.add(response.tag)
+        #     # 记录已加载的tag
+        #     # self._loaded_tags.add(response.tag)
             
-            if self.agent_config.verbose:
-                print(f"🧠 Memory loading taken: {memory_end_time - memory_start_time:.2f} seconds")
-                print(f"📚 Loaded {len(self.memory.historical_workflows)} workflows, {len(self.memory.historical_workgraphs)} workgraphs")
+        #     if self.agent_config.verbose:
+        #         print(f"🧠 Memory loading taken: {memory_end_time - memory_start_time:.2f} seconds")
+        #         print(f"📚 Loaded {len(self.memory.historical_workflows)} workflows, {len(self.memory.historical_workgraphs)} workgraphs")
                 
-        except Exception as e:
-            if self.agent_config.verbose:
-                print(f"⚠️ Memory loading failed: {e}")
+        # except Exception as e:
+        #     if self.agent_config.verbose:
+        #         print(f"⚠️ Memory loading failed: {e}")
         
         # First step with user prompt
         result = await self._execute_step(task, recorder, is_first=True)
@@ -195,7 +196,7 @@ class PhoneAgent:
             if result.finished:
                 end_time = time.time()
                 print(f"🏁 Task completed in {self._step_count} steps, time taken: {end_time - start_time:.2f} seconds")
-                workflow.set_step(self._step_count)
+                workflow.set_step()
                 workflow.set_timecost(end_time - start_time)
                 self.memory.to_json()
                 return {
@@ -205,23 +206,23 @@ class PhoneAgent:
                     'step_count': self._step_count
                 }
             
-            if result.success and result.predict is not None and self._predict:
-                # Pass cached screenshot to executor and get final screenshot back
-                final_screenshot = await self.speculative_executor.executor(
-                    result.predict, 
-                    # result.tag, 
-                    recorder,
-                    initial_screenshot=self._last_screenshot
-                )
-                # Cache the final screenshot for next step
-                if final_screenshot is not None:
-                    self._last_screenshot = final_screenshot
-                    if self.agent_config.verbose:
-                        print("📸 Cached final screenshot from speculative execution for next step")
-                else:
-                    # No actions executed, keep current cache
-                    if self.agent_config.verbose:
-                        print("📸 No speculative actions executed, keeping current screenshot cache")
+            # if result.success and result.predict is not None and self._predict:
+            #     # Pass cached screenshot to executor and get final screenshot back
+            #     final_screenshot = await self.speculative_executor.executor(
+            #         result.predict, 
+            #         # result.tag, 
+            #         recorder,
+            #         initial_screenshot=self._last_screenshot
+            #     )
+            #     # Cache the final screenshot for next step
+            #     if final_screenshot is not None:
+            #         self._last_screenshot = final_screenshot
+            #         if self.agent_config.verbose:
+            #             print("📸 Cached final screenshot from speculative execution for next step")
+            #     else:
+            #         # No actions executed, keep current cache
+            #         if self.agent_config.verbose:
+            #             print("📸 No speculative actions executed, keeping current screenshot cache")
 
             # time.sleep(1)
 
@@ -517,8 +518,6 @@ class PhoneAgent:
                     "path": e.get_xpath()
                 })
         else:
-            elements_info = []
-            elements = []
             for i, e in enumerate(screenshot.elements, 1):  
                 common_fields = {
                     "resourceId": e.resourceId,
@@ -557,41 +556,41 @@ class PhoneAgent:
         self._context.add_screen_info(screen_info)
 
         # TODO: Generate speculative context for future UI states
-        try:
-            if self.agent_config.verbose:
-                print("🔮 Generating speculative context for future UI states...")
+        # try:
+        #     if self.agent_config.verbose:
+        #         print("🔮 Generating speculative context for future UI states...")
             
-            speculative_start_time = time.time()
-            speculative_context = self.speculative_executor.get_speculative_context(
-                current_elements=elements,
-                task=user_prompt,
-                current_app=current_app
-            )
-            speculative_end_time = time.time()
+        #     speculative_start_time = time.time()
+        #     speculative_context = self.speculative_executor.get_speculative_context(
+        #         current_elements=elements,
+        #         task=user_prompt,
+        #         current_app=current_app
+        #     )
+        #     speculative_end_time = time.time()
             
-            if speculative_context and speculative_context.strip():
-                self._predict = True
-                self._context.set_system_prompt(SYSTEM_PROMPT_PREDICTION_EN)
-                self._context.set_speculative_context(
-                    context=speculative_context
-                )
+        #     if speculative_context and speculative_context.strip():
+        #         self._predict = True
+        #         self._context.set_system_prompt(SYSTEM_PROMPT_PREDICTION_EN)
+        #         self._context.set_speculative_context(
+        #             context=speculative_context
+        #         )
                 
-                if self.agent_config.verbose:
-                    print(f"🔮 Speculative context generated in {speculative_end_time - speculative_start_time:.2f} seconds")
-                    # print(f"📝 Speculative context preview: {speculative_context}")
-            else:
-                # Clear any existing speculative context if no predictions available
-                self._context.set_system_prompt(self.agent_config.system_prompt)
-                self._context.clear_speculative_context()
-                self._predict = False
-                if self.agent_config.verbose:
-                    print("🔮 No speculative context generated (no suitable predictions found)")
+        #         if self.agent_config.verbose:
+        #             print(f"🔮 Speculative context generated in {speculative_end_time - speculative_start_time:.2f} seconds")
+        #             # print(f"📝 Speculative context preview: {speculative_context}")
+        #     else:
+        #         # Clear any existing speculative context if no predictions available
+        #         self._context.set_system_prompt(self.agent_config.system_prompt)
+        #         self._context.clear_speculative_context()
+        #         self._predict = False
+        #         if self.agent_config.verbose:
+        #             print("🔮 No speculative context generated (no suitable predictions found)")
                     
-        except Exception as e:
-            if self.agent_config.verbose:
-                print(f"⚠️ Speculative context generation failed: {e}")
-            # Clear speculative context on error
-            self._context.clear_speculative_context()
+        # except Exception as e:
+        #     if self.agent_config.verbose:
+        #         print(f"⚠️ Speculative context generation failed: {e}")
+        #     # Clear speculative context on error
+        #     self._context.clear_speculative_context()
 
         # Get model response
         try:
@@ -918,17 +917,17 @@ class PhoneAgent:
             Boolean indicating if planning should run
         """
         # Always plan on first step
-        if is_first:
-            return True
+        # if is_first:
+        #     return True
         
         # If planning never completed successfully, try again
-        if not self._planning_done:
-            return True
+        # if not self._planning_done:
+        #     return True
         
         # Check if enough steps have passed since last planning
-        steps_since_last_plan = self._step_count - self._last_planning_step
-        if steps_since_last_plan >= self._planning_interval:
-            return True
+        # steps_since_last_plan = self._step_count - self._last_planning_step
+        # if steps_since_last_plan >= self._planning_interval:
+        #     return True
         
         return False
 
@@ -1074,8 +1073,20 @@ class PhoneAgent:
 
         has_obvious_changes = changes_analysis.get("has_obvious_changes", False)
         interface_changes = changes_analysis.get("changes_description", "")
+        has_focused_change = False
 
-        if not is_skill_execution and has_obvious_changes:
+        if not has_obvious_changes:
+            # 正则匹配规则：匹配• **Focused Element:** 后所有内容（核心）
+            pattern = r'• \*\*Focused Element:\*\* (.*)'
+            # 查找匹配内容
+            before_focused = re.search(pattern, before_screenshot.formatted_text)
+            after_focused = re.search(pattern, current_screenshot.formatted_text)
+            # print(f"before_focused: {before_focused}, after_focused: {after_focused}")
+            has_focused_change = True if before_focused.group(1) != after_focused.group(1) else False
+            if has_focused_change:
+                interface_changes = f"Focused Change"
+                print(f"✅ Focused Change, {before_focused.group(1)} -> {after_focused.group(1)}")
+        if not is_skill_execution and (has_obvious_changes or has_focused_change):
             if self.agent_config.verbose:
                 print("✅ Obvious UI changes detected — atomic action assumed successful")
 
@@ -1103,11 +1114,7 @@ class PhoneAgent:
     - Type: {action_type}
     - Description: {action_description}
 
-    UI state comparison:
-    - Elements before execution: {len(before_elements)}
-    - Elements after execution: {len(after_elements)}
-
-    Analyze the action effectiveness by comparing the UI before and after execution.
+    Analyze the action effectiveness by comparing the screenshot before and after execution.
 
     Return your evaluation STRICTLY in the following JSON format.
     Do NOT include any extra text.

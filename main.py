@@ -31,147 +31,14 @@ from phone_agent.agent_ios import IOSAgentConfig, IOSPhoneAgent
 from phone_agent.config.apps import list_supported_apps
 from phone_agent.config.apps_harmonyos import list_supported_apps as list_harmonyos_apps
 from phone_agent.config.apps_ios import list_supported_apps as list_ios_apps
-from phone_agent.device_factory import DeviceType, get_device_factory, set_device_type, DeviceFactory
+from phone_agent.device_factory import DeviceType, get_device_factory, set_device_type
 from phone_agent.model import ModelConfig
 from phone_agent.xctest import XCTestConnection
 from phone_agent.xctest import list_devices as list_ios_devices
+from evaluator.test_runner import _setup_portal
 from utils.config import load_config
 from utils.util import print_with_color
-from phone_agent.portal import (
-    PORTAL_PACKAGE_NAME,
-    check_portal_accessibility,
-    toggle_overlay,
-    disable_keyboard,
-    download_portal_apk,
-    download_versioned_portal_apk,
-    enable_portal_accessibility,
-    get_compatible_portal_version,
-    ping_portal,
-    ping_portal_content,
-    ping_portal_tcp,
-)
 
-async def _setup_portal(path: str | None, device_factory: DeviceFactory, debug: bool, latest: bool = False, specific_version: str | None = None):
-    """Internal async function to install and enable the DroidRun Portal on a device."""
-    try:
-        # Get device 
-        from async_adbutils import adb
-        devices = await adb.list()
-        if not devices:
-            print_with_color("No devices found!", "red")
-            return
-        
-        device = devices[0].serial
-        print_with_color(f"Using device: {devices}", "blue")
-
-        device_obj = await adb.device(device)
-        if not device_obj:
-            print_with_color("Error: Could not connect to device!", "red")
-            return
-
-        if path:
-            print_with_color(f"Using provided APK:[/] {path}", "blue")
-            from contextlib import nullcontext
-            apk_context = nullcontext(path)
-        elif specific_version:
-            __version__ = specific_version.lstrip("v")
-            __version__ = f"v{__version__}"
-            download_base = "https://github.com/droidrun/droidrun-portal/releases/download"
-            apk_context = download_versioned_portal_apk(__version__, download_base, debug)
-        elif latest:
-            print_with_color("Downloading latest Portal APK...", "blue")
-            apk_context = download_portal_apk(debug)
-        else:
-            from importlib.metadata import version, PackageNotFoundError
-            try:
-                # Try to get version from installed package
-                __version__ = version("phone-agent")
-            except PackageNotFoundError:
-                # If package not installed via pip, use a default version
-                __version__ = "0.1.0"
-                print_with_color(f"Package not installed, using default version: {__version__}", "yellow")
-            
-            portal_version, download_base, mapping_fetched = get_compatible_portal_version(__version__, debug)
-
-            if portal_version:
-                apk_context = download_versioned_portal_apk(portal_version, download_base, debug)
-            else:
-                if not mapping_fetched:
-                    print_with_color("Could not fetch version mapping, falling back to latest...", "yellow")
-                apk_context = download_portal_apk(debug)
-
-        with apk_context as apk_path:
-            if not os.path.exists(apk_path):
-                print_with_color(f"Error: APK file not found at {apk_path}", "red")
-                return
-
-            print_with_color(f"Step 1/2: Installing APK: {apk_path}", "blue")
-            try:
-                await device_obj.install(
-                    apk_path, uninstall=True, flags=["-g"], silent=not debug
-                )
-            except Exception as e:
-                print_with_color(f"Installation failed: {e}", "red")
-                return
-
-            print_with_color("Installation successful!", "green")
-
-            print_with_color("Step 2/2: Enabling accessibility service", "blue")
-
-            try:
-                await enable_portal_accessibility(device_factory)
-
-                print_with_color("Accessibility service enabled successfully!", "green")
-                print_with_color(
-                    "\nSetup complete! The DroidRun Portal is now installed and ready to use.", 
-                    "green"
-                )
-
-            except Exception as e:
-                print_with_color(
-                    f"Could not automatically enable accessibility service: {e}",
-                    "yellow"
-                )
-                print_with_color(
-                    "Opening accessibility settings for manual configuration...",
-                    "yellow"
-                )
-
-                await device_factory.shell(
-                    "am start -a android.settings.ACCESSIBILITY_SETTINGS"
-                )
-
-                print_with_color(
-                    "\nPlease complete the following steps on your device:",
-                    "yellow"
-                )
-                print_with_color(
-                    f"1. Find {PORTAL_PACKAGE_NAME} in the accessibility services list"
-                )
-                print_with_color("2. Tap on the service name")
-                print_with_color(
-                    "3. Toggle the switch to ON to enable the service"
-                )
-                print_with_color("4. Accept any permission dialogs that appear")
-
-                print_with_color(
-                    "\nAPK installation complete![/] Please manually enable the accessibility service using the steps above.",
-                    "green"
-                )
-        
-        # Return to system home after setup
-        print_with_color("\nReturning to system home...", "blue")
-        await device_factory.shell("input keyevent KEYCODE_HOME")
-        await asyncio.sleep(1.0)
-        print_with_color("✓ Returned to home screen", "green")
-
-    except Exception as e:
-        print_with_color(f"Error: {e}", "red")
-
-        if debug:
-            import traceback
-
-            traceback.print_exc()
 
 async def get_portal_version(device_factory) -> str | None:
     try:
@@ -191,7 +58,7 @@ async def get_portal_version(device_factory) -> str | None:
         return None
 
 async def check_system_requirements(
-    device_type: DeviceType = DeviceType.ADB, wda_url: str = "http://localhost:8100"
+    device_type: DeviceType = DeviceType.ADB, wda_url: str = "http://localhost:8100", skip_portal_check: bool = False
 ) -> bool:
     """
     Check system requirements before running the agent.
@@ -382,20 +249,23 @@ async def check_system_requirements(
         #     print("❌ FAILED")
         #     print(f"   Error: {e}")
         #     all_passed = False
-        print("3. Checking Portal...", end=" ")
-        device_factory = await get_device_factory()
-        portal_version = await get_portal_version(device_factory)
-        if not portal_version or portal_version < "0.4.1":
-            print(f"⚠️  Portal version {portal_version} is outdated")
-            print(f"Running setup...")
-            await _setup_portal(
-                path=None, 
-                device_factory=device_factory,
-                debug=False
-            )
-            
-        else:
+        if skip_portal_check:
+            print("3. Skipping Portal check (Android World mode)...", end=" ")
             print("✅ OK")
+        else:
+            print("3. Checking Portal...", end=" ")
+            device_factory = await get_device_factory()
+            portal_version = await get_portal_version(device_factory)
+            if not portal_version or portal_version < "0.4.1":
+                print(f"⚠️  Portal version {portal_version} is outdated")
+                print(f"Running setup...")
+                await _setup_portal(
+                    path=None, 
+                    device_factory=device_factory,
+                    debug=False
+                )   
+            else:
+                print("✅ OK")
     elif device_type == DeviceType.HDC:
         # For HDC, skip keyboard check as it uses different input method
         print("3. Skipping keyboard check for HarmonyOS...", end=" ")
@@ -1016,12 +886,15 @@ async def main():
             
         return
 
+    # Check if Android World testing is requested - skip Portal check in this case
+    is_android_world = args.android_world or args.aw_task or args.aw_tasks
     # Run system requirements check before proceeding
     if not await check_system_requirements(
         device_type,
         wda_url=args.wda_url
         if device_type == DeviceType.IOS
         else "http://localhost:8100",
+        skip_portal_check=is_android_world
     ):
         sys.exit(1)
 
@@ -1137,26 +1010,6 @@ async def main():
                 timeout_per_task=args.aw_timeout,
                 verbose=not configs["QUIET"]
             )
-            
-            # Re-check and setup Portal AFTER Android World environment initialization
-            # This ensures Portal is properly configured after any Android World setup
-            print("\n🔧 Verifying Portal after Android World initialization...")
-            device_factory = await get_device_factory()
-            
-            portal_version = await get_portal_version(device_factory)
-            if not portal_version or portal_version < "0.4.1":
-                print(f"⚠️  Portal version {portal_version} needs setup")
-                await _setup_portal(
-                    path=None, 
-                    device_factory=device_factory,
-                    debug=False
-                )
-            else:
-                # Verify Portal accessibility is still enabled
-                if not await check_portal_accessibility(device_factory):
-                    print("⚠️  Portal accessibility service was disabled, re-enabling...")
-                    await enable_portal_accessibility(device_factory)
-                print(f"✅ Portal {portal_version} is ready")
             
             start_time = time.time()
             

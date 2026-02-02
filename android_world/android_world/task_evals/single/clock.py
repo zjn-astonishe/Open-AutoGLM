@@ -148,8 +148,10 @@ class ClockTimerEntry(_ClockEval):
       "required": ["hours", "minutes", "seconds"],
   }
   template = (
-      "Create a timer with {hours} hours, {minutes} minutes, and {seconds}"
+      "Tap the keyboard to enter the number."
+      " Create a timer with {hours} hours, {minutes} minutes, and {seconds}"
       " seconds. Do not start the timer."
+      " For example, if you want to create a timer of HH hour, MM minutes, and SS seconds. Click on the numbers 'H-H-M-M-S-S' in order"
   )
 
   def is_successful(

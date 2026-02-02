@@ -1,0 +1,3693 @@
+{
+  "app": "AndroidSystemSettings",
+  "nodes": {
+    "d25d6828-62e2-4398-807e-8ffcbca54080": {
+      "id": "d25d6828-62e2-4398-807e-8ffcbca54080",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/settings_homepage_container",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/account_avatar",
+          "className": "ImageView",
+          "content": "Profile picture, double tap to open Google Account",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/homepage_title",
+          "className": "TextView",
+          "content": "Settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/search_action_bar",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/search_action_bar_title",
+          "className": "TextView",
+          "content": "Search settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/main_content_scrollable_container",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/homepage_container",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Network & internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Mobile, Wi‑Fi, hotspot",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Connected devices",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Bluetooth, pairing",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Apps",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Assistant, recent apps, default apps",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Notifications",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Notification history, conversations",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Battery",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "100%",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Storage",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "35% used - 5.19 GB free",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Sound & vibration",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Volume, haptics, Do Not Disturb",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn brightness to the min value."
+      ],
+      "actions": [
+        {
+          "action_type": "Swipe",
+          "description": "Swipe up to scroll down and reveal more settings options.",
+          "zone_path": "/FrameLayout/",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 4 interface elements; New content appeared: android:id/summary/TextView/Screen lock, Find My Device, app security, android:id/title/TextView/Location, android:id/title/TextView/Display; Content disappeared: android:id/summary/TextView/Bluetooth, pairing, android:id/title/TextView/Apps, android:id/title/TextView/Network & internet; New active element appeared: 'Permissions, account activity, personal data'; New active element appeared: 'Location'; New active element appeared: 'Display, interaction, audio'; New active element appeared: 'Privacy'; New active element appeared: 'Colors, themed icons, app grid'; New active element appeared: 'Security'; New active element appeared: 'Dark theme, font size, brightness'; New active element appeared: 'Display'; New active element appeared: 'Accessibility'; New active element appeared: 'On - 5 apps have access to location'; New active element appeared: 'Wallpaper & style'; New active element appeared: 'Screen lock, Find My Device, app security'; Active element disappeared: 'Notifications'; Active element disappeared: 'Bluetooth, pairing'; Active element disappeared: 'Apps'; Active element disappeared: 'Profile picture, double tap to open Google Account'; Active element disappeared: 'Assistant, recent apps, default apps'; Active element disappeared: 'Connected devices'; Active element disappeared: 'Settings'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Mobile, Wi‑Fi, hotspot'; Active element disappeared: 'Notification history, conversations'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 4 interface elements; New content appeared: android:id/summary/TextView/Screen lock, Find My Device, app security, android:id/title/TextView/Location, android:id/title/TextView/Display; Content disappeared: android:id/summary/TextView/Bluetooth, pairing, android:id/title/TextView/Apps, android:id/title/TextView/Network & internet; New active element appeared: 'Permissions, account activity, personal data'; New active element appeared: 'Location'; New active element appeared: 'Display, interaction, audio'; New active element appeared: 'Privacy'; New active element appeared: 'Colors, themed icons, app grid'; New active element appeared: 'Security'; New active element appeared: 'Dark theme, font size, brightness'; New active element appeared: 'Display'; New active element appeared: 'Accessibility'; New active element appeared: 'On - 5 apps have access to location'; New active element appeared: 'Wallpaper & style'; New active element appeared: 'Screen lock, Find My Device, app security'; Active element disappeared: 'Notifications'; Active element disappeared: 'Bluetooth, pairing'; Active element disappeared: 'Apps'; Active element disappeared: 'Profile picture, double tap to open Google Account'; Active element disappeared: 'Assistant, recent apps, default apps'; Active element disappeared: 'Connected devices'; Active element disappeared: 'Settings'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Mobile, Wi‑Fi, hotspot'; Active element disappeared: 'Notification history, conversations'",
+            "used_model_analysis": false,
+            "elements_before": 30,
+            "elements_after": 34
+          },
+          "confidence_score": 0.9,
+          "direction": "up",
+          "distance": "long",
+          "text": null
+        }
+      ]
+    },
+    "f3ce30bd-e650-43c0-9fe4-01764ca3ba51": {
+      "id": "f3ce30bd-e650-43c0-9fe4-01764ca3ba51",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/settings_homepage_container",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/search_action_bar",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/search_action_bar_title",
+          "className": "TextView",
+          "content": "Search settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/main_content_scrollable_container",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/homepage_container",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Battery",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "100%",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Storage",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "35% used - 5.19 GB free",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Sound & vibration",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Volume, haptics, Do Not Disturb",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Display",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Dark theme, font size, brightness",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Wallpaper & style",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Colors, themed icons, app grid",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Accessibility",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Display, interaction, audio",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Security",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Screen lock, Find My Device, app security",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Privacy",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Permissions, account activity, personal data",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Location",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "On - 5 apps have access to location",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn brightness to the min value."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on \"Display\" to access display settings.",
+          "zone_path": "android:id/title/TextView/Display",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 2 interface elements; New content appeared: com.android.settings:id/switchWidget/Switch/Dark theme, android:id/title/TextView/Lock screen, android:id/title/TextView/Brightness level; Content disappeared: com.android.settings:id/homepage_container/LinearLayout, android:id/summary/TextView/On - 5 apps have access to location, com.android.settings:id/search_action_bar_title/TextView/Search settings; New active element appeared: 'Dark theme'; New active element appeared: 'Color'; New active element appeared: 'After null of inactivity'; New active element appeared: 'Screen timeout'; New active element appeared: 'Brightness'; New active element appeared: 'On / Clock'; New active element appeared: 'Dark theme'; New active element appeared: 'Will never turn on automatically'; New active element appeared: 'Navigate up'; New active element appeared: 'Display'; New active element appeared: 'Lock display'; New active element appeared: 'Show all notification content'; New active element appeared: 'Appearance'; New active element appeared: 'Lock screen'; New active element appeared: 'Display size and text'; New active element appeared: 'Brightness level'; New active element appeared: 'Screen saver'; Active element disappeared: 'Colors, themed icons, app grid'; Active element disappeared: 'Security'; Active element disappeared: 'Accessibility'; Active element disappeared: 'On - 5 apps have access to location'; Active element disappeared: 'Sound & vibration'; Active element disappeared: 'Search settings'; Active element disappeared: 'Dark theme, font size, brightness'; Active element disappeared: 'Storage'; Active element disappeared: 'Display, interaction, audio'; Active element disappeared: 'Display'; Active element disappeared: 'Location'; Active element disappeared: 'Privacy'; Active element disappeared: 'Battery'; Active element disappeared: 'Screen lock, Find My Device, app security'; Active element disappeared: 'Wallpaper & style'; Active element disappeared: '35% used - 5.19 GB free'; Active element disappeared: 'Volume, haptics, Do Not Disturb'; Active element disappeared: 'Permissions, account activity, personal data'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 2 interface elements; New content appeared: com.android.settings:id/switchWidget/Switch/Dark theme, android:id/title/TextView/Lock screen, android:id/title/TextView/Brightness level; Content disappeared: com.android.settings:id/homepage_container/LinearLayout, android:id/summary/TextView/On - 5 apps have access to location, com.android.settings:id/search_action_bar_title/TextView/Search settings; New active element appeared: 'Dark theme'; New active element appeared: 'Color'; New active element appeared: 'After null of inactivity'; New active element appeared: 'Screen timeout'; New active element appeared: 'Brightness'; New active element appeared: 'On / Clock'; New active element appeared: 'Dark theme'; New active element appeared: 'Will never turn on automatically'; New active element appeared: 'Navigate up'; New active element appeared: 'Display'; New active element appeared: 'Lock display'; New active element appeared: 'Show all notification content'; New active element appeared: 'Appearance'; New active element appeared: 'Lock screen'; New active element appeared: 'Display size and text'; New active element appeared: 'Brightness level'; New active element appeared: 'Screen saver'; Active element disappeared: 'Colors, themed icons, app grid'; Active element disappeared: 'Security'; Active element disappeared: 'Accessibility'; Active element disappeared: 'On - 5 apps have access to location'; Active element disappeared: 'Sound & vibration'; Active element disappeared: 'Search settings'; Active element disappeared: 'Dark theme, font size, brightness'; Active element disappeared: 'Storage'; Active element disappeared: 'Display, interaction, audio'; Active element disappeared: 'Display'; Active element disappeared: 'Location'; Active element disappeared: 'Privacy'; Active element disappeared: 'Battery'; Active element disappeared: 'Screen lock, Find My Device, app security'; Active element disappeared: 'Wallpaper & style'; Active element disappeared: '35% used - 5.19 GB free'; Active element disappeared: 'Volume, haptics, Do Not Disturb'; Active element disappeared: 'Permissions, account activity, personal data'",
+            "used_model_analysis": false,
+            "elements_before": 34,
+            "elements_after": 32
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "09edacc2-92aa-4e37-814f-61aa960cff4d": {
+      "id": "09edacc2-92aa-4e37-814f-61aa960cff4d",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/content_parent",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/collapsing_toolbar",
+          "className": "FrameLayout",
+          "content": "Display",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Navigate up",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Brightness",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Brightness level",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "100%",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Lock display",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Lock screen",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Show all notification content",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Screen timeout",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "After null of inactivity",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Appearance",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Dark theme",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Will never turn on automatically",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/switchWidget",
+          "className": "Switch",
+          "content": "Dark theme",
+          "checked": "OFF"
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Screen saver",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "On / Clock",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Display size and text",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Color",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn brightness to the min value."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the \"Brightness level\" option to access the brightness adjustment control.",
+          "zone_path": "android:id/title/TextView/Brightness level",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 30 interface elements; New content appeared: com.android.systemui:id/slider/SeekBar/Display brightness; Content disappeared: android:id/title/TextView/Brightness level, ImageButton/Navigate up, com.android.settings:id/recycler_view/RecyclerView; New active element appeared: 'Display brightness'; Active element disappeared: 'Dark theme'; Active element disappeared: 'Screen timeout'; Active element disappeared: 'Brightness'; Active element disappeared: 'On / Clock'; Active element disappeared: 'Will never turn on automatically'; Active element disappeared: 'Lock display'; Active element disappeared: 'Show all notification content'; Active element disappeared: 'Appearance'; Active element disappeared: '100%'; Active element disappeared: 'Display size and text'; Active element disappeared: 'Color'; Active element disappeared: 'After null of inactivity'; Active element disappeared: 'Dark theme'; Active element disappeared: 'Navigate up'; Active element disappeared: 'Display'; Active element disappeared: 'Lock screen'; Active element disappeared: 'Brightness level'; Active element disappeared: 'Screen saver'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 30 interface elements; New content appeared: com.android.systemui:id/slider/SeekBar/Display brightness; Content disappeared: android:id/title/TextView/Brightness level, ImageButton/Navigate up, com.android.settings:id/recycler_view/RecyclerView; New active element appeared: 'Display brightness'; Active element disappeared: 'Dark theme'; Active element disappeared: 'Screen timeout'; Active element disappeared: 'Brightness'; Active element disappeared: 'On / Clock'; Active element disappeared: 'Will never turn on automatically'; Active element disappeared: 'Lock display'; Active element disappeared: 'Show all notification content'; Active element disappeared: 'Appearance'; Active element disappeared: '100%'; Active element disappeared: 'Display size and text'; Active element disappeared: 'Color'; Active element disappeared: 'After null of inactivity'; Active element disappeared: 'Dark theme'; Active element disappeared: 'Navigate up'; Active element disappeared: 'Display'; Active element disappeared: 'Lock screen'; Active element disappeared: 'Brightness level'; Active element disappeared: 'Screen saver'",
+            "used_model_analysis": false,
+            "elements_before": 32,
+            "elements_after": 2
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "499aff7e-8e5e-493e-92f1-e84d0b2d0aa1": {
+      "id": "499aff7e-8e5e-493e-92f1-e84d0b2d0aa1",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/settings_homepage_container",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/account_avatar",
+          "className": "ImageView",
+          "content": "Profile picture, double tap to open Google Account",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/homepage_title",
+          "className": "TextView",
+          "content": "Settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/search_action_bar",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/search_action_bar_title",
+          "className": "TextView",
+          "content": "Search settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/main_content_scrollable_container",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/homepage_container",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Network & internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Mobile, Wi‑Fi, hotspot",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Connected devices",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Bluetooth, pairing",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Apps",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Assistant, recent apps, default apps",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Notifications",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Notification history, conversations",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Battery",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "100%",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Storage",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "35% used - 5.18 GB free",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Sound & vibration",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Volume, haptics, Do Not Disturb",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn wifi off through the settings app."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on \"Network & internet\" to access Wi-Fi settings.",
+          "zone_path": "android:id/title/TextView/Network & internet",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 1 interface elements; New content appeared: android:id/title/TextView/Mobile plan, android:id/title/TextView/Internet, android:id/summary/TextView/None; Content disappeared: android:id/summary/TextView/Assistant, recent apps, default apps, android:id/summary/TextView/100%, android:id/summary/TextView/Volume, haptics, Do Not Disturb; New active element appeared: 'Mobile plan'; New active element appeared: 'Private DNS'; New active element appeared: 'VPN'; New active element appeared: 'Hotspot & tethering'; New active element appeared: 'T-Mobile'; New active element appeared: 'Internet'; New active element appeared: 'Calls & SMS'; New active element appeared: 'SIMs'; New active element appeared: 'Automatic'; New active element appeared: 'Airplane mode'; New active element appeared: 'Network & internet'; New active element appeared: 'Data Saver'; New active element appeared: 'Navigate up'; New active element appeared: 'None'; New active element appeared: 'Off'; New active element appeared: 'Networks available'; Active element disappeared: 'Battery'; Active element disappeared: 'Network & internet'; Active element disappeared: '100%'; Active element disappeared: 'Bluetooth, pairing'; Active element disappeared: 'Sound & vibration'; Active element disappeared: 'Profile picture, double tap to open Google Account'; Active element disappeared: 'Assistant, recent apps, default apps'; Active element disappeared: 'Notification history, conversations'; Active element disappeared: 'Volume, haptics, Do Not Disturb'; Active element disappeared: 'Connected devices'; Active element disappeared: 'Apps'; Active element disappeared: '35% used - 5.18 GB free'; Active element disappeared: 'Storage'; Active element disappeared: 'Notifications'; Active element disappeared: 'Mobile, Wi‑Fi, hotspot'; Active element disappeared: 'Settings'; Active element disappeared: 'Search settings'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 1 interface elements; New content appeared: android:id/title/TextView/Mobile plan, android:id/title/TextView/Internet, android:id/summary/TextView/None; Content disappeared: android:id/summary/TextView/Assistant, recent apps, default apps, android:id/summary/TextView/100%, android:id/summary/TextView/Volume, haptics, Do Not Disturb; New active element appeared: 'Mobile plan'; New active element appeared: 'Private DNS'; New active element appeared: 'VPN'; New active element appeared: 'Hotspot & tethering'; New active element appeared: 'T-Mobile'; New active element appeared: 'Internet'; New active element appeared: 'Calls & SMS'; New active element appeared: 'SIMs'; New active element appeared: 'Automatic'; New active element appeared: 'Airplane mode'; New active element appeared: 'Network & internet'; New active element appeared: 'Data Saver'; New active element appeared: 'Navigate up'; New active element appeared: 'None'; New active element appeared: 'Off'; New active element appeared: 'Networks available'; Active element disappeared: 'Battery'; Active element disappeared: 'Network & internet'; Active element disappeared: '100%'; Active element disappeared: 'Bluetooth, pairing'; Active element disappeared: 'Sound & vibration'; Active element disappeared: 'Profile picture, double tap to open Google Account'; Active element disappeared: 'Assistant, recent apps, default apps'; Active element disappeared: 'Notification history, conversations'; Active element disappeared: 'Volume, haptics, Do Not Disturb'; Active element disappeared: 'Connected devices'; Active element disappeared: 'Apps'; Active element disappeared: '35% used - 5.18 GB free'; Active element disappeared: 'Storage'; Active element disappeared: 'Notifications'; Active element disappeared: 'Mobile, Wi‑Fi, hotspot'; Active element disappeared: 'Settings'; Active element disappeared: 'Search settings'",
+            "used_model_analysis": false,
+            "elements_before": 30,
+            "elements_after": 31
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "e986b076-5a95-43e4-b2f0-57120a2de7e2": {
+      "id": "e986b076-5a95-43e4-b2f0-57120a2de7e2",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/content_parent",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/collapsing_toolbar",
+          "className": "FrameLayout",
+          "content": "Network & internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Navigate up",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Networks available",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Calls & SMS",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "T-Mobile",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "SIMs",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "T-Mobile",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Airplane mode",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/switch_widget",
+          "className": "Switch",
+          "content": "",
+          "checked": "OFF"
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Hotspot & tethering",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Off",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Data Saver",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Off",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "VPN",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "None",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Mobile plan",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Private DNS",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Automatic",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn wifi off through the settings app."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on \"Internet\" to access Wi-Fi settings.",
+          "zone_path": "android:id/title/TextView/Internet",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 3 interface elements; New content appeared: android:id/title/TextView/T-Mobile, android:id/title/TextView/Wi-Fi, android:id/title/TextView/Add network; Content disappeared: android:id/title/TextView/Mobile plan, android:id/title/TextView/Internet, android:id/summary/TextView/None; New active element appeared: 'Fix connectivity'; New active element appeared: 'Scan QR code'; New active element appeared: 'Wi‑Fi doesn't turn back on automatically'; New active element appeared: 'Network preferences'; New active element appeared: 'Searching for networks…'; New active element appeared: '1 network'; New active element appeared: '65.15 MB used Sep 17 – Oct 15'; New active element appeared: 'Wi-Fi'; New active element appeared: 'Settings'; New active element appeared: 'Add network'; New active element appeared: 'Non-carrier data usage'; New active element appeared: 'T-Mobile'; New active element appeared: 'Internet'; New active element appeared: 'Connected / LTE'; New active element appeared: 'Saved networks'; Active element disappeared: 'Private DNS'; Active element disappeared: 'Mobile plan'; Active element disappeared: 'VPN'; Active element disappeared: 'Hotspot & tethering'; Active element disappeared: 'T-Mobile'; Active element disappeared: 'Internet'; Active element disappeared: 'Calls & SMS'; Active element disappeared: 'SIMs'; Active element disappeared: 'Automatic'; Active element disappeared: 'Airplane mode'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Data Saver'; Active element disappeared: 'None'; Active element disappeared: 'Off'; Active element disappeared: 'Networks available'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 3 interface elements; New content appeared: android:id/title/TextView/T-Mobile, android:id/title/TextView/Wi-Fi, android:id/title/TextView/Add network; Content disappeared: android:id/title/TextView/Mobile plan, android:id/title/TextView/Internet, android:id/summary/TextView/None; New active element appeared: 'Fix connectivity'; New active element appeared: 'Scan QR code'; New active element appeared: 'Wi‑Fi doesn't turn back on automatically'; New active element appeared: 'Network preferences'; New active element appeared: 'Searching for networks…'; New active element appeared: '1 network'; New active element appeared: '65.15 MB used Sep 17 – Oct 15'; New active element appeared: 'Wi-Fi'; New active element appeared: 'Settings'; New active element appeared: 'Add network'; New active element appeared: 'Non-carrier data usage'; New active element appeared: 'T-Mobile'; New active element appeared: 'Internet'; New active element appeared: 'Connected / LTE'; New active element appeared: 'Saved networks'; Active element disappeared: 'Private DNS'; Active element disappeared: 'Mobile plan'; Active element disappeared: 'VPN'; Active element disappeared: 'Hotspot & tethering'; Active element disappeared: 'T-Mobile'; Active element disappeared: 'Internet'; Active element disappeared: 'Calls & SMS'; Active element disappeared: 'SIMs'; Active element disappeared: 'Automatic'; Active element disappeared: 'Airplane mode'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Data Saver'; Active element disappeared: 'None'; Active element disappeared: 'Off'; Active element disappeared: 'Networks available'",
+            "used_model_analysis": false,
+            "elements_before": 31,
+            "elements_after": 28
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "a2b58368-baae-41da-a661-7009ba0b6455": {
+      "id": "a2b58368-baae-41da-a661-7009ba0b6455",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/content_parent",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/collapsing_toolbar",
+          "className": "FrameLayout",
+          "content": "Internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Navigate up",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Fix connectivity",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/progress_bar_animation",
+          "className": "ProgressBar",
+          "content": "",
+          "checked": "in progress"
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "T-Mobile",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Connected / LTE",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/settings_button",
+          "className": "ImageView",
+          "content": "Settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Wi-Fi",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/switch_widget",
+          "className": "Switch",
+          "content": "",
+          "checked": "ON"
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Searching for networks…",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Add network",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/button_icon",
+          "className": "ImageButton",
+          "content": "Scan QR code",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Network preferences",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Wi‑Fi doesn't turn back on automatically",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Saved networks",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "1 network",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Non-carrier data usage",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "65.15 MB used Sep 17 – Oct 15",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn wifi off through the settings app."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the Wi-Fi toggle switch to turn off Wi-Fi.",
+          "zone_path": "android:id/switch_widget/Switch/",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 6 interface elements; Content disappeared: com.android.settings:id/button_icon/ImageButton/Scan QR code, com.android.settings:id/progress_bar_animation/ProgressBar, android:id/title/TextView/Add network; Active element disappeared: 'Add network'; Active element disappeared: 'Searching for networks…'; Active element disappeared: 'Scan QR code'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 6 interface elements; Content disappeared: com.android.settings:id/button_icon/ImageButton/Scan QR code, com.android.settings:id/progress_bar_animation/ProgressBar, android:id/title/TextView/Add network; Active element disappeared: 'Add network'; Active element disappeared: 'Searching for networks…'; Active element disappeared: 'Scan QR code'",
+            "used_model_analysis": false,
+            "elements_before": 28,
+            "elements_after": 22
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "f28a803e-a32c-403f-a9c4-d47b71e9aeec": {
+      "id": "f28a803e-a32c-403f-a9c4-d47b71e9aeec",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/content_parent",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/collapsing_toolbar",
+          "className": "FrameLayout",
+          "content": "Internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Navigate up",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Fix connectivity",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "T-Mobile",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Connected / LTE",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/settings_button",
+          "className": "ImageView",
+          "content": "Settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Wi-Fi",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/switch_widget",
+          "className": "Switch",
+          "content": "",
+          "checked": "OFF"
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Network preferences",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Wi‑Fi doesn't turn back on automatically",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Saved networks",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "1 network",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Non-carrier data usage",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "65.15 MB used Sep 17 – Oct 15",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn wifi off through the settings app."
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "Wi-Fi is already turned off; task completed.",
+          "zone_path": null,
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "9391037d-18a1-4fde-a3b5-98082d81e5c0": {
+      "id": "9391037d-18a1-4fde-a3b5-98082d81e5c0",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/settings_homepage_container",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/account_avatar",
+          "className": "ImageView",
+          "content": "Profile picture, double tap to open Google Account",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/homepage_title",
+          "className": "TextView",
+          "content": "Settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/search_action_bar",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/search_action_bar_title",
+          "className": "TextView",
+          "content": "Search settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/main_content_scrollable_container",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/homepage_container",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Network & internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Mobile, Wi‑Fi, hotspot",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Connected devices",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Bluetooth, pairing",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Apps",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Assistant, recent apps, default apps",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Notifications",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Notification history, conversations",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Battery",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "100%",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Storage",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "35% used - 5.19 GB free",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Sound & vibration",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Volume, haptics, Do Not Disturb",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn wifi off through the settings app."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Navigate to the \"Network & internet\" section to access Wi-Fi settings.",
+          "zone_path": "android:id/title/TextView/Network & internet",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 1 interface elements; New content appeared: android:id/title/TextView/Private DNS, android:id/summary/TextView/T-Mobile, android:id/summary/TextView/Off; Content disappeared: android:id/summary/TextView/Volume, haptics, Do Not Disturb, com.android.settings:id/search_action_bar_title/TextView/Search settings, com.android.settings:id/main_content_scrollable_container/ScrollView; New active element appeared: 'T-Mobile'; New active element appeared: 'Network & internet'; New active element appeared: 'Navigate up'; New active element appeared: 'Networks available'; New active element appeared: 'None'; New active element appeared: 'Internet'; New active element appeared: 'VPN'; New active element appeared: 'Data Saver'; New active element appeared: 'SIMs'; New active element appeared: 'Private DNS'; New active element appeared: 'Off'; New active element appeared: 'Automatic'; New active element appeared: 'Calls & SMS'; New active element appeared: 'Airplane mode'; New active element appeared: 'Hotspot & tethering'; New active element appeared: 'Mobile plan'; Active element disappeared: 'Sound & vibration'; Active element disappeared: 'Search settings'; Active element disappeared: 'Bluetooth, pairing'; Active element disappeared: 'Battery'; Active element disappeared: 'Storage'; Active element disappeared: 'Notification history, conversations'; Active element disappeared: '35% used - 5.19 GB free'; Active element disappeared: 'Assistant, recent apps, default apps'; Active element disappeared: 'Apps'; Active element disappeared: 'Volume, haptics, Do Not Disturb'; Active element disappeared: 'Connected devices'; Active element disappeared: 'Notifications'; Active element disappeared: 'Profile picture, double tap to open Google Account'; Active element disappeared: '100%'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Settings'; Active element disappeared: 'Mobile, Wi‑Fi, hotspot'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 1 interface elements; New content appeared: android:id/title/TextView/Private DNS, android:id/summary/TextView/T-Mobile, android:id/summary/TextView/Off; Content disappeared: android:id/summary/TextView/Volume, haptics, Do Not Disturb, com.android.settings:id/search_action_bar_title/TextView/Search settings, com.android.settings:id/main_content_scrollable_container/ScrollView; New active element appeared: 'T-Mobile'; New active element appeared: 'Network & internet'; New active element appeared: 'Navigate up'; New active element appeared: 'Networks available'; New active element appeared: 'None'; New active element appeared: 'Internet'; New active element appeared: 'VPN'; New active element appeared: 'Data Saver'; New active element appeared: 'SIMs'; New active element appeared: 'Private DNS'; New active element appeared: 'Off'; New active element appeared: 'Automatic'; New active element appeared: 'Calls & SMS'; New active element appeared: 'Airplane mode'; New active element appeared: 'Hotspot & tethering'; New active element appeared: 'Mobile plan'; Active element disappeared: 'Sound & vibration'; Active element disappeared: 'Search settings'; Active element disappeared: 'Bluetooth, pairing'; Active element disappeared: 'Battery'; Active element disappeared: 'Storage'; Active element disappeared: 'Notification history, conversations'; Active element disappeared: '35% used - 5.19 GB free'; Active element disappeared: 'Assistant, recent apps, default apps'; Active element disappeared: 'Apps'; Active element disappeared: 'Volume, haptics, Do Not Disturb'; Active element disappeared: 'Connected devices'; Active element disappeared: 'Notifications'; Active element disappeared: 'Profile picture, double tap to open Google Account'; Active element disappeared: '100%'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Settings'; Active element disappeared: 'Mobile, Wi‑Fi, hotspot'",
+            "used_model_analysis": false,
+            "elements_before": 30,
+            "elements_after": 31
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "7613f6c1-d079-480d-aa4b-8bce7badfe8d": {
+      "id": "7613f6c1-d079-480d-aa4b-8bce7badfe8d",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/content_parent",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/collapsing_toolbar",
+          "className": "FrameLayout",
+          "content": "Network & internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Navigate up",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Networks available",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Calls & SMS",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "T-Mobile",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "SIMs",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "T-Mobile",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Airplane mode",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/switch_widget",
+          "className": "Switch",
+          "content": "",
+          "checked": "OFF"
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Hotspot & tethering",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Off",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Data Saver",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Off",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "VPN",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "None",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Mobile plan",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Private DNS",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Automatic",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn wifi off through the settings app."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on \"Internet\" to access Wi-Fi settings.",
+          "zone_path": "android:id/title/TextView/Internet",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 9 interface elements; New content appeared: android:id/summary/TextView/Connected / LTE, android:id/title/TextView/T-Mobile, android:id/summary/TextView/65.15 MB used Sep 17 – Oct 15; Content disappeared: android:id/title/TextView/Private DNS, android:id/summary/TextView/T-Mobile, android:id/summary/TextView/Off; New active element appeared: 'Fix connectivity'; New active element appeared: 'Wi-Fi'; New active element appeared: 'T-Mobile'; New active element appeared: 'Network preferences'; New active element appeared: 'Settings'; New active element appeared: 'Connected / LTE'; New active element appeared: 'Non-carrier data usage'; New active element appeared: '1 network'; New active element appeared: 'Wi‑Fi doesn't turn back on automatically'; New active element appeared: '65.15 MB used Sep 17 – Oct 15'; New active element appeared: 'Saved networks'; New active element appeared: 'Internet'; Active element disappeared: 'T-Mobile'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Networks available'; Active element disappeared: 'Internet'; Active element disappeared: 'None'; Active element disappeared: 'Automatic'; Active element disappeared: 'VPN'; Active element disappeared: 'Data Saver'; Active element disappeared: 'SIMs'; Active element disappeared: 'Private DNS'; Active element disappeared: 'Off'; Active element disappeared: 'Calls & SMS'; Active element disappeared: 'Airplane mode'; Active element disappeared: 'Hotspot & tethering'; Active element disappeared: 'Mobile plan'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 9 interface elements; New content appeared: android:id/summary/TextView/Connected / LTE, android:id/title/TextView/T-Mobile, android:id/summary/TextView/65.15 MB used Sep 17 – Oct 15; Content disappeared: android:id/title/TextView/Private DNS, android:id/summary/TextView/T-Mobile, android:id/summary/TextView/Off; New active element appeared: 'Fix connectivity'; New active element appeared: 'Wi-Fi'; New active element appeared: 'T-Mobile'; New active element appeared: 'Network preferences'; New active element appeared: 'Settings'; New active element appeared: 'Connected / LTE'; New active element appeared: 'Non-carrier data usage'; New active element appeared: '1 network'; New active element appeared: 'Wi‑Fi doesn't turn back on automatically'; New active element appeared: '65.15 MB used Sep 17 – Oct 15'; New active element appeared: 'Saved networks'; New active element appeared: 'Internet'; Active element disappeared: 'T-Mobile'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Networks available'; Active element disappeared: 'Internet'; Active element disappeared: 'None'; Active element disappeared: 'Automatic'; Active element disappeared: 'VPN'; Active element disappeared: 'Data Saver'; Active element disappeared: 'SIMs'; Active element disappeared: 'Private DNS'; Active element disappeared: 'Off'; Active element disappeared: 'Calls & SMS'; Active element disappeared: 'Airplane mode'; Active element disappeared: 'Hotspot & tethering'; Active element disappeared: 'Mobile plan'",
+            "used_model_analysis": false,
+            "elements_before": 31,
+            "elements_after": 22
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "2fb17de9-9a1d-4914-a135-c38afcb91f0b": {
+      "id": "2fb17de9-9a1d-4914-a135-c38afcb91f0b",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/content_parent",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/collapsing_toolbar",
+          "className": "FrameLayout",
+          "content": "Internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Navigate up",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Fix connectivity",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "T-Mobile",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Connected / LTE",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/settings_button",
+          "className": "ImageView",
+          "content": "Settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Wi-Fi",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/switch_widget",
+          "className": "Switch",
+          "content": "",
+          "checked": "OFF"
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Network preferences",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Wi‑Fi doesn't turn back on automatically",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Saved networks",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "1 network",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Non-carrier data usage",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "65.15 MB used Sep 17 – Oct 15",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn wifi off through the settings app."
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "Wi-Fi is already turned off, so the task is complete.",
+          "zone_path": null,
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "8e0e99a3-1e8a-4be8-8b77-451bdd41716f": {
+      "id": "8e0e99a3-1e8a-4be8-8b77-451bdd41716f",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/settings_homepage_container",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/account_avatar",
+          "className": "ImageView",
+          "content": "Profile picture, double tap to open Google Account",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/homepage_title",
+          "className": "TextView",
+          "content": "Settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/search_action_bar",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/search_action_bar_title",
+          "className": "TextView",
+          "content": "Search settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/main_content_scrollable_container",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/homepage_container",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Network & internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Mobile, Wi‑Fi, hotspot",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Connected devices",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Bluetooth, pairing",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Apps",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Assistant, recent apps, default apps",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Notifications",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Notification history, conversations",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Battery",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "100%",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Storage",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "35% used - 5.18 GB free",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Sound & vibration",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Volume, haptics, Do Not Disturb",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn wifi on through the settings app."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Navigate to the \"Network & internet\" section to access Wi-Fi settings.",
+          "zone_path": "android:id/title/TextView/Network & internet",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 1 interface elements; New content appeared: android:id/title/TextView/Hotspot & tethering, android:id/title/TextView/VPN, android:id/title/TextView/Internet; Content disappeared: android:id/title/TextView/Apps, android:id/title/TextView/Notifications, android:id/title/TextView/Storage; New active element appeared: 'Private DNS'; New active element appeared: 'SIMs'; New active element appeared: 'Off'; New active element appeared: 'Calls & SMS'; New active element appeared: 'Network & internet'; New active element appeared: 'Navigate up'; New active element appeared: 'Airplane mode'; New active element appeared: 'Automatic'; New active element appeared: 'Internet'; New active element appeared: 'Mobile plan'; New active element appeared: 'Data Saver'; New active element appeared: 'None'; New active element appeared: 'Networks available'; New active element appeared: 'VPN'; New active element appeared: 'T-Mobile'; New active element appeared: 'Hotspot & tethering'; Active element disappeared: 'Notifications'; Active element disappeared: 'Bluetooth, pairing'; Active element disappeared: '35% used - 5.18 GB free'; Active element disappeared: 'Settings'; Active element disappeared: 'Connected devices'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Battery'; Active element disappeared: 'Storage'; Active element disappeared: 'Assistant, recent apps, default apps'; Active element disappeared: 'Mobile, Wi‑Fi, hotspot'; Active element disappeared: 'Search settings'; Active element disappeared: 'Sound & vibration'; Active element disappeared: 'Volume, haptics, Do Not Disturb'; Active element disappeared: 'Profile picture, double tap to open Google Account'; Active element disappeared: '100%'; Active element disappeared: 'Notification history, conversations'; Active element disappeared: 'Apps'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 1 interface elements; New content appeared: android:id/title/TextView/Hotspot & tethering, android:id/title/TextView/VPN, android:id/title/TextView/Internet; Content disappeared: android:id/title/TextView/Apps, android:id/title/TextView/Notifications, android:id/title/TextView/Storage; New active element appeared: 'Private DNS'; New active element appeared: 'SIMs'; New active element appeared: 'Off'; New active element appeared: 'Calls & SMS'; New active element appeared: 'Network & internet'; New active element appeared: 'Navigate up'; New active element appeared: 'Airplane mode'; New active element appeared: 'Automatic'; New active element appeared: 'Internet'; New active element appeared: 'Mobile plan'; New active element appeared: 'Data Saver'; New active element appeared: 'None'; New active element appeared: 'Networks available'; New active element appeared: 'VPN'; New active element appeared: 'T-Mobile'; New active element appeared: 'Hotspot & tethering'; Active element disappeared: 'Notifications'; Active element disappeared: 'Bluetooth, pairing'; Active element disappeared: '35% used - 5.18 GB free'; Active element disappeared: 'Settings'; Active element disappeared: 'Connected devices'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Battery'; Active element disappeared: 'Storage'; Active element disappeared: 'Assistant, recent apps, default apps'; Active element disappeared: 'Mobile, Wi‑Fi, hotspot'; Active element disappeared: 'Search settings'; Active element disappeared: 'Sound & vibration'; Active element disappeared: 'Volume, haptics, Do Not Disturb'; Active element disappeared: 'Profile picture, double tap to open Google Account'; Active element disappeared: '100%'; Active element disappeared: 'Notification history, conversations'; Active element disappeared: 'Apps'",
+            "used_model_analysis": false,
+            "elements_before": 30,
+            "elements_after": 31
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "d7576d78-9268-40a9-b15f-bde74b252d64": {
+      "id": "d7576d78-9268-40a9-b15f-bde74b252d64",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/content_parent",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/collapsing_toolbar",
+          "className": "FrameLayout",
+          "content": "Network & internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Navigate up",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Networks available",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Calls & SMS",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "T-Mobile",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "SIMs",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "T-Mobile",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Airplane mode",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/switch_widget",
+          "className": "Switch",
+          "content": "",
+          "checked": "OFF"
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Hotspot & tethering",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Off",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Data Saver",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Off",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "VPN",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "None",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Mobile plan",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Private DNS",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Automatic",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn wifi on through the settings app."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on \"Internet\" to access Wi-Fi settings.",
+          "zone_path": "android:id/title/TextView/Internet",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 9 interface elements; New content appeared: android:id/summary/TextView/Connected / LTE, android:id/title/TextView/Saved networks, com.android.settings:id/settings_button/ImageView/Settings; Content disappeared: android:id/title/TextView/Hotspot & tethering, android:id/title/TextView/VPN, android:id/title/TextView/Internet; New active element appeared: 'Wi‑Fi doesn't turn back on automatically'; New active element appeared: 'Network preferences'; New active element appeared: 'Settings'; New active element appeared: 'Saved networks'; New active element appeared: '65.15 MB used Sep 17 – Oct 15'; New active element appeared: 'Fix connectivity'; New active element appeared: '1 network'; New active element appeared: 'Wi-Fi'; New active element appeared: 'T-Mobile'; New active element appeared: 'Connected / LTE'; New active element appeared: 'Internet'; New active element appeared: 'Non-carrier data usage'; Active element disappeared: 'Private DNS'; Active element disappeared: 'SIMs'; Active element disappeared: 'Off'; Active element disappeared: 'Calls & SMS'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Airplane mode'; Active element disappeared: 'Automatic'; Active element disappeared: 'Internet'; Active element disappeared: 'Mobile plan'; Active element disappeared: 'Data Saver'; Active element disappeared: 'None'; Active element disappeared: 'Networks available'; Active element disappeared: 'VPN'; Active element disappeared: 'T-Mobile'; Active element disappeared: 'Hotspot & tethering'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 9 interface elements; New content appeared: android:id/summary/TextView/Connected / LTE, android:id/title/TextView/Saved networks, com.android.settings:id/settings_button/ImageView/Settings; Content disappeared: android:id/title/TextView/Hotspot & tethering, android:id/title/TextView/VPN, android:id/title/TextView/Internet; New active element appeared: 'Wi‑Fi doesn't turn back on automatically'; New active element appeared: 'Network preferences'; New active element appeared: 'Settings'; New active element appeared: 'Saved networks'; New active element appeared: '65.15 MB used Sep 17 – Oct 15'; New active element appeared: 'Fix connectivity'; New active element appeared: '1 network'; New active element appeared: 'Wi-Fi'; New active element appeared: 'T-Mobile'; New active element appeared: 'Connected / LTE'; New active element appeared: 'Internet'; New active element appeared: 'Non-carrier data usage'; Active element disappeared: 'Private DNS'; Active element disappeared: 'SIMs'; Active element disappeared: 'Off'; Active element disappeared: 'Calls & SMS'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Airplane mode'; Active element disappeared: 'Automatic'; Active element disappeared: 'Internet'; Active element disappeared: 'Mobile plan'; Active element disappeared: 'Data Saver'; Active element disappeared: 'None'; Active element disappeared: 'Networks available'; Active element disappeared: 'VPN'; Active element disappeared: 'T-Mobile'; Active element disappeared: 'Hotspot & tethering'",
+            "used_model_analysis": false,
+            "elements_before": 31,
+            "elements_after": 22
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "c15aec9b-0e61-4786-b46e-ce3fbaae9334": {
+      "id": "c15aec9b-0e61-4786-b46e-ce3fbaae9334",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/content_parent",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/collapsing_toolbar",
+          "className": "FrameLayout",
+          "content": "Internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Navigate up",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Fix connectivity",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "T-Mobile",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Connected / LTE",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/settings_button",
+          "className": "ImageView",
+          "content": "Settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Wi-Fi",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/switch_widget",
+          "className": "Switch",
+          "content": "",
+          "checked": "OFF"
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Network preferences",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Wi‑Fi doesn't turn back on automatically",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Saved networks",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "1 network",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Non-carrier data usage",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "65.15 MB used Sep 17 – Oct 15",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn wifi on through the settings app."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the Wi-Fi toggle switch to turn Wi-Fi on.",
+          "zone_path": "android:id/switch_widget/Switch/",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 6 interface elements; New content appeared: com.android.settings:id/button_icon/ImageButton/Scan QR code, android:id/summary/TextView/Searching for networks…, com.android.settings:id/progress_bar_animation/ProgressBar; New active element appeared: 'Add network'; New active element appeared: 'Searching for networks…'; New active element appeared: 'Scan QR code'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 6 interface elements; New content appeared: com.android.settings:id/button_icon/ImageButton/Scan QR code, android:id/summary/TextView/Searching for networks…, com.android.settings:id/progress_bar_animation/ProgressBar; New active element appeared: 'Add network'; New active element appeared: 'Searching for networks…'; New active element appeared: 'Scan QR code'",
+            "used_model_analysis": false,
+            "elements_before": 22,
+            "elements_after": 28
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "a4456100-f189-4626-9a99-389472f6a13e": {
+      "id": "a4456100-f189-4626-9a99-389472f6a13e",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/content_parent",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/collapsing_toolbar",
+          "className": "FrameLayout",
+          "content": "Internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Navigate up",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Fix connectivity",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/progress_bar_animation",
+          "className": "ProgressBar",
+          "content": "",
+          "checked": "in progress"
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "T-Mobile",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Connected / LTE",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/settings_button",
+          "className": "ImageView",
+          "content": "Settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Wi-Fi",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/switch_widget",
+          "className": "Switch",
+          "content": "",
+          "checked": "ON"
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Searching for networks…",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Add network",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/button_icon",
+          "className": "ImageButton",
+          "content": "Scan QR code",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Network preferences",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Wi‑Fi doesn't turn back on automatically",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Saved networks",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "1 network",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Non-carrier data usage",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "65.15 MB used Sep 17 – Oct 15",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn wifi on through the settings app."
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "Wi-Fi is already turned on; no further action is required.",
+          "zone_path": null,
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "0daa26e5-c0d6-4358-8082-376274b0a968": {
+      "id": "0daa26e5-c0d6-4358-8082-376274b0a968",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/settings_homepage_container",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/account_avatar",
+          "className": "ImageView",
+          "content": "Profile picture, double tap to open Google Account",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/homepage_title",
+          "className": "TextView",
+          "content": "Settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/search_action_bar",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/search_action_bar_title",
+          "className": "TextView",
+          "content": "Search settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/main_content_scrollable_container",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/homepage_container",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Network & internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Mobile, Wi‑Fi, hotspot",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Connected devices",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Bluetooth, pairing",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Apps",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Assistant, recent apps, default apps",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Notifications",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Notification history, conversations",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Battery",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "100%",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Storage",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "35% used - 5.18 GB free",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Sound & vibration",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Volume, haptics, Do Not Disturb",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn on Wifi, then open the settings app"
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "The task is complete as Wi-Fi has been turned on and the Settings app is now open.",
+          "zone_path": null,
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "16e69f41-1562-461a-965b-204572ff19e5": {
+      "id": "16e69f41-1562-461a-965b-204572ff19e5",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/settings_homepage_container",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/account_avatar",
+          "className": "ImageView",
+          "content": "Profile picture, double tap to open Google Account",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/homepage_title",
+          "className": "TextView",
+          "content": "Settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/search_action_bar",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/search_action_bar_title",
+          "className": "TextView",
+          "content": "Search settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/main_content_scrollable_container",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/homepage_container",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Network & internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Mobile, Wi‑Fi, hotspot",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Connected devices",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Bluetooth, pairing",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Apps",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Assistant, recent apps, default apps",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Notifications",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Notification history, conversations",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Battery",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "100%",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Storage",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "35% used - 5.18 GB free",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Sound & vibration",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Volume, haptics, Do Not Disturb",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn on Wifi, then open the camera app"
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on \"Network & internet\" to access Wi-Fi settings.",
+          "zone_path": "android:id/title/TextView/Network & internet",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 1 interface elements; New content appeared: android:id/summary/TextView/Automatic, android:id/title/TextView/Calls & SMS, android:id/summary/TextView/Off; Content disappeared: android:id/title/TextView/Apps, com.android.settings:id/search_action_bar/ViewGroup, android:id/title/TextView/Storage; New active element appeared: 'Calls & SMS'; New active element appeared: 'Network & internet'; New active element appeared: 'Automatic'; New active element appeared: 'Airplane mode'; New active element appeared: 'Off'; New active element appeared: 'Mobile plan'; New active element appeared: 'Networks available'; New active element appeared: 'Navigate up'; New active element appeared: 'None'; New active element appeared: 'Data Saver'; New active element appeared: 'VPN'; New active element appeared: 'SIMs'; New active element appeared: 'Internet'; New active element appeared: 'T-Mobile'; New active element appeared: 'Private DNS'; New active element appeared: 'Hotspot & tethering'; Active element disappeared: 'Notifications'; Active element disappeared: 'Assistant, recent apps, default apps'; Active element disappeared: 'Mobile, Wi‑Fi, hotspot'; Active element disappeared: 'Search settings'; Active element disappeared: '100%'; Active element disappeared: 'Notification history, conversations'; Active element disappeared: 'Bluetooth, pairing'; Active element disappeared: 'Connected devices'; Active element disappeared: 'Sound & vibration'; Active element disappeared: 'Storage'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Battery'; Active element disappeared: 'Settings'; Active element disappeared: 'Apps'; Active element disappeared: '35% used - 5.18 GB free'; Active element disappeared: 'Volume, haptics, Do Not Disturb'; Active element disappeared: 'Profile picture, double tap to open Google Account'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 1 interface elements; New content appeared: android:id/summary/TextView/Automatic, android:id/title/TextView/Calls & SMS, android:id/summary/TextView/Off; Content disappeared: android:id/title/TextView/Apps, com.android.settings:id/search_action_bar/ViewGroup, android:id/title/TextView/Storage; New active element appeared: 'Calls & SMS'; New active element appeared: 'Network & internet'; New active element appeared: 'Automatic'; New active element appeared: 'Airplane mode'; New active element appeared: 'Off'; New active element appeared: 'Mobile plan'; New active element appeared: 'Networks available'; New active element appeared: 'Navigate up'; New active element appeared: 'None'; New active element appeared: 'Data Saver'; New active element appeared: 'VPN'; New active element appeared: 'SIMs'; New active element appeared: 'Internet'; New active element appeared: 'T-Mobile'; New active element appeared: 'Private DNS'; New active element appeared: 'Hotspot & tethering'; Active element disappeared: 'Notifications'; Active element disappeared: 'Assistant, recent apps, default apps'; Active element disappeared: 'Mobile, Wi‑Fi, hotspot'; Active element disappeared: 'Search settings'; Active element disappeared: '100%'; Active element disappeared: 'Notification history, conversations'; Active element disappeared: 'Bluetooth, pairing'; Active element disappeared: 'Connected devices'; Active element disappeared: 'Sound & vibration'; Active element disappeared: 'Storage'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Battery'; Active element disappeared: 'Settings'; Active element disappeared: 'Apps'; Active element disappeared: '35% used - 5.18 GB free'; Active element disappeared: 'Volume, haptics, Do Not Disturb'; Active element disappeared: 'Profile picture, double tap to open Google Account'",
+            "used_model_analysis": false,
+            "elements_before": 30,
+            "elements_after": 31
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        {
+          "action_type": "Back",
+          "description": "Return to the home screen to access the camera app.",
+          "zone_path": null,
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 1 interface elements; New content appeared: com.google.android.apps.nexuslauncher:id/input/EditText/Search apps, web and more, com.google.android.apps.nexuslauncher:id/icon/TextView/Calendar:Calendar, com.google.android.apps.nexuslauncher:id/icon/TextView/Photos:Photos; Content disappeared: android:id/title/TextView/Apps, com.android.settings:id/search_action_bar/ViewGroup, android:id/title/TextView/Storage; New active element appeared: 'Camera:Camera'; New active element appeared: 'Settings:Settings'; New active element appeared: 'Search apps, web and more'; New active element appeared: 'Google:Google'; New active element appeared: 'Files:Files'; New active element appeared: 'Drive:Drive'; New active element appeared: 'Chrome:Chrome'; New active element appeared: 'App Launcher:App Launcher'; New active element appeared: 'Phone:Phone'; New active element appeared: 'Maps:Maps'; New active element appeared: 'Messages:Messages'; New active element appeared: 'Clock:Clock'; New active element appeared: 'Contacts:Contacts'; New active element appeared: 'Voice search'; New active element appeared: 'YouTube:YouTube'; New active element appeared: 'Google app'; New active element appeared: 'TMoble:TMoble'; New active element appeared: 'Pro Expense:Pro Expense'; New active element appeared: 'Droidrun Portal:Droidrun Portal'; New active element appeared: 'Audio Recorder:Audio Recorder'; New active element appeared: 'Google Lens'; New active element appeared: 'Photos:Photos'; New active element appeared: 'Calendar:Calendar'; New active element appeared: 'Gmail:Gmail'; New active element appeared: 'YT Music:YT Music'; Active element disappeared: 'Notifications'; Active element disappeared: 'Assistant, recent apps, default apps'; Active element disappeared: 'Mobile, Wi‑Fi, hotspot'; Active element disappeared: 'Search settings'; Active element disappeared: '100%'; Active element disappeared: 'Notification history, conversations'; Active element disappeared: 'Bluetooth, pairing'; Active element disappeared: 'Connected devices'; Active element disappeared: 'Sound & vibration'; Active element disappeared: 'Storage'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Battery'; Active element disappeared: 'Settings'; Active element disappeared: 'Apps'; Active element disappeared: '35% used - 5.18 GB free'; Active element disappeared: 'Volume, haptics, Do Not Disturb'; Active element disappeared: 'Profile picture, double tap to open Google Account'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 1 interface elements; New content appeared: com.google.android.apps.nexuslauncher:id/input/EditText/Search apps, web and more, com.google.android.apps.nexuslauncher:id/icon/TextView/Calendar:Calendar, com.google.android.apps.nexuslauncher:id/icon/TextView/Photos:Photos; Content disappeared: android:id/title/TextView/Apps, com.android.settings:id/search_action_bar/ViewGroup, android:id/title/TextView/Storage; New active element appeared: 'Camera:Camera'; New active element appeared: 'Settings:Settings'; New active element appeared: 'Search apps, web and more'; New active element appeared: 'Google:Google'; New active element appeared: 'Files:Files'; New active element appeared: 'Drive:Drive'; New active element appeared: 'Chrome:Chrome'; New active element appeared: 'App Launcher:App Launcher'; New active element appeared: 'Phone:Phone'; New active element appeared: 'Maps:Maps'; New active element appeared: 'Messages:Messages'; New active element appeared: 'Clock:Clock'; New active element appeared: 'Contacts:Contacts'; New active element appeared: 'Voice search'; New active element appeared: 'YouTube:YouTube'; New active element appeared: 'Google app'; New active element appeared: 'TMoble:TMoble'; New active element appeared: 'Pro Expense:Pro Expense'; New active element appeared: 'Droidrun Portal:Droidrun Portal'; New active element appeared: 'Audio Recorder:Audio Recorder'; New active element appeared: 'Google Lens'; New active element appeared: 'Photos:Photos'; New active element appeared: 'Calendar:Calendar'; New active element appeared: 'Gmail:Gmail'; New active element appeared: 'YT Music:YT Music'; Active element disappeared: 'Notifications'; Active element disappeared: 'Assistant, recent apps, default apps'; Active element disappeared: 'Mobile, Wi‑Fi, hotspot'; Active element disappeared: 'Search settings'; Active element disappeared: '100%'; Active element disappeared: 'Notification history, conversations'; Active element disappeared: 'Bluetooth, pairing'; Active element disappeared: 'Connected devices'; Active element disappeared: 'Sound & vibration'; Active element disappeared: 'Storage'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Battery'; Active element disappeared: 'Settings'; Active element disappeared: 'Apps'; Active element disappeared: '35% used - 5.18 GB free'; Active element disappeared: 'Volume, haptics, Do Not Disturb'; Active element disappeared: 'Profile picture, double tap to open Google Account'",
+            "used_model_analysis": false,
+            "elements_before": 30,
+            "elements_after": 29
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "bcdb0647-76be-4859-be3d-008d8e67bde1": {
+      "id": "bcdb0647-76be-4859-be3d-008d8e67bde1",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/content_parent",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/collapsing_toolbar",
+          "className": "FrameLayout",
+          "content": "Network & internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Navigate up",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Networks available",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Calls & SMS",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "T-Mobile",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "SIMs",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "T-Mobile",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Airplane mode",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/switch_widget",
+          "className": "Switch",
+          "content": "",
+          "checked": "OFF"
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Hotspot & tethering",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Off",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Data Saver",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Off",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "VPN",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "None",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Mobile plan",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Private DNS",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Automatic",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn on Wifi, then open the camera app"
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Turn on Wi-Fi by tapping the toggle switch.",
+          "zone_path": "android:id/switch_widget/Switch/",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Interface element count remained the same; New content appeared: android:id/summary/TextView/Airplane mode is on, android:id/summary/TextView/T-Mobile (Temporarily unavailable); Content disappeared: android:id/summary/TextView/Networks available; New active element appeared: 'Airplane mode is on'; New active element appeared: 'T-Mobile (Temporarily unavailable)'; Active element disappeared: 'Networks available'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Interface element count remained the same; New content appeared: android:id/summary/TextView/Airplane mode is on, android:id/summary/TextView/T-Mobile (Temporarily unavailable); Content disappeared: android:id/summary/TextView/Networks available; New active element appeared: 'Airplane mode is on'; New active element appeared: 'T-Mobile (Temporarily unavailable)'; Active element disappeared: 'Networks available'",
+            "used_model_analysis": false,
+            "elements_before": 31,
+            "elements_after": 31
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "9894ca49-5c6e-4357-ad59-729993849376": {
+      "id": "9894ca49-5c6e-4357-ad59-729993849376",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/content_parent",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/collapsing_toolbar",
+          "className": "FrameLayout",
+          "content": "Network & internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Navigate up",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.settings:id/recycler_view",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Internet",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Airplane mode is on",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Calls & SMS",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "T-Mobile (Temporarily unavailable)",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "SIMs",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "T-Mobile",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Airplane mode",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/switch_widget",
+          "className": "Switch",
+          "content": "",
+          "checked": "ON"
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Hotspot & tethering",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Off",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Data Saver",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Off",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "VPN",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "None",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Mobile plan",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Private DNS",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/summary",
+          "className": "TextView",
+          "content": "Automatic",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn on Wifi, then open the camera app"
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Navigate up\" button to return to the previous screen.",
+          "zone_path": "/ImageButton/Navigate up",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 1 interface elements; New content appeared: android:id/title/TextView/Apps, com.android.settings:id/search_action_bar/ViewGroup, android:id/title/TextView/Storage; Content disappeared: android:id/title/TextView/Hotspot & tethering, android:id/summary/TextView/Airplane mode is on, android:id/title/TextView/Internet; New active element appeared: 'Notifications'; New active element appeared: 'Assistant, recent apps, default apps'; New active element appeared: 'Mobile, Wi‑Fi, hotspot'; New active element appeared: 'Search settings'; New active element appeared: '100%'; New active element appeared: 'Notification history, conversations'; New active element appeared: 'Bluetooth, pairing'; New active element appeared: 'Connected devices'; New active element appeared: 'Sound & vibration'; New active element appeared: 'Storage'; New active element appeared: 'Network & internet'; New active element appeared: 'Battery'; New active element appeared: 'Settings'; New active element appeared: 'Apps'; New active element appeared: '35% used - 5.18 GB free'; New active element appeared: 'Volume, haptics, Do Not Disturb'; New active element appeared: 'Profile picture, double tap to open Google Account'; Active element disappeared: 'Calls & SMS'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Automatic'; Active element disappeared: 'Airplane mode is on'; Active element disappeared: 'Navigate up'; Active element disappeared: 'T-Mobile'; Active element disappeared: 'Airplane mode'; Active element disappeared: 'VPN'; Active element disappeared: 'Private DNS'; Active element disappeared: 'Hotspot & tethering'; Active element disappeared: 'Off'; Active element disappeared: 'Mobile plan'; Active element disappeared: 'Internet'; Active element disappeared: 'T-Mobile (Temporarily unavailable)'; Active element disappeared: 'None'; Active element disappeared: 'Data Saver'; Active element disappeared: 'SIMs'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 1 interface elements; New content appeared: android:id/title/TextView/Apps, com.android.settings:id/search_action_bar/ViewGroup, android:id/title/TextView/Storage; Content disappeared: android:id/title/TextView/Hotspot & tethering, android:id/summary/TextView/Airplane mode is on, android:id/title/TextView/Internet; New active element appeared: 'Notifications'; New active element appeared: 'Assistant, recent apps, default apps'; New active element appeared: 'Mobile, Wi‑Fi, hotspot'; New active element appeared: 'Search settings'; New active element appeared: '100%'; New active element appeared: 'Notification history, conversations'; New active element appeared: 'Bluetooth, pairing'; New active element appeared: 'Connected devices'; New active element appeared: 'Sound & vibration'; New active element appeared: 'Storage'; New active element appeared: 'Network & internet'; New active element appeared: 'Battery'; New active element appeared: 'Settings'; New active element appeared: 'Apps'; New active element appeared: '35% used - 5.18 GB free'; New active element appeared: 'Volume, haptics, Do Not Disturb'; New active element appeared: 'Profile picture, double tap to open Google Account'; Active element disappeared: 'Calls & SMS'; Active element disappeared: 'Network & internet'; Active element disappeared: 'Automatic'; Active element disappeared: 'Airplane mode is on'; Active element disappeared: 'Navigate up'; Active element disappeared: 'T-Mobile'; Active element disappeared: 'Airplane mode'; Active element disappeared: 'VPN'; Active element disappeared: 'Private DNS'; Active element disappeared: 'Hotspot & tethering'; Active element disappeared: 'Off'; Active element disappeared: 'Mobile plan'; Active element disappeared: 'Internet'; Active element disappeared: 'T-Mobile (Temporarily unavailable)'; Active element disappeared: 'None'; Active element disappeared: 'Data Saver'; Active element disappeared: 'SIMs'",
+            "used_model_analysis": false,
+            "elements_before": 31,
+            "elements_after": 30
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    }
+  }
+}

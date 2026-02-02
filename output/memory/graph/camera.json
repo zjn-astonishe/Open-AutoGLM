@@ -1,0 +1,629 @@
+{
+  "app": "camera",
+  "nodes": {
+    "51de4a9b-b93f-4b65-b76b-52067f48cc8e": {
+      "id": "51de4a9b-b93f-4b65-b76b-52067f48cc8e",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/preview_overlay",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/mode_options_toggle",
+          "className": "LinearLayout",
+          "content": "Options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/three_dots",
+          "className": "ImageView",
+          "content": "Options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/shutter_button",
+          "className": "ImageView",
+          "content": "Shutter",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_mode_toggle_button",
+          "className": "Button",
+          "content": "MODE LIST:Toggle mode list",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_filmstrip_toggle_button",
+          "className": "Button",
+          "content": "FILMSTRIP:Toggle filmstrip",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_zoom_minus_button",
+          "className": "Button",
+          "content": "Z-:Zoom out",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_zoom_plus_button",
+          "className": "Button",
+          "content": "Z+:Zoom in",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Take one photo."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the shutter button to take a photo.",
+          "zone_path": "com.android.camera2:id/shutter_button/ImageView/Shutter",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Focused Change",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Focused Change",
+            "used_model_analysis": false,
+            "elements_before": 9,
+            "elements_after": 10
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "19f7b41d-c715-4368-9c1e-4cee9c17c050": {
+      "id": "19f7b41d-c715-4368-9c1e-4cee9c17c050",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/preview_overlay",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/mode_options_toggle",
+          "className": "LinearLayout",
+          "content": "Options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/three_dots",
+          "className": "ImageView",
+          "content": "Options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/rounded_thumbnail_view",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/shutter_button",
+          "className": "ImageView",
+          "content": "Shutter",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_mode_toggle_button",
+          "className": "Button",
+          "content": "MODE LIST:Toggle mode list",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_filmstrip_toggle_button",
+          "className": "Button",
+          "content": "FILMSTRIP:Toggle filmstrip",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_zoom_minus_button",
+          "className": "Button",
+          "content": "Z-:Zoom out",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_zoom_plus_button",
+          "className": "Button",
+          "content": "Z+:Zoom in",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Take one photo."
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "The task of taking one photo has been completed.",
+          "zone_path": null,
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "893584c1-8238-4f45-af98-2d267d94e2ce": {
+      "id": "893584c1-8238-4f45-af98-2d267d94e2ce",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/preview_overlay",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/mode_options_toggle",
+          "className": "LinearLayout",
+          "content": "Options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/three_dots",
+          "className": "ImageView",
+          "content": "Options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/shutter_button",
+          "className": "ImageView",
+          "content": "Shutter",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_mode_toggle_button",
+          "className": "Button",
+          "content": "MODE LIST:Toggle mode list",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_filmstrip_toggle_button",
+          "className": "Button",
+          "content": "FILMSTRIP:Toggle filmstrip",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_zoom_minus_button",
+          "className": "Button",
+          "content": "Z-:Zoom out",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_zoom_plus_button",
+          "className": "Button",
+          "content": "Z+:Zoom in",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Take one video."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the MODE LIST button to access camera modes.",
+          "zone_path": "com.android.camera2:id/accessibility_mode_toggle_button/Button/MODE LIST:Toggle mode list",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 5 interface elements; New content appeared: FrameLayout/Switch to Camera Mode, com.android.camera2:id/selector_text/TextView/Video, com.android.camera2:id/settings_button/ImageView/Settings; Content disappeared: com.android.camera2:id/shutter_button/ImageView/Shutter; New active element appeared: 'Camera'; New active element appeared: 'Settings'; New active element appeared: 'In Settings, change resolution and quality, or try advanced features.'; New active element appeared: 'Video'; New active element appeared: 'Switch to Camera Mode'; New active element appeared: 'Switch to Video Camera'; Active element disappeared: 'Shutter'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 5 interface elements; New content appeared: FrameLayout/Switch to Camera Mode, com.android.camera2:id/selector_text/TextView/Video, com.android.camera2:id/settings_button/ImageView/Settings; Content disappeared: com.android.camera2:id/shutter_button/ImageView/Shutter; New active element appeared: 'Camera'; New active element appeared: 'Settings'; New active element appeared: 'In Settings, change resolution and quality, or try advanced features.'; New active element appeared: 'Video'; New active element appeared: 'Switch to Camera Mode'; New active element appeared: 'Switch to Video Camera'; Active element disappeared: 'Shutter'",
+            "used_model_analysis": false,
+            "elements_before": 9,
+            "elements_after": 14
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        {
+          "action_type": "Tap",
+          "description": "Tap the shutter button to start recording a video.",
+          "zone_path": "com.android.camera2:id/shutter_button/ImageView/Shutter",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 1 interface elements; New content appeared: com.android.camera2:id/recording_time/TextView/00:02; Content disappeared: com.android.camera2:id/three_dots/ImageView/Options, com.android.camera2:id/mode_options_toggle/LinearLayout/Options; New active element appeared: '00:02'; Active element disappeared: 'Options'; Active element disappeared: 'Options'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 1 interface elements; New content appeared: com.android.camera2:id/recording_time/TextView/00:02; Content disappeared: com.android.camera2:id/three_dots/ImageView/Options, com.android.camera2:id/mode_options_toggle/LinearLayout/Options; New active element appeared: '00:02'; Active element disappeared: 'Options'; Active element disappeared: 'Options'",
+            "used_model_analysis": false,
+            "elements_before": 9,
+            "elements_after": 8
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "ec525bcb-3d62-4900-869c-d1b9eb914e8d": {
+      "id": "ec525bcb-3d62-4900-869c-d1b9eb914e8d",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/preview_overlay",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "Switch to Camera Mode",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/selector_text",
+          "className": "TextView",
+          "content": "Camera",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "Switch to Video Camera",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/selector_text",
+          "className": "TextView",
+          "content": "Video",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "In Settings, change resolution and quality, or try advanced features.",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/settings_button",
+          "className": "ImageView",
+          "content": "Settings",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/mode_options_toggle",
+          "className": "LinearLayout",
+          "content": "Options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/three_dots",
+          "className": "ImageView",
+          "content": "Options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_mode_toggle_button",
+          "className": "Button",
+          "content": "MODE LIST:Toggle mode list",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_filmstrip_toggle_button",
+          "className": "Button",
+          "content": "FILMSTRIP:Toggle filmstrip",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_zoom_minus_button",
+          "className": "Button",
+          "content": "Z-:Zoom out",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_zoom_plus_button",
+          "className": "Button",
+          "content": "Z+:Zoom in",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Take one video."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Video\" mode to switch to video recording mode.",
+          "zone_path": "com.android.camera2:id/selector_text/TextView/Video",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 5 interface elements; New content appeared: com.android.camera2:id/shutter_button/ImageView/Shutter; Content disappeared: FrameLayout/Switch to Camera Mode, com.android.camera2:id/selector_text/TextView/Video, com.android.camera2:id/settings_button/ImageView/Settings; New active element appeared: 'Shutter'; Active element disappeared: 'Camera'; Active element disappeared: 'Settings'; Active element disappeared: 'In Settings, change resolution and quality, or try advanced features.'; Active element disappeared: 'Video'; Active element disappeared: 'Switch to Camera Mode'; Active element disappeared: 'Switch to Video Camera'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 5 interface elements; New content appeared: com.android.camera2:id/shutter_button/ImageView/Shutter; Content disappeared: FrameLayout/Switch to Camera Mode, com.android.camera2:id/selector_text/TextView/Video, com.android.camera2:id/settings_button/ImageView/Settings; New active element appeared: 'Shutter'; Active element disappeared: 'Camera'; Active element disappeared: 'Settings'; Active element disappeared: 'In Settings, change resolution and quality, or try advanced features.'; Active element disappeared: 'Video'; Active element disappeared: 'Switch to Camera Mode'; Active element disappeared: 'Switch to Video Camera'",
+            "used_model_analysis": false,
+            "elements_before": 14,
+            "elements_after": 9
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "d4833b61-f372-461a-9a95-64cbf42922ae": {
+      "id": "d4833b61-f372-461a-9a95-64cbf42922ae",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/preview_overlay",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/recording_time",
+          "className": "TextView",
+          "content": "00:05",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/shutter_button",
+          "className": "ImageView",
+          "content": "Shutter",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_mode_toggle_button",
+          "className": "Button",
+          "content": "MODE LIST:Toggle mode list",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_filmstrip_toggle_button",
+          "className": "Button",
+          "content": "FILMSTRIP:Toggle filmstrip",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_zoom_minus_button",
+          "className": "Button",
+          "content": "Z-:Zoom out",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_zoom_plus_button",
+          "className": "Button",
+          "content": "Z+:Zoom in",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Take one video."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the shutter button to stop the video recording.",
+          "zone_path": "com.android.camera2:id/shutter_button/ImageView/Shutter",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 2 interface elements; New content appeared: com.android.camera2:id/rounded_thumbnail_view/View, com.android.camera2:id/mode_options_toggle/LinearLayout/Options, com.android.camera2:id/three_dots/ImageView/Options; Content disappeared: com.android.camera2:id/recording_time/TextView/00:05; New active element appeared: 'Options'; New active element appeared: 'Options'; Active element disappeared: '00:05'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 2 interface elements; New content appeared: com.android.camera2:id/rounded_thumbnail_view/View, com.android.camera2:id/mode_options_toggle/LinearLayout/Options, com.android.camera2:id/three_dots/ImageView/Options; Content disappeared: com.android.camera2:id/recording_time/TextView/00:05; New active element appeared: 'Options'; New active element appeared: 'Options'; Active element disappeared: '00:05'",
+            "used_model_analysis": false,
+            "elements_before": 8,
+            "elements_after": 10
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "4d8d7ca1-4182-4fd8-a2ff-6504678872a0": {
+      "id": "4d8d7ca1-4182-4fd8-a2ff-6504678872a0",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/preview_overlay",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/mode_options_toggle",
+          "className": "LinearLayout",
+          "content": "Options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/three_dots",
+          "className": "ImageView",
+          "content": "Options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/rounded_thumbnail_view",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/shutter_button",
+          "className": "ImageView",
+          "content": "Shutter",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_mode_toggle_button",
+          "className": "Button",
+          "content": "MODE LIST:Toggle mode list",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_filmstrip_toggle_button",
+          "className": "Button",
+          "content": "FILMSTRIP:Toggle filmstrip",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_zoom_minus_button",
+          "className": "Button",
+          "content": "Z-:Zoom out",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_zoom_plus_button",
+          "className": "Button",
+          "content": "Z+:Zoom in",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Take one video."
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "The task of taking one video has been successfully completed.",
+          "zone_path": null,
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "d6a8e61b-875d-4260-8520-8565d44d6480": {
+      "id": "d6a8e61b-875d-4260-8520-8565d44d6480",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/preview_overlay",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/mode_options_toggle",
+          "className": "LinearLayout",
+          "content": "Options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/three_dots",
+          "className": "ImageView",
+          "content": "Options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/shutter_button",
+          "className": "ImageView",
+          "content": "Shutter",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_mode_toggle_button",
+          "className": "Button",
+          "content": "MODE LIST:Toggle mode list",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_filmstrip_toggle_button",
+          "className": "Button",
+          "content": "FILMSTRIP:Toggle filmstrip",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_zoom_minus_button",
+          "className": "Button",
+          "content": "Z-:Zoom out",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.camera2:id/accessibility_zoom_plus_button",
+          "className": "Button",
+          "content": "Z+:Zoom in",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Turn on Wifi, then open the camera app"
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "The task is complete: Wi-Fi is turned on and the camera app is open.",
+          "zone_path": null,
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    }
+  }
+}

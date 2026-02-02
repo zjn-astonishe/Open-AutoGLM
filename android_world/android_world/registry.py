@@ -39,6 +39,7 @@ from android_world.task_evals.single import simple_gallery_pro
 from android_world.task_evals.single import sms
 from android_world.task_evals.single import system
 from android_world.task_evals.single import vlc
+from android_world.task_evals.single import phone
 from android_world.task_evals.single.calendar import calendar
 
 
@@ -109,37 +110,38 @@ class TaskRegistry:
 
   _TASKS = (
       # keep-sorted start
-      audio_recorder.AudioRecorderRecordAudio,  #Done
-      audio_recorder.AudioRecorderRecordAudioWithFileName,  #Done
+      audio_recorder.AudioRecorderRecordAudio,  #Done 1
+      audio_recorder.AudioRecorderRecordAudioWithFileName,  #Done 1
       browser.BrowserDraw,  # TODO 3 not fit
       browser.BrowserMaze,  # TODO 4 not fit
       browser.BrowserMultiply,  # TODO 5 not fit
-      calendar.SimpleCalendarAddOneEvent, #Done
-      calendar.SimpleCalendarAddOneEventInTwoWeeks, #Done
-      calendar.SimpleCalendarAddOneEventRelativeDay,  #Done
-      calendar.SimpleCalendarAddOneEventTomorrow, #Done
-      calendar.SimpleCalendarAddRepeatingEvent,   #Done
-      calendar.SimpleCalendarDeleteEvents,  # Done But Can't Skill
-      calendar.SimpleCalendarDeleteEventsOnRelativeDay, # TODO 7
-      calendar.SimpleCalendarDeleteOneEvent,  # TODO 8
-      camera.CameraTakePhoto, #Done
-      camera.CameraTakeVideo, #Done
-      clock.ClockStopWatchPausedVerify,
-      clock.ClockStopWatchRunning,
-      clock.ClockTimerEntry,  # TODO 2
-      contacts.ContactsAddContact, #Done
-      contacts.ContactsNewContactDraft, #Done
-      expense.ExpenseAddMultiple,
-      expense.ExpenseAddMultipleFromGallery,
-      expense.ExpenseAddMultipleFromMarkor,
-      expense.ExpenseAddSingle,
-      expense.ExpenseDeleteDuplicates,
-      expense.ExpenseDeleteDuplicates2,
+      calendar.SimpleCalendarAddOneEvent, #Done 1
+      calendar.SimpleCalendarAddOneEventInTwoWeeks, #Done 1
+      calendar.SimpleCalendarAddOneEventRelativeDay,  #Done 1
+      calendar.SimpleCalendarAddOneEventTomorrow, #Done 1
+      calendar.SimpleCalendarAddRepeatingEvent,   #Done 1
+      calendar.SimpleCalendarDeleteEvents,  # Done But Can't Skill 1
+      calendar.SimpleCalendarDeleteEventsOnRelativeDay, # Done But Can't Skill 1
+      calendar.SimpleCalendarDeleteOneEvent,  # Done But Can't Skill 1
+      camera.CameraTakePhoto, # Done 1
+      camera.CameraTakeVideo, # Done 1
+      clock.ClockStopWatchPausedVerify, # Done 1
+      clock.ClockStopWatchRunning, # Done 1
+      clock.ClockTimerEntry,  # Done 1
+      contacts.ContactsAddContact, #Done 1
+      contacts.ContactsNewContactDraft, #Done 1
+      expense.ExpenseAddSingle, #Done 1
+      expense.ExpenseAddMultiple, #Done 1
+      expense.ExpenseDeleteSingle, #Done 1
+      expense.ExpenseDeleteDuplicates,  #Done 1
+      expense.ExpenseDeleteDuplicates2, #TODO
       expense.ExpenseDeleteMultiple,
       expense.ExpenseDeleteMultiple2,
-      expense.ExpenseDeleteSingle,
-      files.FilesDeleteFile,
+      expense.ExpenseAddMultipleFromGallery,
+      expense.ExpenseAddMultipleFromMarkor,
+      files.FilesDeleteFile,  #Done 1
       files.FilesMoveFile,
+      # Markor composite tasks.
       markor.MarkorAddNoteHeader,
       markor.MarkorChangeNoteContent,
       markor.MarkorCreateFolder,
@@ -153,12 +155,12 @@ class TaskRegistry:
       markor.MarkorMoveNote,
       markor.MarkorTranscribeReceipt,
       markor.MarkorTranscribeVideo,
-      # Markor composite tasks.
       markor_sms.MarkorCreateNoteAndSms,
       # OsmAnd.
       osmand.OsmAndFavorite,
       osmand.OsmAndMarker,
       osmand.OsmAndTrack,
+      # Recipe
       recipe.RecipeAddMultipleRecipes,
       recipe.RecipeAddMultipleRecipesFromImage,
       recipe.RecipeAddMultipleRecipesFromMarkor,
@@ -172,47 +174,51 @@ class TaskRegistry:
       recipe.RecipeDeleteMultipleRecipesWithNoise,
       recipe.RecipeDeleteSingleRecipe,
       recipe.RecipeDeleteSingleWithRecipeWithNoise,
+      # Retro Music
       retro_music.RetroCreatePlaylist,
       retro_music.RetroPlayingQueue,
       retro_music.RetroPlaylistDuration,
       retro_music.RetroSavePlaylist,
+      # Simple Draw Pro
       simple_draw_pro.SimpleDrawProCreateDrawing,
+      # Simple Gallery Pro
       simple_gallery_pro.SaveCopyOfReceiptTaskEval,
+      # Simple Sms
       sms.SimpleSmsReply,
       sms.SimpleSmsReplyMostRecent,
       sms.SimpleSmsResend,
       sms.SimpleSmsSend,
       sms.SimpleSmsSendClipboardContent,
       sms.SimpleSmsSendReceivedAddress,
-      system.OpenAppTaskEval, # Done
-      system.SystemBluetoothTurnOff,  # Done
-      system.SystemBluetoothTurnOffVerify,  # Done
-      system.SystemBluetoothTurnOn, # Done
-      system.SystemBluetoothTurnOnVerify,  # Done
-      system.SystemBrightnessMax,  # Done
-      system.SystemBrightnessMaxVerify,  # Done
-      system.SystemBrightnessMin, # Done
-      system.SystemBrightnessMinVerify, # Done
+      # System
+      system.OpenAppTaskEval, # Done 1
+      system.SystemBluetoothTurnOff,  # Done 1
+      system.SystemBluetoothTurnOffVerify,  # Done 1
+      system.SystemBluetoothTurnOn, # Done 1
+      system.SystemBluetoothTurnOnVerify,  # Done 1
+      system.SystemBrightnessMax,  # Done 1
+      system.SystemBrightnessMaxVerify,  # Done 1
+      system.SystemBrightnessMin, # Done 1
+      system.SystemBrightnessMinVerify, # Done 1
       system.SystemCopyToClipboard,
-      system.SystemWifiTurnOff, # Done
-      system.SystemWifiTurnOffVerify, # Done
-      system.SystemWifiTurnOn, # Done
-      system.SystemWifiTurnOnVerify, # Done
-      system_composite.TurnOffWifiAndTurnOnBluetooth, # TODO
-      system_composite.TurnOnWifiAndOpenApp, # Done
-      # keep-sorted end
+      system.SystemWifiTurnOff, # Done 1
+      system.SystemWifiTurnOffVerify, # Done 1
+      system.SystemWifiTurnOn, # Done 1
+      system.SystemWifiTurnOnVerify, # Done 1
+      system_composite.TurnOffWifiAndTurnOnBluetooth, # Done 1
+      system_composite.TurnOnWifiAndOpenApp, # Done 1
       # VLC media player tasks.
       vlc.VlcCreatePlaylist,
       vlc.VlcCreateTwoPlaylists,
       # Phone operations are flaky and the root cause is not known. Disabling
       # until resolution.
-      # phone.MarkorCallApartment,
-      # phone.PhoneAnswerCall,
-      # phone.PhoneCallTextSender,
-      # phone.PhoneMakeCall,
-      # phone.PhoneRedialNumber,
-      # phone.PhoneReturnMissedCall,
-      # sms.SimpleSmsSendAfterCall,
+      phone.MarkorCallApartment,
+      phone.PhoneAnswerCall,
+      phone.PhoneCallTextSender,
+      phone.PhoneMakeCall,
+      phone.PhoneRedialNumber,
+      phone.PhoneReturnMissedCall,
+      sms.SimpleSmsSendAfterCall,
   )
 
   def register_task(
