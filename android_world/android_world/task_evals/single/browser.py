@@ -341,8 +341,8 @@ class BrowserMultiply(BrowserTask):
   def goal(self) -> str:
     return (
         self.preamble
-        + ' Then click the button 6 times, remember the numbers displayed, and'
-        ' enter their product in the form after final clicking the button.'
+        + ' Then click the button 5 times, remember the numbers displayed each step, '
+        ' finally, enter their product in the form.'
     )
 
   HTML = """\

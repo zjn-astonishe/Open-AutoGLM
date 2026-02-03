@@ -1,0 +1,505 @@
+{
+  "app": "Chrome",
+  "nodes": {
+    "823b814f-2656-43ae-9b3d-093ce4c4c130": {
+      "id": "823b814f-2656-43ae-9b3d-093ce4c4c130",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/fre_pager",
+          "className": "ViewPager",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/scroll_view",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/title",
+          "className": "TextView",
+          "content": "Welcome to Chrome",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/tos_and_privacy",
+          "className": "TextView",
+          "content": "By using Chrome, you agree to the Google Terms of Service, and the Google Chrome and ChromeOS Additional Terms of Service.",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/send_report_checkbox",
+          "className": "CheckBox",
+          "content": "Help make Chrome better by sending usage statistics and crash reports to Google.",
+          "checked": "Checked"
+        },
+        {
+          "resourceId": "com.android.chrome:id/terms_accept",
+          "className": "Button",
+          "content": "Accept & continue",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Black squares represent unreachable walls. Then navigate the X to the bottom-right green cell, by using the direction buttons. "
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Accept & continue\" button to proceed.",
+          "zone_path": "com.android.chrome:id/terms_accept/Button/Accept & continue",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 2 interface elements; New content appeared: com.android.chrome:id/signin_sync_title/TextView/Sync your passwords, history & more on all devices, com.android.chrome:id/signin_details_description/TextView/You can always choose what to sync in settings., com.android.chrome:id/signin_scroll_view/ScrollView; Content disappeared: com.android.chrome:id/terms_accept/Button/Accept & continue, com.android.chrome:id/title/TextView/Welcome to Chrome, com.android.chrome:id/tos_and_privacy/TextView/By using Chrome, you agree to the Google Terms of Service, and the Google Chrome and ChromeOS Additional Terms of Service.; New active element appeared: 'You can always choose what to sync in settings.'; New active element appeared: 'Google may use your history to personalize Search and other Google services'; New active element appeared: 'No thanks'; New active element appeared: 'Turn on sync?'; New active element appeared: 'Sync your passwords, history & more on all devices'; New active element appeared: 'Add account'; Active element disappeared: 'Welcome to Chrome'; Active element disappeared: 'Accept & continue'; Active element disappeared: 'Help make Chrome better by sending usage statistics and crash reports to Google.'; Active element disappeared: 'By using Chrome, you agree to the Google Terms of Service, and the Google Chrome and ChromeOS Additional Terms of Service.'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 2 interface elements; New content appeared: com.android.chrome:id/signin_sync_title/TextView/Sync your passwords, history & more on all devices, com.android.chrome:id/signin_details_description/TextView/You can always choose what to sync in settings., com.android.chrome:id/signin_scroll_view/ScrollView; Content disappeared: com.android.chrome:id/terms_accept/Button/Accept & continue, com.android.chrome:id/title/TextView/Welcome to Chrome, com.android.chrome:id/tos_and_privacy/TextView/By using Chrome, you agree to the Google Terms of Service, and the Google Chrome and ChromeOS Additional Terms of Service.; New active element appeared: 'You can always choose what to sync in settings.'; New active element appeared: 'Google may use your history to personalize Search and other Google services'; New active element appeared: 'No thanks'; New active element appeared: 'Turn on sync?'; New active element appeared: 'Sync your passwords, history & more on all devices'; New active element appeared: 'Add account'; Active element disappeared: 'Welcome to Chrome'; Active element disappeared: 'Accept & continue'; Active element disappeared: 'Help make Chrome better by sending usage statistics and crash reports to Google.'; Active element disappeared: 'By using Chrome, you agree to the Google Terms of Service, and the Google Chrome and ChromeOS Additional Terms of Service.'",
+            "used_model_analysis": false,
+            "elements_before": 8,
+            "elements_after": 10
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "1e48c69a-c59e-4486-bedc-04be6975cfc2": {
+      "id": "1e48c69a-c59e-4486-bedc-04be6975cfc2",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/fre_pager",
+          "className": "ViewPager",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/signin_scroll_view",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/signin_title",
+          "className": "TextView",
+          "content": "Turn on sync?",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/signin_sync_title",
+          "className": "TextView",
+          "content": "Sync your passwords, history & more on all devices",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/signin_sync_description",
+          "className": "TextView",
+          "content": "Google may use your history to personalize Search and other Google services",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/signin_details_description",
+          "className": "TextView",
+          "content": "You can always choose what to sync in settings.",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/negative_button",
+          "className": "Button",
+          "content": "No thanks",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/positive_button",
+          "className": "Button",
+          "content": "Add account",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Black squares represent unreachable walls. Then navigate the X to the bottom-right green cell, by using the direction buttons. "
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"No thanks\" button to dismiss the sync prompt.",
+          "zone_path": "com.android.chrome:id/negative_button/Button/No thanks",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 4 interface elements; New content appeared: com.android.chrome:id/subheader/TextView/Chrome can use Sogou for search in China. You can change this in Settings., com.android.chrome:id/button_primary/Button/OK, com.android.chrome:id/button_secondary/Button/Keep Google; Content disappeared: com.android.chrome:id/signin_sync_title/TextView/Sync your passwords, history & more on all devices, com.android.chrome:id/signin_details_description/TextView/You can always choose what to sync in settings., com.android.chrome:id/signin_scroll_view/ScrollView; New active element appeared: 'Keep Google'; New active element appeared: 'Chrome can use Sogou for search in China. You can change this in Settings.'; New active element appeared: 'Search with Sogou'; New active element appeared: 'OK'; Active element disappeared: 'You can always choose what to sync in settings.'; Active element disappeared: 'Google may use your history to personalize Search and other Google services'; Active element disappeared: 'No thanks'; Active element disappeared: 'Turn on sync?'; Active element disappeared: 'Sync your passwords, history & more on all devices'; Active element disappeared: 'Add account'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 4 interface elements; New content appeared: com.android.chrome:id/subheader/TextView/Chrome can use Sogou for search in China. You can change this in Settings., com.android.chrome:id/button_primary/Button/OK, com.android.chrome:id/button_secondary/Button/Keep Google; Content disappeared: com.android.chrome:id/signin_sync_title/TextView/Sync your passwords, history & more on all devices, com.android.chrome:id/signin_details_description/TextView/You can always choose what to sync in settings., com.android.chrome:id/signin_scroll_view/ScrollView; New active element appeared: 'Keep Google'; New active element appeared: 'Chrome can use Sogou for search in China. You can change this in Settings.'; New active element appeared: 'Search with Sogou'; New active element appeared: 'OK'; Active element disappeared: 'You can always choose what to sync in settings.'; Active element disappeared: 'Google may use your history to personalize Search and other Google services'; Active element disappeared: 'No thanks'; Active element disappeared: 'Turn on sync?'; Active element disappeared: 'Sync your passwords, history & more on all devices'; Active element disappeared: 'Add account'",
+            "used_model_analysis": false,
+            "elements_before": 10,
+            "elements_after": 6
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "5e40c385-c9c3-47da-8f19-bf152de59a4f": {
+      "id": "5e40c385-c9c3-47da-8f19-bf152de59a4f",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/promo_container",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/header",
+          "className": "TextView",
+          "content": "Search with Sogou",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/subheader",
+          "className": "TextView",
+          "content": "Chrome can use Sogou for search in China. You can change this in Settings.",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/button_secondary",
+          "className": "Button",
+          "content": "Keep Google",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/button_primary",
+          "className": "Button",
+          "content": "OK",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Black squares represent unreachable walls. Then navigate the X to the bottom-right green cell, by using the direction buttons. "
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Keep Google\" button to dismiss the search engine prompt.",
+          "zone_path": "com.android.chrome:id/button_secondary/Button/Keep Google",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 12 interface elements; New content appeared: Button/Left, com.android.chrome:id/location_bar_status/LinearLayout, com.android.chrome:id/toolbar_buttons/LinearLayout; Content disappeared: com.android.chrome:id/subheader/TextView/Chrome can use Sogou for search in China. You can change this in Settings., com.android.chrome:id/button_primary/Button/OK, com.android.chrome:id/button_secondary/Button/Keep Google; New active element appeared: 'Up'; New active element appeared: 'Maze Puzzle'; New active element appeared: 'No internet connection'; New active element appeared: 'content://com.simplemobiletools.filemanager.pro.provider/external_files/storage/emulated/0/Download/task.html'; New active element appeared: 'Down'; New active element appeared: 'Home'; New active element appeared: 'Left'; New active element appeared: 'Right'; New active element appeared: 'More options'; New active element appeared: 'Switch or close tabs'; New active element appeared: 'X'; New active element appeared: 'Your connection to this site is not secure'; Active element disappeared: 'Keep Google'; Active element disappeared: 'Chrome can use Sogou for search in China. You can change this in Settings.'; Active element disappeared: 'Search with Sogou'; Active element disappeared: 'OK'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 12 interface elements; New content appeared: Button/Left, com.android.chrome:id/location_bar_status/LinearLayout, com.android.chrome:id/toolbar_buttons/LinearLayout; Content disappeared: com.android.chrome:id/subheader/TextView/Chrome can use Sogou for search in China. You can change this in Settings., com.android.chrome:id/button_primary/Button/OK, com.android.chrome:id/button_secondary/Button/Keep Google; New active element appeared: 'Up'; New active element appeared: 'Maze Puzzle'; New active element appeared: 'No internet connection'; New active element appeared: 'content://com.simplemobiletools.filemanager.pro.provider/external_files/storage/emulated/0/Download/task.html'; New active element appeared: 'Down'; New active element appeared: 'Home'; New active element appeared: 'Left'; New active element appeared: 'Right'; New active element appeared: 'More options'; New active element appeared: 'Switch or close tabs'; New active element appeared: 'X'; New active element appeared: 'Your connection to this site is not secure'; Active element disappeared: 'Keep Google'; Active element disappeared: 'Chrome can use Sogou for search in China. You can change this in Settings.'; Active element disappeared: 'Search with Sogou'; Active element disappeared: 'OK'",
+            "used_model_analysis": false,
+            "elements_before": 6,
+            "elements_after": 18
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "9c730605-55ea-4833-969a-6ce2f9534d2b": {
+      "id": "9c730605-55ea-4833-969a-6ce2f9534d2b",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "WebView",
+          "content": "Maze Puzzle",
+          "checked": ""
+        },
+        {
+          "resourceId": "maze",
+          "className": "TextView",
+          "content": "X",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Button",
+          "content": "Up",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Button",
+          "content": "Down",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Button",
+          "content": "Left",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "Button",
+          "content": "Right",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/status_text",
+          "className": "TextView",
+          "content": "No internet connection",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/home_button",
+          "className": "ImageButton",
+          "content": "Home",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/location_bar",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/location_bar_status",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/location_bar_status_icon",
+          "className": "ImageView",
+          "content": "Your connection to this site is not secure",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/url_bar",
+          "className": "EditText",
+          "content": "content://com.simplemobiletools.filemanager.pro.provider/external_files/storage/emulated/0/Download/task.html",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/toolbar_buttons",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/tab_switcher_button",
+          "className": "ImageButton",
+          "content": "Switch or close tabs",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/menu_button",
+          "className": "ImageButton",
+          "content": "More options",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Black squares represent unreachable walls. Then navigate the X to the bottom-right green cell, by using the direction buttons. "
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Down\" button to move the X down.",
+          "zone_path": "/Button/Down",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Focused Change",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Focused Change",
+            "used_model_analysis": false,
+            "elements_before": 18,
+            "elements_after": 18
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        },
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Right\" button to move the X to the right.",
+          "zone_path": "/Button/Right",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 5 interface elements; New content appeared: TextView/Success!; Content disappeared: Button/Left, maze/TextView/X, Button/Up; New active element appeared: 'Success!'; Active element disappeared: 'Up'; Active element disappeared: 'Down'; Active element disappeared: 'Right'; Active element disappeared: 'Left'; Active element disappeared: 'X'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 5 interface elements; New content appeared: TextView/Success!; Content disappeared: Button/Left, maze/TextView/X, Button/Up; New active element appeared: 'Success!'; Active element disappeared: 'Up'; Active element disappeared: 'Down'; Active element disappeared: 'Right'; Active element disappeared: 'Left'; Active element disappeared: 'X'",
+            "used_model_analysis": false,
+            "elements_before": 18,
+            "elements_after": 13
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "ebe1cf63-1a6d-449e-9026-792f5dc8b8d4": {
+      "id": "ebe1cf63-1a6d-449e-9026-792f5dc8b8d4",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "WebView",
+          "content": "Maze Puzzle",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Success!",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/status_text",
+          "className": "TextView",
+          "content": "No internet connection",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/home_button",
+          "className": "ImageButton",
+          "content": "Home",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/location_bar",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/location_bar_status",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/location_bar_status_icon",
+          "className": "ImageView",
+          "content": "Your connection to this site is not secure",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/url_bar",
+          "className": "EditText",
+          "content": "content://com.simplemobiletools.filemanager.pro.provider/external_files/storage/emulated/0/Download/task.html",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/toolbar_buttons",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/tab_switcher_button",
+          "className": "ImageButton",
+          "content": "Switch or close tabs",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.android.chrome:id/menu_button",
+          "className": "ImageButton",
+          "content": "More options",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Open the file task.html in Downloads in the file manager; when prompted open it with Chrome. Black squares represent unreachable walls. Then navigate the X to the bottom-right green cell, by using the direction buttons. "
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "Finish the task as the \"Success!\" message indicates completion.",
+          "zone_path": null,
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    }
+  }
+}

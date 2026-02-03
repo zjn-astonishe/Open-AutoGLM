@@ -890,6 +890,2326 @@
           "text": null
         }
       ]
+    },
+    "bf276ab7-66bd-4989-9397-6b70621e4b30": {
+      "id": "bf276ab7-66bd-4989-9397-6b70621e4b30",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/coordinator_layout",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_layout",
+          "className": "DrawerLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/horizontal_breadcrumb",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/breadcrumb_text",
+          "className": "TextView",
+          "content": "Downloads",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "HorizontalScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Images",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Audio",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Videos",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Documents",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/header_title",
+          "className": "TextView",
+          "content": "Files in Downloads",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/sub_menu_list",
+          "className": "TextView",
+          "content": "List view",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Show roots",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Downloads",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/option_menu_search",
+          "className": "TextView",
+          "content": "Search",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/dir_list",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/empty",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/message",
+          "className": "TextView",
+          "content": "No items",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_edge",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/container_save",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Move the file new_message.mp3 from Audiobooks within the sdk_gphone_x86_64 storage area to the Notifications within the same sdk_gphone_x86_64 storage area in the Android filesystem."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Show roots\" button to open the navigation drawer and access different storage locations.",
+          "zone_path": "/ImageButton/Show roots",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Interface element count remained the same; New content appeared: android:id/title/TextView/Videos, android:id/title/TextView/Audio, android:id/title/TextView/Images; Content disappeared: com.google.android.documentsui:id/horizontal_breadcrumb/RecyclerView, ImageButton/Show roots, com.google.android.documentsui:id/message/TextView/No items; New active element appeared: 'Images'; New active element appeared: 'Documents'; New active element appeared: 'Recent'; New active element appeared: 'Downloads'; New active element appeared: 'Videos'; New active element appeared: 'Eject'; New active element appeared: 'Files'; New active element appeared: 'SDCARD'; New active element appeared: 'sdk_gphone64_x86_64'; New active element appeared: 'Audio'; Active element disappeared: 'List view'; Active element disappeared: 'Search'; Active element disappeared: 'Videos'; Active element disappeared: 'More options'; Active element disappeared: 'Files in Downloads'; Active element disappeared: 'No items'; Active element disappeared: 'Downloads'; Active element disappeared: 'Images'; Active element disappeared: 'Audio'; Active element disappeared: 'Show roots'; Active element disappeared: 'Downloads'; Active element disappeared: 'Documents'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Interface element count remained the same; New content appeared: android:id/title/TextView/Videos, android:id/title/TextView/Audio, android:id/title/TextView/Images; Content disappeared: com.google.android.documentsui:id/horizontal_breadcrumb/RecyclerView, ImageButton/Show roots, com.google.android.documentsui:id/message/TextView/No items; New active element appeared: 'Images'; New active element appeared: 'Documents'; New active element appeared: 'Recent'; New active element appeared: 'Downloads'; New active element appeared: 'Videos'; New active element appeared: 'Eject'; New active element appeared: 'Files'; New active element appeared: 'SDCARD'; New active element appeared: 'sdk_gphone64_x86_64'; New active element appeared: 'Audio'; Active element disappeared: 'List view'; Active element disappeared: 'Search'; Active element disappeared: 'Videos'; Active element disappeared: 'More options'; Active element disappeared: 'Files in Downloads'; Active element disappeared: 'No items'; Active element disappeared: 'Downloads'; Active element disappeared: 'Images'; Active element disappeared: 'Audio'; Active element disappeared: 'Show roots'; Active element disappeared: 'Downloads'; Active element disappeared: 'Documents'",
+            "used_model_analysis": false,
+            "elements_before": 24,
+            "elements_after": 24
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "92939015-1dac-4cf9-b06e-708aa4799c56": {
+      "id": "92939015-1dac-4cf9-b06e-708aa4799c56",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/coordinator_layout",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_layout",
+          "className": "DrawerLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_roots",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Files",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/roots_list",
+          "className": "ListView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Recent",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Images",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Videos",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Audio",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Documents",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Downloads",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "sdk_gphone64_x86_64",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "SDCARD",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/action_icon_area",
+          "className": "FrameLayout",
+          "content": "Eject",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Move the file new_message.mp3 from Audiobooks within the sdk_gphone_x86_64 storage area to the Notifications within the same sdk_gphone_x86_64 storage area in the Android filesystem."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on \"sdk_gphone64_x86_64\" to access the internal storage.",
+          "zone_path": "android:id/title/TextView/sdk_gphone64_x86_64",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 28 interface elements; New content appeared: com.google.android.documentsui:id/horizontal_breadcrumb/RecyclerView, android:id/title/TextView/Download, android:id/title/TextView/Pictures; Content disappeared: android:id/title/TextView/Videos, android:id/title/TextView/Audio, android:id/title/TextView/Images; New active element appeared: 'sdk_gphone64_x86_64'; New active element appeared: 'List view'; New active element appeared: 'Search'; New active element appeared: 'Notifications'; New active element appeared: 'DCIM'; New active element appeared: 'Videos'; New active element appeared: 'Ringtones'; New active element appeared: 'Android'; New active element appeared: 'Podcasts'; New active element appeared: '199 kB'; New active element appeared: '15:34'; New active element appeared: 'Movies'; New active element appeared: 'Files on sdk_gphone64_x86_64'; New active element appeared: 'More options'; New active element appeared: 'Alarms'; New active element appeared: 'Music'; New active element appeared: 'Pictures'; New active element appeared: 'Download'; New active element appeared: 'Images'; New active element appeared: 'tmp.png'; New active element appeared: 'Audio'; New active element appeared: 'Show roots'; New active element appeared: 'sdk_gphone64_x86_64'; New active element appeared: 'Audiobooks'; New active element appeared: 'Recordings'; New active element appeared: 'Documents'; Active element disappeared: 'Images'; Active element disappeared: 'Recent'; Active element disappeared: 'Downloads'; Active element disappeared: 'Eject'; Active element disappeared: 'Videos'; Active element disappeared: 'Files'; Active element disappeared: 'SDCARD'; Active element disappeared: 'sdk_gphone64_x86_64'; Active element disappeared: 'Audio'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 28 interface elements; New content appeared: com.google.android.documentsui:id/horizontal_breadcrumb/RecyclerView, android:id/title/TextView/Download, android:id/title/TextView/Pictures; Content disappeared: android:id/title/TextView/Videos, android:id/title/TextView/Audio, android:id/title/TextView/Images; New active element appeared: 'sdk_gphone64_x86_64'; New active element appeared: 'List view'; New active element appeared: 'Search'; New active element appeared: 'Notifications'; New active element appeared: 'DCIM'; New active element appeared: 'Videos'; New active element appeared: 'Ringtones'; New active element appeared: 'Android'; New active element appeared: 'Podcasts'; New active element appeared: '199 kB'; New active element appeared: '15:34'; New active element appeared: 'Movies'; New active element appeared: 'Files on sdk_gphone64_x86_64'; New active element appeared: 'More options'; New active element appeared: 'Alarms'; New active element appeared: 'Music'; New active element appeared: 'Pictures'; New active element appeared: 'Download'; New active element appeared: 'Images'; New active element appeared: 'tmp.png'; New active element appeared: 'Audio'; New active element appeared: 'Show roots'; New active element appeared: 'sdk_gphone64_x86_64'; New active element appeared: 'Audiobooks'; New active element appeared: 'Recordings'; New active element appeared: 'Documents'; Active element disappeared: 'Images'; Active element disappeared: 'Recent'; Active element disappeared: 'Downloads'; Active element disappeared: 'Eject'; Active element disappeared: 'Videos'; Active element disappeared: 'Files'; Active element disappeared: 'SDCARD'; Active element disappeared: 'sdk_gphone64_x86_64'; Active element disappeared: 'Audio'",
+            "used_model_analysis": false,
+            "elements_before": 24,
+            "elements_after": 52
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "3d52f808-5b68-4785-b469-fbcf59fe07ac": {
+      "id": "3d52f808-5b68-4785-b469-fbcf59fe07ac",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/coordinator_layout",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_layout",
+          "className": "DrawerLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/horizontal_breadcrumb",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/breadcrumb_text",
+          "className": "TextView",
+          "content": "sdk_gphone64_x86_64",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "HorizontalScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Images",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Audio",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Videos",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Documents",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/header_title",
+          "className": "TextView",
+          "content": "Files on sdk_gphone64_x86_64",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/sub_menu_list",
+          "className": "TextView",
+          "content": "List view",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Show roots",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "sdk_gphone64_x86_64",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/option_menu_search",
+          "className": "TextView",
+          "content": "Search",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/dir_list",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Alarms",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Android",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Audiobooks",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "DCIM",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Documents",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Download",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Movies",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Music",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Notifications",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Pictures",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Podcasts",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Recordings",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Ringtones",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "tmp.png",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "220 kB",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_edge",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/container_save",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Move the file new_message.mp3 from Audiobooks within the sdk_gphone_x86_64 storage area to the Notifications within the same sdk_gphone_x86_64 storage area in the Android filesystem."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the \"Audiobooks\" folder to open it.",
+          "zone_path": "com.google.android.documentsui:id/item_root/CardView/",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 16 interface elements; New content appeared: com.google.android.documentsui:id/breadcrumb_text/TextView/Audiobooks, android:id/title/TextView/new_message.mp3, com.google.android.documentsui:id/details/TextView/21 B; Content disappeared: android:id/title/TextView/Recordings, android:id/title/TextView/Music, android:id/title/TextView/Movies; New active element appeared: '21 B'; New active element appeared: 'Audiobooks'; New active element appeared: 'Audiobooks'; New active element appeared: 'Files in Audiobooks'; New active element appeared: 'new_message.mp3'; New active element appeared: 'ugan_language_lessons.mp3'; New active element appeared: 'P3xe_new_message.mp3'; Active element disappeared: 'sdk_gphone64_x86_64'; Active element disappeared: 'Android'; Active element disappeared: 'Podcasts'; Active element disappeared: 'Documents'; Active element disappeared: 'Download'; Active element disappeared: 'Notifications'; Active element disappeared: '220 kB'; Active element disappeared: 'Movies'; Active element disappeared: 'DCIM'; Active element disappeared: 'Files on sdk_gphone64_x86_64'; Active element disappeared: 'tmp.png'; Active element disappeared: 'Audiobooks'; Active element disappeared: 'Recordings'; Active element disappeared: 'Alarms'; Active element disappeared: 'Music'; Active element disappeared: 'Pictures'; Active element disappeared: 'Ringtones'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 16 interface elements; New content appeared: com.google.android.documentsui:id/breadcrumb_text/TextView/Audiobooks, android:id/title/TextView/new_message.mp3, com.google.android.documentsui:id/details/TextView/21 B; Content disappeared: android:id/title/TextView/Recordings, android:id/title/TextView/Music, android:id/title/TextView/Movies; New active element appeared: '21 B'; New active element appeared: 'Audiobooks'; New active element appeared: 'Audiobooks'; New active element appeared: 'Files in Audiobooks'; New active element appeared: 'new_message.mp3'; New active element appeared: 'ugan_language_lessons.mp3'; New active element appeared: 'P3xe_new_message.mp3'; Active element disappeared: 'sdk_gphone64_x86_64'; Active element disappeared: 'Android'; Active element disappeared: 'Podcasts'; Active element disappeared: 'Documents'; Active element disappeared: 'Download'; Active element disappeared: 'Notifications'; Active element disappeared: '220 kB'; Active element disappeared: 'Movies'; Active element disappeared: 'DCIM'; Active element disappeared: 'Files on sdk_gphone64_x86_64'; Active element disappeared: 'tmp.png'; Active element disappeared: 'Audiobooks'; Active element disappeared: 'Recordings'; Active element disappeared: 'Alarms'; Active element disappeared: 'Music'; Active element disappeared: 'Pictures'; Active element disappeared: 'Ringtones'",
+            "used_model_analysis": false,
+            "elements_before": 52,
+            "elements_after": 36
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "8dd461b1-f6ad-480a-a9d6-21face5c41ff": {
+      "id": "8dd461b1-f6ad-480a-a9d6-21face5c41ff",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/coordinator_layout",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_layout",
+          "className": "DrawerLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/horizontal_breadcrumb",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/breadcrumb_text",
+          "className": "TextView",
+          "content": "sdk_gphone64_x86_64",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/breadcrumb_text",
+          "className": "TextView",
+          "content": "Audiobooks",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "HorizontalScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Images",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Audio",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Videos",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Documents",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/header_title",
+          "className": "TextView",
+          "content": "Files in Audiobooks",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/sub_menu_list",
+          "className": "TextView",
+          "content": "List view",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Show roots",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Audiobooks",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/option_menu_search",
+          "className": "TextView",
+          "content": "Search",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/dir_list",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "new_message.mp3",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "P3xe_new_message.mp3",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "ugan_language_lessons.mp3",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_edge",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/container_save",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Move the file new_message.mp3 from Audiobooks within the sdk_gphone_x86_64 storage area to the Notifications within the same sdk_gphone_x86_64 storage area in the Android filesystem."
+      ],
+      "actions": [
+        {
+          "action_type": "Long Press",
+          "description": "Long press on the \"new_message.mp3\" file to select it.",
+          "zone_path": "com.google.android.documentsui:id/item_root/CardView/",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 2 interface elements; New content appeared: com.google.android.documentsui:id/action_mode_bar/ViewGroup, com.google.android.documentsui:id/action_menu_share/TextView/Share, com.google.android.documentsui:id/action_bar_title/TextView/1 selected; Content disappeared: com.google.android.documentsui:id/option_menu_search/TextView/Search, TextView/Audiobooks, ImageButton/Show roots; New active element appeared: 'Share'; New active element appeared: 'Delete'; New active element appeared: '1 selected'; New active element appeared: 'Cancel'; Active element disappeared: 'Audiobooks'; Active element disappeared: 'Search'; Active element disappeared: 'Show roots'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 2 interface elements; New content appeared: com.google.android.documentsui:id/action_mode_bar/ViewGroup, com.google.android.documentsui:id/action_menu_share/TextView/Share, com.google.android.documentsui:id/action_bar_title/TextView/1 selected; Content disappeared: com.google.android.documentsui:id/option_menu_search/TextView/Search, TextView/Audiobooks, ImageButton/Show roots; New active element appeared: 'Share'; New active element appeared: 'Delete'; New active element appeared: '1 selected'; New active element appeared: 'Cancel'; Active element disappeared: 'Audiobooks'; Active element disappeared: 'Search'; Active element disappeared: 'Show roots'",
+            "used_model_analysis": false,
+            "elements_before": 36,
+            "elements_after": 38
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "01d5465f-3a12-4725-9efb-1cbe843d95cf": {
+      "id": "01d5465f-3a12-4725-9efb-1cbe843d95cf",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/coordinator_layout",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_layout",
+          "className": "DrawerLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/horizontal_breadcrumb",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/breadcrumb_text",
+          "className": "TextView",
+          "content": "sdk_gphone64_x86_64",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/breadcrumb_text",
+          "className": "TextView",
+          "content": "Audiobooks",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "HorizontalScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Images",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Audio",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Videos",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Documents",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/header_title",
+          "className": "TextView",
+          "content": "Files in Audiobooks",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/sub_menu_list",
+          "className": "TextView",
+          "content": "List view",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/dir_list",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "new_message.mp3",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "P3xe_new_message.mp3",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "ugan_language_lessons.mp3",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_edge",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/container_save",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/action_mode_bar",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/action_mode_close_button",
+          "className": "ImageView",
+          "content": "Cancel",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/action_bar_title",
+          "className": "TextView",
+          "content": "1 selected",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/action_menu_share",
+          "className": "TextView",
+          "content": "Share",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/action_menu_delete",
+          "className": "TextView",
+          "content": "Delete",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Move the file new_message.mp3 from Audiobooks within the sdk_gphone_x86_64 storage area to the Notifications within the same sdk_gphone_x86_64 storage area in the Android filesystem."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"More options\" button to access file operations.",
+          "zone_path": "/ImageView/More options",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 20 interface elements; New content appeared: com.google.android.documentsui:id/title/TextView/Open with, com.google.android.documentsui:id/title/TextView/Copy to…, com.google.android.documentsui:id/title/TextView/Move to…; Content disappeared: com.google.android.documentsui:id/breadcrumb_text/TextView/Audiobooks, com.google.android.documentsui:id/horizontal_breadcrumb/RecyclerView, com.google.android.documentsui:id/details/TextView/21 B; New active element appeared: 'Select all'; New active element appeared: 'Compress'; New active element appeared: 'Move to…'; New active element appeared: 'Sort by...'; New active element appeared: 'Copy to…'; New active element appeared: 'Open with'; New active element appeared: 'Get info'; New active element appeared: 'Rename'; Active element disappeared: 'List view'; Active element disappeared: 'Delete'; Active element disappeared: 'Files in Audiobooks'; Active element disappeared: 'Videos'; Active element disappeared: 'P3xe_new_message.mp3'; Active element disappeared: '21 B'; Active element disappeared: '15:34'; Active element disappeared: 'More options'; Active element disappeared: 'Cancel'; Active element disappeared: 'Share'; Active element disappeared: 'Images'; Active element disappeared: 'new_message.mp3'; Active element disappeared: 'Audio'; Active element disappeared: 'sdk_gphone64_x86_64'; Active element disappeared: 'Audiobooks'; Active element disappeared: 'ugan_language_lessons.mp3'; Active element disappeared: '1 selected'; Active element disappeared: 'Documents'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 20 interface elements; New content appeared: com.google.android.documentsui:id/title/TextView/Open with, com.google.android.documentsui:id/title/TextView/Copy to…, com.google.android.documentsui:id/title/TextView/Move to…; Content disappeared: com.google.android.documentsui:id/breadcrumb_text/TextView/Audiobooks, com.google.android.documentsui:id/horizontal_breadcrumb/RecyclerView, com.google.android.documentsui:id/details/TextView/21 B; New active element appeared: 'Select all'; New active element appeared: 'Compress'; New active element appeared: 'Move to…'; New active element appeared: 'Sort by...'; New active element appeared: 'Copy to…'; New active element appeared: 'Open with'; New active element appeared: 'Get info'; New active element appeared: 'Rename'; Active element disappeared: 'List view'; Active element disappeared: 'Delete'; Active element disappeared: 'Files in Audiobooks'; Active element disappeared: 'Videos'; Active element disappeared: 'P3xe_new_message.mp3'; Active element disappeared: '21 B'; Active element disappeared: '15:34'; Active element disappeared: 'More options'; Active element disappeared: 'Cancel'; Active element disappeared: 'Share'; Active element disappeared: 'Images'; Active element disappeared: 'new_message.mp3'; Active element disappeared: 'Audio'; Active element disappeared: 'sdk_gphone64_x86_64'; Active element disappeared: 'Audiobooks'; Active element disappeared: 'ugan_language_lessons.mp3'; Active element disappeared: '1 selected'; Active element disappeared: 'Documents'",
+            "used_model_analysis": false,
+            "elements_before": 38,
+            "elements_after": 18
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "7ed629c6-1a0e-44de-9c1b-022d871c0c2d": {
+      "id": "7ed629c6-1a0e-44de-9c1b-022d871c0c2d",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ListView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/title",
+          "className": "TextView",
+          "content": "Open with",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/title",
+          "className": "TextView",
+          "content": "Sort by...",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/title",
+          "className": "TextView",
+          "content": "Select all",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/title",
+          "className": "TextView",
+          "content": "Copy to…",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/title",
+          "className": "TextView",
+          "content": "Move to…",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/title",
+          "className": "TextView",
+          "content": "Compress",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/title",
+          "className": "TextView",
+          "content": "Rename",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/title",
+          "className": "TextView",
+          "content": "Get info",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Move the file new_message.mp3 from Audiobooks within the sdk_gphone_x86_64 storage area to the Notifications within the same sdk_gphone_x86_64 storage area in the Android filesystem."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on \"Move to...\" to begin the file move process.",
+          "zone_path": "com.google.android.documentsui:id/title/TextView/Move to…",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 2 interface elements; New content appeared: com.google.android.documentsui:id/horizontal_breadcrumb/RecyclerView, TextView/Downloads, ImageView/More options; Content disappeared: com.google.android.documentsui:id/title/TextView/Open with, com.google.android.documentsui:id/title/TextView/Copy to…, com.google.android.documentsui:id/title/TextView/Move to…; New active element appeared: 'MOVE'; New active element appeared: 'List view'; New active element appeared: 'Downloads'; New active element appeared: 'New folder'; New active element appeared: 'More options'; New active element appeared: 'Files in Downloads'; New active element appeared: 'No items'; New active element appeared: 'Show roots'; New active element appeared: 'CANCEL'; New active element appeared: 'Downloads'; Active element disappeared: 'Select all'; Active element disappeared: 'Compress'; Active element disappeared: 'Move to…'; Active element disappeared: 'Sort by...'; Active element disappeared: 'Copy to…'; Active element disappeared: 'Open with'; Active element disappeared: 'Get info'; Active element disappeared: 'Rename'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 2 interface elements; New content appeared: com.google.android.documentsui:id/horizontal_breadcrumb/RecyclerView, TextView/Downloads, ImageView/More options; Content disappeared: com.google.android.documentsui:id/title/TextView/Open with, com.google.android.documentsui:id/title/TextView/Copy to…, com.google.android.documentsui:id/title/TextView/Move to…; New active element appeared: 'MOVE'; New active element appeared: 'List view'; New active element appeared: 'Downloads'; New active element appeared: 'New folder'; New active element appeared: 'More options'; New active element appeared: 'Files in Downloads'; New active element appeared: 'No items'; New active element appeared: 'Show roots'; New active element appeared: 'CANCEL'; New active element appeared: 'Downloads'; Active element disappeared: 'Select all'; Active element disappeared: 'Compress'; Active element disappeared: 'Move to…'; Active element disappeared: 'Sort by...'; Active element disappeared: 'Copy to…'; Active element disappeared: 'Open with'; Active element disappeared: 'Get info'; Active element disappeared: 'Rename'",
+            "used_model_analysis": false,
+            "elements_before": 18,
+            "elements_after": 20
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "83cc5c60-d61b-4724-96b4-be749d3a5d15": {
+      "id": "83cc5c60-d61b-4724-96b4-be749d3a5d15",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/coordinator_layout",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_layout",
+          "className": "DrawerLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/horizontal_breadcrumb",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/breadcrumb_text",
+          "className": "TextView",
+          "content": "Downloads",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/header_title",
+          "className": "TextView",
+          "content": "Files in Downloads",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/sub_menu_list",
+          "className": "TextView",
+          "content": "List view",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Show roots",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Downloads",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/option_menu_create_dir",
+          "className": "TextView",
+          "content": "New folder",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/dir_list",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/empty",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/message",
+          "className": "TextView",
+          "content": "No items",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/container_save",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/button2",
+          "className": "Button",
+          "content": "CANCEL",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/button1",
+          "className": "Button",
+          "content": "MOVE",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Move the file new_message.mp3 from Audiobooks within the sdk_gphone_x86_64 storage area to the Notifications within the same sdk_gphone_x86_64 storage area in the Android filesystem."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"Show roots\" button to open the navigation drawer.",
+          "zone_path": "/ImageButton/Show roots",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 6 interface elements; New content appeared: com.google.android.documentsui:id/drawer_roots/LinearLayout, com.google.android.documentsui:id/action_icon_area/FrameLayout/Eject, android:id/title/TextView/sdk_gphone64_x86_64; Content disappeared: com.google.android.documentsui:id/horizontal_breadcrumb/RecyclerView, ImageView/More options, com.google.android.documentsui:id/header_title/TextView/Files in Downloads; New active element appeared: 'Downloads'; New active element appeared: 'Eject'; New active element appeared: 'Move to…'; New active element appeared: 'SDCARD'; New active element appeared: 'sdk_gphone64_x86_64'; Active element disappeared: 'MOVE'; Active element disappeared: 'List view'; Active element disappeared: 'Downloads'; Active element disappeared: 'More options'; Active element disappeared: 'Files in Downloads'; Active element disappeared: 'Show roots'; Active element disappeared: 'No items'; Active element disappeared: 'Downloads'; Active element disappeared: 'CANCEL'; Active element disappeared: 'New folder'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 6 interface elements; New content appeared: com.google.android.documentsui:id/drawer_roots/LinearLayout, com.google.android.documentsui:id/action_icon_area/FrameLayout/Eject, android:id/title/TextView/sdk_gphone64_x86_64; Content disappeared: com.google.android.documentsui:id/horizontal_breadcrumb/RecyclerView, ImageView/More options, com.google.android.documentsui:id/header_title/TextView/Files in Downloads; New active element appeared: 'Downloads'; New active element appeared: 'Eject'; New active element appeared: 'Move to…'; New active element appeared: 'SDCARD'; New active element appeared: 'sdk_gphone64_x86_64'; Active element disappeared: 'MOVE'; Active element disappeared: 'List view'; Active element disappeared: 'Downloads'; Active element disappeared: 'More options'; Active element disappeared: 'Files in Downloads'; Active element disappeared: 'Show roots'; Active element disappeared: 'No items'; Active element disappeared: 'Downloads'; Active element disappeared: 'CANCEL'; Active element disappeared: 'New folder'",
+            "used_model_analysis": false,
+            "elements_before": 20,
+            "elements_after": 14
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "23a3f7ab-5705-426d-b7c6-3aa482deec20": {
+      "id": "23a3f7ab-5705-426d-b7c6-3aa482deec20",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/coordinator_layout",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_layout",
+          "className": "DrawerLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_roots",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Move to…",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/roots_list",
+          "className": "ListView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Downloads",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "sdk_gphone64_x86_64",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "SDCARD",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/action_icon_area",
+          "className": "FrameLayout",
+          "content": "Eject",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Move the file new_message.mp3 from Audiobooks within the sdk_gphone_x86_64 storage area to the Notifications within the same sdk_gphone_x86_64 storage area in the Android filesystem."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on \"sdk_gphone64_x86_64\" to select it as the destination storage area.",
+          "zone_path": "android:id/title/TextView/sdk_gphone64_x86_64",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 34 interface elements; New content appeared: com.google.android.documentsui:id/horizontal_breadcrumb/RecyclerView, android:id/title/TextView/Download, android:id/title/TextView/Pictures; Content disappeared: com.google.android.documentsui:id/drawer_roots/LinearLayout, com.google.android.documentsui:id/action_icon_area/FrameLayout/Eject, android:id/title/TextView/sdk_gphone64_x86_64; New active element appeared: 'sdk_gphone64_x86_64'; New active element appeared: 'List view'; New active element appeared: 'Notifications'; New active element appeared: 'DCIM'; New active element appeared: 'CANCEL'; New active element appeared: 'Ringtones'; New active element appeared: 'MOVE'; New active element appeared: 'Android'; New active element appeared: '164 kB'; New active element appeared: 'Podcasts'; New active element appeared: 'Movies'; New active element appeared: 'Files on sdk_gphone64_x86_64'; New active element appeared: 'More options'; New active element appeared: 'Alarms'; New active element appeared: 'Music'; New active element appeared: 'Pictures'; New active element appeared: 'Documents'; New active element appeared: 'Download'; New active element appeared: 'tmp.png'; New active element appeared: 'Show roots'; New active element appeared: 'sdk_gphone64_x86_64'; New active element appeared: 'New folder'; New active element appeared: 'Audiobooks'; New active element appeared: 'Recordings'; New active element appeared: '15:35'; Active element disappeared: 'Downloads'; Active element disappeared: 'Eject'; Active element disappeared: 'Move to…'; Active element disappeared: 'SDCARD'; Active element disappeared: 'sdk_gphone64_x86_64'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 34 interface elements; New content appeared: com.google.android.documentsui:id/horizontal_breadcrumb/RecyclerView, android:id/title/TextView/Download, android:id/title/TextView/Pictures; Content disappeared: com.google.android.documentsui:id/drawer_roots/LinearLayout, com.google.android.documentsui:id/action_icon_area/FrameLayout/Eject, android:id/title/TextView/sdk_gphone64_x86_64; New active element appeared: 'sdk_gphone64_x86_64'; New active element appeared: 'List view'; New active element appeared: 'Notifications'; New active element appeared: 'DCIM'; New active element appeared: 'CANCEL'; New active element appeared: 'Ringtones'; New active element appeared: 'MOVE'; New active element appeared: 'Android'; New active element appeared: '164 kB'; New active element appeared: 'Podcasts'; New active element appeared: 'Movies'; New active element appeared: 'Files on sdk_gphone64_x86_64'; New active element appeared: 'More options'; New active element appeared: 'Alarms'; New active element appeared: 'Music'; New active element appeared: 'Pictures'; New active element appeared: 'Documents'; New active element appeared: 'Download'; New active element appeared: 'tmp.png'; New active element appeared: 'Show roots'; New active element appeared: 'sdk_gphone64_x86_64'; New active element appeared: 'New folder'; New active element appeared: 'Audiobooks'; New active element appeared: 'Recordings'; New active element appeared: '15:35'; Active element disappeared: 'Downloads'; Active element disappeared: 'Eject'; Active element disappeared: 'Move to…'; Active element disappeared: 'SDCARD'; Active element disappeared: 'sdk_gphone64_x86_64'",
+            "used_model_analysis": false,
+            "elements_before": 14,
+            "elements_after": 48
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "23696e5c-315d-43e0-bf30-77920e32f10f": {
+      "id": "23696e5c-315d-43e0-bf30-77920e32f10f",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/coordinator_layout",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_layout",
+          "className": "DrawerLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/horizontal_breadcrumb",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/breadcrumb_text",
+          "className": "TextView",
+          "content": "sdk_gphone64_x86_64",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/header_title",
+          "className": "TextView",
+          "content": "Files on sdk_gphone64_x86_64",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/sub_menu_list",
+          "className": "TextView",
+          "content": "List view",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Show roots",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "sdk_gphone64_x86_64",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/option_menu_create_dir",
+          "className": "TextView",
+          "content": "New folder",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/dir_list",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Alarms",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Android",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Audiobooks",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "DCIM",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Documents",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Download",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Movies",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Music",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Notifications",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Pictures",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Podcasts",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Recordings",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "Ringtones",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "tmp.png",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "192 kB",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:35",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/container_save",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/button2",
+          "className": "Button",
+          "content": "CANCEL",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/button1",
+          "className": "Button",
+          "content": "MOVE",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Move the file new_message.mp3 from Audiobooks within the sdk_gphone_x86_64 storage area to the Notifications within the same sdk_gphone_x86_64 storage area in the Android filesystem."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the \"Notifications\" folder to select it as the destination.",
+          "zone_path": "android:id/title/TextView/Notifications",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 26 interface elements; New content appeared: com.google.android.documentsui:id/breadcrumb_text/TextView/Notifications, android:id/empty/FrameLayout, com.google.android.documentsui:id/header_title/TextView/Files in Notifications; Content disappeared: android:id/title/TextView/Download, android:id/title/TextView/Pictures, com.google.android.documentsui:id/header_title/TextView/Files on sdk_gphone64_x86_64; New active element appeared: 'Notifications'; New active element appeared: 'Notifications'; New active element appeared: 'Files in Notifications'; New active element appeared: 'No items'; Active element disappeared: 'sdk_gphone64_x86_64'; Active element disappeared: 'Notifications'; Active element disappeared: 'DCIM'; Active element disappeared: 'Ringtones'; Active element disappeared: 'Android'; Active element disappeared: 'Podcasts'; Active element disappeared: 'Movies'; Active element disappeared: 'Files on sdk_gphone64_x86_64'; Active element disappeared: 'Alarms'; Active element disappeared: 'Music'; Active element disappeared: 'Pictures'; Active element disappeared: 'Documents'; Active element disappeared: 'Download'; Active element disappeared: 'tmp.png'; Active element disappeared: '192 kB'; Active element disappeared: 'Audiobooks'; Active element disappeared: 'Recordings'; Active element disappeared: '15:35'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 26 interface elements; New content appeared: com.google.android.documentsui:id/breadcrumb_text/TextView/Notifications, android:id/empty/FrameLayout, com.google.android.documentsui:id/header_title/TextView/Files in Notifications; Content disappeared: android:id/title/TextView/Download, android:id/title/TextView/Pictures, com.google.android.documentsui:id/header_title/TextView/Files on sdk_gphone64_x86_64; New active element appeared: 'Notifications'; New active element appeared: 'Notifications'; New active element appeared: 'Files in Notifications'; New active element appeared: 'No items'; Active element disappeared: 'sdk_gphone64_x86_64'; Active element disappeared: 'Notifications'; Active element disappeared: 'DCIM'; Active element disappeared: 'Ringtones'; Active element disappeared: 'Android'; Active element disappeared: 'Podcasts'; Active element disappeared: 'Movies'; Active element disappeared: 'Files on sdk_gphone64_x86_64'; Active element disappeared: 'Alarms'; Active element disappeared: 'Music'; Active element disappeared: 'Pictures'; Active element disappeared: 'Documents'; Active element disappeared: 'Download'; Active element disappeared: 'tmp.png'; Active element disappeared: '192 kB'; Active element disappeared: 'Audiobooks'; Active element disappeared: 'Recordings'; Active element disappeared: '15:35'",
+            "used_model_analysis": false,
+            "elements_before": 48,
+            "elements_after": 22
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "eb6b2237-fa76-4369-9487-734744f43118": {
+      "id": "eb6b2237-fa76-4369-9487-734744f43118",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/coordinator_layout",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_layout",
+          "className": "DrawerLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/horizontal_breadcrumb",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/breadcrumb_text",
+          "className": "TextView",
+          "content": "sdk_gphone64_x86_64",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/breadcrumb_text",
+          "className": "TextView",
+          "content": "Notifications",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/header_title",
+          "className": "TextView",
+          "content": "Files in Notifications",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/sub_menu_list",
+          "className": "TextView",
+          "content": "List view",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Show roots",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Notifications",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/option_menu_create_dir",
+          "className": "TextView",
+          "content": "New folder",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/dir_list",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/empty",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/message",
+          "className": "TextView",
+          "content": "No items",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/container_save",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/button2",
+          "className": "Button",
+          "content": "CANCEL",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/button1",
+          "className": "Button",
+          "content": "MOVE",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Move the file new_message.mp3 from Audiobooks within the sdk_gphone_x86_64 storage area to the Notifications within the same sdk_gphone_x86_64 storage area in the Android filesystem."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap the \"MOVE\" button to complete the file transfer.",
+          "zone_path": "android:id/button1/Button/MOVE",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Added 12 interface elements; New content appeared: com.google.android.documentsui:id/breadcrumb_text/TextView/Audiobooks, com.google.android.documentsui:id/option_menu_search/TextView/Search, com.google.android.documentsui:id/date/TextView/15:34; Content disappeared: com.google.android.documentsui:id/breadcrumb_text/TextView/Notifications, android:id/button1/Button/MOVE, android:id/empty/FrameLayout; New active element appeared: '21 B'; New active element appeared: 'Search'; New active element appeared: 'Audiobooks'; New active element appeared: 'Moving 1 item.'; New active element appeared: '15:34'; New active element appeared: 'Audiobooks'; New active element appeared: 'Images'; New active element appeared: 'Files in Audiobooks'; New active element appeared: 'ugan_language_lessons.mp3'; New active element appeared: 'Audio'; New active element appeared: 'Videos'; New active element appeared: 'P3xe_new_message.mp3'; New active element appeared: 'Documents'; Active element disappeared: 'MOVE'; Active element disappeared: 'Notifications'; Active element disappeared: 'Notifications'; Active element disappeared: 'Files in Notifications'; Active element disappeared: 'No items'; Active element disappeared: 'CANCEL'; Active element disappeared: 'New folder'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Added 12 interface elements; New content appeared: com.google.android.documentsui:id/breadcrumb_text/TextView/Audiobooks, com.google.android.documentsui:id/option_menu_search/TextView/Search, com.google.android.documentsui:id/date/TextView/15:34; Content disappeared: com.google.android.documentsui:id/breadcrumb_text/TextView/Notifications, android:id/button1/Button/MOVE, android:id/empty/FrameLayout; New active element appeared: '21 B'; New active element appeared: 'Search'; New active element appeared: 'Audiobooks'; New active element appeared: 'Moving 1 item.'; New active element appeared: '15:34'; New active element appeared: 'Audiobooks'; New active element appeared: 'Images'; New active element appeared: 'Files in Audiobooks'; New active element appeared: 'ugan_language_lessons.mp3'; New active element appeared: 'Audio'; New active element appeared: 'Videos'; New active element appeared: 'P3xe_new_message.mp3'; New active element appeared: 'Documents'; Active element disappeared: 'MOVE'; Active element disappeared: 'Notifications'; Active element disappeared: 'Notifications'; Active element disappeared: 'Files in Notifications'; Active element disappeared: 'No items'; Active element disappeared: 'CANCEL'; Active element disappeared: 'New folder'",
+            "used_model_analysis": false,
+            "elements_before": 22,
+            "elements_after": 34
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "eaffd061-f00c-4ef1-9902-b18a1e21b5d7": {
+      "id": "eaffd061-f00c-4ef1-9902-b18a1e21b5d7",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/coordinator_layout",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_layout",
+          "className": "DrawerLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/horizontal_breadcrumb",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/breadcrumb_text",
+          "className": "TextView",
+          "content": "sdk_gphone64_x86_64",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "LinearLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/breadcrumb_text",
+          "className": "TextView",
+          "content": "Audiobooks",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "HorizontalScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Images",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Audio",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Videos",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "",
+          "className": "CompoundButton",
+          "content": "Documents",
+          "checked": "not checked"
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/header_title",
+          "className": "TextView",
+          "content": "Files in Audiobooks",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/sub_menu_list",
+          "className": "TextView",
+          "content": "List view",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageButton",
+          "content": "Show roots",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Audiobooks",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/option_menu_search",
+          "className": "TextView",
+          "content": "Search",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/dir_list",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "P3xe_new_message.mp3",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/item_root",
+          "className": "CardView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "android:id/title",
+          "className": "TextView",
+          "content": "ugan_language_lessons.mp3",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/details",
+          "className": "TextView",
+          "content": "21 B",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/date",
+          "className": "TextView",
+          "content": "15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/drawer_edge",
+          "className": "View",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/container_save",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "com.google.android.documentsui:id/snackbar_text",
+          "className": "TextView",
+          "content": "Moving 1 item.",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Move the file new_message.mp3 from Audiobooks within the sdk_gphone_x86_64 storage area to the Notifications within the same sdk_gphone_x86_64 storage area in the Android filesystem."
+      ],
+      "actions": [
+        {
+          "action_type": "Finish",
+          "description": "Finish the task as the file has been successfully moved.",
+          "zone_path": null,
+          "reflection_result": null,
+          "confidence_score": null,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
     }
   }
 }

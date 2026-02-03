@@ -113,8 +113,8 @@ class TaskRegistry:
       audio_recorder.AudioRecorderRecordAudio,  #Done 1
       audio_recorder.AudioRecorderRecordAudioWithFileName,  #Done 1
       browser.BrowserDraw,  # TODO 3 not fit
-      browser.BrowserMaze,  # TODO 4 not fit
-      browser.BrowserMultiply,  # TODO 5 not fit
+      browser.BrowserMaze,  # Done genmini-2.5-pro
+      browser.BrowserMultiply,  # TODO 1 not fit
       calendar.SimpleCalendarAddOneEvent, #Done 1
       calendar.SimpleCalendarAddOneEventInTwoWeeks, #Done 1
       calendar.SimpleCalendarAddOneEventRelativeDay,  #Done 1
@@ -133,23 +133,23 @@ class TaskRegistry:
       expense.ExpenseAddSingle, #Done 1
       expense.ExpenseAddMultiple, #Done 1
       expense.ExpenseDeleteSingle, #Done 1
-      expense.ExpenseDeleteDuplicates,  #Done 1
-      expense.ExpenseDeleteDuplicates2, #TODO
-      expense.ExpenseDeleteMultiple,
-      expense.ExpenseDeleteMultiple2,
+      expense.ExpenseDeleteDuplicates,  # Done 1
+      expense.ExpenseDeleteDuplicates2, # Done genmini-2.5-pro
+      expense.ExpenseDeleteMultiple,  # Done 1
+      expense.ExpenseDeleteMultiple2, # Done genmini-2.5-pro
       expense.ExpenseAddMultipleFromGallery,
       expense.ExpenseAddMultipleFromMarkor,
       files.FilesDeleteFile,  #Done 1
-      files.FilesMoveFile,
+      files.FilesMoveFile,  #Done genmini-2.5-pro
       # Markor composite tasks.
       markor.MarkorAddNoteHeader,
       markor.MarkorChangeNoteContent,
       markor.MarkorCreateFolder,
       markor.MarkorCreateNote,
       markor.MarkorCreateNoteFromClipboard,
+      markor.MarkorDeleteNote,
       markor.MarkorDeleteAllNotes,
       markor.MarkorDeleteNewestNote,
-      markor.MarkorDeleteNote,
       markor.MarkorEditNote,
       markor.MarkorMergeNotes,
       markor.MarkorMoveNote,
@@ -212,13 +212,13 @@ class TaskRegistry:
       vlc.VlcCreateTwoPlaylists,
       # Phone operations are flaky and the root cause is not known. Disabling
       # until resolution.
-      phone.MarkorCallApartment,
-      phone.PhoneAnswerCall,
-      phone.PhoneCallTextSender,
-      phone.PhoneMakeCall,
-      phone.PhoneRedialNumber,
-      phone.PhoneReturnMissedCall,
-      sms.SimpleSmsSendAfterCall,
+      # phone.MarkorCallApartment,
+      # phone.PhoneAnswerCall,
+      # phone.PhoneCallTextSender,
+      # phone.PhoneMakeCall,
+      # phone.PhoneRedialNumber,
+      # phone.PhoneReturnMissedCall,
+      # sms.SimpleSmsSendAfterCall,
   )
 
   def register_task(

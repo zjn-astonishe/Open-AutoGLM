@@ -123,6 +123,7 @@ _PATTERN_TO_ACTIVITY = immutabledict.immutabledict({
         'com.google.android.documentsui/com.android.documentsui.files.FilesActivity'
     ),
     'markor': 'net.gsantner.markor/net.gsantner.markor.activity.MainActivity',
+    'Markor': 'net.gsantner.markor/net.gsantner.markor.activity.MainActivity',
     'clipper': 'ca.zgrs.clipper/ca.zgrs.clipper.Main',
     'messages': (
         'com.google.android.apps.messaging/com.google.android.apps.messaging.ui.ConversationListActivity'

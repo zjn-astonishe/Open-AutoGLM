@@ -1,0 +1,322 @@
+{
+  "app": "markor",
+  "nodes": {
+    "8b318392-7a2e-425b-bff0-aa053f9d0da8": {
+      "id": "8b318392-7a2e-425b-bff0-aa053f9d0da8",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/toolbar",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "Markor",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/action_go_to",
+          "className": "Button",
+          "content": "Go to",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/action_sort",
+          "className": "Button",
+          "content": "Sort by",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/action_search",
+          "className": "Button",
+          "content": "Search",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/main__view_pager_container",
+          "className": "ViewPager",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/ui__filesystem_dialog__list",
+          "className": "RecyclerView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/opoc_filesystem_item__root",
+          "className": "LinearLayout",
+          "content": "Folder Documents /storage/emulated/0/Documents",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/opoc_filesystem_item__root",
+          "className": "LinearLayout",
+          "content": "File 2023_02_01_budget_home_renovation.md 10/15/2023, 15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/opoc_filesystem_item__root",
+          "className": "LinearLayout",
+          "content": "File 2023_02_28_birthday_gift_ideas_mom.md 10/15/2023, 15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/opoc_filesystem_item__root",
+          "className": "LinearLayout",
+          "content": "File 2023_07_10_april_workout_routine.md 10/15/2023, 15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/opoc_filesystem_item__root",
+          "className": "LinearLayout",
+          "content": "File aAZH_fancy_xylophone.txt 10/15/2023, 15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/opoc_filesystem_item__root",
+          "className": "LinearLayout",
+          "content": "File AoCU_aAZH_fancy_xylophone.txt 10/15/2023, 15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/opoc_filesystem_item__root",
+          "className": "LinearLayout",
+          "content": "File garden_layout_plan_edited.md 10/15/2023, 15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/opoc_filesystem_item__root",
+          "className": "LinearLayout",
+          "content": "File trip_reflections_recent_copy.md 10/15/2023, 15:34",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/fab_add_new_item",
+          "className": "ImageButton",
+          "content": "Create a new file or folder",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/nav_notebook",
+          "className": "FrameLayout",
+          "content": "Files",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/nav_todo",
+          "className": "FrameLayout",
+          "content": "To-Do",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/nav_quicknote",
+          "className": "FrameLayout",
+          "content": "QuickNote",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/nav_more",
+          "className": "FrameLayout",
+          "content": "More",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Update the Markor note aAZH_fancy_xylophone.txt by adding the following text, along with a new blank line before the existing content: \"ldcGpZhHhVD33tDvah5v\", and rename it to silly_island_2023_08_28.txt."
+      ],
+      "actions": [
+        {
+          "action_type": "Tap",
+          "description": "Tap on the file \"aAZH_fancy_xylophone.txt\" to open it for editing.",
+          "zone_path": "net.gsantner.markor:id/opoc_filesystem_item__root/LinearLayout/File aAZH_fancy_xylophone.txt 10/15/2023, 15:34",
+          "reflection_result": {
+            "action_successful": true,
+            "execution_result": "success",
+            "interface_changes": "Removed 2 interface elements; New content appeared: ImageView/Check list, net.gsantner.markor:id/action_redo/Button/Redo, ImageView/Delete lines; Content disappeared: net.gsantner.markor:id/fab_add_new_item/ImageButton/Create a new file or folder, net.gsantner.markor:id/nav_quicknote/FrameLayout/QuickNote, net.gsantner.markor:id/main__view_pager_container/ViewPager; New active element appeared: 'Indent'; New active element appeared: 'Unordered list'; New active element appeared: 'De-indent'; New active element appeared: 'View mode'; New active element appeared: 'Ordered list'; New active element appeared: 'Check list'; New active element appeared: 'Rotate'; New active element appeared: 'Undo'; New active element appeared: 'Switch Case (Ex: CaSe->cAsE)'; New active element appeared: 'Special Key'; New active element appeared: 'Save'; New active element appeared: 'Redo'; New active element appeared: 'The squeaky wheel gets the grease.\n'; New active element appeared: 'aAZH_fancy_xylophone'; New active element appeared: 'Date and time'; New active element appeared: 'Delete lines'; Active element disappeared: 'File 2023_02_01_budget_home_renovation.md 10/15/2023, 15:34'; Active element disappeared: 'Sort by'; Active element disappeared: 'File trip_reflections_recent_copy.md 10/15/2023, 15:34'; Active element disappeared: 'File 2023_02_28_birthday_gift_ideas_mom.md 10/15/2023, 15:34'; Active element disappeared: 'Files'; Active element disappeared: 'QuickNote'; Active element disappeared: 'File garden_layout_plan_edited.md 10/15/2023, 15:34'; Active element disappeared: 'File aAZH_fancy_xylophone.txt 10/15/2023, 15:34'; Active element disappeared: 'Go to'; Active element disappeared: 'Markor'; Active element disappeared: 'File AoCU_aAZH_fancy_xylophone.txt 10/15/2023, 15:34'; Active element disappeared: 'Folder Documents /storage/emulated/0/Documents'; Active element disappeared: 'File 2023_07_10_april_workout_routine.md 10/15/2023, 15:34'; Active element disappeared: 'To-Do'; Active element disappeared: 'More'; Active element disappeared: 'Create a new file or folder'",
+            "expected_vs_actual": "UI changed consistently with atomic action",
+            "abnormal_states": "None",
+            "improvement_suggestions": "",
+            "confidence_score": 0.9,
+            "reflection_reasoning": "Removed 2 interface elements; New content appeared: ImageView/Check list, net.gsantner.markor:id/action_redo/Button/Redo, ImageView/Delete lines; Content disappeared: net.gsantner.markor:id/fab_add_new_item/ImageButton/Create a new file or folder, net.gsantner.markor:id/nav_quicknote/FrameLayout/QuickNote, net.gsantner.markor:id/main__view_pager_container/ViewPager; New active element appeared: 'Indent'; New active element appeared: 'Unordered list'; New active element appeared: 'De-indent'; New active element appeared: 'View mode'; New active element appeared: 'Ordered list'; New active element appeared: 'Check list'; New active element appeared: 'Rotate'; New active element appeared: 'Undo'; New active element appeared: 'Switch Case (Ex: CaSe->cAsE)'; New active element appeared: 'Special Key'; New active element appeared: 'Save'; New active element appeared: 'Redo'; New active element appeared: 'The squeaky wheel gets the grease.\n'; New active element appeared: 'aAZH_fancy_xylophone'; New active element appeared: 'Date and time'; New active element appeared: 'Delete lines'; Active element disappeared: 'File 2023_02_01_budget_home_renovation.md 10/15/2023, 15:34'; Active element disappeared: 'Sort by'; Active element disappeared: 'File trip_reflections_recent_copy.md 10/15/2023, 15:34'; Active element disappeared: 'File 2023_02_28_birthday_gift_ideas_mom.md 10/15/2023, 15:34'; Active element disappeared: 'Files'; Active element disappeared: 'QuickNote'; Active element disappeared: 'File garden_layout_plan_edited.md 10/15/2023, 15:34'; Active element disappeared: 'File aAZH_fancy_xylophone.txt 10/15/2023, 15:34'; Active element disappeared: 'Go to'; Active element disappeared: 'Markor'; Active element disappeared: 'File AoCU_aAZH_fancy_xylophone.txt 10/15/2023, 15:34'; Active element disappeared: 'Folder Documents /storage/emulated/0/Documents'; Active element disappeared: 'File 2023_07_10_april_workout_routine.md 10/15/2023, 15:34'; Active element disappeared: 'To-Do'; Active element disappeared: 'More'; Active element disappeared: 'Create a new file or folder'",
+            "used_model_analysis": false,
+            "elements_before": 24,
+            "elements_after": 22
+          },
+          "confidence_score": 0.9,
+          "direction": null,
+          "distance": null,
+          "text": null
+        }
+      ]
+    },
+    "17835159-2ce8-4ad9-9fab-7aa69989cebe": {
+      "id": "17835159-2ce8-4ad9-9fab-7aa69989cebe",
+      "elements_info": [
+        {
+          "resourceId": "",
+          "className": "FrameLayout",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/toolbar",
+          "className": "ViewGroup",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "TextView",
+          "content": "aAZH_fancy_xylophone",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/action_undo",
+          "className": "Button",
+          "content": "Undo",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/action_redo",
+          "className": "Button",
+          "content": "Redo",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/action_save",
+          "className": "Button",
+          "content": "Save",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/action_preview",
+          "className": "Button",
+          "content": "View mode",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/action_search",
+          "className": "Button",
+          "content": "Search",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "More options",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/document__fragment__edit__content_editor__scrolling_parent",
+          "className": "ScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/document__fragment__edit__highlighting_editor",
+          "className": "EditText",
+          "content": "The squeaky wheel gets the grease.\n",
+          "checked": ""
+        },
+        {
+          "resourceId": "net.gsantner.markor:id/document__fragment__edit__text_actions_bar__scrolling_parent",
+          "className": "HorizontalScrollView",
+          "content": "",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "Ordered list",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "Rotate",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "Date and time",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "Special Key",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "Unordered list",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "Switch Case (Ex: CaSe->cAsE)",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "Check list",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "Delete lines",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "De-indent",
+          "checked": ""
+        },
+        {
+          "resourceId": "",
+          "className": "ImageView",
+          "content": "Indent",
+          "checked": ""
+        }
+      ],
+      "tasks": [
+        "Update the Markor note aAZH_fancy_xylophone.txt by adding the following text, along with a new blank line before the existing content: \"ldcGpZhHhVD33tDvah5v\", and rename it to silly_island_2023_08_28.txt."
+      ],
+      "actions": []
+    }
+  }
+}
