@@ -436,7 +436,7 @@ def parse_action(action_code: str, elements_info: List[Dict[str, str]], is_porta
                             if not is_portal:
                                 return action, element["content"]
                             else:
-                                return action, f"{element["resourceId"]}/{element["className"]}/{element["content"]}"
+                                return action, f"{element['resourceId']}/{element['className']}/{element['content']}"
                     return action, None
                     
                 # print(f"Parsed do action....: {action}")

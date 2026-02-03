@@ -353,7 +353,7 @@ class SpeculativeExecutor:
                                 print(f"Element content: {e2_content}")
                                 for e1 in elements_info:
                                     if is_portal:
-                                        e1_content = f"{e1["resourceId"]}/{e1["className"]}/{e1["content"]}"
+                                        e1_content = f"{e1['resourceId']}/{e1['className']}/{e1['content']}"
                                     else:
                                         e1_content = e1["content"]
                         
@@ -378,7 +378,7 @@ class SpeculativeExecutor:
                                     if not is_portal:
                                         return action, e1["content"]
                                     else:
-                                        return action, f"{e1["resourceId"]}/{e1["className"]}/{e1["content"]}"
+                                        return action, f"{e1['resourceId']}/{e1['className']}/{e1['content']}"
                                 else:
                                     return None, None
 
